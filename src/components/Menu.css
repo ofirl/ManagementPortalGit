@@ -1,0 +1,33 @@
+.example-enter {
+    height: 0;
+    overflow: hidden;
+    transition:height .35s ease;
+  }
+  
+  .example-enter.example-enter-active {
+    opacity: 1;
+    transition: opacity 2000ms ease-in;
+  }
+  
+  .example-leave {
+    opacity: 1;
+  }
+  
+  .example-leave.example-leave-active {
+    opacity: 0.01;
+    transition: opacity 2000ms ease-in;
+  }
+
+  .example-appear {
+    height: 0;
+  }
+  
+  .example-appear.example-appear-active {
+    height: 100%;
+    overflow: hidden;
+    transition:height .35s ease;
+  }
+
+  .nav-item {
+    overflow: hidden;
+  }

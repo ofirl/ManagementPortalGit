@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import Menu from './Menu';
-import Sidebar from './Sidebar';
+import Menu from './components//Menu';
+import Sidebar from './components/Sidebar';
 
 import './assets/fonts/feather/feather.min.css';
 import './assets/libs/highlight.js/styles/vs2015.css';

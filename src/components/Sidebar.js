@@ -1,6 +1,23 @@
 import React, { Component } from 'react';
 
-import Menu from './Menu';
+import './Sidebar.css'
+
+import Menu, { Heading, Divider } from './Menu';
+
+// function Heading(props) {
+//     return (
+//         <h6 className="navbar-heading">
+//             {props.heading}
+//         </h6>
+
+//     );
+// }
+
+// function Divider(props) {
+//     return (
+//         <hr className="navbar-divider my-3" />
+//     );
+// }
 
 class Sidebar extends Component {
     render() {
@@ -16,7 +33,7 @@ class Sidebar extends Component {
                     {/* Collapse */}
                     <div className="collapse navbar-collapse" id="sidebarCollapse">
                         {/* Navigation */}
-                        <Menu main={true} items={
+                        <Menu show={true} name={'mainMenu'} main={true} items={
                             [
                                 {
                                     name: 'Dashboards',
@@ -57,20 +74,50 @@ class Sidebar extends Component {
                                     ]
                                 }
                             ]
-                        }/>
+                        } />
+
+                        <Divider />
+                        <Heading heading={'Documentation'} />
+
+                        <Menu show={true} name={'documentationMenu'} main={true} items={[
+                            {
+                                name: 'Getting Started',
+                                featherIcon: 'clipboard',
+                                href: 'getting-started.html'
+                            },
+                            {
+                                name: 'Components',
+                                featherIcon: 'book-open',
+                                href: 'sidebarComponents',
+                                children: [
+                                    {
+                                        name: 'Alerts',
+                                        href: 'components.html#alerts'
+                                    },
+                                    {
+                                        name: 'Avatars',
+                                        href: 'components.html#avatars'
+                                    },
+                                    {
+                                        name: 'Badges',
+                                        href: 'components.html#badges'
+                                    }
+                                ]
+                            }
+                        ]} />
 
                         {/* Navigation */}
                         <ul className="navbar-nav mb-md-4">
                             <li className="nav-item">
                                 <a className="nav-link " href="getting-started.html">
                                     <i className="fe fe-clipboard"></i> Getting started
-                        </a>
+                                </a>
                             </li>
                             <li className="nav-item dropdown">
                                 <a className="nav-link" href="#sidebarComponents" data-toggle="collapse" role="button"
                                     aria-expanded="false" aria-controls="sidebarComponents">
                                     <i className="fe fe-book-open"></i> Components
-                        </a>
+                                </a>
                                 <div className="collapse " id="sidebarComponents">
                                     <ul className="nav nav-sm flex-column">
                                         <li className="nav-item">
