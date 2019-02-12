@@ -99,11 +99,15 @@ class Menu extends Component {
                 enterTimeout: 500,
                 exitTimeout: 500,
                 entering: {
+                    timeout: 500,
                     'max-height': ['0', ((props.items ? props.items.length + 1 : 1) * 40) + 'px'],
                     elasticity: 300,
                     duration: 500
                 },
                 exiting: {
+                    // type: 'class',
+                    // className: 'example-leave example-leave-active',
+                    timeout: 500,
                     'max-height': [((props.items ? props.items.length + 1 : 1) * 40) + 'px', '0'],
                     elasticity: 300,
                     duration: 500
@@ -116,8 +120,8 @@ class Menu extends Component {
         let currentHeight = this.myRef.current.scrollHeight;
         this.setState({ height: currentHeight });
 
-        console.log('currentHeight : ' + this.props.name);
-        console.log(currentHeight);
+        // console.log('currentHeight : ' + this.props.name);
+        // console.log(currentHeight);
         // this.setState({
         //     menuAnimation: {
         //         enterTimeout: 500,
