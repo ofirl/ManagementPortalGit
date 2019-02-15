@@ -196,7 +196,7 @@ class Menu extends Component {
                 // let AnimatedMenuElement = animateComponent(MenuElement);
                 
                 return (
-                        <AnimatedMenuElement key={item.name} in={that.state.show} menuAnimation={that.props.menuAnimation} text={item.name} icon={item.featherIcon} href={item.href} badge={item.badge} badgeText={item.badgeText} {...elementProps} />
+                        <AnimatedMenuElement key={item.name} in={that.state.show} animationConfig={that.props.menuAnimation} text={item.name} icon={item.featherIcon} href={item.href} badge={item.badge} badgeText={item.badgeText} {...elementProps} />
                     // <AnimatedComponent key={item.name} in={that.state.show} eff={that.state.menuAnimation}>
                     //     <MenuElement key={item.name} text={item.name} icon={item.featherIcon} href={item.href} badge={item.badge} badgeText={item.badgeText} {...elementProps} />
                     // </AnimatedComponent>

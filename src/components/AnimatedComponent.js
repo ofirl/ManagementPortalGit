@@ -29,7 +29,7 @@ class AnimatedComponent extends React.Component {
         /** See Transition official documentation */
         exit: PropTypes.bool,
         /** animation config */
-        menuAnimation: PropTypes.shape({
+        animationConfig: PropTypes.shape({
             timout: PropTypes.oneOfType([
                 PropTypes.number,
                 PropTypes.shape({
@@ -171,7 +171,7 @@ function animateComponent(WrappedComponent) {
         updateDefaults() {
             let newState = {};
 
-            let enterAnimation = this.props.menuAnimation.enter;
+            let enterAnimation = this.props.animationConfig.enter;
 
             if (enterAnimation != null) {
                 if (enterAnimation.type.includes('class'))
@@ -191,7 +191,7 @@ function animateComponent(WrappedComponent) {
                 animationClass: '',
                 animationStyle: {}
             });
-            
+
             if (!isAppearing)
                 this.updateDefaults();
         }
@@ -201,7 +201,7 @@ function animateComponent(WrappedComponent) {
             let newState = {};
 
             setTimeout(() => {
-                let enteringAnimation = this.props.menuAnimation.entering;
+                let enteringAnimation = this.props.animationConfig.entering;
 
                 if (enteringAnimation != null) {
                     if (enteringAnimation.type.includes('class'))
@@ -220,7 +220,7 @@ function animateComponent(WrappedComponent) {
 
             let newState = {};
 
-            let enteredAnimation = this.props.menuAnimation.entered;
+            let enteredAnimation = this.props.animationConfig.entered;
 
             let style = { ...this.state.animationStyle };
             delete style.height;
@@ -246,7 +246,7 @@ function animateComponent(WrappedComponent) {
 
             let newState = {};
 
-            let exitAnimation = this.props.menuAnimation.exit;
+            let exitAnimation = this.props.animationConfig.exit;
 
             if (exitAnimation != null) {
                 if (exitAnimation.type.includes('class'))
@@ -265,7 +265,7 @@ function animateComponent(WrappedComponent) {
             let newState = {};
 
             setTimeout(() => {
-                let exitingAnimation = this.props.menuAnimation.exiting;
+                let exitingAnimation = this.props.animationConfig.exiting;
 
                 if (exitingAnimation != null) {
                     if (exitingAnimation.type.includes('class'))
@@ -303,7 +303,7 @@ function animateComponent(WrappedComponent) {
             return (
                 <Transition
                     key={this.props.keyProp || 1}
-                    timeout={this.props.menuAnimation.timeout || 1000}
+                    timeout={this.props.animationConfig.timeout || 1000}
                     mountOnEnter={this.props.mountOnEnter || true}
                     unmountOnExit={this.props.unmountOnExit || true}
                     appear={this.props.appear || true}
