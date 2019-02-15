@@ -1,0 +1,67 @@
+---
+name: Animated Component
+menu: HOC
+route: /HOC/AnimatedComponent
+---
+
+import { Playground, PropsTable } from 'docz'
+
+import AnimatedComponent, { animateComponent } from './AnimatedComponent'
+
+# Animated Component
+
+HOC for animating elements/components
+
+the underlying element/component will recieve 2 additional props and will need to add them to the render:
+<ul>
+    <li> 
+        animationClassName - needs to be added to the className attribute of the rendered element
+    </li>
+    <li> 
+        animationStyle - needs to be added to the style attribute of the rendered element    
+    </li>
+</ul>
+
+## Properties
+
+<PropsTable of={AnimatedComponent} />
+
+
+## Example
+
+<Playground>
+    <AnimatedComponent keyProp={1} in={true} menuAnimation={ 
+        {
+            timeout: {
+                enter: 5000,
+                exit: 2000
+            },
+            enter: {
+                type: ['style'],
+                style: {
+                    opacity: 0
+                }
+            },
+            entering: {
+                type: ['style'],
+                style: {
+                    opacity: 1,
+                    transition: 'opacity 5s ease'
+                }
+            },
+            exit: {
+                type: ['style'],
+                style: {
+                    opacity: 1
+                }
+            },
+            exiting: {
+                type: ['style'],
+                style: {
+                    opacity: 0,
+                    transition: 'opacity 2s ease'
+                }
+            }
+        }
+        } />
+</Playground>

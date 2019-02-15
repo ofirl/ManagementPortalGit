@@ -10,22 +10,27 @@
   }
   
   .example-leave {
-    opacity: 1;
+    /* opacity: 1; */
+    /* max-height: 200px; */
   }
   
   .example-leave.example-leave-active {
-    opacity: 0.01;
-    transition: opacity 2000ms ease-in;
+    /* opacity: 0.01;
+    transition: opacity .35s ease-in; */
+    height: 0;
+    transition: height .35s ease;
   }
 
   .example-appear {
     height: 0;
+    /* max-height: 0; */
   }
   
   .example-appear.example-appear-active {
-    height: 100%;
+    height: auto;
+    /* max-height: 200px; */
     overflow: hidden;
-    transition:height .35s ease;
+    transition: height .35s ease;
   }
 
   .nav-item {

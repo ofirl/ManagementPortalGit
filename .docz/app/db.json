@@ -1,0 +1,74 @@
+{
+  "config": {
+    "title": "Management Portal",
+    "description": "This is my awesome documentation",
+    "menu": [],
+    "ordering": "descending",
+    "version": "0.1.0",
+    "repository": null,
+    "native": false,
+    "codeSandbox": true,
+    "themeConfig": {
+      "mode": "dark"
+    },
+    "plugins": [
+      {}
+    ]
+  },
+  "entries": {
+    "src/components/AnimatedComponent.mdx": {
+      "name": "Animated Component",
+      "menu": "HOC",
+      "route": "/HOC/AnimatedComponent",
+      "id": "d1b8ed288165ffcd31d1c99c73576596",
+      "filepath": "src/components/AnimatedComponent.mdx",
+      "link": null,
+      "slug": "src-components-animated-component",
+      "order": 0,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "animated-component",
+          "value": "Animated Component"
+        },
+        {
+          "depth": 2,
+          "slug": "properties",
+          "value": "Properties"
+        },
+        {
+          "depth": 2,
+          "slug": "example",
+          "value": "Example"
+        }
+      ]
+    },
+    "src/components/Menu.mdx": {
+      "name": "Menu",
+      "menu": "Components",
+      "route": "/components/Menu",
+      "id": "80c5559cbb8ccee756568a659580bf5e",
+      "filepath": "src/components/Menu.mdx",
+      "link": null,
+      "slug": "src-components-menu",
+      "order": 0,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "menu",
+          "value": "Menu"
+        },
+        {
+          "depth": 2,
+          "slug": "properties",
+          "value": "Properties"
+        },
+        {
+          "depth": 2,
+          "slug": "example",
+          "value": "Example"
+        }
+      ]
+    }
+  }
+}

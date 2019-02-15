@@ -1,0 +1,48 @@
+---
+name: Menu
+menu: Components
+route: /components/Menu
+---
+
+import { Playground, PropsTable } from 'docz'
+
+import Menu from './Menu'
+
+# Menu
+
+Sidebar Menu Component
+
+## Properties
+
+<PropsTable of={Menu} />
+
+## Example
+
+<Playground>
+    <Menu name="exampleMenu" show={true} main={true} items={[
+                                {
+                                    name: 'Getting Started',
+                                    featherIcon: 'clipboard',
+                                    href: 'getting-started.html'
+                                },
+                                {
+                                    name: 'Components',
+                                    featherIcon: 'book-open',
+                                    href: 'sidebarComponents',
+                                    children: [
+                                        {
+                                            name: 'Alerts',
+                                            href: 'components.html#alerts'
+                                        },
+                                        {
+                                            name: 'Avatars',
+                                            href: 'components.html#avatars'
+                                        },
+                                        {
+                                            name: 'Badges',
+                                            href: 'components.html#badges'
+                                        }
+                                    ]
+                                }
+    ]} />
+</Playground>

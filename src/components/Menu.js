@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 // import { CSSTransitionGroup, TransitionGroup, Transition } from 'react-transition-group';
 import { TransitionGroup, Transition } from 'react-transition-group';
+import PropTypes from 'prop-types';
 import anime from 'animejs';
 
-import AnimatedComponent from './AnimatedComponent';
+import AnimatedComponent, { animateComponent } from './AnimatedComponent';
 
 import './Menu.css'
 
@@ -71,6 +72,17 @@ class MenuElement extends Component {
             </a>
         );
 
+        let classes = ['nav-item'];
+        let styles = {};
+        if (this.props.animationClassName != null)
+            classes = classes.concat(this.props.animationClassName);
+        if (this.props.animationStyle != null)
+            styles = {...styles, ...this.props.animationStyle}
+        // if (this.props.animationClassName != null)
+        //     classes = classes.concat(this.props.animationClassName);
+        // if (this.props.animationtStyle != null)
+        //     styles = styles.concat(this.props.animationtStyle);
+
         return (
             // <TransitionGroup>
             //     <Transition
@@ -79,7 +91,7 @@ class MenuElement extends Component {
             //     mountOnEnter
             //     unmountOnExit
             // >
-            <li className="nav-item" ref={this.myRef}>
+            <li className={classes.join(' ')} style={styles} ref={this.myRef}>
                 {navLink}
                 {subMenu}
             </li>
@@ -115,76 +127,62 @@ class Menu extends Component {
             }
         };
         this.myRef = React.createRef();
+        this.animatedItem = animateComponent(MenuElement);
+    }
+    static propTypes = {
+        /** show the menu */
+        show: PropTypes.bool,
+        /** name for the menu (will be used also as key) */
+        name: PropTypes.string,
+        /** this menu is a main menu and will be styled accordingly */
+        main: PropTypes.bool,
+        /** menu items */
+        items: PropTypes.arrayOf(PropTypes.shape({
+            name: PropTypes.string,
+            featherIcon: PropTypes.string,
+            href: PropTypes.string,
+            children: PropTypes.arrayOf(PropTypes.object)
+        }))
+    }
+    static defaultProps = {
+        show: false,
+        name: 'noName',
+        main: false,
+        items: [],
+        menuAnimation: {
+            timeout: {
+                enter: 350,
+                exit: 350
+            },
+            enter: {
+                type: ['class'],
+                className: 'example-appear'
+            },
+            entering: {
+                type: ['class', 'height'],
+                className: 'example-appear-active'
+            },
+            exit: {
+                type: ['class', 'height'],
+                className: 'example-leave',
+            },
+            exiting: {
+                type: ['class', 'height'],
+                className: 'example-leave-active'
+            }
+        }
     }
     componentDidMount() {
         let currentHeight = this.myRef.current.scrollHeight;
         this.setState({ height: currentHeight });
-
-        // console.log('currentHeight : ' + this.props.name);
-        // console.log(currentHeight);
-        // this.setState({
-        //     menuAnimation: {
-        //         enterTimeout: 500,
-        //         exitTimeout: 500,
-        //         entering: {
-        //             'max-height': ['0', '100px'],
-        //             //elasticity: 300,
-        //             duration: 500
-        //         },
-        //         exiting: {
-        //             translateX: ['0%', '100%'],
-        //             elasticity: 0,
-        //             duration: 500
-        //         }
-        //     }
-        // });
-
-        this.forceUpdate();
-        // this.menuAnimation2 = {
-        //     type: 'timeline',
-        //     enterTimeout: 500,
-        //     exitTimeout: 500,
-        //     timeline: [
-        //         {
-        //             attr: {
-        //                 easing: 'easeOutExpo',
-        //                 duration: 750
-        //             }
-        //         },
-        //         {
-        //             attr: {
-        //                 targets: ':nth-child(1)',
-        //                 translateX: ['-100%', '0%'],
-        //                 elasticity: 300,
-        //                 duration: 500
-        //             }
-        //         },
-        //         {
-        //             attr: {
-        //                 targets: ':nth-child(2)',
-        //                 translateX: ['-100%', '0%'],
-        //                 elasticity: 300,
-        //                 duration: 500
-        //             },
-        //             offset: '+=600'
-        //         },
-        //         {
-        //             attr: {
-        //                 targets: ':nth-child(3)',
-        //                 translateX: ['-100%', '0%'],
-        //                 elasticity: 300,
-        //                 duration: 500
-        //             },
-        //             offset: '0'
-        //         }
-        //     ]
-        // }
     }
     componentWillReceiveProps(nextProps) {
         this.setState({ show: nextProps.show });
     }
     render() {
         let menuClass = this.props.main ? 'navbar-nav' : 'nav nav-sm flex-column';
+
+        let AnimatedMenuElement = this.animatedItem;
 
         let listItems = [];
         if (this.props.items !== undefined) {
@@ -195,19 +193,31 @@ class Menu extends Component {
                     elementProps['children'] = item.children;
                 }
 
+                // let AnimatedMenuElement = animateComponent(MenuElement);
+                
                 return (
-                    <AnimatedComponent key={item.name} in={that.state.show} eff={that.state.menuAnimation}>
-                        <MenuElement key={item.name} text={item.name} icon={item.featherIcon} href={item.href} badge={item.badge} badgeText={item.badgeText} {...elementProps} />
-                    </AnimatedComponent>
+                        <AnimatedMenuElement key={item.name} in={that.state.show} menuAnimation={that.props.menuAnimation} text={item.name} icon={item.featherIcon} href={item.href} badge={item.badge} badgeText={item.badgeText} {...elementProps} />
+                    // <AnimatedComponent key={item.name} in={that.state.show} eff={that.state.menuAnimation}>
+                    //     <MenuElement key={item.name} text={item.name} icon={item.featherIcon} href={item.href} badge={item.badge} badgeText={item.badgeText} {...elementProps} />
+                    // </AnimatedComponent>
                 );
             })
         };
 
         return (
             <ul className={menuClass} ref={this.myRef}>
-                <AnimatedComponent key={this.props.name} in={this.state.show} eff={this.state.menuAnimation}>
+                
+                {/* <AnimatedComponent key={this.props.name} in={this.state.show} eff={this.state.menuAnimation}> */}
                     {listItems}
-                </AnimatedComponent>
+                {/* </AnimatedComponent> */}
+
+                {/* <Transition timeout={1000} in={this.state.show} unmountOnExit>
+                    {
+                        (status) => (
+                            <MenuElement key="test" text={status} href="#" />
+                        )
+                    }
+                </Transition> */}
             </ul>
         );
     }
