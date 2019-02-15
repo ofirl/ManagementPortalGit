@@ -1,86 +1,87 @@
-import React, { Component, Fragment } from 'react';
-import { TransitionGroup, Transition } from 'react-transition-group';
+import React from 'react';
+import { Transition } from 'react-transition-group';
 import PropTypes from 'prop-types';
-import anime from 'animejs';
 
-class AnimatedComponent extends React.Component {
-    static propTypes = {
-        /** key is required in any list of components */
-        keyProp: PropTypes.any.isRequired,
-        /** timeout for the animation - 
-         * can be a number or an object to seperate enter animation from exit */
+let propTypes = {
+    /** key is required in any list of components */
+    keyProp: PropTypes.any.isRequired,
+    /** timeout for the animation - 
+     * can be a number or an object to seperate enter animation from exit */
+    timeout: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.shape({
+            enter: PropTypes.number,
+            exit: PropTypes.number
+        })
+    ]),
+    /** will the component show */
+    in: PropTypes.bool.isRequired,
+    /** See Transition official documentation */
+    mountOnEnter: PropTypes.bool,
+    /** See Transition official documentation */
+    unmountOnExit: PropTypes.bool,
+    /** See Transition official documentation */
+    appear: PropTypes.bool,
+    /** See Transition official documentation */
+    enter: PropTypes.bool,
+    /** See Transition official documentation */
+    exit: PropTypes.bool,
+    /** animation config */
+    animationConfig: PropTypes.shape({
         timeout: PropTypes.oneOfType([
             PropTypes.number,
             PropTypes.shape({
                 enter: PropTypes.number,
                 exit: PropTypes.number
             })
-        ]),
-        /** will the component show */
-        in: PropTypes.bool.isRequired,
-        /** See Transition official documentation */
-        mountOnEnter: PropTypes.bool,
-        /** See Transition official documentation */
-        unmountOnExit: PropTypes.bool,
-        /** See Transition official documentation */
-        appear: PropTypes.bool,
-        /** See Transition official documentation */
-        enter: PropTypes.bool,
-        /** See Transition official documentation */
-        exit: PropTypes.bool,
-        /** animation config */
-        animationConfig: PropTypes.shape({
-            timout: PropTypes.oneOfType([
-                PropTypes.number,
-                PropTypes.shape({
-                    enter: PropTypes.number,
-                    exit: PropTypes.number
-                })
-            ]).isRequired,
-            enter: PropTypes.shape({
-                type: PropTypes.oneOf(['class', 'style', 'hight']).isRequired,
-                className: PropTypes.string,
-                style: PropTypes.object
-            }),
-            entering: PropTypes.shape({
-                type: PropTypes.oneOf(['class', 'style', 'hight']).isRequired,
-                className: PropTypes.string,
-                style: PropTypes.object
-            }),
-            entered: PropTypes.shape({
-                type: PropTypes.oneOf(['class', 'style', 'hight']).isRequired,
-                className: PropTypes.string,
-                style: PropTypes.object
-            }),
-            exit: PropTypes.shape({
-                type: PropTypes.oneOf(['class', 'style', 'hight']).isRequired,
-                className: PropTypes.string,
-                style: PropTypes.object
-            }),
-            exiting: PropTypes.shape({
-                type: PropTypes.oneOf(['class', 'style', 'hight']).isRequired,
-                className: PropTypes.string,
-                style: PropTypes.object
-            }),
-            exited: PropTypes.shape({
-                type: PropTypes.oneOf(['class', 'style', 'hight']).isRequired,
-                className: PropTypes.string,
-                style: PropTypes.object
-            })
-        }).isRequired,
-        /** hook - see official Transition documentation */
-        onEnter: PropTypes.func,
-        /** hook - see official Transition documentation */
-        onEntering: PropTypes.func,
-        /** hook - see official Transition documentation */
-        onEntered: PropTypes.func,
-        /** hook - see official Transition documentation */
-        onExit: PropTypes.func,
-        /** hook - see official Transition documentation */
-        onExiting: PropTypes.func,
-        /** hook - see official Transition documentation */
-        onExited: PropTypes.func
-    }
+        ]).isRequired,
+        enter: PropTypes.shape({
+            type: PropTypes.arrayOf(PropTypes.oneOf(['class', 'style', 'height'])).isRequired,
+            className: PropTypes.string,
+            style: PropTypes.object
+        }),
+        entering: PropTypes.shape({
+            type: PropTypes.arrayOf(PropTypes.oneOf(['class', 'style', 'height'])).isRequired,
+            className: PropTypes.string,
+            style: PropTypes.object
+        }),
+        entered: PropTypes.shape({
+            type: PropTypes.arrayOf(PropTypes.oneOf(['class', 'style', 'height'])).isRequired,
+            className: PropTypes.string,
+            style: PropTypes.object
+        }),
+        exit: PropTypes.shape({
+            type: PropTypes.arrayOf(PropTypes.oneOf(['class', 'style', 'height'])).isRequired,
+            className: PropTypes.string,
+            style: PropTypes.object
+        }),
+        exiting: PropTypes.shape({
+            type: PropTypes.arrayOf(PropTypes.oneOf(['class', 'style', 'height'])).isRequired,
+            className: PropTypes.string,
+            style: PropTypes.object
+        }),
+        exited: PropTypes.shape({
+            type: PropTypes.arrayOf(PropTypes.oneOf(['class', 'style', 'height'])).isRequired,
+            className: PropTypes.string,
+            style: PropTypes.object
+        })
+    }).isRequired,
+    /** hook - see official Transition documentation */
+    onEnter: PropTypes.func,
+    /** hook - see official Transition documentation */
+    onEntering: PropTypes.func,
+    /** hook - see official Transition documentation */
+    onEntered: PropTypes.func,
+    /** hook - see official Transition documentation */
+    onExit: PropTypes.func,
+    /** hook - see official Transition documentation */
+    onExiting: PropTypes.func,
+    /** hook - see official Transition documentation */
+    onExited: PropTypes.func
+}
+
+class AnimatedComponent extends React.Component {
+    static propTypes = propTypes
     static defaultProps = {
         timeout: 1000,
         mountOnEnter: true,
@@ -142,7 +143,7 @@ class AnimatedComponent extends React.Component {
 function animateComponent(WrappedComponent) {
 
     class AnimatedComponent2 extends React.Component {
-        static propTypes = animateComponent.propTypes
+        static propTypes = propTypes
         static defaultProps = AnimatedComponent.defaultProps
 
         constructor(props) {
@@ -184,8 +185,8 @@ function animateComponent(WrappedComponent) {
         }
 
         onEnter(node, isAppearing) {
-            console.log('enter');
-            console.log(isAppearing);
+            // console.log('enter');
+            // console.log(isAppearing);
 
             this.setState({
                 animationClass: '',
@@ -196,7 +197,7 @@ function animateComponent(WrappedComponent) {
                 this.updateDefaults();
         }
         onEntering(node, isAppearing) {
-            console.log('entering');
+            // console.log('entering');
 
             let newState = {};
 
@@ -216,7 +217,7 @@ function animateComponent(WrappedComponent) {
             }, 10);
         }
         onEntered(node, isAppearing) {
-            console.log('entered');
+            // console.log('entered');
 
             let newState = {};
 
@@ -236,8 +237,8 @@ function animateComponent(WrappedComponent) {
             this.setState(newState);
         }
         onExit(node) {
-            console.log('exit');
-            console.log(node.scrollHeight);
+            // console.log('exit');
+            // console.log(node.scrollHeight);
 
             this.setState({
                 animationClass: '',
@@ -260,7 +261,7 @@ function animateComponent(WrappedComponent) {
             this.setState(newState);
         }
         onExiting(node) {
-            console.log('exiting');
+            // console.log('exiting');
 
             let newState = {};
 
@@ -280,7 +281,7 @@ function animateComponent(WrappedComponent) {
             }, 10);
         }
         onExited(node) {
-            console.log('exited');
+            // console.log('exited');
 
             this.setState({
                 defaultClass: '',

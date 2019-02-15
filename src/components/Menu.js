@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-// import { CSSTransitionGroup, TransitionGroup, Transition } from 'react-transition-group';
-import { TransitionGroup, Transition } from 'react-transition-group';
 import PropTypes from 'prop-types';
-import anime from 'animejs';
 
-import AnimatedComponent, { animateComponent } from './AnimatedComponent';
+import { animateComponent } from './AnimatedComponent';
 
 import './Menu.css'
 
@@ -59,9 +56,6 @@ class MenuElement extends Component {
             attr['onClick'] = this.handleClick;
             linkHref = '#' + linkHref;
 
-            // console.log(this.state.isClicked);
-            // submenu
-            // if (this.state.isClicked)
             subMenu = <Menu show={this.state.isClicked} items={this.props.children} />;
         }
 
@@ -77,26 +71,13 @@ class MenuElement extends Component {
         if (this.props.animationClassName != null)
             classes = classes.concat(this.props.animationClassName);
         if (this.props.animationStyle != null)
-            styles = {...styles, ...this.props.animationStyle}
-        // if (this.props.animationClassName != null)
-        //     classes = classes.concat(this.props.animationClassName);
-        // if (this.props.animationtStyle != null)
-        //     styles = styles.concat(this.props.animationtStyle);
+            styles = { ...styles, ...this.props.animationStyle }
 
         return (
-            // <TransitionGroup>
-            //     <Transition
-            // key={num}
-            //     timeout={500}
-            //     mountOnEnter
-            //     unmountOnExit
-            // >
             <li className={classes.join(' ')} style={styles} ref={this.myRef}>
                 {navLink}
                 {subMenu}
             </li>
-            //     </Transition>
-            // </TransitionGroup>
         );
     }
 }
@@ -106,25 +87,7 @@ class Menu extends Component {
         super(props);
         this.state = {
             show: props.show == null ? false : props.show,
-            height: 0,
-            menuAnimation: {
-                enterTimeout: 500,
-                exitTimeout: 500,
-                entering: {
-                    timeout: 500,
-                    'max-height': ['0', ((props.items ? props.items.length + 1 : 1) * 40) + 'px'],
-                    elasticity: 300,
-                    duration: 500
-                },
-                exiting: {
-                    // type: 'class',
-                    // className: 'example-leave example-leave-active',
-                    timeout: 500,
-                    'max-height': [((props.items ? props.items.length + 1 : 1) * 40) + 'px', '0'],
-                    elasticity: 300,
-                    duration: 500
-                }
-            }
+            height: 0
         };
         this.myRef = React.createRef();
         this.animatedItem = animateComponent(MenuElement);
@@ -193,31 +156,15 @@ class Menu extends Component {
                     elementProps['children'] = item.children;
                 }
 
-                // let AnimatedMenuElement = animateComponent(MenuElement);
-                
                 return (
-                        <AnimatedMenuElement key={item.name} in={that.state.show} animationConfig={that.props.menuAnimation} text={item.name} icon={item.featherIcon} href={item.href} badge={item.badge} badgeText={item.badgeText} {...elementProps} />
-                    // <AnimatedComponent key={item.name} in={that.state.show} eff={that.state.menuAnimation}>
-                    //     <MenuElement key={item.name} text={item.name} icon={item.featherIcon} href={item.href} badge={item.badge} badgeText={item.badgeText} {...elementProps} />
-                    // </AnimatedComponent>
+                    <AnimatedMenuElement key={item.name} keyProp={item.name} in={that.state.show} animationConfig={that.props.menuAnimation} text={item.name} icon={item.featherIcon} href={item.href} badge={item.badge} badgeText={item.badgeText} {...elementProps} />
                 );
             })
         };
 
         return (
             <ul className={menuClass} ref={this.myRef}>
-                
-                {/* <AnimatedComponent key={this.props.name} in={this.state.show} eff={this.state.menuAnimation}> */}
-                    {listItems}
-                {/* </AnimatedComponent> */}
-
-                {/* <Transition timeout={1000} in={this.state.show} unmountOnExit>
-                    {
-                        (status) => (
-                            <MenuElement key="test" text={status} href="#" />
-                        )
-                    }
-                </Transition> */}
+                {listItems}
             </ul>
         );
     }
