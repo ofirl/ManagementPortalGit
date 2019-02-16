@@ -11,7 +11,9 @@ import './assets/libs/select2/dist/css/select2.min.css';
 import './assets/libs/flatpickr/dist/flatpickr.min.css';
 
 // import 'assets/css/theme.min.css';
-import './assets/css/theme-dark.min.css';
+// import './assets/css/theme-dark.min.css';
+
+import './Utility.css';
 
 
 // import './assets/libs/jquery/dist/jquery.min.js';

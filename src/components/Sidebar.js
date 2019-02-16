@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './Sidebar.css'
 
 import Menu, { Heading, Divider } from './Menu';
+import Avatar from './Avatar';
 
 // function Heading(props) {
 //     return (
@@ -101,162 +102,108 @@ class Sidebar extends Component {
                                     {
                                         name: 'Badges',
                                         href: 'components.html#badges'
+                                    },
+                                    {
+                                        name: 'Breadcrumb',
+                                        href: 'components.html#breadcrumb'
+                                    },
+                                    {
+                                        name: 'Buttons',
+                                        href: 'components.html#buttons'
+                                    },
+                                    {
+                                        name: 'Button group',
+                                        href: 'components.html#button-group'
+                                    },
+                                    {
+                                        name: 'Cards',
+                                        href: 'components.html#cards'
+                                    },
+                                    {
+                                        name: 'Charts',
+                                        href: 'components.html#charts'
+                                    },
+                                    {
+                                        name: 'Dropdowns',
+                                        href: 'components.html#dropdowns'
+                                    },
+                                    {
+                                        name: 'Forms',
+                                        href: 'components.html#forms'
+                                    },
+                                    {
+                                        name: 'Icons',
+                                        href: 'components.html#icons'
+                                    },
+                                    {
+                                        name: 'Lists',
+                                        href: 'components.html#lists'
+                                    },
+                                    {
+                                        name: 'Loaders',
+                                        href: 'components.html#loaders'
+                                    },
+                                    {
+                                        name: 'Modal',
+                                        href: 'components.html#modal'
+                                    },
+                                    {
+                                        name: 'Navs',
+                                        href: 'components.html#navs'
+                                    },
+                                    {
+                                        name: 'Navbar',
+                                        href: 'components.html#navbarExample'
+                                    },
+                                    {
+                                        name: 'Page headers',
+                                        href: 'components.html#page-headers'
+                                    },
+                                    {
+                                        name: 'Pagination',
+                                        href: 'components.html#pagination'
+                                    },
+                                    {
+                                        name: 'Popovers',
+                                        href: 'components.html#popovers'
+                                    },
+                                    {
+                                        name: 'Progress',
+                                        href: 'components.html#progress'
+                                    },
+                                    {
+                                        name: 'Social post',
+                                        href: 'components.html#social-posts'
+                                    },
+                                    {
+                                        name: 'Tables',
+                                        href: 'components.html#tables'
+                                    },
+                                    {
+                                        name: 'Tooltips',
+                                        href: 'components.html#tooltips'
+                                    },
+                                    {
+                                        name: 'Typography',
+                                        href: 'components.html#typography'
+                                    },
+                                    {
+                                        name: 'Utilities',
+                                        href: 'components.html#utilities'
                                     }
                                 ]
+                            },
+                            {
+                                name: 'Changelog',
+                                href: 'changelog.html',
+                                featherIcon: 'git-branch',
+                                badge: 'primary',
+                                badgeText: 'v1.3.1'
                             }
                         ]} />
 
-                        {/* Navigation */}
-                        <ul className="navbar-nav mb-md-4">
-                            <li className="nav-item">
-                                <a className="nav-link " href="getting-started.html">
-                                    <i className="fe fe-clipboard"></i> Getting started
-                                </a>
-                            </li>
-                            <li className="nav-item dropdown">
-                                <a className="nav-link" href="#sidebarComponents" data-toggle="collapse" role="button"
-                                    aria-expanded="false" aria-controls="sidebarComponents">
-                                    <i className="fe fe-book-open"></i> Components
-                                </a>
-                                <div className="collapse " id="sidebarComponents">
-                                    <ul className="nav nav-sm flex-column">
-                                        <li className="nav-item">
-                                            <a href="components.html#alerts" className="nav-link">
-                                                Alerts
-                                    </a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a href="components.html#avatars" className="nav-link">
-                                                Avatars
-                                    </a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a href="components.html#badges" className="nav-link">
-                                                Badges
-                                    </a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a href="components.html#breadcrumb" className="nav-link">
-                                                Breadcrumb
-                                    </a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a href="components.html#buttons" className="nav-link">
-                                                Buttons
-                                    </a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a href="components.html#button-group" className="nav-link">
-                                                Button group
-                                    </a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a href="components.html#cards" className="nav-link">
-                                                Cards
-                                    </a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a href="components.html#charts" className="nav-link">
-                                                Charts
-                                    </a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a href="components.html#dropdowns" className="nav-link">
-                                                Dropdowns
-                                    </a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a href="components.html#forms" className="nav-link">
-                                                Forms
-                                    </a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a href="components.html#icons" className="nav-link">
-                                                Icons
-                                    </a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a href="components.html#lists" className="nav-link">
-                                                Lists
-                                    </a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a href="components.html#loaders" className="nav-link">
-                                                Loaders
-                                    </a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a href="components.html#modal" className="nav-link">
-                                                Modal
-                                    </a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a href="components.html#navs" className="nav-link">
-                                                Navs
-                                    </a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a href="components.html#navbarExample" className="nav-link">
-                                                Navbar
-                                    </a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a href="components.html#page-headers" className="nav-link">
-                                                Page headers
-                                    </a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a href="components.html#pagination" className="nav-link">
-                                                Pagination
-                                    </a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a href="components.html#popovers" className="nav-link">
-                                                Popovers
-                                    </a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a href="components.html#progress" className="nav-link">
-                                                Progress
-                                    </a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a href="components.html#social-posts" className="nav-link">
-                                                Social post
-                                    </a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a href="components.html#tables" className="nav-link">
-                                                Tables
-                                    </a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a href="components.html#tooltips" className="nav-link">
-                                                Tooltips
-                                    </a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a href="components.html#typography" className="nav-link">
-                                                Typography
-                                    </a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a href="components.html#utilities" className="nav-link">
-                                                Utilities
-                                    </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link " href="changelog.html">
-                                    <i className="fe fe-git-branch"></i> Changelog <span className="badge badge-primary ml-auto">v1.3.1</span>
-                                </a>
-                            </li>
-                        </ul>
-
                         {/* <!-- Push content down --> */}
-                        <div className="mt-auto"></div>
+                        <div className="mt-auto mb-4"></div>
 
                         {/* <!-- Customize --> */}
                         <a href="#modalDemo" className="btn btn-block btn-primary mb-4" data-toggle="modal">
@@ -279,10 +226,7 @@ class Sidebar extends Component {
                                 {/* <!-- Toggle --> */}
                                 <a href="#!" id="sidebarIconCopy" className="dropdown-toggle" role="button" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
-                                    <div className="avatar avatar-sm avatar-online">
-                                        <img src="./assets/img/avatars/profiles/avatar-1.jpg" className="avatar-img rounded-circle"
-                                            alt="..." />
-                                    </div>
+                                    <Avatar imgSrc="./assets/img/avatars/profiles/avatar-1.jpg" size="sm" online={true} />
                                 </a>
 
                                 {/* <!-- Menu --> */}

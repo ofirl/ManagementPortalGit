@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { animateComponent } from './AnimatedComponent';
 
 import './Menu.css'
+import Badge from './Badge';
 
 function Heading(props) {
     return (
@@ -44,7 +45,8 @@ class MenuElement extends Component {
         // badge
         if (this.props.badge !== undefined) {
             badge = (
-                <span className={`badge badge-${this.props.badge} ml-auto`}>{this.props.badgeText}</span>
+                // <span className={`badge badge-${this.props.badge} ml-auto`}>{this.props.badgeText}</span>
+                <Badge text={this.props.badgeText} colorClass={this.props.badge} additionalClasses={['ml-auto']} />
             );
         }
 
@@ -59,9 +61,14 @@ class MenuElement extends Component {
             subMenu = <Menu show={this.state.isClicked} items={this.props.children} />;
         }
 
+        let icon = null;
+        if (this.props.icon != null) {
+            icon = (<i className={'fe fe-' + this.props.icon}></i>);
+        }
+
         navLink = (
             <a className="nav-link" href={linkHref} {...attr}>
-                <i className={'fe fe-' + this.props.icon}></i> {this.props.text}
+                {icon} {this.props.text}
                 {badge}
             </a>
         );
@@ -101,9 +108,11 @@ class Menu extends Component {
         main: PropTypes.bool,
         /** menu items */
         items: PropTypes.arrayOf(PropTypes.shape({
-            name: PropTypes.string,
+            name: PropTypes.string.isRequired,
             featherIcon: PropTypes.string,
             href: PropTypes.string,
+            badge: PropTypes.string,
+            badgeText: PropTypes.string,
             children: PropTypes.arrayOf(PropTypes.object)
         }))
     }

@@ -43,6 +43,60 @@
         }
       ]
     },
+    "src/components/Avatar.mdx": {
+      "name": "Badge",
+      "menu": "Components",
+      "route": "/components/badge",
+      "id": "077aeae1b002d455d727e703158327f8",
+      "filepath": "src/components/Avatar.mdx",
+      "link": null,
+      "slug": "src-components-avatar",
+      "order": 0,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "avatars",
+          "value": "Avatars"
+        },
+        {
+          "depth": 2,
+          "slug": "properties",
+          "value": "Properties"
+        },
+        {
+          "depth": 2,
+          "slug": "example",
+          "value": "Example"
+        }
+      ]
+    },
+    "src/components/Badge.mdx": {
+      "name": "Badge",
+      "menu": "Components",
+      "route": "/components/badge",
+      "id": "785bfad643aa0d033a58cf450ba32fc2",
+      "filepath": "src/components/Badge.mdx",
+      "link": null,
+      "slug": "src-components-badge",
+      "order": 0,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "badge",
+          "value": "Badge"
+        },
+        {
+          "depth": 2,
+          "slug": "properties",
+          "value": "Properties"
+        },
+        {
+          "depth": 2,
+          "slug": "example",
+          "value": "Example"
+        }
+      ]
+    },
     "src/components/Menu.mdx": {
       "name": "Menu",
       "menu": "Components",
@@ -62,6 +116,11 @@
           "depth": 2,
           "slug": "properties",
           "value": "Properties"
+        },
+        {
+          "depth": 3,
+          "slug": "items",
+          "value": "items"
         },
         {
           "depth": 2,
