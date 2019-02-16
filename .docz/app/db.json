@@ -19,7 +19,7 @@
     "src/components/AnimatedComponent.mdx": {
       "name": "Animated Component",
       "menu": "HOC",
-      "route": "/HOC/AnimatedComponent",
+      "route": "/hoc/animatedComponent",
       "id": "d1b8ed288165ffcd31d1c99c73576596",
       "filepath": "src/components/AnimatedComponent.mdx",
       "link": null,
@@ -44,9 +44,9 @@
       ]
     },
     "src/components/Avatar.mdx": {
-      "name": "Badge",
+      "name": "Avatar",
       "menu": "Components",
-      "route": "/components/badge",
+      "route": "/components/avatar",
       "id": "077aeae1b002d455d727e703158327f8",
       "filepath": "src/components/Avatar.mdx",
       "link": null,
@@ -70,20 +70,20 @@
         }
       ]
     },
-    "src/components/Badge.mdx": {
-      "name": "Badge",
+    "src/components/Icon.mdx": {
+      "name": "Icon",
       "menu": "Components",
-      "route": "/components/badge",
-      "id": "785bfad643aa0d033a58cf450ba32fc2",
-      "filepath": "src/components/Badge.mdx",
+      "route": "/components/icon",
+      "id": "2f3defaac1d10a0e3c0eb9992e471003",
+      "filepath": "src/components/Icon.mdx",
       "link": null,
-      "slug": "src-components-badge",
+      "slug": "src-components-icon",
       "order": 0,
       "headings": [
         {
           "depth": 1,
-          "slug": "badge",
-          "value": "Badge"
+          "slug": "icon",
+          "value": "Icon"
         },
         {
           "depth": 2,
@@ -99,8 +99,8 @@
     },
     "src/components/Menu.mdx": {
       "name": "Menu",
-      "menu": "Components",
-      "route": "/components/Menu",
+      "menu": "Navigation",
+      "route": "/navigation/menu",
       "id": "80c5559cbb8ccee756568a659580bf5e",
       "filepath": "src/components/Menu.mdx",
       "link": null,

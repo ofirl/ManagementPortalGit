@@ -6,21 +6,38 @@ import './Avatar.css';
 class Avatar extends Component {
     constructor(props) {
         super(props);
+
+        this.handleClick = this.handleClick.bind(this);
     }
     static propTypes = {
+        /** size control */
         size: PropTypes.oneOf(['xs', 'sm', 'lg', 'xl', 'xxl']),
+        /** online indicator */
         online: PropTypes.bool,
+        /** avatar shape */
         shape: PropTypes.oneOf(['rounded', 'rounded-circle']),
+        /** image source path */
         imgSrc: PropTypes.string,
+        /** alternative text for the image */
         alt: PropTypes.string,
+        /** image ratio */
         ratio4by3: PropTypes.bool,
-        initials: PropTypes.string
+        /** initials (weill be shown in case there is no imgSrc) */
+        initials: PropTypes.string,
+        /** a callback fired when the avatar is clicked  */
+        onClick: PropTypes.func
     }
     static defaultProps = {
         shape: 'rounded-circle',
         alt: '...',
         ratio4by3: false,
         initials: 'JD'
+    }
+
+    handleClick(e) {
+        e.preventDefault();
+
+        this.props.onClick && this.props.onClick(e);
     }
 
     render() {
@@ -33,6 +50,8 @@ class Avatar extends Component {
             onlineClass = this.props.online ? 'avatar-online' : 'avatar-offline';
 
         let ratioClass = this.props.ratio ? 'avatar-4by3' : '';
+
+        let pointerClass = this.props.onClick != null ? 'pointer' : '';
 
         let avatarImg;
         if (this.props.imgSrc != null) {
@@ -47,7 +66,7 @@ class Avatar extends Component {
         }
 
         return (
-            <div className={`avatar ${sizeClass} ${onlineClass} ${ratioClass}`}>
+            <div className={`avatar ${sizeClass} ${onlineClass} ${ratioClass} ${pointerClass}`} onClick={this.handleClick}>
                 {avatarImg}
             </div>
         );

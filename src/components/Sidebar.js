@@ -2,23 +2,12 @@ import React, { Component } from 'react';
 
 import './Sidebar.css'
 
+import Button from 'react-bootstrap/Button';
+import Dropdown from 'react-bootstrap/Dropdown';
+
 import Menu, { Heading, Divider } from './Menu';
 import Avatar from './Avatar';
-
-// function Heading(props) {
-//     return (
-//         <h6 className="navbar-heading">
-//             {props.heading}
-//         </h6>
-
-//     );
-// }
-
-// function Divider(props) {
-//     return (
-//         <hr className="navbar-divider my-3" />
-//     );
-// }
+import Icon from './Icon';
 
 class Sidebar extends Component {
     render() {
@@ -82,7 +71,7 @@ class Sidebar extends Component {
 
                         <Menu show={true} name={'documentationMenu'} main={true} items={[
                             {
-                                name: 'Getting Started',
+                                name: 'Getting started',
                                 featherIcon: 'clipboard',
                                 href: 'getting-started.html'
                             },
@@ -205,46 +194,26 @@ class Sidebar extends Component {
                         {/* <!-- Push content down --> */}
                         <div className="mt-auto mb-4"></div>
 
-                        {/* <!-- Customize --> */}
-                        <a href="#modalDemo" className="btn btn-block btn-primary mb-4" data-toggle="modal">
-                            <i className="fe fe-sliders mr-2"></i> Customize
-                </a>
+                        <Button variant="primary" href="#modalDemo" className="mb-4">
+                            <Icon type="sliders" className="mr-2" inline /> Customize
+                        </Button>
 
                         {/* <!-- User (md) --> */}
                         <div className="navbar-user d-none d-md-flex" id="sidebarUser">
 
-                            {/* <!-- Icon --> */}
-                            <a href="#sidebarModalActivity" className="navbar-user-link" data-toggle="modal">
-                                <span className="icon">
-                                    <i className="fe fe-bell"></i>
-                                </span>
-                            </a>
+                            <Icon type="bell" className="navbar-user-link pointer" />
 
-                            {/* <!-- Dropup --> */}
-                            <div className="dropup">
+                            <Dropdown drop="up">
+                                <Dropdown.Toggle as={Avatar} imgSrc="./assets/img/avatars/profiles/avatar-1.jpg" size="sm" online={true} />
+                                <Dropdown.Menu>
+                                    <Dropdown.Item key="Profile" href="profile"> Profile </Dropdown.Item>
+                                    <Dropdown.Item key="Settings" href="settings"> Settings </Dropdown.Item>
+                                    <Dropdown.Divider />
+                                    <Dropdown.Item key="Logout" href="logout"> Logout </Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
 
-                                {/* <!-- Toggle --> */}
-                                <a href="#!" id="sidebarIconCopy" className="dropdown-toggle" role="button" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                    <Avatar imgSrc="./assets/img/avatars/profiles/avatar-1.jpg" size="sm" online={true} />
-                                </a>
-
-                                {/* <!-- Menu --> */}
-                                <div className="dropdown-menu" aria-labelledby="sidebarIconCopy">
-                                    <a href="profile-posts.html" className="dropdown-item">Profile</a>
-                                    <a href="settings.html" className="dropdown-item">Settings</a>
-                                    <hr className="dropdown-divider" />
-                                    <a href="sign-in.html" className="dropdown-item">Logout</a>
-                                </div>
-
-                            </div>
-
-                            {/* <!-- Icon --> */}
-                            <a href="#sidebarModalSearch" className="navbar-user-link" data-toggle="modal">
-                                <span className="icon">
-                                    <i className="fe fe-search"></i>
-                                </span>
-                            </a>
+                            <Icon type="search" className="navbar-user-link pointer" />
 
                         </div>
 

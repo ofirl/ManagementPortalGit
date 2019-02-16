@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import Collapse from 'react-bootstrap/Collapse'
+import Badge from 'react-bootstrap/Badge'
+
 import { animateComponent } from './AnimatedComponent';
 
 import './Menu.css'
-import Badge from './Badge';
 
 function Heading(props) {
     return (
@@ -45,8 +47,7 @@ class MenuElement extends Component {
         // badge
         if (this.props.badge !== undefined) {
             badge = (
-                // <span className={`badge badge-${this.props.badge} ml-auto`}>{this.props.badgeText}</span>
-                <Badge text={this.props.badgeText} colorClass={this.props.badge} additionalClasses={['ml-auto']} />
+                <Badge variant={this.props.badge} className="ml-auto"> {this.props.badgeText} </Badge>
             );
         }
 
@@ -166,14 +167,18 @@ class Menu extends Component {
                 }
 
                 return (
-                    <AnimatedMenuElement key={item.name} keyProp={item.name} in={that.state.show} animationConfig={that.props.menuAnimation} text={item.name} icon={item.featherIcon} href={item.href} badge={item.badge} badgeText={item.badgeText} {...elementProps} />
+                    <MenuElement key={item.name} text={item.name} icon={item.featherIcon} href={item.href} badge={item.badge} badgeText={item.badgeText} {...elementProps} />
                 );
             })
         };
 
         return (
             <ul className={menuClass} ref={this.myRef}>
-                {listItems}
+                <Collapse in={this.state.show} timeout={5000}>
+                    <div>
+                        {listItems}
+                    </div>
+                </Collapse>
             </ul>
         );
     }
