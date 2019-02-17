@@ -28,7 +28,7 @@ class Sidebar extends Component {
                                 {
                                     name: 'Dashboards',
                                     featherIcon: 'home',
-                                    href: 'sidebarDashboards',
+                                    // href: 'sidebarDashboards',
                                     children: [
                                         {
                                             name: 'Default',
@@ -45,11 +45,11 @@ class Sidebar extends Component {
                                 {
                                     name: 'Scripts',
                                     featherIcon: 'code',
-                                    href: 'sidebarScripts',
+                                    // href: 'sidebarScripts',
                                     children: [
                                         {
                                             name: 'General',
-                                            href: 'sidebarScriptsGeneral',
+                                            // href: 'sidebarScriptsGeneral',
                                             badge: 'soft-success',
                                             badgeText: 'New',
                                             children: [

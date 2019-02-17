@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
 
+import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+
 import Sidebar from './components/Sidebar';
 
 import './assets/fonts/feather/feather.min.css';
@@ -49,10 +51,26 @@ class App extends Component {
       //     </a>
       //   </header>
       // </div>     
-      
-      <div>
-        <Sidebar />
-      </div>
+
+      <Router>
+        <div>
+          <Sidebar />
+
+          <div className="main-content">
+            <Link to="/homepage"> homepage </Link>
+            <Link to="/test"> test </Link>
+            <Link to="/asdasd"> asdasd </Link>
+
+            <Switch>
+              <Route exact path="/" render={() => (<div> home page</div>)} />
+              <Route exact path="/homepage" render={() => (<div> home page</div>)} />
+              <Route path="/test" render={() => (<div> test</div>)} />
+              <Route render={() => (<div> no match </div>)} />
+            </Switch>
+          </div>
+
+        </div>
+      </Router>
     );
   }
 }

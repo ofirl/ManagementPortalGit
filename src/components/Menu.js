@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+
 import Collapse from 'react-bootstrap/Collapse'
 import Badge from 'react-bootstrap/Badge'
 
@@ -52,27 +54,40 @@ class MenuElement extends Component {
         }
 
         // navlink & submenu
-        let attr = {};
-        if (this.props.children !== undefined) {
-            attr['data-toggle'] = 'collapse';
-            attr['aria-expanded'] = this.state.isClicked;
-            attr['onClick'] = this.handleClick;
-            linkHref = '#' + linkHref;
-
-            subMenu = <Menu show={this.state.isClicked} items={this.props.children} />;
-        }
-
         let icon = null;
         if (this.props.icon != null) {
             icon = (<i className={'fe fe-' + this.props.icon}></i>);
         }
 
-        navLink = (
-            <a className="nav-link" href={linkHref} {...attr}>
-                {icon} {this.props.text}
-                {badge}
-            </a>
-        );
+        let innerNavLink = [icon, this.props.text, badge];
+
+        let attr = {};
+        if (this.props.children != null) {
+            attr['data-toggle'] = 'collapse';
+            attr['aria-expanded'] = this.state.isClicked;
+            attr['onClick'] = this.handleClick;
+            // attr['to'] = ``;
+            // linkHref = '#' + linkHref;
+
+            subMenu = <Menu show={this.state.isClicked} items={this.props.children} />;
+
+            navLink = (
+                <a className="nav-link pointer" href={linkHref} {...attr}>
+                    {icon} {this.props.text}
+                    {badge}
+                </a>
+            );
+        }
+        else {
+            attr['to'] = `/${linkHref}`;
+
+            navLink = (
+                <Link className="nav-link" {...attr}>
+                    {icon} {this.props.text}
+                    {badge}
+                </Link>
+            );
+        }
 
         let classes = ['nav-item'];
         let styles = {};
