@@ -5,6 +5,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 
 import Sidebar from './components/Sidebar';
+import HomePage from './components/HomePage'
 
 import './assets/fonts/feather/feather.min.css';
 import './assets/libs/highlight.js/styles/vs2015.css';
@@ -57,14 +58,21 @@ class App extends Component {
           <Sidebar />
 
           <div className="main-content">
-            <Link to="/homepage"> homepage </Link>
+            <Link to="/homepage"> home page </Link>
+            <br />
             <Link to="/test"> test </Link>
+            <br />
             <Link to="/asdasd"> asdasd </Link>
+            <br />
 
             <Switch>
-              <Route exact path="/" render={() => (<div> home page</div>)} />
-              <Route exact path="/homepage" render={() => (<div> home page</div>)} />
+              <Route exact path="/" component={HomePage} />
+              <Route exact path="/homepage" component={HomePage} />
               <Route path="/test" render={() => (<div> test</div>)} />
+              <Route path="/script-input/:id" render={(props) => {
+                console.log(props);
+                return (<div> test - {props.match.params.id} </div>)
+              }} />
               <Route render={() => (<div> no match </div>)} />
             </Switch>
           </div>
