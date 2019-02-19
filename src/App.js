@@ -58,12 +58,12 @@ class App extends Component {
           <Sidebar />
 
           <div className="main-content">
-            <Link to="/homepage"> home page </Link>
+            {/* <Link to="/homepage"> home page </Link>
             <br />
             <Link to="/test"> test </Link>
             <br />
             <Link to="/asdasd"> asdasd </Link>
-            <br />
+            <br /> */}
 
             <Switch>
               <Route exact path="/" component={HomePage} />
