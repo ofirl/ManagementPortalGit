@@ -29,7 +29,6 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "homepage": "file:///E:/ManagementPortal/management-portal/build",
   "devDependencies": {
     "docz": "^0.13.7",
     "docz-plugin-css": "^0.11.0",

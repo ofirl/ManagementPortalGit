@@ -17,7 +17,7 @@ class Sidebar extends Component {
 
                     {/* Brand */}
                     <a className="navbar-brand" href="index-2.html">
-                        <img src="/assets/img/logo.svg" className="navbar-brand-img mx-auto" alt="..." />
+                        <img src="assets/img/logo.svg" className="navbar-brand-img mx-auto" alt="..." />
                     </a>
 
                     {/* Collapse */}
@@ -204,7 +204,7 @@ class Sidebar extends Component {
                             <Icon type="bell" className="navbar-user-link pointer" />
 
                             <Dropdown drop="up">
-                                <Dropdown.Toggle as={Avatar} imgSrc="/assets/img/avatars/profiles/avatar-1.jpg" size="sm" online={true} />
+                                <Dropdown.Toggle as={Avatar} imgSrc="assets/img/avatars/profiles/avatar-1.jpg" size="sm" online={true} />
                                 <Dropdown.Menu>
                                     <Dropdown.Item key="Profile" href="profile"> Profile </Dropdown.Item>
                                     <Dropdown.Item key="Settings" href="settings"> Settings </Dropdown.Item>
