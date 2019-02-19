@@ -5,7 +5,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 
 import Sidebar from './components/Sidebar';
-import HomePage from './components/HomePage'
+import HomePage from './components/pages/HomePage'
 
 import './assets/fonts/feather/feather.min.css';
 import './assets/libs/highlight.js/styles/vs2015.css';
@@ -18,6 +18,10 @@ import './assets/css/theme-dark.min.css';
 
 import './Utility.css';
 
+// pages
+import Settings from './components/pages/Settings';
+import Logout from './components/pages/Logout';
+import Profile from './components/pages/Profile';
 
 // import './assets/libs/jquery/dist/jquery.min.js';
 // import './assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -66,14 +70,20 @@ class App extends Component {
             <br /> */}
 
             <Switch>
+              {/* homepage */}
               <Route exact path="/" component={HomePage} />
               <Route exact path="/homepage" component={HomePage} />
-              <Route path="/test" render={() => (<div> test</div>)} />
+              {/* utility pages */}
+              <Route path="/settings" component={Settings} />
+              <Route path="/logout" component={Logout} />
+              <Route path="/profile" component={Profile} />
+              {/* script pages */}
               <Route path="/script-input/:id" render={(props) => {
                 console.log(props);
                 return (<div> test - {props.match.params.id} </div>)
               }} />
-              <Route render={() => (<div> no match </div>)} />
+              {/* 404 - not found */}
+              <Route render={() => (<div> no match - 404 </div>)} />
             </Switch>
           </div>
 

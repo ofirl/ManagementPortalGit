@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import './Sidebar.css'
 
+import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+
 import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 
@@ -16,9 +18,9 @@ class Sidebar extends Component {
                 <div className="container-fluid">
 
                     {/* Brand */}
-                    <a className="navbar-brand" href="index-2.html">
-                        <img src="assets/img/logo.svg" className="navbar-brand-img mx-auto" alt="..." />
-                    </a>
+                    <Link to="/" className="navbar-brand">
+                        <img src="/assets/img/logo.svg" className="navbar-brand-img mx-auto" alt="..." />
+                    </Link>
 
                     {/* Collapse */}
                     <div className="collapse navbar-collapse" id="sidebarCollapse">
@@ -203,12 +205,12 @@ class Sidebar extends Component {
                             <Icon type="bell" className="navbar-user-link pointer" />
 
                             <Dropdown drop="up">
-                                <Dropdown.Toggle as={Avatar} imgSrc="assets/img/avatars/profiles/avatar-1.jpg" size="sm" online={true} />
+                                <Dropdown.Toggle as={Avatar} imgSrc="/assets/img/avatars/profiles/avatar-1.jpg" size="sm" online={true} />
                                 <Dropdown.Menu>
-                                    <Dropdown.Item key="Profile" href="profile"> Profile </Dropdown.Item>
-                                    <Dropdown.Item key="Settings" href="settings"> Settings </Dropdown.Item>
+                                    <Dropdown.Item as={Link} key="Profile" to="/profile"> Profile </Dropdown.Item>
+                                    <Dropdown.Item as={Link} key="Settings" to="/settings" > Settings </Dropdown.Item>
                                     <Dropdown.Divider />
-                                    <Dropdown.Item key="Logout" href="logout"> Logout </Dropdown.Item>
+                                    <Dropdown.Item as={Link} key="Logout" to="/logout"> Logout </Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
 
