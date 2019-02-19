@@ -78,7 +78,6 @@ class Sidebar extends Component {
                             {
                                 name: 'Components',
                                 featherIcon: 'book-open',
-                                href: 'sidebarComponents',
                                 children: [
                                     {
                                         name: 'Alerts',
