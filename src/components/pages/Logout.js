@@ -20,7 +20,7 @@ class Logout extends Component {
                                         Logout
                                     </h6>
                                     <h1 class="header-title text-white">
-                                    Logout
+                                        Logout
                                     </h1>
                                 </div>
                             </div>
