@@ -34,7 +34,7 @@ class Sidebar extends Component {
             <nav className="navbar navbar-vertical fixed-left navbar-expand-md navbar-light" id="sidebar">
                 <div className="container-fluid">
 
-                    <span class="navbar-toggler-icon d-md-none pointer" onClick={this.toggleTopMenuCollapse}></span>
+                    <span className="navbar-toggler-icon d-md-none pointer" onClick={this.toggleTopMenuCollapse}></span>
 
                     {/* Brand */}
                     <Link to="/" className="navbar-brand">
@@ -42,9 +42,12 @@ class Sidebar extends Component {
                     </Link>
 
                     {/* <!-- User (md) --> */}
-                    <div className="navbar-user d-md-none">
+                    <div className="navbar-user">
 
-                        <Dropdown drop="left" flip>
+                        <Icon type="search" className="navbar-user-link pointer mr-3" />
+                        <Icon type="bell" className="navbar-user-link pointer mr-3" />
+
+                        <Dropdown drop="left">
                             <Dropdown.Toggle as={Avatar} imgSrc="/assets/img/avatars/profiles/avatar-1.jpg" size="sm" online={true} />
                             <Dropdown.Menu>
                                 <Dropdown.Item as={Link} key="Profile" to="/profile"> Profile </Dropdown.Item>
@@ -233,9 +236,9 @@ class Sidebar extends Component {
                             {/* <!-- Push content down --> */}
                             <div className="mt-auto mb-4"></div>
 
-                            <Button variant="primary" href="#modalDemo" className="mb-4">
+                            {/* <Button variant="primary" href="#modalDemo" className="mb-4">
                                 <Icon type="sliders" className="mr-2" inline /> Customize
-                        </Button>
+                            </Button> */}
 
                             {/* <!-- User (md) --> */}
                             <div className="navbar-user d-none d-md-flex" id="sidebarUser">
