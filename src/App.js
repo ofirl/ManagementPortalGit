@@ -77,7 +77,7 @@ class App extends Component {
               {/* utility pages */}
               <Route path="/settings" component={Settings} />
               <Route path="/logout" component={Logout} />
-              <Route path="/profile" component={Profile} />
+              <Route path="/profilepage/:section?" component={Profile} />
               {/* script pages */}
               <Route path="/script-input/:id" component={ScriptInput} />
               {/* 404 - not found */}

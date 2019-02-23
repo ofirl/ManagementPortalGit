@@ -41,9 +41,11 @@ class Toggle extends Component {
     }
 
     render() {
+        let { className, ...others} = this.props;
+
         return (
-            <button class={`dk-switch ${this.state.checked ? 'dk-switch-checked' : ''}`} onClick={this.toggleCheck}>
-                <span class="dk-switch-inner">
+            <button className={`dk-switch ${this.state.checked ? 'dk-switch-checked' : ''} ${className}`} onClick={this.toggleCheck} {...others}>
+                <span className="dk-switch-inner">
                     {this.props.text}
                 </span>
             </button>

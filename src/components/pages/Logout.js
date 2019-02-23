@@ -4,34 +4,29 @@ import './Logout.css';
 
 import Card from 'react-bootstrap/Card'
 
+import PageHeader from '../PageHeader';
+
 import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 
 class Logout extends Component {
     render() {
         return (
             <div>
-                <div class="header bg-dark">
-                    <div class="container-fluid">
-
-                        <div class="header-body">
-                            <div class="row align-items-end">
-                                <div class="col">
-                                    <h6 class="header-pretitle text-secondary">
-                                        Logout
-                                    </h6>
-                                    <h1 class="header-title text-white">
-                                        Logout
-                                    </h1>
-                                </div>
-                            </div>
-                        </div>
+                <div className="header bg-dark">
+                    <div className="container-fluid">
+                        <PageHeader>
+                            <PageHeader.Body>
+                                <PageHeader.Pretitle text="Member" />
+                                <PageHeader.Title text="Ofir Levi" />
+                            </PageHeader.Body>
+                        </PageHeader>
                     </div>
                 </div>
 
 
 
-                <div class="container-fluid">
-                    <div class="row">
+                <div className="container-fluid">
+                    <div className="row">
                         <Card className="col-6">
                             <Card.Header> Logout </Card.Header>
                             <Card.Body>

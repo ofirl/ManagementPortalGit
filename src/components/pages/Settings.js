@@ -6,25 +6,20 @@ import Card from 'react-bootstrap/Card'
 
 import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 
+import PageHeader from '../PageHeader';
+
 class Settings extends Component {
     render() {
         return (
             <div>
-                <div class="header bg-dark">
-                    <div class="container-fluid">
-
-                        <div class="header-body">
-                            <div class="row align-items-end">
-                                <div class="col">
-                                    <h6 class="header-pretitle text-secondary">
-                                        Profile
-                                    </h6>
-                                    <h1 class="header-title text-white">
-                                        Settings
-                                    </h1>
-                                </div>
-                            </div>
-                        </div>
+                <div className="header bg-dark">
+                    <div className="container-fluid">
+                        <PageHeader>
+                            <PageHeader.Body>
+                                <PageHeader.Pretitle text="Profile" />
+                                <PageHeader.Title text="Settings" />
+                            </PageHeader.Body>
+                        </PageHeader>
                     </div>
                 </div>
 
