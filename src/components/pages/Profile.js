@@ -27,7 +27,7 @@ class Profile extends Component {
         return (
             <div>
                 <div className="header bg-dark">
-                    <Image src="/assets/img/covers/profile-cover-1.jpg" className="header-img-top" alt="..." fluid />
+                    <Image src="/img/covers/profile-cover-1.jpg" className="header-img-top" alt="..." fluid />
 
                     <div className="container-fluid">
                         <div className="header-body mt--5 mt-md--6" style={{ 'borderBottom': 'none' }}>
