@@ -14,7 +14,7 @@ class Toggle extends Component {
             checked: props.defaultChecked
         }
     }
-    propTypes = {
+    static propTypes = {
         /** Default state of the toggle */
         defaultChecked: PropTypes.bool,
         /** Toggler text */
@@ -24,7 +24,7 @@ class Toggle extends Component {
         /** call back fired after state change */
         onChange: PropTypes.func
     }
-    defaultProps = {
+    static defaultProps = {
         defaultChecked: false,
         onBeforeChange: () => true
     }

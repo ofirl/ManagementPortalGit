@@ -80,9 +80,10 @@ class MenuElement extends Component {
         }
         else {
             attr['to'] = `/${linkHref}`;
+            attr['title'] = 'test'
 
             navLink = (
-                <Link className="nav-link" {...attr}>
+                <Link className="nav-link" {...attr} onClick={this.props.onRedirect}>
                     {icon} {this.props.text}
                     {badge}
                 </Link>
@@ -130,7 +131,9 @@ class Menu extends Component {
             badge: PropTypes.string,
             badgeText: PropTypes.string,
             children: PropTypes.arrayOf(PropTypes.object)
-        }))
+        })),
+        /** callback fired when clicking on a menu link (redirecting to a diffrent page) */
+        onRedirect: PropTypes.func
     }
     static defaultProps = {
         show: false,
@@ -176,13 +179,21 @@ class Menu extends Component {
         if (this.props.items !== undefined) {
             let that = this;
             listItems = this.props.items.map(function (item) {
-                let elementProps = {};
+                let elementProps = {
+                    key: item.name,
+                    text: item.name,
+                    icon: item.featherIcon,
+                    href: item.href,
+                    badge: item.badge,
+                    badgeText: item.badgeText,
+                    onRedirect: that.props.onRedirect
+                };
                 if (item.children !== undefined) {
                     elementProps['children'] = item.children;
                 }
 
                 return (
-                    <MenuElement key={item.name} text={item.name} icon={item.featherIcon} href={item.href} badge={item.badge} badgeText={item.badgeText} {...elementProps} />
+                    <MenuElement {...elementProps} />
                 );
             })
         };

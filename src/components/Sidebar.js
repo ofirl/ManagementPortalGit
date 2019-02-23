@@ -23,6 +23,7 @@ class Sidebar extends Component {
         }
     }
     toggleTopMenuCollapse() {
+        console.log('toggle');
         this.setState({
             topMenuIn: !this.state.topMenuIn
         });
@@ -60,7 +61,7 @@ class Sidebar extends Component {
                         {/* Collapse */}
                         <div className="collapse navbar-collapse" id="sidebarCollapse">
                             {/* Navigation */}
-                            <Menu show={true} name={'mainMenu'} main={true} items={
+                            <Menu show={true} name={'mainMenu'} main={true} onRedirect={this.toggleTopMenuCollapse} items={
                                 [
                                     {
                                         name: 'Dashboards',
