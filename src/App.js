@@ -22,6 +22,7 @@ import './Utility.css';
 import Settings from './components/pages/Settings';
 import Logout from './components/pages/Logout';
 import Profile from './components/pages/Profile';
+import ScriptInput from './components/pages/ScriptInput';
 
 // import './assets/libs/jquery/dist/jquery.min.js';
 // import './assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -78,10 +79,7 @@ class App extends Component {
               <Route path="/logout" component={Logout} />
               <Route path="/profile" component={Profile} />
               {/* script pages */}
-              <Route path="/script-input/:id" render={(props) => {
-                console.log(props);
-                return (<div> test - {props.match.params.id} </div>)
-              }} />
+              <Route path="/script-input/:id" component={ScriptInput} />
               {/* 404 - not found */}
               <Route render={() => (<div> no match - 404 </div>)} />
             </Switch>

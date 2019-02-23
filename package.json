@@ -36,5 +36,6 @@
     "docz-theme-bone": "^0.11.3",
     "docz-theme-default": "^0.13.7",
     "webpack": "^4.29.3"
-  }
+  },
+  "homepage": "file:///E:/ManagementPortal/management-portal/build"
 }
