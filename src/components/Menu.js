@@ -189,7 +189,7 @@ class Menu extends Component {
 
         return (
             <ul className={menuClass} ref={this.myRef}>
-                <Collapse in={this.state.show} timeout={5000}>
+                <Collapse in={this.state.show} timeout={350}>
                     <div>
                         {listItems}
                     </div>
