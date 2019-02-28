@@ -11,7 +11,7 @@ import Form from 'react-bootstrap/Form';
 
 import Toggle from '../Toggle';
 import PageHeader from '../PageHeader';
-import Table from '../Table';
+import Table, { TableCard } from '../Table';
 
 class ScriptInput extends Component {
     render() {
@@ -33,40 +33,38 @@ class ScriptInput extends Component {
 
                 <div className="container-fluid">
                     <div className="row">
-                        {/* <Toggle /> */}
-                        <Card>
-                            <Card.Header>
-                                <Card.Title>
-                                    Table Title
-                                </Card.Title>
-                            </Card.Header>
-                            {/* <Card.Body> */}
-                            <Table nowrap columns={[
-                                {
-                                    name: 'test',
-                                    accessor: 'test'
-                                }, 
-                                {
-                                    name: 'test2',
-                                    accessor: 'test2'
-                                }]} 
-                                items={[{
-                                    test: '1',
-                                    test2: '1'
-                                },
-                                {
-                                    test: '2',
-                                    test2: '2'
-                                },
-                                {
-                                    test: '3',
-                                    test2: '3'
-                                }
-                                ]}>
+                        <TableCard title="Input" nowrap searchable columns={[
+                            {
+                                name: 'test',
+                                accessor: 'test'
+                            },
+                            {
+                                name: 'test2',
+                                accessor: 'test2'
+                            }]}
+                            items={[{
+                                test: '1',
+                                test2: 'a'
+                            },
+                            {
+                                test: '2',
+                                test2: 'c'
+                            },
+                            {
+                                test: '3',
+                                test2: 'b'
+                            },
+                            {
+                                test: '33',
+                                test2: 'bb'
+                            },
+                            {
+                                test: '34',
+                                test2: 'bc'
+                            }
+                            ]}>
 
-                            </Table>
-                            {/* </Card.Body> */}
-                        </Card>
+                        </TableCard>
                     </div>
                 </div>
             </div >

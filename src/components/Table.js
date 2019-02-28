@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 import './Table.css';
 
+import Card from 'react-bootstrap/Card';
+import Input from './Input';
+
 function naturalSort(a, b) {
     function chunkify(t) {
         let tz = [], x = 0, y = -1, n = 0, i, j;
@@ -32,6 +35,41 @@ function naturalSort(a, b) {
     return aa.length - bb.length;
 }
 
+let tablePropTypes = {
+    innerCellAs: PropTypes.any,
+    /** table columns */
+    columns: PropTypes.arrayOf(PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        accessor: PropTypes.string.isRequired,
+        sortable: PropTypes.bool
+    })).isRequired,
+    /** table items */
+    items: PropTypes.arrayOf(PropTypes.object).isRequired,
+    /** table size control */
+    size: PropTypes.oneOf(['sm']),
+    /** nowrap control */
+    nowrap: PropTypes.bool,
+    /** table filter */
+    filter: PropTypes.arrayOf(
+        PropTypes.oneOfType([
+            PropTypes.func,
+            PropTypes.shape({
+                column: PropTypes.string,
+                value: PropTypes.string
+            })
+        ])),
+    /** table sort control */
+    sort: PropTypes.shape({
+        column: PropTypes.string,
+        order: PropTypes.oneOf(['asc', 'des'])
+    })
+}
+
+let tableDefaultProps = {
+    items: [],
+    nowrap: false
+}
+
 class Table extends Component {
     constructor(props) {
         super(props);
@@ -40,6 +78,8 @@ class Table extends Component {
         this.addFilter = this.addFilter.bind(this);
         this.applySort = this.applySort.bind(this);
         this.sortItems = this.sortItems.bind(this);
+        this.applyFilter = this.applyFilter.bind(this);
+        this.filterItems = this.filterItems.bind(this);
 
         this.state = {
             items: props.items,
@@ -47,38 +87,18 @@ class Table extends Component {
             sort: null
         }
     }
-    static propTypes = {
-        columns: PropTypes.arrayOf(PropTypes.shape({
-            name: PropTypes.string.isRequired,
-            accessor: PropTypes.string.isRequired,
-            sortable: PropTypes.bool
-        })).isRequired,
-        items: PropTypes.arrayOf(PropTypes.object).isRequired,
-        size: PropTypes.oneOf(['sm']),
-        nowrap: PropTypes.bool,
-        searchable: PropTypes.bool,
-        filter: PropTypes.oneOfType([
-            PropTypes.func,
-            PropTypes.shape({
-                column: PropTypes.string,
-                value: PropTypes.string
-            })
-        ]),
-        sort: PropTypes.shape({
-            column: PropTypes.string,
-            order: PropTypes.oneOf(['asc', 'des'])
-        })
-    }
-    static defaultProps = {
-        items: [],
-        nowrap: false,
-        searchable: false
-    }
+    static propTypes = tablePropTypes
+    static defaultProps = tableDefaultProps
 
     componentWillReceiveProps(nextProps, nextContext) {
-        let { nextFilter } = nextProps;
-        if (nextFilter)
-            this.setState({ filter: nextFilter });
+        let { filter, sort } = nextProps;
+        let nextState = {};
+        if (filter)
+            nextState.filter = filter;
+        if (sort)
+            nextState.sort = sort;
+
+        this.setState(nextState);
     }
     setFilter(filter) {
         this.setState({ filter: filter });
@@ -92,8 +112,7 @@ class Table extends Component {
                 order = this.state.sort.order == 'asc' ? 'des' : 'asc';
             else
                 order = 'asc';
-        }  
-            
+        }
 
         let sortObj = {
             column: column,
@@ -107,10 +126,13 @@ class Table extends Component {
             // items: sortedItems
         });
     }
-    sortItems(sortObj) {
+    sortItems(items, sortObj) {
+        if (items == null)
+            items = this.state.items;
+
         if (sortObj == null) {
             if (this.state.sort == null)
-                return this.state.items;
+                return items;
             else
                 sortObj = this.state.sort;
         }
@@ -121,7 +143,7 @@ class Table extends Component {
         console.log(sortObj);
 
         let { column, order } = sortObj;
-        let sortedItems = this.state.items.sort((a, b) => {
+        let sortedItems = items.sort((a, b) => {
             console.log(`sorting ${a[column]} and ${b[column]}`);
             return naturalSort(a[column], b[column]);
         });
@@ -135,13 +157,48 @@ class Table extends Component {
         //     items: sortedItems
         // });
     }
+    applyFilter(filter) {
+        this.setState({ filter: filter });
+    }
+    filterItems(items, filterObj) {
+        if (items == null)
+            items = this.state.items;
+
+        if (filterObj == null) {
+            if (this.state.filter == null)
+                return items;
+            else
+                filterObj = this.state.filter;
+        }
+
+        if (filterObj.length == 0)
+            return items;
+
+        if (filterObj[0] == null)
+            filterObj = [filterObj];
+
+        let filteredItems = items;
+        filterObj.forEach(filter => {
+            if (filter.value != null) {
+                if (filter.column)
+                    filteredItems = filteredItems.filter((i) => i[filter.column] == filter.value);
+                else
+                    filteredItems = filteredItems.filter((i) => Object.values(i).some((val) => val.match(new RegExp(filter.value))));
+            }
+            else
+                filteredItems = filteredItems.filter(filter);
+        });
+
+        return filteredItems;
+    }
 
     render() {
         let that = this;
 
         let { columns, size, nowrap } = this.props;
         let { items } = this.state;
-        items = this.sortItems();
+        items = this.filterItems(items);
+        items = this.sortItems(items);
 
         console.log(items);
 
@@ -188,4 +245,67 @@ class Table extends Component {
     }
 }
 
+class TableCard extends Component {
+    constructor(props) {
+        super(props);
+
+        this.applyOmniFilter = this.applyOmniFilter.bind(this);
+
+        this.state = {
+            omniFilter: null
+        }
+    }
+    static propTypes = {
+        ...tablePropTypes,
+        /** searchanble modifier */
+        searchable: PropTypes.bool,
+        /** table title */
+        title: PropTypes.string
+    }
+    static defaultProps = {
+        ...tableDefaultProps,
+        searchable: false
+    }
+
+    applyOmniFilter(value) {
+        if (value == '')
+            this.setState({ omniFilter: null });
+        else
+            this.setState({ omniFilter: value });
+    }
+
+    render() {
+        let { columns, items, size, nowrap, filter, sort, title, searchable } = this.props;
+
+        let tableFilter = [];
+        if (this.state.omniFilter != null)
+            tableFilter.push({ value: this.state.omniFilter });
+
+        return (
+            <Card>
+                <Card.Header className="pb-1 pl-4">
+                    <Card.Title className="mb-0">
+                        <div className="row" style={{ alignItems: 'center' }}>
+                            <div className="col align-middle">
+                                {title}
+                            </div>
+                            {
+                                searchable ?
+                                    (
+                                        <div className="col-auto">
+                                            <Input className="col-auto" icon="search" placeholder="Search" onInput={this.applyOmniFilter} prepend flush />
+                                        </div>
+                                    )
+                                    : null
+                            }
+                        </div>
+                    </Card.Title>
+                </Card.Header>
+                <Table nowrap={nowrap} columns={columns} items={items} filter={tableFilter} />
+            </Card>
+        );
+    }
+}
+
 export default Table;
+export { TableCard };
