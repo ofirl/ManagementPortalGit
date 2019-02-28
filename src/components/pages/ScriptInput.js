@@ -33,32 +33,38 @@ class ScriptInput extends Component {
 
                 <div className="container-fluid">
                     <div className="row">
-                        <TableCard title="Input" nowrap searchable columns={[
+                        <TableCard title="Input" nowrap editable searchable columns={[
                             {
                                 name: 'test',
                                 accessor: 'test'
                             },
                             {
                                 name: 'test2',
-                                accessor: 'test2'
+                                accessor: 'test2',
+                                readonly: true
                             }]}
                             items={[{
+                                id: 1,
                                 test: '1',
                                 test2: 'a'
                             },
                             {
+                                id: 2,
                                 test: '2',
                                 test2: 'c'
                             },
                             {
+                                id: 3,
                                 test: '3',
                                 test2: 'b'
                             },
                             {
+                                id: 4,
                                 test: '33',
                                 test2: 'bb'
                             },
                             {
+                                id: 5,
                                 test: '34',
                                 test2: 'bc'
                             }

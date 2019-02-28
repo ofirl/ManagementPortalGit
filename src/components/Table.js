@@ -36,12 +36,19 @@ function naturalSort(a, b) {
 }
 
 let tablePropTypes = {
-    innerCellAs: PropTypes.any,
+    /** inner cell element */
+    // innerCellAs: PropTypes.any,
+    /** talbe is editable */
+    editable: PropTypes.bool,
+    /** class for the table */
+    className: PropTypes.string,
     /** table columns */
     columns: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string.isRequired,
         accessor: PropTypes.string.isRequired,
-        sortable: PropTypes.bool
+        sortable: PropTypes.bool,
+        /** readonly column */
+        readonly: PropTypes.bool
     })).isRequired,
     /** table items */
     items: PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -80,6 +87,7 @@ class Table extends Component {
         this.sortItems = this.sortItems.bind(this);
         this.applyFilter = this.applyFilter.bind(this);
         this.filterItems = this.filterItems.bind(this);
+        this.updateItem = this.updateItem.bind(this);
 
         this.state = {
             items: props.items,
@@ -191,11 +199,23 @@ class Table extends Component {
 
         return filteredItems;
     }
+    updateItem(itemId, column, newValue) {
+        let itemIdx = this.state.items.findIndex((i) => i.id == itemId);
+        if (itemIdx == -1) {
+            console.log('Item ID could not be found, exiting...');
+            return;
+        }
+
+        let updatedItems = this.state.items;
+        updatedItems[itemIdx][column] = newValue;
+
+        this.setState({ items: updatedItems });
+    }
 
     render() {
         let that = this;
 
-        let { columns, size, nowrap } = this.props;
+        let { className, columns, size, nowrap, editable } = this.props;
         let { items } = this.state;
         items = this.filterItems(items);
         items = this.sortItems(items);
@@ -203,7 +223,7 @@ class Table extends Component {
         console.log(items);
 
         return (
-            <table className={`table ${size ? 'table-' + size : ''} ${nowrap ? 'table-nowrap' : ''} card-table`}>
+            <table className={`table ${size ? 'table-' + size : ''} ${nowrap ? 'table-nowrap' : ''} card-table ${className}`}>
                 <thead>
                     <tr>
                         {
@@ -225,12 +245,25 @@ class Table extends Component {
                 </thead>
                 <tbody>
                     {
-                        items.reduce(function (acc, currentItem, idx, array) {
+                        items.reduce(function (acc, currentItem, rowIdx, array) {
                             acc.push((
-                                <tr key={idx}>
+                                <tr key={rowIdx}>
                                     {
-                                        columns.reduce(function (acc, current, idx, array) {
-                                            acc.push((<td key={idx}> {currentItem[current.accessor]} </td>));
+                                        columns.reduce(function (acc, current, colIdx, array) {
+                                            acc.push(
+                                                (
+                                                    <td key={colIdx} className="align-middle">
+                                                        {
+                                                            editable && current.readonly != true ?
+                                                                (
+                                                                    <Input defaultValue={currentItem[current.accessor]} flush onInput={(val) => that.updateItem(currentItem.id, current.accessor, val)} />
+                                                                )
+                                                                :
+                                                                currentItem[current.accessor]
+                                                        }
+                                                    </td>
+                                                )
+                                            );
                                             return acc;
                                         }, [])
                                     }
@@ -275,7 +308,7 @@ class TableCard extends Component {
     }
 
     render() {
-        let { columns, items, size, nowrap, filter, sort, title, searchable } = this.props;
+        let { columns, items, size, nowrap, filter, sort, editable, title, searchable } = this.props;
 
         let tableFilter = [];
         if (this.state.omniFilter != null)
@@ -301,7 +334,7 @@ class TableCard extends Component {
                         </div>
                     </Card.Title>
                 </Card.Header>
-                <Table nowrap={nowrap} columns={columns} items={items} filter={tableFilter} />
+                <Table nowrap={nowrap} columns={columns} items={items} filter={tableFilter} editable />
             </Card>
         );
     }

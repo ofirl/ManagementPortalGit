@@ -16,8 +16,6 @@ class Input extends Component {
         prepend: PropTypes.bool,
         /** flush input */
         flush: PropTypes.bool,
-        /** input place holder */
-        placeholder: PropTypes.string,
         /** callback fired when onInput is called */
         onInput: PropTypes.func
     }
@@ -34,18 +32,19 @@ class Input extends Component {
     }
 
     render() {
+        let { icon, prepend, flush, onInput, className, ...others} = this.props;
         let inputIconClass = '';
-        if (this.props.icon != null)
-            inputIconClass = this.props.prepend ? 'form-control-prepended' : 'form-control-appended';
+        if (icon != null)
+            inputIconClass = prepend ? 'form-control-prepended' : 'form-control-appended';
 
         return (
             <div className="input-group input-group-merge">
-                <input type="text" className={`form-control ${inputIconClass} ${this.props.flush ? 'form-control-flush' : null}`} placeholder={`${this.props.placeholder}`} onInput={this.onInput} />
+                <input type="text" className={`form-control ${inputIconClass} ${this.props.flush ? 'form-control-flush' : null} ${className}`} placeholder={`${this.props.placeholder}`} onInput={this.onInput} {...others} />
                 {
-                    this.props.icon != null ? (
-                        <div className={`input-group-${this.props.prepend ? 'prepend' : 'append'}`}>
-                            <div className={`input-group-text ${this.props.flush ? 'form-control-flush' : null}`}>
-                                <span className={`fe fe-${this.props.icon}`}></span>
+                    icon != null ? (
+                        <div className={`input-group-${prepend ? 'prepend' : 'append'}`}>
+                            <div className={`input-group-text ${flush ? 'form-control-flush' : null}`}>
+                                <span className={`fe fe-${icon}`}></span>
                             </div>
                         </div>
                     ) : null
