@@ -69,7 +69,20 @@ class ScriptInput extends Component {
                                 test2: 'bc'
                             }
                             ]}>
-
+                            {/* <TableCard.HeaderButtons>
+                                {
+                                    React.cloneElement( (props) => (
+                                        <div onClick={function () { console.log(this.props) }}>
+                                            test
+                                        </div>
+                                    ), {} )
+                                }
+                            </TableCard.HeaderButtons> */}
+                            {/* <TableCard.RowButtons>
+                                <div>
+                                    test
+                                </div>
+                            </TableCard.RowButtons> */}
                         </TableCard>
                     </div>
                 </div>

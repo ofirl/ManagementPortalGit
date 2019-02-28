@@ -94,6 +94,11 @@ class Table extends Component {
             filter: null,
             sort: null
         }
+
+        console.log(props);
+        console.log(this);
+
+        this.instance = this;
     }
     static propTypes = tablePropTypes
     static defaultProps = tableDefaultProps
@@ -191,7 +196,7 @@ class Table extends Component {
                 if (filter.column)
                     filteredItems = filteredItems.filter((i) => i[filter.column] == filter.value);
                 else
-                    filteredItems = filteredItems.filter((i) => Object.values(i).some((val) => val.match(new RegExp(filter.value))));
+                    filteredItems = filteredItems.filter((i) => Object.values(i).some((val, idx) => idx != 0 && val.toString().match(new RegExp(filter.value))));
             }
             else
                 filteredItems = filteredItems.filter(filter);
@@ -279,6 +284,25 @@ class Table extends Component {
 }
 
 class TableCard extends Component {
+    static HeaderButtons = class HeaderButtons extends Component {
+        render() {
+            let { children, relatedTable } = this.props;
+
+            if (children.length == null)
+                children = [children];
+
+            // children.map( (c) => React.cloneElement(c, {
+            //     table: relatedTable
+            // }));
+            return children;
+        }
+    }
+    static RowButtons = class RowButtons extends Component {
+        render() {
+            return this.props.children;
+        }
+    }
+
     constructor(props) {
         super(props);
 
@@ -308,11 +332,17 @@ class TableCard extends Component {
     }
 
     render() {
-        let { columns, items, size, nowrap, filter, sort, editable, title, searchable } = this.props;
+        let { columns, items, size, nowrap, filter, sort, editable, title, searchable, children } = this.props;
 
         let tableFilter = [];
         if (this.state.omniFilter != null)
             tableFilter.push({ value: this.state.omniFilter });
+
+        // if (children.length == null)
+        //     children = [children];
+
+        // let headerButtons = children.find((c) => c.type.name == "HeaderButtons");
+        // let rowButtons = children.find((c) => c.type.name == "RowButtons");
 
         return (
             <Card>
@@ -331,10 +361,19 @@ class TableCard extends Component {
                                     )
                                     : null
                             }
+                            {
+                                // headerButtons != null ?
+                                //     React.cloneElement(headerButtons, { relatedTable: this})
+                                //     : null
+                            }
                         </div>
                     </Card.Title>
                 </Card.Header>
-                <Table nowrap={nowrap} columns={columns} items={items} filter={tableFilter} editable />
+                    <Table nowrap={nowrap} columns={columns} items={items} filter={tableFilter} editable />
+                {/* {
+                    React.forwardRef( (props, ref) => (<Table nowrap={nowrap} columns={columns} items={items} filter={tableFilter} instance={ref} editable />)).render()
+                } */}
+                {/* <Table nowrap={nowrap} columns={columns} items={items} filter={tableFilter} instance={this.tableInstance} editable /> */}
             </Card>
         );
     }
