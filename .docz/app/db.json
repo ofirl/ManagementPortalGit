@@ -128,6 +128,33 @@
           "value": "Example"
         }
       ]
+    },
+    "src/components/PageHeader.mdx": {
+      "name": "Page Header",
+      "menu": "Components",
+      "route": "/components/pageheader",
+      "id": "45dfd7cf93b7f41ad67381d8d0031ccb",
+      "filepath": "src/components/PageHeader.mdx",
+      "link": null,
+      "slug": "src-components-page-header",
+      "order": 0,
+      "headings": [
+        {
+          "depth": 1,
+          "slug": "page-header",
+          "value": "Page Header"
+        },
+        {
+          "depth": 2,
+          "slug": "properties",
+          "value": "Properties"
+        },
+        {
+          "depth": 2,
+          "slug": "example",
+          "value": "Example"
+        }
+      ]
     }
   }
 }

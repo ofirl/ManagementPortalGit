@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import memoizeOne from "memoize-one";
+
 import './Table.css';
 
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 import Input from './Input';
 
 function naturalSort(a, b) {
@@ -50,7 +53,7 @@ let tablePropTypes = {
         /** readonly column */
         readonly: PropTypes.bool
     })).isRequired,
-    /** table items */
+    /** table items, items must have 'id' attribute to ditinguish between them */
     items: PropTypes.arrayOf(PropTypes.object).isRequired,
     /** table size control */
     size: PropTypes.oneOf(['sm']),
@@ -69,12 +72,15 @@ let tablePropTypes = {
     sort: PropTypes.shape({
         column: PropTypes.string,
         order: PropTypes.oneOf(['asc', 'des'])
-    })
+    }),
+    /** callback fired when item is updated */
+    onItemUpdate: PropTypes.func
 }
 
 let tableDefaultProps = {
     items: [],
-    nowrap: false
+    nowrap: false,
+    editable: false
 }
 
 class Table extends Component {
@@ -94,24 +100,25 @@ class Table extends Component {
             filter: null,
             sort: null
         }
-
-        console.log(props);
-        console.log(this);
-
-        this.instance = this;
     }
     static propTypes = tablePropTypes
     static defaultProps = tableDefaultProps
 
     componentWillReceiveProps(nextProps, nextContext) {
-        let { filter, sort } = nextProps;
-        let nextState = {};
-        if (filter)
-            nextState.filter = filter;
-        if (sort)
-            nextState.sort = sort;
+        // let { filter, sort, items } = nextProps;
+        // let nextState = {};
+        // if (filter != null)
+        //     nextState.filter = filter;
+        // if (sort != null)
+        //     nextState.sort = sort;
+        //     debugger;
+        // if (items != null)
+        //     nextState.items = items;
 
-        this.setState(nextState);
+        // this.setState(nextState);
+    }
+    componentDidUpdate() {
+        console.log(this.props);
     }
     setFilter(filter) {
         this.setState({ filter: filter });
@@ -149,11 +156,6 @@ class Table extends Component {
             else
                 sortObj = this.state.sort;
         }
-        // sortObj = this.state.sort;
-        // if (sortObj == null)
-        //     return this.state.items;
-
-        console.log(sortObj);
 
         let { column, order } = sortObj;
         let sortedItems = items.sort((a, b) => {
@@ -165,10 +167,6 @@ class Table extends Component {
             sortedItems.reverse();
 
         return sortedItems;
-
-        // this.setState({
-        //     items: sortedItems
-        // });
     }
     applyFilter(filter) {
         this.setState({ filter: filter });
@@ -195,8 +193,15 @@ class Table extends Component {
             if (filter.value != null) {
                 if (filter.column)
                     filteredItems = filteredItems.filter((i) => i[filter.column] == filter.value);
-                else
-                    filteredItems = filteredItems.filter((i) => Object.keys(i).some((key, idx) => key != 'id' && i[key].toString().match(new RegExp(filter.value))));
+                else {
+                    try {
+                        filteredItems = filteredItems.filter((i) => Object.keys(i).some((key, idx) => key != 'id' && i[key].toString().match(new RegExp(filter.value))));
+                    }
+                    catch (e) {
+                        // TODO : make a visible error
+                        console.warn('bad reg exp');
+                    }
+                }
             }
             else
                 filteredItems = filteredItems.filter(filter);
@@ -213,6 +218,12 @@ class Table extends Component {
 
         let updatedItems = this.state.items;
         updatedItems[itemIdx][column] = newValue;
+
+        if (this.props.onItemUpdate) {
+            let callbackItems = this.props.onItemUpdate(itemId, updatedItems);
+            if (callbackItems != null)
+                updatedItems = callbackItems;
+        }
 
         this.setState({ items: updatedItems });
     }
@@ -261,7 +272,7 @@ class Table extends Component {
                                                         {
                                                             editable && current.readonly != true ?
                                                                 (
-                                                                    <Input value={currentItem[current.accessor]} flush onInput={(val) => that.updateItem(currentItem.id, current.accessor, val)} />
+                                                                    <Input size={size} value={currentItem[current.accessor]} flush onInput={(val) => that.updateItem(currentItem.id, current.accessor, val)} />
                                                                 )
                                                                 :
                                                                 currentItem[current.accessor]
@@ -284,31 +295,16 @@ class Table extends Component {
 }
 
 class TableCard extends Component {
-    static HeaderButtons = class HeaderButtons extends Component {
-        render() {
-            let { children, relatedTable } = this.props;
-
-            if (children.length == null)
-                children = [children];
-
-            // children.map( (c) => React.cloneElement(c, {
-            //     table: relatedTable
-            // }));
-            return children;
-        }
-    }
-    static RowButtons = class RowButtons extends Component {
-        render() {
-            return this.props.children;
-        }
-    }
-
     constructor(props) {
         super(props);
 
         this.applyOmniFilter = this.applyOmniFilter.bind(this);
+        this.getNewItemFromTemplate = this.getNewItemFromTemplate.bind(this);
+        this.addNewItem = this.addNewItem.bind(this);
+        this.onItemUpdate = this.onItemUpdate.bind(this);
 
         this.state = {
+            items: props.items,
             omniFilter: null
         }
     }
@@ -317,7 +313,11 @@ class TableCard extends Component {
         /** searchanble modifier */
         searchable: PropTypes.bool,
         /** table title */
-        title: PropTypes.string
+        title: PropTypes.string,
+        /** function to return the template to use when creating new items, usefull for default values on new items */
+        itemTemplate: PropTypes.func,
+        /** header button options */
+        headerButtons: PropTypes.arrayOf(PropTypes.oneOf(['new-row']))
     }
     static defaultProps = {
         ...tableDefaultProps,
@@ -330,11 +330,48 @@ class TableCard extends Component {
         else
             this.setState({ omniFilter: value });
     }
+    getNewItemFromTemplate() {
+        let maxId = Math.max(this.state.items.map((i) => i.id));
+
+        let newItem = {};
+        if (this.props.itemTemplate != null)
+            newItem = this.props.itemTemplate(maxId + 1);
+        else {
+            this.props.columns.forEach(col => {
+                if (col.accessor == 'id')
+                    return;
+
+                newItem[col.accessor] = '';
+            });
+            newItem.id = maxId + 1;
+        }
+
+        return newItem;
+    }
+    addNewItem() {
+        let newItem = this.getNewItemFromTemplate();
+        let updatedItems = [...this.state.items, newItem];
+
+        this.onItemUpdate(newItem.id, updatedItems);
+    }
+    onItemUpdate(itemId, items) {
+        if (this.props.onItemUpdate) {
+            let callbackItems = this.props.onItemUpdate(itemId, items);
+            if (callbackItems != null)
+                items = callbackItems;
+        }
+
+        debugger;
+        this.setState({items: items});
+    }
 
     render() {
-        let { columns, items, size, nowrap, filter, sort, editable, title, searchable, children } = this.props;
+        let { filter, title, searchable, headerButtons, ...others } = this.props;
+        let { items } = this.state;
 
         let tableFilter = [];
+        if (filter != null)
+            tableFilter = tableFilter.concat(filter);
         if (this.state.omniFilter != null)
             tableFilter.push({ value: this.state.omniFilter });
 
@@ -343,6 +380,8 @@ class TableCard extends Component {
 
         // let headerButtons = children.find((c) => c.type.name == "HeaderButtons");
         // let rowButtons = children.find((c) => c.type.name == "RowButtons");
+
+        console.log(items);
 
         return (
             <Card>
@@ -362,18 +401,19 @@ class TableCard extends Component {
                                     : null
                             }
                             {
-                                // headerButtons != null ?
-                                //     React.cloneElement(headerButtons, { relatedTable: this})
-                                //     : null
+                                headerButtons != null ?
+                                    headerButtons.map((button) => {
+                                        if (button == "new-row")
+                                            return (
+                                                <Button key={button} variant="white" size="sm" onClick={this.addNewItem}> New Row </Button>
+                                            );
+                                    })
+                                    : null
                             }
                         </div>
                     </Card.Title>
                 </Card.Header>
-                    <Table nowrap={nowrap} columns={columns} items={items} filter={tableFilter} editable />
-                {/* {
-                    React.forwardRef( (props, ref) => (<Table nowrap={nowrap} columns={columns} items={items} filter={tableFilter} instance={ref} editable />)).render()
-                } */}
-                {/* <Table nowrap={nowrap} columns={columns} items={items} filter={tableFilter} instance={this.tableInstance} editable /> */}
+                <Table tableInstance={this.tableInstance} items={items} filter={tableFilter} {...others} onItemUpdate={this.onItemUpdate} />
             </Card>
         );
     }

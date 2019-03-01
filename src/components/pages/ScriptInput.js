@@ -33,7 +33,7 @@ class ScriptInput extends Component {
 
                 <div className="container-fluid">
                     <div className="row">
-                        <TableCard title="Input" nowrap editable searchable columns={[
+                        <TableCard title="Input" nowrap editable searchable headerButtons={['new-row']} columns={[
                             {
                                 name: 'test',
                                 accessor: 'test'
@@ -61,7 +61,7 @@ class ScriptInput extends Component {
                             {
                                 id: 4,
                                 test: '33',
-                                test2: 'bb'
+                                test2: 'bbbbc'
                             },
                             {
                                 id: 5,

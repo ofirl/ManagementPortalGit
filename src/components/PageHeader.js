@@ -45,6 +45,7 @@ class PageHeader extends Component {
     }
 
     static propTypes = {
+        /** class name */
         className: PropTypes.string
     }
     render() {

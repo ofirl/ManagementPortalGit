@@ -12,6 +12,8 @@ class Input extends Component {
     static propType = {
         /** icon for the input field */
         icon: PropTypes.string,
+        /** size control */
+        size: PropTypes.oneOf(['sm', 'lg']),
         /** icon position */
         prepend: PropTypes.bool,
         /** flush input */
@@ -32,14 +34,14 @@ class Input extends Component {
     }
 
     render() {
-        let { icon, prepend, flush, onInput, className, ...others} = this.props;
+        let { icon, prepend, flush, onInput, className, size, ...others} = this.props;
         let inputIconClass = '';
         if (icon != null)
             inputIconClass = prepend ? 'form-control-prepended' : 'form-control-appended';
 
         return (
             <div className="input-group input-group-merge">
-                <input type="text" className={`form-control ${inputIconClass} ${this.props.flush ? 'form-control-flush' : null} ${className}`} placeholder={`${this.props.placeholder}`} onInput={this.onInput} {...others} />
+                <input type="text" className={`form-control ${inputIconClass} ${flush ? 'form-control-flush' : null} ${size ? `form-control-${size}` : null} ${className}`} placeholder={`${this.props.placeholder}`} onInput={this.onInput} {...others} />
                 {
                     icon != null ? (
                         <div className={`input-group-${prepend ? 'prepend' : 'append'}`}>

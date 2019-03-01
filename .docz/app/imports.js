@@ -7,4 +7,6 @@ export const imports = {
     import(/* webpackPrefetch: true, webpackChunkName: "src-components-icon" */ 'src/components/Icon.mdx'),
   'src/components/Menu.mdx': () =>
     import(/* webpackPrefetch: true, webpackChunkName: "src-components-menu" */ 'src/components/Menu.mdx'),
+  'src/components/PageHeader.mdx': () =>
+    import(/* webpackPrefetch: true, webpackChunkName: "src-components-page-header" */ 'src/components/PageHeader.mdx'),
 }
