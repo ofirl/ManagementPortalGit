@@ -117,8 +117,10 @@ class Table extends Component {
 
         // this.setState(nextState);
     }
-    componentDidUpdate() {
+    componentDidUpdate(oldProps) {
         console.log(this.props);
+        if (oldProps.filter != this.props.filter)
+            this.setFilter(this.props.filter);
     }
     setFilter(filter) {
         this.setState({ filter: filter });
@@ -236,8 +238,6 @@ class Table extends Component {
         items = this.filterItems(items);
         items = this.sortItems(items);
 
-        console.log(items);
-
         return (
             <table className={`table ${size ? 'table-' + size : ''} ${nowrap ? 'table-nowrap' : ''} card-table ${className}`}>
                 <thead>
@@ -307,6 +307,8 @@ class TableCard extends Component {
             items: props.items,
             omniFilter: null
         }
+
+        this.innerTable = React.createRef();
     }
     static propTypes = {
         ...tablePropTypes,
@@ -331,7 +333,7 @@ class TableCard extends Component {
             this.setState({ omniFilter: value });
     }
     getNewItemFromTemplate() {
-        let maxId = Math.max(this.state.items.map((i) => i.id));
+        let maxId = Math.max(...this.state.items.map((i) => i.id));
 
         let newItem = {};
         if (this.props.itemTemplate != null)
@@ -352,7 +354,10 @@ class TableCard extends Component {
         let newItem = this.getNewItemFromTemplate();
         let updatedItems = [...this.state.items, newItem];
 
-        this.onItemUpdate(newItem.id, updatedItems);
+        console.log(this.innerTable.current);
+        this.innerTable.current.setState({items: updatedItems});
+        this.setState({items: updatedItems});
+        // this.onItemUpdate(newItem.id, updatedItems);
     }
     onItemUpdate(itemId, items) {
         if (this.props.onItemUpdate) {
@@ -361,7 +366,6 @@ class TableCard extends Component {
                 items = callbackItems;
         }
 
-        debugger;
         this.setState({items: items});
     }
 
@@ -381,7 +385,9 @@ class TableCard extends Component {
         // let headerButtons = children.find((c) => c.type.name == "HeaderButtons");
         // let rowButtons = children.find((c) => c.type.name == "RowButtons");
 
-        console.log(items);
+        // why the items prop doesnt change???!!!
+        let test = items;
+        console.log(this.state.items);
 
         return (
             <Card>
@@ -413,7 +419,7 @@ class TableCard extends Component {
                         </div>
                     </Card.Title>
                 </Card.Header>
-                <Table tableInstance={this.tableInstance} items={items} filter={tableFilter} {...others} onItemUpdate={this.onItemUpdate} />
+                <Table tableInstance={this.tableInstance} items={this.state.items} filter={tableFilter} {...others} onItemUpdate={this.onItemUpdate} ref={this.innerTable} />
             </Card>
         );
     }
