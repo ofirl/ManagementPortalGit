@@ -196,7 +196,7 @@ class Table extends Component {
                 if (filter.column)
                     filteredItems = filteredItems.filter((i) => i[filter.column] == filter.value);
                 else
-                    filteredItems = filteredItems.filter((i) => Object.values(i).some((val, idx) => idx != 0 && val.toString().match(new RegExp(filter.value))));
+                    filteredItems = filteredItems.filter((i) => Object.keys(i).some((key, idx) => key != 'id' && i[key].toString().match(new RegExp(filter.value))));
             }
             else
                 filteredItems = filteredItems.filter(filter);
@@ -261,7 +261,7 @@ class Table extends Component {
                                                         {
                                                             editable && current.readonly != true ?
                                                                 (
-                                                                    <Input defaultValue={currentItem[current.accessor]} flush onInput={(val) => that.updateItem(currentItem.id, current.accessor, val)} />
+                                                                    <Input value={currentItem[current.accessor]} flush onInput={(val) => that.updateItem(currentItem.id, current.accessor, val)} />
                                                                 )
                                                                 :
                                                                 currentItem[current.accessor]

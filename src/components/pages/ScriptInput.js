@@ -45,7 +45,7 @@ class ScriptInput extends Component {
                             }]}
                             items={[{
                                 id: 1,
-                                test: '1',
+                                test: 'asdasd',
                                 test2: 'a'
                             },
                             {
