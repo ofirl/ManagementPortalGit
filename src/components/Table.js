@@ -8,6 +8,7 @@ import './Table.css';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Input from './Input';
+import Icon from './Icon';
 
 function naturalSort(a, b) {
     function chunkify(t) {
@@ -257,6 +258,13 @@ class Table extends Component {
                                 return acc;
                             }, [])
                         }
+                        {
+                            that.props.rowButtons ?
+                                (
+                                    <th key="rowButtons" className={`text-muted`}> Actions </th>
+                                )
+                                : null
+                        }
                     </tr>
                 </thead>
                 <tbody>
@@ -282,6 +290,26 @@ class Table extends Component {
                                             );
                                             return acc;
                                         }, [])
+                                    }
+                                    {
+                                        that.props.rowButtons ?
+                                            (
+                                                <td key="rowButtons" className="align-middle">
+                                                    {
+                                                        that.props.rowButtons.map((button) => {
+                                                            if (button == 'copy')
+                                                                return (
+                                                                    <Icon type="copy" className="float-right mr-2 ml-2" inline />
+                                                                );
+                                                            else if (button == 'remove')
+                                                                return (
+                                                                    <Icon type="x-circle" className="float-right mr-2 ml-2" inline />
+                                                                );
+                                                        })
+                                                    }
+                                                </td>
+                                            )
+                                            : null
                                     }
                                 </tr>
                             ));
@@ -319,7 +347,9 @@ class TableCard extends Component {
         /** function to return the template to use when creating new items, usefull for default values on new items */
         itemTemplate: PropTypes.func,
         /** header button options */
-        headerButtons: PropTypes.arrayOf(PropTypes.oneOf(['new-row']))
+        headerButtons: PropTypes.arrayOf(PropTypes.oneOf(['new-row'])),
+        /** row button options */
+        rowButtons: PropTypes.arrayOf(PropTypes.oneOf(['copy', 'remove']))
     }
     static defaultProps = {
         ...tableDefaultProps,
@@ -355,8 +385,8 @@ class TableCard extends Component {
         let updatedItems = [...this.state.items, newItem];
 
         console.log(this.innerTable.current);
-        this.innerTable.current.setState({items: updatedItems});
-        this.setState({items: updatedItems});
+        this.innerTable.current.setState({ items: updatedItems });
+        this.setState({ items: updatedItems });
         // this.onItemUpdate(newItem.id, updatedItems);
     }
     onItemUpdate(itemId, items) {
@@ -366,7 +396,7 @@ class TableCard extends Component {
                 items = callbackItems;
         }
 
-        this.setState({items: items});
+        this.setState({ items: items });
     }
 
     render() {
