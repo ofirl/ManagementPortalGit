@@ -7,6 +7,9 @@ import './Table.css';
 
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
+
 import Input from './Input';
 import Icon from './Icon';
 
@@ -126,7 +129,7 @@ class Table extends Component {
         if (oldProps.filter != this.props.filter)
             this.setFilter(this.props.filter);
         if (oldProps.items != this.props.items)
-            this.setState({items: this.props.items});
+            this.setState({ items: this.props.items });
     }
     setFilter(filter) {
         this.setState({ filter: filter });
@@ -232,16 +235,16 @@ class Table extends Component {
         this.setState({ items: updatedItems });
     }
     deleteItem(itemId) {
-        let itemIdx = this.state.items.findIndex( (i) => i.id == itemId);
+        let itemIdx = this.state.items.findIndex((i) => i.id == itemId);
         let updatedItems = this.state.items;
         updatedItems.splice(itemIdx, 1);
 
         updatedItems = this.itemsChanged(itemId, updatedItems);
 
-        this.setState({items: updatedItems});
+        this.setState({ items: updatedItems });
     }
     copyItem(itemId) {
-        let originalItem = this.state.items.find( (i) => i.id == itemId);
+        let originalItem = this.state.items.find((i) => i.id == itemId);
         let newItem = {};
         Object.keys(originalItem).forEach(key => {
             newItem[key] = originalItem[key];
@@ -253,7 +256,7 @@ class Table extends Component {
 
         updatedItems = this.itemsChanged(itemId, updatedItems);
 
-        this.setState({items: updatedItems});
+        this.setState({ items: updatedItems });
     }
     itemsChanged(itemId, items) {
         if (this.props.onItemUpdate) {
@@ -335,11 +338,31 @@ class Table extends Component {
                                                         that.props.rowButtons.map((button) => {
                                                             if (button == 'copy')
                                                                 return (
-                                                                    <Icon type="copy" className="float-right mr-2 ml-2" inline onClick={() => that.copyItem(currentItem.id)} />
+                                                                    <OverlayTrigger
+                                                                        key="copyRowButton"
+                                                                        placement="top"
+                                                                        overlay={
+                                                                            <Tooltip>
+                                                                                Copy row
+                                                                            </Tooltip>
+                                                                        }
+                                                                    >
+                                                                        <Icon key="copyIcon" type="copy" className="float-right mr-2 ml-2" inline onClick={() => that.copyItem(currentItem.id)} />
+                                                                    </OverlayTrigger>
                                                                 );
                                                             else if (button == 'remove')
                                                                 return (
-                                                                    <Icon type="x-circle" className="float-right mr-2 ml-2" inline onClick={() => that.deleteItem(currentItem.id)} />
+                                                                    <OverlayTrigger
+                                                                        key="copyRowButton"
+                                                                        placement="top"
+                                                                        overlay={
+                                                                            <Tooltip>
+                                                                                Remove row
+                                                                            </Tooltip>
+                                                                        }
+                                                                    >
+                                                                        <Icon key="removeIcon" type="x-circle" className="float-right mr-2 ml-2" inline onClick={() => that.deleteItem(currentItem.id)} />
+                                                                    </OverlayTrigger>
                                                                 );
                                                         })
                                                     }
@@ -437,7 +460,7 @@ class TableCard extends Component {
 
     render() {
         let { filter, title, searchable, headerButtons, items, ...others } = this.props;
-        let stateItems  = this.state.items;
+        let stateItems = this.state.items;
 
         let tableFilter = [];
         if (filter != null)
