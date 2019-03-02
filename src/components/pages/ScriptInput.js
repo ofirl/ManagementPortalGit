@@ -40,9 +40,9 @@ class ScriptInput extends Component {
                             {
                                 name: 'test2',
                                 accessor: 'test2',
-                                readonly: true,
-                                type: 'dropdown',
-                                dropValues: [{id: 'test1', text: 'testing 1'}, {id: 'test2', text: 'testing 2'}]
+                                // readonly: true,
+                                type: 'select',
+                                dropValues: [{id: 'test1', value: 'testing 1'}, {id: 'test2', value: 'testing 2'}]
                             }]}
                             items={[{
                                 id: 1,

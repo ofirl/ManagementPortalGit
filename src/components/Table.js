@@ -9,10 +9,12 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 import Input from './Input';
 import Icon from './Icon';
 import Form from 'react-bootstrap/Form';
+import Select from './Select';
 
 function naturalSort(a, b) {
     function chunkify(t) {
@@ -321,18 +323,43 @@ class Table extends Component {
                                     {
                                         columns.reduce(function (acc, current, colIdx, array) {
                                             acc.push(
-                                                (
-                                                    <td key={colIdx} className="align-middle">
-                                                        {
-                                                            editable && current.readonly != true ?
-                                                                (
-                                                                    <Input size={size} value={currentItem[current.accessor]} flush onInput={(val) => that.updateItem(currentItem.id, current.accessor, val)} />
-                                                                )
-                                                                :
-                                                                currentItem[current.accessor]
-                                                        }
-                                                    </td>
-                                                )
+                                                <td key={colIdx} className="align-middle">
+                                                    {
+                                                        (() => {
+                                                            if (editable && current.readonly != true) {
+                                                                if (current.type == null || current.type == "text") {
+                                                                    return <Input size={size} value={currentItem[current.accessor]} 
+                                                                        onInput={(val) => that.updateItem(currentItem.id, current.accessor, val)} />;
+                                                                }
+                                                                else if (current.type == "select") {
+                                                                    return (
+                                                                        <Select>
+
+                                                                        </Select>
+
+                                                                        // <Form>
+                                                                        //     <Form.Control as="select">
+                                                                        //         <option>1</option>
+                                                                        //         <option>2</option>
+                                                                        //         <option>3</option>
+                                                                        //         <option>4</option>
+                                                                        //         <option>5</option>
+                                                                        //     </Form.Control>
+                                                                        // </Form>
+
+                                                                        // <select class="form-control" data-toggle="select" style={{'-webkit-appearance': 'none'}}>
+                                                                        //     <option>My first option</option>
+                                                                        //     <option>Another option</option>
+                                                                        //     <option>Third option is here</option>
+                                                                        // </select>
+                                                                    );
+                                                                }
+                                                            }
+                                                            else
+                                                                return currentItem[current.accessor]
+                                                        })()
+                                                    }
+                                                </td>
                                             );
                                             return acc;
                                         }, [])
@@ -343,34 +370,33 @@ class Table extends Component {
                                                 <td key="rowButtons" className="align-middle">
                                                     {
                                                         that.props.rowButtons.map((button) => {
-                                                            if (button == 'copy')
-                                                                return (
-                                                                    <OverlayTrigger
-                                                                        key={"copyRowButton"}
-                                                                        placement="top"
-                                                                        overlay={
-                                                                            <Tooltip>
-                                                                                Copy row
-                                                                            </Tooltip>
-                                                                        }
-                                                                    >
-                                                                        <Icon key="copyIcon" type="copy" className="float-right mr-2 ml-2" inline onClick={() => that.copyItem(currentItem.id)} />
-                                                                    </OverlayTrigger>
-                                                                );
-                                                            else if (button == 'remove')
-                                                                return (
-                                                                    <OverlayTrigger
-                                                                        key="removeRowButton"
-                                                                        placement="top"
-                                                                        overlay={
-                                                                            <Tooltip>
-                                                                                Remove row
-                                                                            </Tooltip>
-                                                                        }
-                                                                    >
-                                                                        <Icon key="removeIcon" type="x-circle" className="float-right mr-2 ml-2" inline onClick={() => that.deleteItem(currentItem.id)} />
-                                                                    </OverlayTrigger>
-                                                                );
+                                                            let type, callback, tooltip;
+
+                                                            if (button == 'copy') {
+                                                                type = "copy";
+                                                                callback = () => that.copyItem(currentItem.id);
+                                                                tooltip = "Copy Row";
+                                                            }
+                                                            else if (button == 'remove') {
+                                                                type = "x-circle";
+                                                                callback = () => that.deleteItem(currentItem.id);
+                                                                tooltip = "Delete Row";
+                                                            }
+
+                                                            return (
+                                                                <OverlayTrigger
+                                                                    key={`${button}RowButton`}
+                                                                    placement="top"
+                                                                    overlay={
+                                                                        <Tooltip>
+                                                                            {tooltip}
+                                                                        </Tooltip>
+                                                                    }
+                                                                >
+                                                                    <Icon key={`${button}Icon`} type={type} className="float-right mr-2 ml-2" inline
+                                                                        onClick={callback} />
+                                                                </OverlayTrigger>
+                                                            );
                                                         })
                                                     }
                                                 </td>
