@@ -10,16 +10,6 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import './Select.css';
 
 class Select extends Component {
-    static Item = class Item extends Component {
-        render() {
-            return (
-                <li className="select2-results__option">
-                    {this.props.children}
-                </li>
-            );
-        }
-    }
-
     constructor(props) {
         super(props);
 
@@ -48,16 +38,27 @@ class Select extends Component {
                     trigger="focus"
                     overlay={
                         <ListGroup className="select-list">
-                            <ListGroup.Item>Cras justo odio</ListGroup.Item>
+                            {
+                                children.reduce((acc, child, idx) => {
+                                    acc.push((
+                                        <ListGroup.Item className="pointer" key={idx} onClick={() => this.setState({ selected: idx })}>
+                                            {child}
+                                        </ListGroup.Item>
+                                    ));
+
+                                    return acc;
+                                }, [])
+                            }
+                            {/* <ListGroup.Item onClick={() => this.setState({ selected: 1 })}>Cras justo odio</ListGroup.Item>
                             <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
                             <ListGroup.Item>Morbi leo risus</ListGroup.Item>
                             <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-                            <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+                            <ListGroup.Item>Vestibulum at eros</ListGroup.Item> */}
                         </ListGroup>
                     }
                 >
                     <div variant="white" tabIndex="-1" className="input pointer form-control d-flex align-items-center" onClick={this.handleClick}>
-                        Tooltip on
+                        {children[this.state.selected]}
                     </div>
                 </OverlayTrigger>
             </>

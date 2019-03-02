@@ -334,7 +334,8 @@ class Table extends Component {
                                                                 else if (current.type == "select") {
                                                                     return (
                                                                         <Select>
-
+                                                                            <div>test1</div>
+                                                                            <div>test2</div>
                                                                         </Select>
 
                                                                         // <Form>
