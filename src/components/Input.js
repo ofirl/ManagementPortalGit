@@ -3,7 +3,36 @@ import PropTypes from 'prop-types';
 
 import './Input.css';
 
+import Form from 'react-bootstrap/Form';
+
 class Input extends Component {
+    static Feedback = class Feedback extends Component {
+        static propType = {
+            /** feedback type */
+            type: PropTypes.oneOf(['valid', 'invalid']),
+            style: PropTypes.oneOf(['text', 'tooltip']),
+            position: PropTypes.oneOf(['top', 'bottom']),
+            text: PropTypes.string
+        }
+        static defaultProps = {
+            type: 'valid',
+            style: 'text',
+            position: 'top',
+            text: 'Error'
+        }
+        render() {
+            let { type, style, position, text, children } = this.props;
+            
+            return (
+                <Form.Control.Feedback type={type}>
+                    <div className={`feedback-${style}-${position}`}>
+                        {children}
+                    </div>
+                </Form.Control.Feedback>
+            );
+        }
+    }
+
     constructor(props) {
         super(props);
 
@@ -19,7 +48,9 @@ class Input extends Component {
         /** flush input */
         flush: PropTypes.bool,
         /** callback fired when onInput is called */
-        onInput: PropTypes.func
+        onInput: PropTypes.func,
+        /** is valid indicator - control styling */
+        valid: PropTypes.bool
     }
     static defaultProps = {
         prepend: false,
@@ -34,14 +65,19 @@ class Input extends Component {
     }
 
     render() {
-        let { icon, prepend, flush, onInput, className, size, ...others} = this.props;
+        let { icon, prepend, flush, onInput, className, size, valid, ...others } = this.props;
+        let isInvalid = valid == false;
+        let isValid = valid == true;
+
         let inputIconClass = '';
         if (icon != null)
             inputIconClass = prepend ? 'form-control-prepended' : 'form-control-appended';
 
         return (
-            <div className="input-group input-group-merge">
-                <input type="text" className={`form-control ${inputIconClass} ${flush ? 'form-control-flush' : null} ${size ? `form-control-${size}` : null} ${className}`} placeholder={`${this.props.placeholder}`} onInput={this.onInput} {...others} />
+            <div className={`input-group input-group-merge ${isInvalid ? 'is-invalid' : ''} ${isValid ? 'is-valid' : ''}`}>
+                <input type="text" placeholder={`${this.props.placeholder}`} onInput={this.onInput} {...others}
+                    className={`form-control ${inputIconClass} ${flush ? 'form-control-flush' : ''} 
+                    ${size ? `form-control-${size}` : ''} ${isInvalid ? 'is-invalid' : ''} ${isValid ? 'is-valid' : ''} ${className}`} />
                 {
                     icon != null ? (
                         <div className={`input-group-${prepend ? 'prepend' : 'append'}`}>

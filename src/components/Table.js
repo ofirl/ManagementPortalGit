@@ -12,6 +12,7 @@ import Tooltip from 'react-bootstrap/Tooltip';
 
 import Input from './Input';
 import Icon from './Icon';
+import Form from 'react-bootstrap/Form';
 
 function naturalSort(a, b) {
     function chunkify(t) {
@@ -78,7 +79,9 @@ let tablePropTypes = {
         order: PropTypes.oneOf(['asc', 'des'])
     }),
     /** callback fired when item is updated */
-    onItemUpdate: PropTypes.func
+    onItemUpdate: PropTypes.func,
+    /** callback fired when error occured */
+    onError: PropTypes.func
 }
 
 let tableDefaultProps = {
@@ -101,31 +104,20 @@ class Table extends Component {
         this.itemsChanged = this.itemsChanged.bind(this);
         this.deleteItem = this.deleteItem.bind(this);
         this.copyItem = this.copyItem.bind(this);
+        this.setError = this.setError.bind(this);
 
         this.state = {
             items: props.items,
             filter: null,
-            sort: null
+            sort: null,
+            filterError: null
         }
     }
     static propTypes = tablePropTypes
     static defaultProps = tableDefaultProps
 
-    componentWillReceiveProps(nextProps, nextContext) {
-        // let { filter, sort, items } = nextProps;
-        // let nextState = {};
-        // if (filter != null)
-        //     nextState.filter = filter;
-        // if (sort != null)
-        //     nextState.sort = sort;
-        //     debugger;
-        // if (items != null)
-        //     nextState.items = items;
-
-        // this.setState(nextState);
-    }
     componentDidUpdate(oldProps) {
-        console.log(this.props);
+        // console.log(this.props);
         if (oldProps.filter != this.props.filter)
             this.setFilter(this.props.filter);
         if (oldProps.items != this.props.items)
@@ -187,14 +179,18 @@ class Table extends Component {
             items = this.state.items;
 
         if (filterObj == null) {
-            if (this.state.filter == null)
+            if (this.state.filter == null) {
+                this.setError('filterError', null);
                 return items;
+            }
             else
                 filterObj = this.state.filter;
         }
 
-        if (filterObj.length == 0)
+        if (filterObj.length == 0) {
+            this.setError('filterError', null);
             return items;
+        }
 
         if (filterObj[0] == null)
             filterObj = [filterObj];
@@ -207,9 +203,11 @@ class Table extends Component {
                 else {
                     try {
                         filteredItems = filteredItems.filter((i) => Object.keys(i).some((key, idx) => key != 'id' && i[key].toString().match(new RegExp(filter.value))));
+                        this.setError('filterError', null);
                     }
                     catch (e) {
-                        // TODO : make a visible error
+                        this.setError('filterError', 'Bad RegExp');
+
                         console.warn('bad reg exp');
                     }
                 }
@@ -219,6 +217,17 @@ class Table extends Component {
         });
 
         return filteredItems;
+    }
+    setError(type, msg) {
+        if (this.state[type] != msg) {
+            let newState = {};
+            newState[type] = msg;
+
+            setTimeout(() => {
+                this.setState(newState);
+                this.props.onError && this.props.onError(type, msg);
+            }, 1);
+        }
     }
     updateItem(itemId, column, newValue) {
         let itemIdx = this.state.items.findIndex((i) => i.id == itemId);
@@ -275,8 +284,6 @@ class Table extends Component {
         let { items } = this.state;
         items = this.filterItems(items);
         items = this.sortItems(items);
-
-        console.log(items);
 
         return (
             <table className={`table ${size ? 'table-' + size : ''} ${nowrap ? 'table-nowrap' : ''} card-table ${className}`}>
@@ -339,7 +346,7 @@ class Table extends Component {
                                                             if (button == 'copy')
                                                                 return (
                                                                     <OverlayTrigger
-                                                                        key="copyRowButton"
+                                                                        key={"copyRowButton"}
                                                                         placement="top"
                                                                         overlay={
                                                                             <Tooltip>
@@ -353,7 +360,7 @@ class Table extends Component {
                                                             else if (button == 'remove')
                                                                 return (
                                                                     <OverlayTrigger
-                                                                        key="copyRowButton"
+                                                                        key="removeRowButton"
                                                                         placement="top"
                                                                         overlay={
                                                                             <Tooltip>
@@ -389,6 +396,7 @@ class TableCard extends Component {
         this.getNewItemFromTemplate = this.getNewItemFromTemplate.bind(this);
         this.addNewItem = this.addNewItem.bind(this);
         this.onItemUpdate = this.onItemUpdate.bind(this);
+        this.onError = this.onError.bind(this);
 
         this.state = {
             items: props.items,
@@ -457,10 +465,17 @@ class TableCard extends Component {
 
         return items;
     }
+    onError(type, msg) {
+        let newState = {};
+        newState[type] = msg;
+
+        this.setState(newState);
+    }
 
     render() {
         let { filter, title, searchable, headerButtons, items, ...others } = this.props;
         let stateItems = this.state.items;
+        let { filterError } = this.state;
 
         let tableFilter = [];
         if (filter != null)
@@ -480,35 +495,44 @@ class TableCard extends Component {
 
         return (
             <Card>
-                <Card.Header className="pb-1 pl-4">
-                    <Card.Title className="mb-0">
-                        <div className="row" style={{ alignItems: 'center' }}>
-                            <div className="col align-middle">
-                                {title}
+                <Form>
+                    <Card.Header className="pb-1 pl-4">
+                        <Card.Title className="mb-0">
+                            <div className="row" style={{ alignItems: 'center' }}>
+                                <div className="col align-middle">
+                                    {title}
+                                </div>
+                                {
+                                    searchable ?
+                                        (
+                                            <div className="col-auto">
+                                                <Form.Group className="align-middle mb-0">
+                                                    <Form.Control as={Input} className="col-auto" icon="search" placeholder="Search"
+                                                        onInput={this.applyOmniFilter} prepend flush valid={filterError != null ? false : null} />
+                                                    <Input.Feedback type="invalid">
+                                                        {filterError}
+                                                    </Input.Feedback>
+                                                </Form.Group>
+                                            </div>
+                                        )
+                                        : null
+                                }
+                                {
+                                    headerButtons != null ?
+                                        headerButtons.map((button) => {
+                                            if (button == "new-row")
+                                                return (
+                                                    <Button key={button} variant="white" size="sm" onClick={this.addNewItem}> New Row </Button>
+                                                );
+                                        })
+                                        : null
+                                }
                             </div>
-                            {
-                                searchable ?
-                                    (
-                                        <div className="col-auto">
-                                            <Input className="col-auto" icon="search" placeholder="Search" onInput={this.applyOmniFilter} prepend flush />
-                                        </div>
-                                    )
-                                    : null
-                            }
-                            {
-                                headerButtons != null ?
-                                    headerButtons.map((button) => {
-                                        if (button == "new-row")
-                                            return (
-                                                <Button key={button} variant="white" size="sm" onClick={this.addNewItem}> New Row </Button>
-                                            );
-                                    })
-                                    : null
-                            }
-                        </div>
-                    </Card.Title>
-                </Card.Header>
-                <Table tableInstance={this.tableInstance} items={stateItems} filter={tableFilter} {...others} onItemUpdate={this.onItemUpdate} ref={this.innerTable} />
+                        </Card.Title>
+                    </Card.Header>
+                    <Table tableInstance={this.tableInstance} items={stateItems} filter={tableFilter} {...others}
+                        onItemUpdate={this.onItemUpdate} ref={this.innerTable} onError={this.onError} />
+                </Form>
             </Card>
         );
     }

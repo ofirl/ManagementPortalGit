@@ -15,8 +15,7 @@ import Table, { TableCard } from '../Table';
 
 class ScriptInput extends Component {
     render() {
-        console.log(DataManager.getScriptInfoById(4));
-        console.log(DataManager.getScriptInfoById(0));
+        // console.log(DataManager.getScriptInfoById(0));
 
         return (
             <div>
@@ -41,7 +40,9 @@ class ScriptInput extends Component {
                             {
                                 name: 'test2',
                                 accessor: 'test2',
-                                readonly: true
+                                readonly: true,
+                                type: 'dropdown',
+                                dropValues: [{id: 'test1', text: 'testing 1'}, {id: 'test2', text: 'testing 2'}]
                             }]}
                             items={[{
                                 id: 1,

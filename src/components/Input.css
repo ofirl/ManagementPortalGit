@@ -1,0 +1,29 @@
+.form-control.is-invalid {
+    border-width: 1px;
+}
+
+.input-group.input-group-merge > .form-control.is-invalid ~ [class*="input-group"] > .input-group-text {
+    border-width: 1px 0px 1px 1px;
+}
+
+.form-control.is-valid {
+    border-width: 1px;
+}
+
+.input-group.input-group-merge > .form-control.is-valid ~ [class*="input-group"] > .input-group-text {
+    border-width: 1px 0px 1px 1px;
+}
+
+.input-group.is-invalid ~ .invalid-feedback {
+    display: block;
+}
+
+.input-group.is-valid ~ .valid-feedback {
+    display: block;
+}
+
+.feedback-text-top {
+    position: absolute;
+    top: -1.5em;
+    left: 3em;
+}
