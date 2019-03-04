@@ -526,7 +526,7 @@ class TableCard extends Component {
                                         (
                                             <div className="col-auto">
                                                 <Form.Group className="align-middle mb-0">
-                                                    <Form.Control as={Input} className="col-auto" icon="search" placeholder="Search"
+                                                    <Form.Control as={Input} className="col-auto" icon="search" placeholder="Search" clearButton
                                                         onInput={this.applyOmniFilter} prepend flush valid={filterError != null ? false : null} />
                                                     <Input.Feedback type="invalid">
                                                         {filterError}
