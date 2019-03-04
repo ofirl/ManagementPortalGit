@@ -328,31 +328,23 @@ class Table extends Component {
                                                         (() => {
                                                             if (editable && current.readonly != true) {
                                                                 if (current.type == null || current.type == "text") {
-                                                                    return <Input size={size} value={currentItem[current.accessor]} 
+                                                                    return <Input size={size} value={currentItem[current.accessor]}
                                                                         onInput={(val) => that.updateItem(currentItem.id, current.accessor, val)} />;
                                                                 }
                                                                 else if (current.type == "select") {
                                                                     return (
-                                                                        <Select>
-                                                                            <div>test1</div>
-                                                                            <div>test2</div>
+                                                                        <Select selectedValue={currentItem[current.accessor]} dropValues={current.dropValues} onChange={(val) => that.updateItem(currentItem.id, current.accessor, val)}>
+                                                                            {/* {
+                                                                                [{
+                                                                                    id: "test1",
+                                                                                    render: <div>test11</div>
+                                                                                },
+                                                                                {
+                                                                                    id: "test2",
+                                                                                    render: <div>test22</div>
+                                                                                }]
+                                                                            } */}
                                                                         </Select>
-
-                                                                        // <Form>
-                                                                        //     <Form.Control as="select">
-                                                                        //         <option>1</option>
-                                                                        //         <option>2</option>
-                                                                        //         <option>3</option>
-                                                                        //         <option>4</option>
-                                                                        //         <option>5</option>
-                                                                        //     </Form.Control>
-                                                                        // </Form>
-
-                                                                        // <select class="form-control" data-toggle="select" style={{'-webkit-appearance': 'none'}}>
-                                                                        //     <option>My first option</option>
-                                                                        //     <option>Another option</option>
-                                                                        //     <option>Third option is here</option>
-                                                                        // </select>
                                                                     );
                                                                 }
                                                             }
