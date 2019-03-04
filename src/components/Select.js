@@ -104,6 +104,7 @@ class Select extends Component {
 
     render() {
         let { dropValues, children } = this.props;
+        let { selectedIndex } = this.state;
 
         let dropItems = this.getSelectItems();
 
@@ -118,7 +119,7 @@ class Select extends Component {
                             {
                                 dropItems.reduce((acc, child, idx) => {
                                     acc.push((
-                                        <ListGroup.Item className="pointer" key={idx} onClick={() => this.handleItemClick(idx, child.id)}>
+                                        <ListGroup.Item className={`pointer select-item ${idx == selectedIndex ? 'selected' : ''}`} key={idx} onClick={() => this.handleItemClick(idx, child.id)}>
                                             {
                                                 child.render ? child.render : child.id
                                             }
