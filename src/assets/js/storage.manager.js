@@ -1,6 +1,9 @@
 var data = {
     scripts: {
         value: []
+    },
+    profiles: {
+        value: []
     }
 }
 
@@ -26,15 +29,54 @@ var testScriptsArray = [
     }
 ];
 
+var testProfilesArray = [
+    {
+        id: 0,
+        firstname: 'ofir',
+        lastname: 'levi',
+        birthday: '24/01/1993',
+        personalization: {
+            logondata: [
+                {
+                    username: 'OFIRL',
+                    system: 'CKD'
+                },
+                {
+                    username: 'OFIRL',
+                    system: 'CKT'
+                },
+                {
+                    username: 'OFIRL',
+                    system: 'CKP'
+                }
+            ]
+        }
+    }
+];
+
 function loadScriptsInfo() {
     if (data.scripts.loaded)
         return data.scripts.value;
 
+    // TODO: load data
     data.scripts.value = testScriptsArray;
+    data.scripts.loaded = true;
 
     return data.scripts.value;
 }
 
+function loadProfileInfo() {
+    if (data.profiles.loaded)
+        return data.profiles.value;
+
+    // TODO: load data
+    data.profiles.value = testProfilesArray;
+    data.profiles.loaded = true;
+
+    return data.profiles.value;
+}
+
 export default class StorageManager {
     static loadScriptsInfo = loadScriptsInfo;
+    static loadProfileInfo = loadProfileInfo;
 }

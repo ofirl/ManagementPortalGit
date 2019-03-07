@@ -517,7 +517,7 @@ class TableCard extends Component {
                 <Form>
                     <Card.Header className="pb-1 pl-4">
                         <Card.Title className="mb-0">
-                            <div className="row" style={{ alignItems: 'center' }}>
+                            <div className="row align-items-center">
                                 <div className="col align-middle">
                                     {title}
                                 </div>

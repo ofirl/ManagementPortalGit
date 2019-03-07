@@ -32,7 +32,19 @@ class ScriptInput extends Component {
 
                 <div className="container-fluid">
                     <div className="row">
-                        <TableCard title="Input" nowrap editable searchable headerButtons={['new-row']} rowButtons={['copy','remove']} columns={[
+                        <Card>
+                            <Card.Header className="pb-1 pl-4">
+                                <Card.Title className="mb-0">
+                                    Logon data :
+                                </Card.Title>
+                            </Card.Header>
+                            <Card.Body>
+                                test
+                            </Card.Body>
+                        </Card>
+                    </div>
+                    <div className="row">
+                        <TableCard title="Input" nowrap editable searchable headerButtons={['new-row']} rowButtons={['copy', 'remove']} columns={[
                             {
                                 name: 'test',
                                 accessor: 'test'

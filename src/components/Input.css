@@ -2,16 +2,24 @@
     border-width: 1px;
 }
 
-.input-group.input-group-merge > .form-control.is-invalid ~ [class*="input-group"] > .input-group-text {
+.input-group.input-group-merge > .form-control.is-invalid ~ [class="input-group-prepend"] > .input-group-text {
     border-width: 1px 0px 1px 1px;
+}
+
+.input-group.input-group-merge > .form-control.is-invalid ~ [class="input-group-append"] > .input-group-text {
+    border-width: 1px 1px 1px 0px;
 }
 
 .form-control.is-valid {
     border-width: 1px;
 }
 
-.input-group.input-group-merge > .form-control.is-valid ~ [class*="input-group"] > .input-group-text {
+.input-group.input-group-merge > .form-control.is-valid ~ [class="input-group-prepend"] > .input-group-text {
     border-width: 1px 0px 1px 1px;
+}
+
+.input-group.input-group-merge > .form-control.is-valid ~ [class="input-group-append"] > .input-group-text {
+    border-width: 1px 1px 1px 0px;
 }
 
 .input-group.is-invalid ~ .invalid-feedback {

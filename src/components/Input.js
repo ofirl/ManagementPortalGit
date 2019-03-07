@@ -82,6 +82,8 @@ class Input extends Component {
         let inputIconClass = '';
         if (icon != null)
             inputIconClass = prepend ? 'form-control-prepended' : 'form-control-appended';
+        if (clearButton)
+            inputIconClass += ' form-control-appended ';
 
         return (
             <div className={`input-group input-group-merge ${isInvalid ? 'is-invalid' : ''} ${isValid ? 'is-valid' : ''}`}>
