@@ -69,11 +69,11 @@ class ScriptInput extends Component {
                                     <Select className="col-4" dropValues={["test1", "test2", "test3"]} />
                                 </div>
                                 <div className="row d-flex align-items-center">
-                                    <label className="col-4"> System : </label>
+                                    <label className="col-4"> Logon system : </label>
                                     <Input className="col-8" />
                                 </div>
                                 <Collapse in={!this.state.collapsed} className="">
-                                    <div className={`row ${this.state.collapsed ? '' : 'd-flex'} align-items-center`}>
+                                    <div className="row align-items-center">
                                         <span className="col-12 pt-4"></span>
                                         <label className="col-4"> Username : </label>
                                         <Input className="col-8" />
