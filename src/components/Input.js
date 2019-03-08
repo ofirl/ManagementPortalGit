@@ -55,7 +55,9 @@ class Input extends Component {
         /** is valid indicator - control styling */
         valid: PropTypes.bool,
         /** clear button will be present */
-        clearButton: PropTypes.bool
+        clearButton: PropTypes.bool,
+        /** input container class */
+        containerClass: PropTypes.string
     }
     static defaultProps = {
         prepend: false,
@@ -71,11 +73,11 @@ class Input extends Component {
     }
     clearInput() {
         this.inputRef.current.value = '';
-        this.onInput({target: this.inputRef.current});
+        this.onInput({ target: this.inputRef.current });
     }
 
     render() {
-        let { icon, prepend, flush, onInput, className, size, valid, clearButton, ...others } = this.props;
+        let { icon, prepend, flush, onInput, className, size, valid, clearButton, containerClass, ...others } = this.props;
         let isInvalid = valid == false;
         let isValid = valid == true;
 
@@ -85,11 +87,19 @@ class Input extends Component {
         if (clearButton)
             inputIconClass += ' form-control-appended ';
 
-        return (
-            <div className={`input-group input-group-merge ${isInvalid ? 'is-invalid' : ''} ${isValid ? 'is-valid' : ''}`}>
-                <input ref={this.inputRef} type="text" placeholder={`${this.props.placeholder}`} onInput={this.onInput} {...others}
-                    className={`form-control ${inputIconClass} ${flush ? 'form-control-flush' : ''} 
+        let inputElement = (
+            <input ref={this.inputRef} type="text" placeholder={`${this.props.placeholder}`} onInput={this.onInput} {...others}
+                className={`form-control ${inputIconClass} ${flush ? 'form-control-flush' : ''} 
                     ${size ? `form-control-${size}` : ''} ${isInvalid ? 'is-invalid' : ''} ${isValid ? 'is-valid' : ''} ${className}`} />
+        );
+
+        if (icon == null && !clearButton) {
+            return inputElement;
+        }
+
+        return (
+            <div className={`input-group input-group-merge ${isInvalid ? 'is-invalid' : ''} ${isValid ? 'is-valid' : ''} ${containerClass}`}>
+                {inputElement}
                 {
                     icon != null ? (
                         <div className={`input-group-${prepend ? 'prepend' : 'append'}`}>

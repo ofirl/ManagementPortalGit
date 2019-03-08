@@ -40,7 +40,9 @@ class Select extends Component {
     static propTypes = {
         /** default item to select */
         defaultItem: PropTypes.number,
+        /** selected value */
         selectedValue: PropTypes.string,
+        /** selected index - will override selected value */
         selectedIndex: PropTypes.number,
         /** callback fires whhne value changes */
         onChange: PropTypes.func,
@@ -70,6 +72,9 @@ class Select extends Component {
             selectedIndex = selectItems.findIndex((i) => i.id == this.props.selectedValue);
             selectedValue = this.props.selectedValue;
         }
+
+        if (selectedValue == null && selectedIndex == null)
+            return;
 
         if (selectedValue != this.state.selectedValue || selectedIndex != this.state.selectedIndex) {
             this.setState({
@@ -103,7 +108,7 @@ class Select extends Component {
     }
 
     render() {
-        let { dropValues, children } = this.props;
+        let { dropValues, children, className, ...others } = this.props;
         let { selectedIndex } = this.state;
 
         let dropItems = this.getSelectItems();
@@ -112,7 +117,7 @@ class Select extends Component {
             <>
                 <OverlayTrigger
                     key={"top"}
-                    placement={"top"}
+                    placement={"bottom"}
                     trigger="focus"
                     overlay={
                         <ListGroup className="select-list">
@@ -132,7 +137,7 @@ class Select extends Component {
                         </ListGroup>
                     }
                 >
-                    <div variant="white" tabIndex="-1" className="input pointer form-control d-flex align-items-center" onClick={this.handleClick}>
+                    <div variant="white" tabIndex="-1" className={`input pointer form-control d-flex align-items-center ${className}`} onClick={this.handleClick} {...others}>
                         {
                             dropItems[this.state.selectedIndex] ? (
                                 dropItems[this.state.selectedIndex].render ?

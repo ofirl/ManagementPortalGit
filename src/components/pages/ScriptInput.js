@@ -8,12 +8,31 @@ import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-ro
 
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
+import Collapse from 'react-bootstrap/Collapse'
 
 import Toggle from '../Toggle';
 import PageHeader from '../PageHeader';
 import Table, { TableCard } from '../Table';
+import Input from '../Input';
+import Select from '../Select';
 
 class ScriptInput extends Component {
+    constructor(props) {
+        super(props);
+
+        this.toggleRef = React.createRef();
+
+        this.toggelCollapse = this.toggelCollapse.bind(this);
+
+        this.state = {
+            collapsed: false
+        }
+    }
+
+    toggelCollapse() {
+        this.setState({ collapsed: !this.state.collapsed });
+    }
+
     render() {
         // console.log(DataManager.getScriptInfoById(0));
 
@@ -32,14 +51,34 @@ class ScriptInput extends Component {
 
                 <div className="container-fluid">
                     <div className="row">
-                        <Card>
-                            <Card.Header className="pb-1 pl-4">
-                                <Card.Title className="mb-0">
-                                    Logon data :
+                        <Card className="col-3">
+                            <Card.Header className="row pb-1 pl-4">
+                                <Card.Title className="mb-0 d-flex align-items-center">
+                                    <div>
+                                        Logon data :
+                                    </div>
+                                    <div className="mr-auto"></div>
+                                    <Toggle onChange={this.toggelCollapse} defaultChecked={true}> New Session </Toggle>
                                 </Card.Title>
                             </Card.Header>
                             <Card.Body>
-                                test
+                                <div className="row pb-4 align-items-center">
+                                    <label className="col-8 mb-0">
+                                        Predefind connections :
+                                    </label>
+                                    <Select className="col-4" dropValues={["test1", "test2", "test3"]} />
+                                </div>
+                                <div className="row d-flex align-items-center">
+                                    <label className="col-4"> System : </label>
+                                    <Input className="col-8" />
+                                </div>
+                                <Collapse in={!this.state.collapsed} className="">
+                                    <div className={`row ${this.state.collapsed ? '' : 'd-flex'} align-items-center`}>
+                                        <span className="col-12 pt-4"></span>
+                                        <label className="col-4"> Username : </label>
+                                        <Input className="col-8" />
+                                    </div>
+                                </Collapse>
                             </Card.Body>
                         </Card>
                     </div>
