@@ -50,7 +50,7 @@
     width: 0;
     height: 0;
     content: "";
-    background-image: url(../assets/img/masks/avatar-status.svg), url(../assets/img/masks/avatar-group.svg), url(../assets/img/masks/avatar-group-hover.svg), url(../assets/img/masks/avatar-group-hover-last.svg)
+    background-image: url(../../assets/img/masks/avatar-status.svg), url(../../assets/img/masks/avatar-group.svg), url(../../assets/img/masks/avatar-group-hover.svg), url(../../assets/img/masks/avatar-group-hover-last.svg)
 }
 
 .avatar-img {
@@ -83,8 +83,8 @@
 
 .avatar-offline .avatar-img,
 .avatar-online .avatar-img {
-    -webkit-mask-image: url(../assets/img/masks/avatar-status.svg);
-    mask-image: url(../assets/img/masks/avatar-status.svg);
+    -webkit-mask-image: url(../../assets/img/masks/avatar-status.svg);
+    mask-image: url(../../assets/img/masks/avatar-status.svg);
     -webkit-mask-size: 100% 100%;
     mask-size: 100% 100%
 }
@@ -183,8 +183,8 @@
 }
 
 .avatar-group .avatar:not(:last-child) {
-    -webkit-mask-image: url(../assets/img/masks/avatar-group.svg);
-    mask-image: url(../assets/img/masks/avatar-group.svg);
+    -webkit-mask-image: url(../../assets/img/masks/avatar-group.svg);
+    mask-image: url(../../assets/img/masks/avatar-group.svg);
     -webkit-mask-size: 100% 100%;
     mask-size: 100% 100%
 }
@@ -196,13 +196,13 @@
 }
 
 .avatar-group .avatar:hover+.avatar {
-    -webkit-mask-image: url(../assets/img/masks/avatar-group-hover.svg);
-    mask-image: url(../assets/img/masks/avatar-group-hover.svg);
+    -webkit-mask-image: url(../../assets/img/masks/avatar-group-hover.svg);
+    mask-image: url(../../assets/img/masks/avatar-group-hover.svg);
     -webkit-mask-size: 100% 100%;
     mask-size: 100% 100%
 }
 
 .avatar-group .avatar:hover+.avatar:last-child {
-    -webkit-mask-image: url(../assets/img/masks/avatar-group-hover-last.svg);
-    mask-image: url(../assets/img/masks/avatar-group-hover-last.svg)
+    -webkit-mask-image: url(../../assets/img/masks/avatar-group-hover-last.svg);
+    mask-image: url(../../assets/img/masks/avatar-group-hover-last.svg)
 }

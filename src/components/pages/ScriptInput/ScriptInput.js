@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './ScriptInput.css';
 
-import DataManager from '../../assets/js/data.manager';
+import DataManager from '../../../assets/js/data.manager';
 
 import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 
@@ -10,11 +10,11 @@ import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Collapse from 'react-bootstrap/Collapse'
 
-import Toggle from '../Toggle';
-import PageHeader from '../PageHeader';
-import Table, { TableCard } from '../Table';
-import Input from '../Input';
-import Select from '../Select';
+import Toggle from '../../Toggle/Toggle';
+import PageHeader from '../../PageHeader/PageHeader';
+import Table, { TableCard } from '../../Table/Table';
+import Input from '../../Input/Input';
+import Select from '../../Select/Select';
 
 class ScriptInput extends Component {
     constructor(props) {

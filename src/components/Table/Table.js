@@ -11,10 +11,10 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import Dropdown from 'react-bootstrap/Dropdown';
 
-import Input from './Input';
-import Icon from './Icon';
+import Input from '../Input/Input';
+import Icon from '../Icon/Icon';
 import Form from 'react-bootstrap/Form';
-import Select from './Select';
+import Select from '../Select/Select';
 
 function naturalSort(a, b) {
     function chunkify(t) {

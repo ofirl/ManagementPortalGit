@@ -8,9 +8,9 @@ import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Collapse from 'react-bootstrap/Collapse';
 
-import Menu, { Heading, Divider } from './Menu';
-import Avatar from './Avatar';
-import Icon from './Icon';
+import Menu, { Heading, Divider } from '../Menu/Menu';
+import Avatar from '../Avatar/Avatar';
+import Icon from '../Icon/Icon';
 
 class Sidebar extends Component {
     constructor(props) {

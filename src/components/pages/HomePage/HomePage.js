@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
-import './Settings.css';
+import './HomePage.css';
 
 import Card from 'react-bootstrap/Card'
 
 import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 
-import PageHeader from '../PageHeader';
+import PageHeader from '../../PageHeader/PageHeader';
 
-class Settings extends Component {
+class HomePage extends Component {
     render() {
         return (
             <div>
@@ -16,19 +16,17 @@ class Settings extends Component {
                     <div className="container-fluid">
                         <PageHeader>
                             <PageHeader.Body>
-                                <PageHeader.Pretitle text="Profile" />
-                                <PageHeader.Title text="Settings" />
+                                <PageHeader.Pretitle text="Overview" />
+                                <PageHeader.Title text="Homepage" />
                             </PageHeader.Body>
                         </PageHeader>
                     </div>
                 </div>
 
-
-
-                <div class="container-fluid">
-                    <div class="row">
+                <div className="container-fluid">
+                    <div className="row">
                         <Card className="col-6">
-                            <Card.Header> Settings </Card.Header>
+                            <Card.Header> HomePage </Card.Header>
                             <Card.Body>
                                 <Card.Text>
                                     text asd asd asd asdas <br />
@@ -38,9 +36,10 @@ class Settings extends Component {
                         </Card>
                     </div>
                 </div>
+
             </div>
         );
     }
 }
 
-export default Settings;
+export default HomePage;

@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
-import './HomePage.css';
+import './Logout.css';
 
 import Card from 'react-bootstrap/Card'
 
+import PageHeader from '../../PageHeader/PageHeader';
+
 import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 
-import PageHeader from '../PageHeader';
-
-class HomePage extends Component {
+class Logout extends Component {
     render() {
         return (
             <div>
@@ -16,17 +16,19 @@ class HomePage extends Component {
                     <div className="container-fluid">
                         <PageHeader>
                             <PageHeader.Body>
-                                <PageHeader.Pretitle text="Overview" />
-                                <PageHeader.Title text="Homepage" />
+                                <PageHeader.Pretitle text="Member" />
+                                <PageHeader.Title text="Ofir Levi" />
                             </PageHeader.Body>
                         </PageHeader>
                     </div>
                 </div>
 
+
+
                 <div className="container-fluid">
                     <div className="row">
                         <Card className="col-6">
-                            <Card.Header> HomePage </Card.Header>
+                            <Card.Header> Logout </Card.Header>
                             <Card.Body>
                                 <Card.Text>
                                     text asd asd asd asdas <br />
@@ -36,10 +38,9 @@ class HomePage extends Component {
                         </Card>
                     </div>
                 </div>
-
             </div>
         );
     }
 }
 
-export default HomePage;
+export default Logout;

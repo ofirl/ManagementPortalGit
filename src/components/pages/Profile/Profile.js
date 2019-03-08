@@ -9,10 +9,10 @@ import Image from 'react-bootstrap/Image';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 
-import Avatar from '../Avatar';
-import PageHeader from '../PageHeader';
-import ProfileSection from './ProfileSection';
-import HistorySection from './HistorySection';
+import Avatar from '../../Avatar/Avatar';
+import PageHeader from '../../PageHeader/PageHeader';
+import ProfileSection from './ProfileSection/ProfileSection';
+import HistorySection from './HistorySection/HistorySection';
 import Nav from 'react-bootstrap/Nav';
 
 class Profile extends Component {

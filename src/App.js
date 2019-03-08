@@ -4,8 +4,8 @@ import './App.css';
 
 import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 
-import Sidebar from './components/Sidebar';
-import HomePage from './components/pages/HomePage'
+import Sidebar from './components/Sidebar/Sidebar';
+import HomePage from './components/pages/HomePage/HomePage'
 
 import './assets/fonts/feather/feather.min.css';
 import './assets/libs/highlight.js/styles/vs2015.css';
@@ -19,10 +19,10 @@ import './assets/css/theme-dark.min.css';
 import './Utility.css';
 
 // pages
-import Settings from './components/pages/Settings';
-import Logout from './components/pages/Logout';
-import Profile from './components/pages/Profile';
-import ScriptInput from './components/pages/ScriptInput';
+import Settings from './components/pages/Settings/Settings';
+import Logout from './components/pages/Logout/Logout';
+import Profile from './components/pages/Profile/Profile';
+import ScriptInput from './components/pages/ScriptInput/ScriptInput';
 
 // import './assets/libs/jquery/dist/jquery.min.js';
 // import './assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js';

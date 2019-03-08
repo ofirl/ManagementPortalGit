@@ -4,7 +4,7 @@ import { runInThisContext } from 'vm';
 
 import Button from 'react-bootstrap/Button';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Input from './Input';
+import Input from '../Input/Input';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 import './Select.css';

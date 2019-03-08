@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-ro
 import Collapse from 'react-bootstrap/Collapse'
 import Badge from 'react-bootstrap/Badge'
 
-import { animateComponent } from './AnimatedComponent';
+import { animateComponent } from '../AnimatedComponent/AnimatedComponent';
 
 import './Menu.css'
 
