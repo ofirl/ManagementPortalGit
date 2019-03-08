@@ -51,7 +51,7 @@ class ScriptInput extends Component {
 
                 <div className="container-fluid">
                     <div className="row">
-                        <Card className="col-3">
+                        <Card className="col-auto">
                             <Card.Header className="row pb-1 pl-4">
                                 <Card.Title className="mb-0 d-flex align-items-center">
                                     <div>
