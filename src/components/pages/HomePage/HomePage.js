@@ -4,7 +4,7 @@ import './HomePage.css';
 
 import Card from 'react-bootstrap/Card'
 
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 
 import PageHeader from '../../PageHeader/PageHeader';
 

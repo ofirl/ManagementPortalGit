@@ -11,17 +11,15 @@ class Input extends Component {
             /** feedback type */
             type: PropTypes.oneOf(['valid', 'invalid']),
             style: PropTypes.oneOf(['text', 'tooltip']),
-            position: PropTypes.oneOf(['top', 'bottom']),
-            text: PropTypes.string
+            position: PropTypes.oneOf(['top', 'bottom'])
         }
         static defaultProps = {
             type: 'valid',
             style: 'text',
             position: 'top',
-            text: 'Error'
         }
         render() {
-            let { type, style, position, text, children } = this.props;
+            let { type, style, position, children } = this.props;
 
             return (
                 <Form.Control.Feedback type={type}>
@@ -38,6 +36,8 @@ class Input extends Component {
 
         this.onInput = this.onInput.bind(this);
         this.clearInput = this.clearInput.bind(this);
+        this.getValue = this.getValue.bind(this);
+        this.setValue = this.setValue.bind(this);
 
         this.inputRef = React.createRef();
     }
@@ -76,10 +76,17 @@ class Input extends Component {
         this.onInput({ target: this.inputRef.current });
     }
 
+    getValue() {
+        return this.inputRef.current.value;
+    }
+    setValue(value) {
+        this.inputRef.current.value = value;
+    }
+
     render() {
         let { icon, prepend, flush, onInput, className, size, valid, clearButton, containerClass, ...others } = this.props;
-        let isInvalid = valid == false;
-        let isValid = valid == true;
+        let isInvalid = valid === false;
+        let isValid = valid === true;
 
         let inputIconClass = '';
         if (icon != null)
@@ -88,7 +95,7 @@ class Input extends Component {
             inputIconClass += ' form-control-appended ';
 
         let inputElement = (
-            <input ref={this.inputRef} type="text" placeholder={`${this.props.placeholder}`} onInput={this.onInput} {...others}
+            <input ref={this.inputRef} type="text" placeholder={`${this.props.placeholder}`} onInput={this.onInput} {...others} onChange={() => {}}
                 className={`form-control ${inputIconClass} ${flush ? 'form-control-flush' : ''} 
                     ${size ? `form-control-${size}` : ''} ${isInvalid ? 'is-invalid' : ''} ${isValid ? 'is-valid' : ''} ${className}`} />
         );

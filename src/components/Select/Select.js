@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { runInThisContext } from 'vm';
 
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Input from '../Input/Input';
+// import Input from '../Input/Input';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 import './Select.css';
@@ -21,14 +20,14 @@ class Select extends Component {
         let selectItems = this.getSelectItems();
 
         let selectedIndex = props.defaultItem;
-        let selectedValue = props.defaultItem == -1 ? null : props.children[props.defaultItem].id;
+        let selectedValue = props.defaultItem === -1 ? null : selectItems[props.defaultItem].id;
 
         if (props.selectedIndex) {
             selectedIndex = props.selectedIndex;
             selectedValue = selectItems[selectedIndex];
         }
         else if (props.selectedValue) {
-            selectedIndex = selectItems.findIndex((i) => i.id == props.selectedValue);
+            selectedIndex = selectItems.findIndex((i) => i.id === props.selectedValue);
             selectedValue = props.selectedValue;
         }
 
@@ -69,14 +68,14 @@ class Select extends Component {
             selectedValue = selectItems[selectedIndex];
         }
         else if (this.props.selectedValue) {
-            selectedIndex = selectItems.findIndex((i) => i.id == this.props.selectedValue);
+            selectedIndex = selectItems.findIndex((i) => i.id === this.props.selectedValue);
             selectedValue = this.props.selectedValue;
         }
 
         if (selectedValue == null && selectedIndex == null)
             return;
 
-        if (selectedValue != this.state.selectedValue || selectedIndex != this.state.selectedIndex) {
+        if (selectedValue !== this.state.selectedValue || selectedIndex !== this.state.selectedIndex) {
             this.setState({
                 selectedIndex: selectedIndex,
                 selectedValue: selectedValue
@@ -87,7 +86,7 @@ class Select extends Component {
     getSelectItems() {
         let { dropValues, children } = this.props;
 
-        if (children != null && (children.length == null || children.length == 0))
+        if (children != null && (children.length == null || children.length === 0))
             children = [children];
 
         let dropItems = dropValues ? dropValues.reduce((acc, val, idx) => {
@@ -104,12 +103,14 @@ class Select extends Component {
             selectedValue: value
         });
 
-        this.props.onChange && this.props.onChange(value);
+        this.props.onChange && this.props.onChange(value, itemId);
     }
 
     render() {
-        let { dropValues, children, className, ...others } = this.props;
-        let { selectedIndex } = this.state;
+        let { dropValues, children, className, selectedValue, selectedIndex, defaultItem, ...others } = this.props;
+        selectedIndex = this.state.selectedIndex;
+        selectedValue = this.state.selectedValue;
+        // let {  } = this.state;
 
         let dropItems = this.getSelectItems();
 
@@ -124,7 +125,7 @@ class Select extends Component {
                             {
                                 dropItems.reduce((acc, child, idx) => {
                                     acc.push((
-                                        <ListGroup.Item className={`pointer select-item ${idx == selectedIndex ? 'selected' : ''}`} key={idx} onClick={() => this.handleItemClick(idx, child.id)}>
+                                        <ListGroup.Item className={`pointer select-item ${idx === selectedIndex ? 'selected' : ''}`} key={idx} onClick={() => this.handleItemClick(idx, child.id)}>
                                             {
                                                 child.render ? child.render : child.id
                                             }

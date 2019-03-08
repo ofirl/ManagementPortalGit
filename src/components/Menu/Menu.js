@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+import { /*BrowserRouter as Router, Route,*/ Link/*, Switch, Redirect*/ } from "react-router-dom";
 
 import Collapse from 'react-bootstrap/Collapse'
 import Badge from 'react-bootstrap/Badge'
@@ -59,7 +59,7 @@ class MenuElement extends Component {
             icon = (<i className={'fe fe-' + this.props.icon}></i>);
         }
 
-        let innerNavLink = [icon, this.props.text, badge];
+        // let innerNavLink = [icon, this.props.text, badge];
 
         let attr = {};
         if (this.props.children != null) {
@@ -173,7 +173,7 @@ class Menu extends Component {
     render() {
         let menuClass = this.props.main ? 'navbar-nav' : 'nav nav-sm flex-column';
 
-        let AnimatedMenuElement = this.animatedItem;
+        // let AnimatedMenuElement = this.animatedItem;
 
         let listItems = [];
         if (this.props.items !== undefined) {

@@ -6,7 +6,7 @@ import Card from 'react-bootstrap/Card'
 
 import PageHeader from '../../PageHeader/PageHeader';
 
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 
 class Logout extends Component {
     render() {

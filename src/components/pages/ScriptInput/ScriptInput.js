@@ -4,52 +4,121 @@ import './ScriptInput.css';
 
 import DataManager from '../../../assets/js/data.manager';
 
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 
 import Card from 'react-bootstrap/Card';
-import Form from 'react-bootstrap/Form';
+// import Form from 'react-bootstrap/Form';
 import Collapse from 'react-bootstrap/Collapse'
 
 import Toggle from '../../Toggle/Toggle';
 import PageHeader from '../../PageHeader/PageHeader';
-import Table, { TableCard } from '../../Table/Table';
+import /*Table,*/ { TableCard } from '../../Table/Table';
 import Input from '../../Input/Input';
 import Select from '../../Select/Select';
 
+import ProfileContext from '../../Context/ProfileContext';
+
 class ScriptInput extends Component {
-    constructor(props) {
+    constructor(props, context) {
         super(props);
 
         this.toggleRef = React.createRef();
+        this.logonUserRef = React.createRef();
+        this.logonSystemRef = React.createRef();
 
         this.toggelCollapse = this.toggelCollapse.bind(this);
+        this.predefinedConnectionSelected = this.predefinedConnectionSelected.bind(this);
+
+        let logondata = context.profile.personalization.logondata;
+        let dropValues = logondata.reduce((acc, curr, idx) => {
+            acc.push(curr.name);
+            return acc;
+        }, []);
+
+        let defaultIndex = logondata.findIndex((d) => d.default);
+        let logonDefaultSystem = '';
+        let logonDefaultUser = '';
+        if (defaultIndex !== -1) {
+            logonDefaultSystem = logondata[defaultIndex].system;
+            logonDefaultUser = logondata[defaultIndex].username;
+        }
 
         this.state = {
-            collapsed: false
+            logonCollapsed: false,
+            logonSystem: () => this.logonSystemRef.current && this.logonSystemRef.current.getValue(),
+            logonUser: () => this.logonUserRef.current && this.logonUserRef.current.getValue(),
+            logonDefaultSystem: logonDefaultSystem,
+            logonDefaultUser: logonDefaultUser,
+            logonData: logondata,
+            logonDropValues: dropValues,
+            logonDefaultDropIndex: defaultIndex
         }
     }
 
+    static contextType = ProfileContext
     toggelCollapse() {
-        this.setState({ collapsed: !this.state.collapsed });
+        this.setState({ logonCollapsed: !this.state.logonCollapsed });
+    }
+    predefinedConnectionSelected(value, index) {
+        let selectedConnection = this.state.logonData[index];
+
+        this.logonSystemRef.current.setValue(selectedConnection.system);
+        this.logonUserRef.current.setValue(selectedConnection.username);
     }
 
     render() {
         // console.log(DataManager.getScriptInfoById(0));
+        let { logonCollapsed, logonDropValues, logonDefaultDropIndex, logonDefaultSystem, logonDefaultUser } = this.state;
+
+        let scriptInfo = DataManager.getScriptInfoById(parseInt(this.props.match.params.id));
+        if (scriptInfo == null) {
+            return (
+                <div>
+                    <div className="header bg-dark">
+                        <div className="container-fluid">
+                            <PageHeader>
+                                <PageHeader.Body>
+                                    <PageHeader.Pretitle text="Script Execution" />
+                                    <PageHeader.Title text="Unknown" />
+                                </PageHeader.Body>
+                            </PageHeader>
+                        </div>
+                    </div>
+
+                    <div className="container-fluid">
+                        <div className="row">
+                            Cant find script data, try clicking the link from the menu, <br />
+                            If you still see this message contact the admin and let them know of the problem.
+                        </div>
+                    </div>
+                </div>
+            );
+        }
 
         return (
+            // <ProfileContext.Consumer>
+            //     {
+            //         ({ profile, toggleTheme }) => {
+            //             return (
+            // <ProfileContext.Consumer>
+            //     {(profileContext) => {
+            //         return (
             <div>
                 <div className="header bg-dark">
                     <div className="container-fluid">
                         <PageHeader>
                             <PageHeader.Body>
                                 <PageHeader.Pretitle text="Script Execution" />
-                                <PageHeader.Title text="<script name>" />
+                                <PageHeader.Title text={scriptInfo.name} />
                             </PageHeader.Body>
                         </PageHeader>
                     </div>
                 </div>
 
                 <div className="container-fluid">
+                    <div className="row pb-4" dangerouslySetInnerHTML={{ __html: scriptInfo.description }}>
+                    </div>
+
                     <div className="row">
                         <Card className="col-auto">
                             <Card.Header className="row pb-1 pl-4">
@@ -66,17 +135,17 @@ class ScriptInput extends Component {
                                     <label className="col-8 mb-0">
                                         Predefind connections :
                                     </label>
-                                    <Select className="col-4" dropValues={["test1", "test2", "test3"]} />
+                                    <Select className="col-4" dropValues={logonDropValues} defaultItem={logonDefaultDropIndex} onChange={this.predefinedConnectionSelected} />
                                 </div>
                                 <div className="row d-flex align-items-center">
                                     <label className="col-4"> Logon system : </label>
-                                    <Input className="col-8" />
+                                    <Input className="col-8" ref={this.logonSystemRef} defaultValue={logonDefaultSystem} />
                                 </div>
-                                <Collapse in={!this.state.collapsed} className="">
+                                <Collapse in={!logonCollapsed} className="">
                                     <div className="row align-items-center">
                                         <span className="col-12 pt-4"></span>
                                         <label className="col-4"> Username : </label>
-                                        <Input className="col-8" />
+                                        <Input className="col-8" ref={this.logonUserRef} defaultValue={logonDefaultUser} />
                                     </div>
                                 </Collapse>
                             </Card.Body>
@@ -139,6 +208,13 @@ class ScriptInput extends Component {
                     </div>
                 </div>
             </div >
+            //         )}
+            //     }
+            // </ProfileContext.Consumer>
+            //         );
+            //     }
+            //     }
+            // </ProfileContext.Consumer>
         );
     }
 }

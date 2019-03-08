@@ -35,7 +35,7 @@ class Toggle extends Component {
         let newValue = !this.state.checked;
         let previousValue = this.state.checked;
         let changeAllowed = this.props.onBeforeChange && this.props.onBeforeChange(newValue, previousValue);
-        if (changeAllowed == false)
+        if (changeAllowed === false)
             return;
 
         this.setState({

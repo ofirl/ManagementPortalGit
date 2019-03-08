@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 
 import './Profile.css';
 
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+import { /*BrowserRouter as Router,*/ Route, Link, Switch/*, Redirect*/ } from "react-router-dom";
 
-import Card from 'react-bootstrap/Card';
+// import Card from 'react-bootstrap/Card';
 import Image from 'react-bootstrap/Image';
-import Tabs from 'react-bootstrap/Tabs';
-import Tab from 'react-bootstrap/Tab';
+// import Tabs from 'react-bootstrap/Tabs';
+// import Tab from 'react-bootstrap/Tab';
 
 import Avatar from '../../Avatar/Avatar';
 import PageHeader from '../../PageHeader/PageHeader';

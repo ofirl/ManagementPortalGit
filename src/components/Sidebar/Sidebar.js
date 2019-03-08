@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 import './Sidebar.css'
 
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+import { /*BrowserRouter as Router, Route,*/ Link/*, Switch, Redirect*/ } from "react-router-dom";
 
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Collapse from 'react-bootstrap/Collapse';
 

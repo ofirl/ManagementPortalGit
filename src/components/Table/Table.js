@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import memoizeOne from "memoize-one";
+// import memoizeOne from "memoize-one";
 
 import './Table.css';
 
@@ -9,7 +9,6 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
-import Dropdown from 'react-bootstrap/Dropdown';
 
 import Input from '../Input/Input';
 import Icon from '../Icon/Icon';
@@ -21,7 +20,7 @@ function naturalSort(a, b) {
         let tz = [], x = 0, y = -1, n = 0, i, j;
 
         while (t[x] != null && (i = (j = t[x++]).charCodeAt(0))) {
-            let m = (i == 46 || (i >= 48 && i <= 57));
+            let m = (i === 46 || (i >= 48 && i <= 57));
             if (m !== n) {
                 tz[++y] = "";
                 n = m;
@@ -37,7 +36,7 @@ function naturalSort(a, b) {
     for (let x = 0; aa[x] && bb[x]; x++) {
         if (aa[x] !== bb[x]) {
             let c = Number(aa[x]), d = Number(bb[x]);
-            if (c == aa[x] && d == bb[x]) {
+            if (c === aa[x] && d === bb[x]) {
                 return c - d;
             } else return (aa[x] > bb[x]) ? 1 : -1;
         }
@@ -120,9 +119,9 @@ class Table extends Component {
 
     componentDidUpdate(oldProps) {
         // console.log(this.props);
-        if (oldProps.filter != this.props.filter)
+        if (oldProps.filter !== this.props.filter)
             this.setFilter(this.props.filter);
-        if (oldProps.items != this.props.items)
+        if (oldProps.items !== this.props.items)
             this.setState({ items: this.props.items });
     }
     setFilter(filter) {
@@ -132,9 +131,9 @@ class Table extends Component {
         this.setState({ filter: { ...this.state.filter, ...filter } });
     }
     applySort(column, order) {
-        if (order == undefined && order == null) {
-            if (this.state.sort != null && this.state.sort.column == column)
-                order = this.state.sort.order == 'asc' ? 'des' : 'asc';
+        if (order == null) {
+            if (this.state.sort != null && this.state.sort.column === column)
+                order = this.state.sort.order === 'asc' ? 'des' : 'asc';
             else
                 order = 'asc';
         }
@@ -168,7 +167,7 @@ class Table extends Component {
             return naturalSort(a[column], b[column]);
         });
 
-        if (order == 'des')
+        if (order === 'des')
             sortedItems.reverse();
 
         return sortedItems;
@@ -189,7 +188,7 @@ class Table extends Component {
                 filterObj = this.state.filter;
         }
 
-        if (filterObj.length == 0) {
+        if (filterObj.length === 0) {
             this.setError('filterError', null);
             return items;
         }
@@ -201,10 +200,10 @@ class Table extends Component {
         filterObj.forEach(filter => {
             if (filter.value != null) {
                 if (filter.column)
-                    filteredItems = filteredItems.filter((i) => i[filter.column] == filter.value);
+                    filteredItems = filteredItems.filter((i) => i[filter.column] === filter.value);
                 else {
                     try {
-                        filteredItems = filteredItems.filter((i) => Object.keys(i).some((key, idx) => key != 'id' && i[key].toString().match(new RegExp(filter.value))));
+                        filteredItems = filteredItems.filter((i) => Object.keys(i).some((key, idx) => key !== 'id' && i[key].toString().match(new RegExp(filter.value))));
                         this.setError('filterError', null);
                     }
                     catch (e) {
@@ -221,7 +220,7 @@ class Table extends Component {
         return filteredItems;
     }
     setError(type, msg) {
-        if (this.state[type] != msg) {
+        if (this.state[type] !== msg) {
             let newState = {};
             newState[type] = msg;
 
@@ -232,8 +231,8 @@ class Table extends Component {
         }
     }
     updateItem(itemId, column, newValue) {
-        let itemIdx = this.state.items.findIndex((i) => i.id == itemId);
-        if (itemIdx == -1) {
+        let itemIdx = this.state.items.findIndex((i) => i.id === itemId);
+        if (itemIdx === -1) {
             console.log('Item ID could not be found, exiting...');
             return;
         }
@@ -246,7 +245,7 @@ class Table extends Component {
         this.setState({ items: updatedItems });
     }
     deleteItem(itemId) {
-        let itemIdx = this.state.items.findIndex((i) => i.id == itemId);
+        let itemIdx = this.state.items.findIndex((i) => i.id === itemId);
         let updatedItems = this.state.items;
         updatedItems.splice(itemIdx, 1);
 
@@ -255,7 +254,7 @@ class Table extends Component {
         this.setState({ items: updatedItems });
     }
     copyItem(itemId) {
-        let originalItem = this.state.items.find((i) => i.id == itemId);
+        let originalItem = this.state.items.find((i) => i.id === itemId);
         let newItem = {};
         Object.keys(originalItem).forEach(key => {
             newItem[key] = originalItem[key];
@@ -298,7 +297,7 @@ class Table extends Component {
                                     onClick: () => that.applySort(current.accessor)
                                 };
                                 if (typeof current == 'object') {
-                                    if (current.sortable == false)
+                                    if (current.sortable === false)
                                         sortable = null;
                                 }
 
@@ -326,12 +325,12 @@ class Table extends Component {
                                                 <td key={colIdx} className="align-middle">
                                                     {
                                                         (() => {
-                                                            if (editable && current.readonly != true) {
-                                                                if (current.type == null || current.type == "text") {
+                                                            if (editable && current.readonly !== true) {
+                                                                if (current.type == null || current.type === "text") {
                                                                     return <Input size={size} value={currentItem[current.accessor]}
                                                                         onInput={(val) => that.updateItem(currentItem.id, current.accessor, val)} />;
                                                                 }
-                                                                else if (current.type == "select") {
+                                                                else if (current.type === "select") {
                                                                     return (
                                                                         <Select selectedValue={currentItem[current.accessor]} dropValues={current.dropValues} onChange={(val) => that.updateItem(currentItem.id, current.accessor, val)}>
                                                                             {/* {
@@ -365,12 +364,12 @@ class Table extends Component {
                                                         that.props.rowButtons.map((button) => {
                                                             let type, callback, tooltip;
 
-                                                            if (button == 'copy') {
+                                                            if (button === 'copy') {
                                                                 type = "copy";
                                                                 callback = () => that.copyItem(currentItem.id);
                                                                 tooltip = "Copy Row";
                                                             }
-                                                            else if (button == 'remove') {
+                                                            else if (button === 'remove') {
                                                                 type = "x-circle";
                                                                 callback = () => that.deleteItem(currentItem.id);
                                                                 tooltip = "Delete Row";
@@ -443,7 +442,7 @@ class TableCard extends Component {
     }
 
     applyOmniFilter(value) {
-        if (value == '')
+        if (value === '')
             this.setState({ omniFilter: null });
         else
             this.setState({ omniFilter: value });
@@ -456,7 +455,7 @@ class TableCard extends Component {
             newItem = this.props.itemTemplate(maxId + 1);
         else {
             this.props.columns.forEach(col => {
-                if (col.accessor == 'id')
+                if (col.accessor === 'id')
                     return;
 
                 newItem[col.accessor] = '';
@@ -537,12 +536,13 @@ class TableCard extends Component {
                                         : null
                                 }
                                 {
-                                    headerButtons != null ?
+                                    headerButtons !== null ?
                                         headerButtons.map((button) => {
-                                            if (button == "new-row")
+                                            if (button === "new-row")
                                                 return (
                                                     <Button key={button} variant="white" size="sm" onClick={this.addNewItem}> New Row </Button>
                                                 );
+                                            return null;
                                         })
                                         : null
                                 }
