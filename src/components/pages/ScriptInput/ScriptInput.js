@@ -9,6 +9,7 @@ import DataManager from '../../../assets/js/data.manager';
 import Card from 'react-bootstrap/Card';
 // import Form from 'react-bootstrap/Form';
 import Collapse from 'react-bootstrap/Collapse'
+import Alert from 'react-bootstrap/Alert'
 
 import Toggle from '../../Toggle/Toggle';
 import PageHeader from '../../PageHeader/PageHeader';
@@ -17,6 +18,7 @@ import Input from '../../Input/Input';
 import Select from '../../Select/Select';
 
 import ProfileContext from '../../Context/ProfileContext';
+import Button from 'react-bootstrap/Button';
 
 class ScriptInput extends Component {
     constructor(props, context) {
@@ -28,6 +30,8 @@ class ScriptInput extends Component {
 
         this.toggelCollapse = this.toggelCollapse.bind(this);
         this.predefinedConnectionSelected = this.predefinedConnectionSelected.bind(this);
+        this.executeScript = this.executeScript.bind(this);
+        this.saveDataForLater = this.saveDataForLater.bind(this);
 
         let logondata = context.profile.personalization.logondata;
         let dropValues = logondata.reduce((acc, curr, idx) => {
@@ -51,7 +55,8 @@ class ScriptInput extends Component {
             logonDefaultUser: logonDefaultUser,
             logonData: logondata,
             logonDropValues: dropValues,
-            logonDefaultDropIndex: defaultIndex
+            logonDefaultDropIndex: defaultIndex,
+            showExecutionAlert: false
         }
     }
 
@@ -66,9 +71,16 @@ class ScriptInput extends Component {
         this.logonUserRef.current.setValue(selectedConnection.username);
     }
 
+    executeScript() {
+        this.setState({ showExecutionAlert: true });
+    }
+    saveDataForLater() {
+
+    }
+
     render() {
         // console.log(DataManager.getScriptInfoById(0));
-        let { logonCollapsed, logonDropValues, logonDefaultDropIndex, logonDefaultSystem, logonDefaultUser } = this.state;
+        let { logonCollapsed, logonDropValues, logonDefaultDropIndex, logonDefaultSystem, logonDefaultUser, showExecutionAlert } = this.state;
 
         let scriptInfo = DataManager.getScriptInfoById(parseInt(this.props.match.params.id));
         if (scriptInfo == null) {
@@ -104,6 +116,27 @@ class ScriptInput extends Component {
             //     {(profileContext) => {
             //         return (
             <div>
+                {
+                    showExecutionAlert ? (
+                        <Alert className="" show={showExecutionAlert} variant="warning">
+                            <Alert.Heading>Error</Alert.Heading>
+                            <p>
+                                There are errors in the input data,
+                                are you sure you want to execute the script?
+                            </p>
+                            <hr />
+                            <div className="d-flex justify-content-end">
+                                <Button onClick={() => this.setState({ showExecutionAlert: false })} variant="danger" className="mr-2">
+                                    Ignore and Execute
+                                </Button>
+                                <Button onClick={() => this.setState({ showExecutionAlert: false })} variant="primary">
+                                    Cancel
+                                </Button>
+                            </div>
+                        </Alert>
+                    ) : null
+                }
+
                 <div className="header bg-dark">
                     <div className="container-fluid">
                         <PageHeader>
@@ -119,7 +152,7 @@ class ScriptInput extends Component {
                     <div className="row pb-4" dangerouslySetInnerHTML={{ __html: scriptInfo.description }}>
                     </div>
 
-                    <div className="row">
+                    <div className="row justify-content-around">
                         <Card className="col-auto">
                             <Card.Header className="row pb-1 pl-4">
                                 <Card.Title className="mb-0 d-flex align-items-center">
@@ -150,8 +183,27 @@ class ScriptInput extends Component {
                                 </Collapse>
                             </Card.Body>
                         </Card>
+
+                        <Card className="col-auto">
+                            <Card.Header className="row pb-1 pl-4 flex-grow-0">
+                                <Card.Title className="mb-0 d-flex align-items-center">
+                                    Execution Controls
+                                </Card.Title>
+                            </Card.Header>
+                            <Card.Body>
+                                <div className="row justify-content-around">
+                                    <Button variant="primary" onClick={this.executeScript}>
+                                        Execute
+                                    </Button>
+                                    <div className="col-auto"></div>
+                                    <Button variant="secondary" onClick={this.saveDataForLater}>
+                                        Save for later
+                                </Button>
+                                </div>
+                            </Card.Body>
+                        </Card>
                     </div>
-                    <div className="row">
+                    <div className="row justify-content-center">
                         <TableCard title="Input" nowrap editable searchable headerButtons={['new-row']} rowButtons={['copy', 'remove']} columns={[
                             {
                                 name: 'test',
