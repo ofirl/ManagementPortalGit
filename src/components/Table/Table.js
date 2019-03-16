@@ -203,7 +203,14 @@ class Table extends Component {
                     filteredItems = filteredItems.filter((i) => i[filter.column] === filter.value);
                 else {
                     try {
-                        filteredItems = filteredItems.filter((i) => Object.keys(i).some((key, idx) => key !== 'id' && i[key].toString().match(new RegExp(filter.value))));
+                        filteredItems = filteredItems.filter((i) => Object.keys(i).some((key, idx) => {
+                            if (key === 'id')
+                                return false;
+
+                            let matchStr = typeof i[key] == 'object' ? JSON.stringify(i[key]) : i[key].toString();
+                            return matchStr.match(new RegExp(filter.value));
+                        })
+                        );
                         this.setError('filterError', null);
                     }
                     catch (e) {

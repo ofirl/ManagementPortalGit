@@ -41,7 +41,7 @@ class Input extends Component {
 
         this.inputRef = React.createRef();
     }
-    static propType = {
+    static propTypes = {
         /** icon for the input field */
         icon: PropTypes.string,
         /** size control */
@@ -50,6 +50,8 @@ class Input extends Component {
         prepend: PropTypes.bool,
         /** flush input */
         flush: PropTypes.bool,
+        /** placeholder text */
+        placeholder: PropTypes.string,
         /** callback fired when onInput is called */
         onInput: PropTypes.func,
         /** is valid indicator - control styling */
@@ -97,7 +99,7 @@ class Input extends Component {
         let inputElement = (
             <input ref={this.inputRef} type="text" placeholder={`${this.props.placeholder}`} onInput={this.onInput} {...others} onChange={() => {}}
                 className={`form-control ${inputIconClass} ${flush ? 'form-control-flush' : ''} 
-                    ${size ? `form-control-${size}` : ''} ${isInvalid ? 'is-invalid' : ''} ${isValid ? 'is-valid' : ''} ${className}`} />
+                    ${size ? `form-control-${size}` : ''} ${isInvalid ? 'is-invalid' : ''} ${isValid ? 'is-valid' : ''} ${className ? className : ''}`} />
         );
 
         if (icon == null && !clearButton) {

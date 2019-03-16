@@ -1,0 +1,595 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Input appended icon 1`] = `
+<div
+  className="p-4"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-header"
+    >
+      <div
+        className="mb-0 card-title h5"
+      >
+        Input
+      </div>
+    </div>
+    <div
+      className="card-body"
+    >
+      <p
+        className="card-text"
+      >
+        general stuff
+      </p>
+      <div
+        className="input-group input-group-merge   undefined"
+      >
+        <input
+          className="form-control form-control-appended  
+                       "
+          defaultValue="some value"
+          onChange={[Function]}
+          onInput={[Function]}
+          placeholder=""
+          type="text"
+        />
+        <div
+          className="input-group-append"
+        >
+          <div
+            className="input-group-text null"
+          >
+            <span
+              className="fe fe-search"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Input appended icon with clear button 1`] = `
+<div
+  className="p-4"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-header"
+    >
+      <div
+        className="mb-0 card-title h5"
+      >
+        Input
+      </div>
+    </div>
+    <div
+      className="card-body"
+    >
+      <p
+        className="card-text"
+      >
+        general stuff
+      </p>
+      <div
+        className="input-group input-group-merge   undefined"
+      >
+        <input
+          className="form-control form-control-prepended form-control-appended   
+                       "
+          defaultValue="some value"
+          onChange={[Function]}
+          onInput={[Function]}
+          placeholder=""
+          type="text"
+        />
+        <div
+          className="input-group-prepend"
+        >
+          <div
+            className="input-group-text null"
+          >
+            <span
+              className="fe fe-search"
+            />
+          </div>
+        </div>
+        <div
+          className="input-group-append"
+        >
+          <div
+            className="input-group-text null"
+          >
+            <span
+              className="fe fe-x-circle pointer"
+              onClick={[Function]}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Input clear button 1`] = `
+<div
+  className="p-4"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-header"
+    >
+      <div
+        className="mb-0 card-title h5"
+      >
+        Input
+      </div>
+    </div>
+    <div
+      className="card-body"
+    >
+      <p
+        className="card-text"
+      >
+        general stuff
+      </p>
+      <div
+        className="input-group input-group-merge   undefined"
+      >
+        <input
+          className="form-control  form-control-appended   
+                       "
+          defaultValue="some value"
+          onChange={[Function]}
+          onInput={[Function]}
+          placeholder=""
+          type="text"
+        />
+        <div
+          className="input-group-append"
+        >
+          <div
+            className="input-group-text null"
+          >
+            <span
+              className="fe fe-x-circle pointer"
+              onClick={[Function]}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Input default 1`] = `
+<div
+  className="p-4"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-header"
+    >
+      <div
+        className="mb-0 card-title h5"
+      >
+        Input
+      </div>
+    </div>
+    <div
+      className="card-body"
+    >
+      <p
+        className="card-text"
+      >
+        general stuff
+      </p>
+      <input
+        className="form-control   
+                       "
+        defaultValue="some value"
+        onChange={[Function]}
+        onInput={[Function]}
+        placeholder=""
+        type="text"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Input flushed 1`] = `
+<div
+  className="p-4"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-header"
+    >
+      <div
+        className="mb-0 card-title h5"
+      >
+        Input
+      </div>
+    </div>
+    <div
+      className="card-body"
+    >
+      <p
+        className="card-text"
+      >
+        general stuff
+      </p>
+      <input
+        className="form-control  form-control-flush 
+                       "
+        defaultValue="some value"
+        onChange={[Function]}
+        onInput={[Function]}
+        placeholder=""
+        type="text"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Input flushed invalid 1`] = `
+<div
+  className="p-4"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-header"
+    >
+      <div
+        className="mb-0 card-title h5"
+      >
+        Input
+      </div>
+    </div>
+    <div
+      className="card-body"
+    >
+      <p
+        className="card-text"
+      >
+        general stuff
+      </p>
+      <input
+        className="form-control  form-control-flush 
+                     is-invalid  "
+        defaultValue="some value"
+        onChange={[Function]}
+        onInput={[Function]}
+        placeholder=""
+        type="text"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Input flushed valid 1`] = `
+<div
+  className="p-4"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-header"
+    >
+      <div
+        className="mb-0 card-title h5"
+      >
+        Input
+      </div>
+    </div>
+    <div
+      className="card-body"
+    >
+      <p
+        className="card-text"
+      >
+        general stuff
+      </p>
+      <input
+        className="form-control  form-control-flush 
+                      is-valid "
+        defaultValue="some value"
+        onChange={[Function]}
+        onInput={[Function]}
+        placeholder=""
+        type="text"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Input invalid 1`] = `
+<div
+  className="p-4"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-header"
+    >
+      <div
+        className="mb-0 card-title h5"
+      >
+        Input
+      </div>
+    </div>
+    <div
+      className="card-body"
+    >
+      <p
+        className="card-text"
+      >
+        general stuff
+      </p>
+      <input
+        className="form-control   
+                     is-invalid  "
+        defaultValue="some value"
+        onChange={[Function]}
+        onInput={[Function]}
+        placeholder=""
+        type="text"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Input large size 1`] = `
+<div
+  className="p-4"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-header"
+    >
+      <div
+        className="mb-0 card-title h5"
+      >
+        Input
+      </div>
+    </div>
+    <div
+      className="card-body"
+    >
+      <p
+        className="card-text"
+      >
+        general stuff
+      </p>
+      <input
+        className="form-control   
+                    form-control-lg   "
+        defaultValue="some value"
+        onChange={[Function]}
+        onInput={[Function]}
+        placeholder=""
+        type="text"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Input prepended icon 1`] = `
+<div
+  className="p-4"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-header"
+    >
+      <div
+        className="mb-0 card-title h5"
+      >
+        Input
+      </div>
+    </div>
+    <div
+      className="card-body"
+    >
+      <p
+        className="card-text"
+      >
+        general stuff
+      </p>
+      <div
+        className="input-group input-group-merge   undefined"
+      >
+        <input
+          className="form-control form-control-prepended  
+                       "
+          defaultValue="some value"
+          onChange={[Function]}
+          onInput={[Function]}
+          placeholder=""
+          type="text"
+        />
+        <div
+          className="input-group-prepend"
+        >
+          <div
+            className="input-group-text null"
+          >
+            <span
+              className="fe fe-search"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Input prepended icon with clear button 1`] = `
+<div
+  className="p-4"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-header"
+    >
+      <div
+        className="mb-0 card-title h5"
+      >
+        Input
+      </div>
+    </div>
+    <div
+      className="card-body"
+    >
+      <p
+        className="card-text"
+      >
+        general stuff
+      </p>
+      <div
+        className="input-group input-group-merge   undefined"
+      >
+        <input
+          className="form-control form-control-appended form-control-appended   
+                       "
+          defaultValue="some value"
+          onChange={[Function]}
+          onInput={[Function]}
+          placeholder=""
+          type="text"
+        />
+        <div
+          className="input-group-append"
+        >
+          <div
+            className="input-group-text null"
+          >
+            <span
+              className="fe fe-search"
+            />
+          </div>
+        </div>
+        <div
+          className="input-group-append"
+        >
+          <div
+            className="input-group-text null"
+          >
+            <span
+              className="fe fe-x-circle pointer"
+              onClick={[Function]}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Input small size 1`] = `
+<div
+  className="p-4"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-header"
+    >
+      <div
+        className="mb-0 card-title h5"
+      >
+        Input
+      </div>
+    </div>
+    <div
+      className="card-body"
+    >
+      <p
+        className="card-text"
+      >
+        general stuff
+      </p>
+      <input
+        className="form-control   
+                    form-control-sm   "
+        defaultValue="some value"
+        onChange={[Function]}
+        onInput={[Function]}
+        placeholder=""
+        type="text"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Input valid 1`] = `
+<div
+  className="p-4"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-header"
+    >
+      <div
+        className="mb-0 card-title h5"
+      >
+        Input
+      </div>
+    </div>
+    <div
+      className="card-body"
+    >
+      <p
+        className="card-text"
+      >
+        general stuff
+      </p>
+      <input
+        className="form-control   
+                      is-valid "
+        defaultValue="some value"
+        onChange={[Function]}
+        onInput={[Function]}
+        placeholder=""
+        type="text"
+      />
+    </div>
+  </div>
+</div>
+`;

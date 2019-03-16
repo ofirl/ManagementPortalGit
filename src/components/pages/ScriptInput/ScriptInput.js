@@ -118,7 +118,7 @@ class ScriptInput extends Component {
             <div>
                 {
                     showExecutionAlert ? (
-                        <Alert className="" show={showExecutionAlert} variant="warning">
+                        <Alert className="" show={showExecutionAlert} variant="soft-warning">
                             <Alert.Heading>Error</Alert.Heading>
                             <p>
                                 There are errors in the input data,
@@ -126,7 +126,7 @@ class ScriptInput extends Component {
                             </p>
                             <hr />
                             <div className="d-flex justify-content-end">
-                                <Button onClick={() => this.setState({ showExecutionAlert: false })} variant="danger" className="mr-2">
+                                <Button onClick={() => this.setState({ showExecutionAlert: false })} variant="outline-danger" className="mr-2">
                                     Ignore and Execute
                                 </Button>
                                 <Button onClick={() => this.setState({ showExecutionAlert: false })} variant="primary">
