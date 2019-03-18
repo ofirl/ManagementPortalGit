@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Input appended icon 1`] = `
+exports[`Storyshots Input Callbacks 1`] = `
 <div
   className="p-4"
 >
@@ -19,32 +19,511 @@ exports[`Storyshots Input appended icon 1`] = `
     <div
       className="card-body"
     >
-      <p
-        className="card-text"
-      >
-        general stuff
-      </p>
       <div
-        className="input-group input-group-merge   undefined"
+        className="story"
+        style={Object {}}
       >
-        <input
-          className="form-control form-control-appended  
-                       "
-          defaultValue="some value"
-          onChange={[Function]}
-          onInput={[Function]}
-          placeholder=""
-          type="text"
-        />
         <div
-          className="input-group-append"
+          className="story-header"
+          style={Object {}}
+        >
+          <div>
+            
+            
+          </div>
+        </div>
+        <div
+          className="story-chapters"
         >
           <div
-            className="input-group-text null"
+            className="chapter"
+            style={Object {}}
           >
-            <span
-              className="fe fe-search"
-            />
+            <div
+              className="chapter-header"
+              style={Object {}}
+            >
+              <div>
+                
+                
+                
+                
+              </div>
+            </div>
+            <div
+              className="chapter-sections"
+            >
+              <div
+                className="section-container"
+                style={Object {}}
+              >
+                <div
+                  className="section-header"
+                  style={Object {}}
+                >
+                  <div>
+                    
+                    
+                  </div>
+                </div>
+                <div
+                  className="section-component-container"
+                  style={Object {}}
+                >
+                  <input
+                    className="form-control   
+                       "
+                    defaultValue="some value"
+                    onChange={[Function]}
+                    onInput={[Function]}
+                    placeholder=""
+                    type="text"
+                  />
+                </div>
+                <div
+                  className="section-additional pt-4"
+                  style={Object {}}
+                >
+                  <div>
+                    
+                    <div
+                      className="section-subsection"
+                      style={
+                        Object {
+                          "display": "flow-root",
+                          "width": "100%",
+                        }
+                      }
+                    >
+                      <h4
+                        className="section-subsection-title"
+                        style={Object {}}
+                      >
+                        Source
+                      </h4>
+                      <pre
+                        className="section-pre bg-dark"
+                        style={
+                          Object {
+                            "color": "#878787",
+                          }
+                        }
+                      >
+                        <div
+                          style={
+                            Object {
+                              "paddingLeft": 18,
+                              "paddingRight": 3,
+                            }
+                          }
+                        >
+                          <span
+                            style={
+                              Object {
+                                "color": "#5567f2",
+                              }
+                            }
+                          >
+                            &lt;
+                            Input
+                          </span>
+                          <span>
+                            <span>
+                               
+                              <span
+                                style={Object {}}
+                              >
+                                defaultValue
+                              </span>
+                              <span>
+                                =
+                                <span
+                                  style={Object {}}
+                                >
+                                  "
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#cbc539",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    some value
+                                  </span>
+                                  "
+                                </span>
+                              </span>
+                            </span>
+                            <span>
+                               
+                              <span
+                                style={Object {}}
+                              >
+                                onInput
+                              </span>
+                              <span>
+                                =
+                                <span
+                                  style={Object {}}
+                                >
+                                  {
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#170",
+                                      }
+                                    }
+                                  >
+                                    action
+                                  </span>
+                                  }
+                                </span>
+                              </span>
+                               
+                            </span>
+                          </span>
+                          <span
+                            style={
+                              Object {
+                                "color": "#5567f2",
+                              }
+                            }
+                          >
+                            /&gt;
+                          </span>
+                        </div>
+                      </pre>
+                    </div>
+                    <div
+                      className="section-subsection"
+                      style={
+                        Object {
+                          "display": "flow-root",
+                          "width": "100%",
+                        }
+                      }
+                    >
+                      <h4
+                        className="section-subsection-title"
+                        style={Object {}}
+                      >
+                        PropTypes
+                      </h4>
+                      <div>
+                        <h5>
+                          &lt;
+                          Input
+                          &gt; Component
+                        </h5>
+                        <table
+                          className="propTable table"
+                          style={Object {}}
+                        >
+                          <thead>
+                            <tr>
+                              <th
+                                className="propTable-th"
+                                style={Object {}}
+                              >
+                                Property
+                              </th>
+                              <th
+                                className="propTable-th"
+                                style={Object {}}
+                              >
+                                PropType
+                              </th>
+                              <th
+                                className="propTable-th"
+                                style={Object {}}
+                              >
+                                Required
+                              </th>
+                              <th
+                                className="propTable-th"
+                                style={Object {}}
+                              >
+                                Default
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                clearButton
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                bool
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#a11",
+                                    }
+                                  }
+                                >
+                                  false
+                                </span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                containerClass
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                string
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                -
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                flush
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                bool
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#a11",
+                                    }
+                                  }
+                                >
+                                  false
+                                </span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                icon
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                string
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                -
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                onInput
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                func
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                -
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                placeholder
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                string
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#cbc539",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }
+                                >
+                                  
+                                </span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                prepend
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                bool
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#a11",
+                                    }
+                                  }
+                                >
+                                  false
+                                </span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                size
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                other
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                -
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                valid
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                bool
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                -
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -53,7 +532,7 @@ exports[`Storyshots Input appended icon 1`] = `
 </div>
 `;
 
-exports[`Storyshots Input appended icon with clear button 1`] = `
+exports[`Storyshots Input Default 1`] = `
 <div
   className="p-4"
 >
@@ -72,44 +551,485 @@ exports[`Storyshots Input appended icon with clear button 1`] = `
     <div
       className="card-body"
     >
-      <p
-        className="card-text"
-      >
-        general stuff
-      </p>
       <div
-        className="input-group input-group-merge   undefined"
+        className="story"
+        style={Object {}}
       >
-        <input
-          className="form-control form-control-prepended form-control-appended   
-                       "
-          defaultValue="some value"
-          onChange={[Function]}
-          onInput={[Function]}
-          placeholder=""
-          type="text"
-        />
         <div
-          className="input-group-prepend"
+          className="story-header"
+          style={Object {}}
         >
-          <div
-            className="input-group-text null"
-          >
-            <span
-              className="fe fe-search"
-            />
+          <div>
+            
+            
           </div>
         </div>
         <div
-          className="input-group-append"
+          className="story-chapters"
         >
           <div
-            className="input-group-text null"
+            className="chapter"
+            style={Object {}}
           >
-            <span
-              className="fe fe-x-circle pointer"
-              onClick={[Function]}
-            />
+            <div
+              className="chapter-header"
+              style={Object {}}
+            >
+              <div>
+                
+                
+                
+                
+              </div>
+            </div>
+            <div
+              className="chapter-sections"
+            >
+              <div
+                className="section-container"
+                style={Object {}}
+              >
+                <div
+                  className="section-header"
+                  style={Object {}}
+                >
+                  <div>
+                    
+                    
+                  </div>
+                </div>
+                <div
+                  className="section-component-container"
+                  style={Object {}}
+                >
+                  <input
+                    className="form-control   
+                       "
+                    defaultValue="some value"
+                    onChange={[Function]}
+                    onInput={[Function]}
+                    placeholder=""
+                    type="text"
+                  />
+                </div>
+                <div
+                  className="section-additional pt-4"
+                  style={Object {}}
+                >
+                  <div>
+                    
+                    <div
+                      className="section-subsection"
+                      style={
+                        Object {
+                          "display": "flow-root",
+                          "width": "100%",
+                        }
+                      }
+                    >
+                      <h4
+                        className="section-subsection-title"
+                        style={Object {}}
+                      >
+                        Source
+                      </h4>
+                      <pre
+                        className="section-pre bg-dark"
+                        style={
+                          Object {
+                            "color": "#878787",
+                          }
+                        }
+                      >
+                        <div
+                          style={
+                            Object {
+                              "paddingLeft": 18,
+                              "paddingRight": 3,
+                            }
+                          }
+                        >
+                          <span
+                            style={
+                              Object {
+                                "color": "#5567f2",
+                              }
+                            }
+                          >
+                            &lt;
+                            Input
+                          </span>
+                          <span>
+                            <span>
+                               
+                              <span
+                                style={Object {}}
+                              >
+                                defaultValue
+                              </span>
+                              <span>
+                                =
+                                <span
+                                  style={Object {}}
+                                >
+                                  "
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#cbc539",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    some value
+                                  </span>
+                                  "
+                                </span>
+                              </span>
+                               
+                            </span>
+                          </span>
+                          <span
+                            style={
+                              Object {
+                                "color": "#5567f2",
+                              }
+                            }
+                          >
+                            /&gt;
+                          </span>
+                        </div>
+                      </pre>
+                    </div>
+                    <div
+                      className="section-subsection"
+                      style={
+                        Object {
+                          "display": "flow-root",
+                          "width": "100%",
+                        }
+                      }
+                    >
+                      <h4
+                        className="section-subsection-title"
+                        style={Object {}}
+                      >
+                        PropTypes
+                      </h4>
+                      <div>
+                        <h5>
+                          &lt;
+                          Input
+                          &gt; Component
+                        </h5>
+                        <table
+                          className="propTable table"
+                          style={Object {}}
+                        >
+                          <thead>
+                            <tr>
+                              <th
+                                className="propTable-th"
+                                style={Object {}}
+                              >
+                                Property
+                              </th>
+                              <th
+                                className="propTable-th"
+                                style={Object {}}
+                              >
+                                PropType
+                              </th>
+                              <th
+                                className="propTable-th"
+                                style={Object {}}
+                              >
+                                Required
+                              </th>
+                              <th
+                                className="propTable-th"
+                                style={Object {}}
+                              >
+                                Default
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                clearButton
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                bool
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#a11",
+                                    }
+                                  }
+                                >
+                                  false
+                                </span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                containerClass
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                string
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                -
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                flush
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                bool
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#a11",
+                                    }
+                                  }
+                                >
+                                  false
+                                </span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                icon
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                string
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                -
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                onInput
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                func
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                -
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                placeholder
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                string
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#cbc539",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }
+                                >
+                                  
+                                </span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                prepend
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                bool
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#a11",
+                                    }
+                                  }
+                                >
+                                  false
+                                </span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                size
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                other
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                -
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                valid
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                bool
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                -
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -118,7 +1038,7 @@ exports[`Storyshots Input appended icon with clear button 1`] = `
 </div>
 `;
 
-exports[`Storyshots Input clear button 1`] = `
+exports[`Storyshots Input Variants 1`] = `
 <div
   className="p-4"
 >
@@ -137,458 +1057,1837 @@ exports[`Storyshots Input clear button 1`] = `
     <div
       className="card-body"
     >
-      <p
-        className="card-text"
-      >
-        general stuff
-      </p>
       <div
-        className="input-group input-group-merge   undefined"
+        className="story"
+        style={Object {}}
       >
-        <input
-          className="form-control  form-control-appended   
-                       "
-          defaultValue="some value"
-          onChange={[Function]}
-          onInput={[Function]}
-          placeholder=""
-          type="text"
-        />
         <div
-          className="input-group-append"
+          className="story-header"
+          style={Object {}}
         >
-          <div
-            className="input-group-text null"
-          >
-            <span
-              className="fe fe-x-circle pointer"
-              onClick={[Function]}
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Input default 1`] = `
-<div
-  className="p-4"
->
-  <div
-    className="card"
-  >
-    <div
-      className="card-header"
-    >
-      <div
-        className="mb-0 card-title h5"
-      >
-        Input
-      </div>
-    </div>
-    <div
-      className="card-body"
-    >
-      <p
-        className="card-text"
-      >
-        general stuff
-      </p>
-      <input
-        className="form-control   
-                       "
-        defaultValue="some value"
-        onChange={[Function]}
-        onInput={[Function]}
-        placeholder=""
-        type="text"
-      />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Input flushed 1`] = `
-<div
-  className="p-4"
->
-  <div
-    className="card"
-  >
-    <div
-      className="card-header"
-    >
-      <div
-        className="mb-0 card-title h5"
-      >
-        Input
-      </div>
-    </div>
-    <div
-      className="card-body"
-    >
-      <p
-        className="card-text"
-      >
-        general stuff
-      </p>
-      <input
-        className="form-control  form-control-flush 
-                       "
-        defaultValue="some value"
-        onChange={[Function]}
-        onInput={[Function]}
-        placeholder=""
-        type="text"
-      />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Input flushed invalid 1`] = `
-<div
-  className="p-4"
->
-  <div
-    className="card"
-  >
-    <div
-      className="card-header"
-    >
-      <div
-        className="mb-0 card-title h5"
-      >
-        Input
-      </div>
-    </div>
-    <div
-      className="card-body"
-    >
-      <p
-        className="card-text"
-      >
-        general stuff
-      </p>
-      <input
-        className="form-control  form-control-flush 
-                     is-invalid  "
-        defaultValue="some value"
-        onChange={[Function]}
-        onInput={[Function]}
-        placeholder=""
-        type="text"
-      />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Input flushed valid 1`] = `
-<div
-  className="p-4"
->
-  <div
-    className="card"
-  >
-    <div
-      className="card-header"
-    >
-      <div
-        className="mb-0 card-title h5"
-      >
-        Input
-      </div>
-    </div>
-    <div
-      className="card-body"
-    >
-      <p
-        className="card-text"
-      >
-        general stuff
-      </p>
-      <input
-        className="form-control  form-control-flush 
-                      is-valid "
-        defaultValue="some value"
-        onChange={[Function]}
-        onInput={[Function]}
-        placeholder=""
-        type="text"
-      />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Input invalid 1`] = `
-<div
-  className="p-4"
->
-  <div
-    className="card"
-  >
-    <div
-      className="card-header"
-    >
-      <div
-        className="mb-0 card-title h5"
-      >
-        Input
-      </div>
-    </div>
-    <div
-      className="card-body"
-    >
-      <p
-        className="card-text"
-      >
-        general stuff
-      </p>
-      <input
-        className="form-control   
-                     is-invalid  "
-        defaultValue="some value"
-        onChange={[Function]}
-        onInput={[Function]}
-        placeholder=""
-        type="text"
-      />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Input large size 1`] = `
-<div
-  className="p-4"
->
-  <div
-    className="card"
-  >
-    <div
-      className="card-header"
-    >
-      <div
-        className="mb-0 card-title h5"
-      >
-        Input
-      </div>
-    </div>
-    <div
-      className="card-body"
-    >
-      <p
-        className="card-text"
-      >
-        general stuff
-      </p>
-      <input
-        className="form-control   
-                    form-control-lg   "
-        defaultValue="some value"
-        onChange={[Function]}
-        onInput={[Function]}
-        placeholder=""
-        type="text"
-      />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Input prepended icon 1`] = `
-<div
-  className="p-4"
->
-  <div
-    className="card"
-  >
-    <div
-      className="card-header"
-    >
-      <div
-        className="mb-0 card-title h5"
-      >
-        Input
-      </div>
-    </div>
-    <div
-      className="card-body"
-    >
-      <p
-        className="card-text"
-      >
-        general stuff
-      </p>
-      <div
-        className="input-group input-group-merge   undefined"
-      >
-        <input
-          className="form-control form-control-prepended  
-                       "
-          defaultValue="some value"
-          onChange={[Function]}
-          onInput={[Function]}
-          placeholder=""
-          type="text"
-        />
-        <div
-          className="input-group-prepend"
-        >
-          <div
-            className="input-group-text null"
-          >
-            <span
-              className="fe fe-search"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Input prepended icon with clear button 1`] = `
-<div
-  className="p-4"
->
-  <div
-    className="card"
-  >
-    <div
-      className="card-header"
-    >
-      <div
-        className="mb-0 card-title h5"
-      >
-        Input
-      </div>
-    </div>
-    <div
-      className="card-body"
-    >
-      <p
-        className="card-text"
-      >
-        general stuff
-      </p>
-      <div
-        className="input-group input-group-merge   undefined"
-      >
-        <input
-          className="form-control form-control-appended form-control-appended   
-                       "
-          defaultValue="some value"
-          onChange={[Function]}
-          onInput={[Function]}
-          placeholder=""
-          type="text"
-        />
-        <div
-          className="input-group-append"
-        >
-          <div
-            className="input-group-text null"
-          >
-            <span
-              className="fe fe-search"
-            />
-          </div>
+          <div />
         </div>
         <div
-          className="input-group-append"
+          className="story-chapters"
         >
           <div
-            className="input-group-text null"
+            className="chapter"
+            style={Object {}}
           >
-            <span
-              className="fe fe-x-circle pointer"
-              onClick={[Function]}
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Input small size 1`] = `
-<div
-  className="p-4"
->
-  <div
-    className="card"
-  >
-    <div
-      className="card-header"
-    >
-      <div
-        className="mb-0 card-title h5"
-      >
-        Input
-      </div>
-    </div>
-    <div
-      className="card-body"
-    >
-      <p
-        className="card-text"
-      >
-        general stuff
-      </p>
-      <input
-        className="form-control   
+            <div
+              className="chapter-header"
+              style={Object {}}
+            >
+              <div>
+                <h2
+                  className="chapter-h2 pt-3"
+                  style={
+                    Object {
+                      "fontSize": "1.5em",
+                    }
+                  }
+                >
+                  Size
+                </h2>
+                
+                
+                
+              </div>
+            </div>
+            <div
+              className="chapter-sections"
+            >
+              <div
+                className="section-container"
+                style={Object {}}
+              >
+                <div
+                  className="section-header"
+                  style={Object {}}
+                >
+                  <div>
+                    <h3
+                      className="section-title"
+                      style={Object {}}
+                    >
+                      Small
+                    </h3>
+                    
+                  </div>
+                </div>
+                <div
+                  className="section-component-container"
+                  style={Object {}}
+                >
+                  <input
+                    className="form-control   
                     form-control-sm   "
-        defaultValue="some value"
-        onChange={[Function]}
-        onInput={[Function]}
-        placeholder=""
-        type="text"
-      />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Input valid 1`] = `
-<div
-  className="p-4"
->
-  <div
-    className="card"
-  >
-    <div
-      className="card-header"
-    >
-      <div
-        className="mb-0 card-title h5"
-      >
-        Input
-      </div>
-    </div>
-    <div
-      className="card-body"
-    >
-      <p
-        className="card-text"
-      >
-        general stuff
-      </p>
-      <input
-        className="form-control   
+                    onChange={[Function]}
+                    onInput={[Function]}
+                    placeholder=""
+                    type="text"
+                  />
+                </div>
+                <div
+                  className="section-additional pt-4"
+                  style={Object {}}
+                >
+                  <div>
+                    
+                    <div
+                      className="section-subsection"
+                      style={
+                        Object {
+                          "display": "flow-root",
+                          "width": "100%",
+                        }
+                      }
+                    >
+                      <h4
+                        className="section-subsection-title"
+                        style={Object {}}
+                      >
+                        Source
+                      </h4>
+                      <pre
+                        className="section-pre bg-dark"
+                        style={
+                          Object {
+                            "color": "#878787",
+                          }
+                        }
+                      >
+                        <div
+                          style={
+                            Object {
+                              "paddingLeft": 18,
+                              "paddingRight": 3,
+                            }
+                          }
+                        >
+                          <span
+                            style={
+                              Object {
+                                "color": "#5567f2",
+                              }
+                            }
+                          >
+                            &lt;
+                            Input
+                          </span>
+                          <span>
+                            <span>
+                               
+                              <span
+                                style={Object {}}
+                              >
+                                size
+                              </span>
+                              <span>
+                                =
+                                <span
+                                  style={Object {}}
+                                >
+                                  "
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#cbc539",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    sm
+                                  </span>
+                                  "
+                                </span>
+                              </span>
+                               
+                            </span>
+                          </span>
+                          <span
+                            style={
+                              Object {
+                                "color": "#5567f2",
+                              }
+                            }
+                          >
+                            /&gt;
+                          </span>
+                        </div>
+                      </pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="section-container"
+                style={Object {}}
+              >
+                <div
+                  className="section-header"
+                  style={Object {}}
+                >
+                  <div>
+                    <h3
+                      className="section-title"
+                      style={Object {}}
+                    >
+                      Medium
+                    </h3>
+                    
+                  </div>
+                </div>
+                <div
+                  className="section-component-container"
+                  style={Object {}}
+                >
+                  <input
+                    className="form-control   
+                       "
+                    onChange={[Function]}
+                    onInput={[Function]}
+                    placeholder="some value"
+                    type="text"
+                  />
+                </div>
+                <div
+                  className="section-additional pt-4"
+                  style={Object {}}
+                >
+                  <div>
+                    
+                    <div
+                      className="section-subsection"
+                      style={
+                        Object {
+                          "display": "flow-root",
+                          "width": "100%",
+                        }
+                      }
+                    >
+                      <h4
+                        className="section-subsection-title"
+                        style={Object {}}
+                      >
+                        Source
+                      </h4>
+                      <pre
+                        className="section-pre bg-dark"
+                        style={
+                          Object {
+                            "color": "#878787",
+                          }
+                        }
+                      >
+                        <div
+                          style={
+                            Object {
+                              "paddingLeft": 18,
+                              "paddingRight": 3,
+                            }
+                          }
+                        >
+                          <span
+                            style={
+                              Object {
+                                "color": "#5567f2",
+                              }
+                            }
+                          >
+                            &lt;
+                            Input
+                          </span>
+                          <span>
+                            <span>
+                               
+                              <span
+                                style={Object {}}
+                              >
+                                placeholder
+                              </span>
+                              <span>
+                                =
+                                <span
+                                  style={Object {}}
+                                >
+                                  "
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#cbc539",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    some value
+                                  </span>
+                                  "
+                                </span>
+                              </span>
+                               
+                            </span>
+                          </span>
+                          <span
+                            style={
+                              Object {
+                                "color": "#5567f2",
+                              }
+                            }
+                          >
+                            /&gt;
+                          </span>
+                        </div>
+                      </pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="section-container"
+                style={Object {}}
+              >
+                <div
+                  className="section-header"
+                  style={Object {}}
+                >
+                  <div>
+                    <h3
+                      className="section-title"
+                      style={Object {}}
+                    >
+                      Large
+                    </h3>
+                    
+                  </div>
+                </div>
+                <div
+                  className="section-component-container"
+                  style={Object {}}
+                >
+                  <input
+                    className="form-control   
+                    form-control-lg   "
+                    onChange={[Function]}
+                    onInput={[Function]}
+                    placeholder="some value"
+                    type="text"
+                  />
+                </div>
+                <div
+                  className="section-additional pt-4"
+                  style={Object {}}
+                >
+                  <div>
+                    
+                    <div
+                      className="section-subsection"
+                      style={
+                        Object {
+                          "display": "flow-root",
+                          "width": "100%",
+                        }
+                      }
+                    >
+                      <h4
+                        className="section-subsection-title"
+                        style={Object {}}
+                      >
+                        Source
+                      </h4>
+                      <pre
+                        className="section-pre bg-dark"
+                        style={
+                          Object {
+                            "color": "#878787",
+                          }
+                        }
+                      >
+                        <div
+                          style={
+                            Object {
+                              "paddingLeft": 18,
+                              "paddingRight": 3,
+                            }
+                          }
+                        >
+                          <span
+                            style={
+                              Object {
+                                "color": "#5567f2",
+                              }
+                            }
+                          >
+                            &lt;
+                            Input
+                          </span>
+                          <span>
+                            <span>
+                               
+                              <span
+                                style={Object {}}
+                              >
+                                placeholder
+                              </span>
+                              <span>
+                                =
+                                <span
+                                  style={Object {}}
+                                >
+                                  "
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#cbc539",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    some value
+                                  </span>
+                                  "
+                                </span>
+                              </span>
+                            </span>
+                            <span>
+                               
+                              <span
+                                style={Object {}}
+                              >
+                                size
+                              </span>
+                              <span>
+                                =
+                                <span
+                                  style={Object {}}
+                                >
+                                  "
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#cbc539",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    lg
+                                  </span>
+                                  "
+                                </span>
+                              </span>
+                               
+                            </span>
+                          </span>
+                          <span
+                            style={
+                              Object {
+                                "color": "#5567f2",
+                              }
+                            }
+                          >
+                            /&gt;
+                          </span>
+                        </div>
+                      </pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="chapter"
+            style={Object {}}
+          >
+            <div
+              className="chapter-header"
+              style={Object {}}
+            >
+              <div>
+                <h2
+                  className="chapter-h2 pt-3"
+                  style={
+                    Object {
+                      "fontSize": "1.5em",
+                    }
+                  }
+                >
+                  Validity
+                </h2>
+                
+                
+                
+              </div>
+            </div>
+            <div
+              className="chapter-sections"
+            >
+              <div
+                className="section-container"
+                style={Object {}}
+              >
+                <div
+                  className="section-header"
+                  style={Object {}}
+                >
+                  <div>
+                    <h3
+                      className="section-title"
+                      style={Object {}}
+                    >
+                      Valid
+                    </h3>
+                    
+                  </div>
+                </div>
+                <div
+                  className="section-component-container"
+                  style={Object {}}
+                >
+                  <input
+                    className="form-control   
                       is-valid "
-        defaultValue="some value"
-        onChange={[Function]}
-        onInput={[Function]}
-        placeholder=""
-        type="text"
-      />
+                    onChange={[Function]}
+                    onInput={[Function]}
+                    placeholder="some value"
+                    type="text"
+                  />
+                </div>
+                <div
+                  className="section-additional pt-4"
+                  style={Object {}}
+                >
+                  <div>
+                    
+                    <div
+                      className="section-subsection"
+                      style={
+                        Object {
+                          "display": "flow-root",
+                          "width": "100%",
+                        }
+                      }
+                    >
+                      <h4
+                        className="section-subsection-title"
+                        style={Object {}}
+                      >
+                        Source
+                      </h4>
+                      <pre
+                        className="section-pre bg-dark"
+                        style={
+                          Object {
+                            "color": "#878787",
+                          }
+                        }
+                      >
+                        <div
+                          style={
+                            Object {
+                              "paddingLeft": 18,
+                              "paddingRight": 3,
+                            }
+                          }
+                        >
+                          <span
+                            style={
+                              Object {
+                                "color": "#5567f2",
+                              }
+                            }
+                          >
+                            &lt;
+                            Input
+                          </span>
+                          <span>
+                            <span>
+                               
+                              <span
+                                style={Object {}}
+                              >
+                                placeholder
+                              </span>
+                              <span>
+                                =
+                                <span
+                                  style={Object {}}
+                                >
+                                  "
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#cbc539",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    some value
+                                  </span>
+                                  "
+                                </span>
+                              </span>
+                            </span>
+                            <span>
+                               
+                              <span
+                                style={Object {}}
+                              >
+                                valid
+                              </span>
+                               
+                            </span>
+                          </span>
+                          <span
+                            style={
+                              Object {
+                                "color": "#5567f2",
+                              }
+                            }
+                          >
+                            /&gt;
+                          </span>
+                        </div>
+                      </pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="section-container"
+                style={Object {}}
+              >
+                <div
+                  className="section-header"
+                  style={Object {}}
+                >
+                  <div>
+                    <h3
+                      className="section-title"
+                      style={Object {}}
+                    >
+                      Invalid
+                    </h3>
+                    
+                  </div>
+                </div>
+                <div
+                  className="section-component-container"
+                  style={Object {}}
+                >
+                  <input
+                    className="form-control   
+                     is-invalid  "
+                    onChange={[Function]}
+                    onInput={[Function]}
+                    placeholder="some value"
+                    type="text"
+                  />
+                </div>
+                <div
+                  className="section-additional pt-4"
+                  style={Object {}}
+                >
+                  <div>
+                    
+                    <div
+                      className="section-subsection"
+                      style={
+                        Object {
+                          "display": "flow-root",
+                          "width": "100%",
+                        }
+                      }
+                    >
+                      <h4
+                        className="section-subsection-title"
+                        style={Object {}}
+                      >
+                        Source
+                      </h4>
+                      <pre
+                        className="section-pre bg-dark"
+                        style={
+                          Object {
+                            "color": "#878787",
+                          }
+                        }
+                      >
+                        <div
+                          style={
+                            Object {
+                              "paddingLeft": 18,
+                              "paddingRight": 3,
+                            }
+                          }
+                        >
+                          <span
+                            style={
+                              Object {
+                                "color": "#5567f2",
+                              }
+                            }
+                          >
+                            &lt;
+                            Input
+                          </span>
+                          <span>
+                            <span>
+                               
+                              <span
+                                style={Object {}}
+                              >
+                                placeholder
+                              </span>
+                              <span>
+                                =
+                                <span
+                                  style={Object {}}
+                                >
+                                  "
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#cbc539",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    some value
+                                  </span>
+                                  "
+                                </span>
+                              </span>
+                            </span>
+                            <span>
+                               
+                              <span
+                                style={Object {}}
+                              >
+                                valid
+                              </span>
+                              <span>
+                                =
+                                <span
+                                  style={Object {}}
+                                >
+                                  {
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#a11",
+                                      }
+                                    }
+                                  >
+                                    false
+                                  </span>
+                                  }
+                                </span>
+                              </span>
+                               
+                            </span>
+                          </span>
+                          <span
+                            style={
+                              Object {
+                                "color": "#5567f2",
+                              }
+                            }
+                          >
+                            /&gt;
+                          </span>
+                        </div>
+                      </pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="chapter"
+            style={Object {}}
+          >
+            <div
+              className="chapter-header"
+              style={Object {}}
+            >
+              <div>
+                <h2
+                  className="chapter-h2 pt-3"
+                  style={
+                    Object {
+                      "fontSize": "1.5em",
+                    }
+                  }
+                >
+                  Icons
+                </h2>
+                
+                
+                
+              </div>
+            </div>
+            <div
+              className="chapter-sections"
+            >
+              <div
+                className="section-container"
+                style={Object {}}
+              >
+                <div
+                  className="section-header"
+                  style={Object {}}
+                >
+                  <div>
+                    <h3
+                      className="section-title"
+                      style={Object {}}
+                    >
+                      Appended
+                    </h3>
+                    
+                  </div>
+                </div>
+                <div
+                  className="section-component-container"
+                  style={Object {}}
+                >
+                  <div
+                    className="input-group input-group-merge   undefined"
+                  >
+                    <input
+                      className="form-control form-control-appended  
+                       "
+                      onChange={[Function]}
+                      onInput={[Function]}
+                      placeholder="some value"
+                      type="text"
+                    />
+                    <div
+                      className="input-group-append"
+                    >
+                      <div
+                        className="input-group-text null"
+                      >
+                        <span
+                          className="fe fe-search"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="section-additional pt-4"
+                  style={Object {}}
+                >
+                  <div>
+                    
+                    <div
+                      className="section-subsection"
+                      style={
+                        Object {
+                          "display": "flow-root",
+                          "width": "100%",
+                        }
+                      }
+                    >
+                      <h4
+                        className="section-subsection-title"
+                        style={Object {}}
+                      >
+                        Source
+                      </h4>
+                      <pre
+                        className="section-pre bg-dark"
+                        style={
+                          Object {
+                            "color": "#878787",
+                          }
+                        }
+                      >
+                        <div
+                          style={
+                            Object {
+                              "paddingLeft": 18,
+                              "paddingRight": 3,
+                            }
+                          }
+                        >
+                          <span
+                            style={
+                              Object {
+                                "color": "#5567f2",
+                              }
+                            }
+                          >
+                            &lt;
+                            Input
+                          </span>
+                          <span>
+                            <span>
+                               
+                              <span
+                                style={Object {}}
+                              >
+                                placeholder
+                              </span>
+                              <span>
+                                =
+                                <span
+                                  style={Object {}}
+                                >
+                                  "
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#cbc539",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    some value
+                                  </span>
+                                  "
+                                </span>
+                              </span>
+                            </span>
+                            <span>
+                               
+                              <span
+                                style={Object {}}
+                              >
+                                icon
+                              </span>
+                              <span>
+                                =
+                                <span
+                                  style={Object {}}
+                                >
+                                  "
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#cbc539",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    search
+                                  </span>
+                                  "
+                                </span>
+                              </span>
+                               
+                            </span>
+                          </span>
+                          <span
+                            style={
+                              Object {
+                                "color": "#5567f2",
+                              }
+                            }
+                          >
+                            /&gt;
+                          </span>
+                        </div>
+                      </pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="section-container"
+                style={Object {}}
+              >
+                <div
+                  className="section-header"
+                  style={Object {}}
+                >
+                  <div>
+                    <h3
+                      className="section-title"
+                      style={Object {}}
+                    >
+                      Prepended
+                    </h3>
+                    
+                  </div>
+                </div>
+                <div
+                  className="section-component-container"
+                  style={Object {}}
+                >
+                  <div
+                    className="input-group input-group-merge   undefined"
+                  >
+                    <input
+                      className="form-control form-control-prepended  
+                       "
+                      onChange={[Function]}
+                      onInput={[Function]}
+                      placeholder="some value"
+                      type="text"
+                    />
+                    <div
+                      className="input-group-prepend"
+                    >
+                      <div
+                        className="input-group-text null"
+                      >
+                        <span
+                          className="fe fe-search"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="section-additional pt-4"
+                  style={Object {}}
+                >
+                  <div>
+                    
+                    <div
+                      className="section-subsection"
+                      style={
+                        Object {
+                          "display": "flow-root",
+                          "width": "100%",
+                        }
+                      }
+                    >
+                      <h4
+                        className="section-subsection-title"
+                        style={Object {}}
+                      >
+                        Source
+                      </h4>
+                      <pre
+                        className="section-pre bg-dark"
+                        style={
+                          Object {
+                            "color": "#878787",
+                          }
+                        }
+                      >
+                        <div
+                          style={
+                            Object {
+                              "paddingLeft": 18,
+                              "paddingRight": 3,
+                            }
+                          }
+                        >
+                          <span
+                            style={
+                              Object {
+                                "color": "#5567f2",
+                              }
+                            }
+                          >
+                            &lt;
+                            Input
+                          </span>
+                          <span>
+                            <span>
+                               
+                              <span
+                                style={Object {}}
+                              >
+                                placeholder
+                              </span>
+                              <span>
+                                =
+                                <span
+                                  style={Object {}}
+                                >
+                                  "
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#cbc539",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    some value
+                                  </span>
+                                  "
+                                </span>
+                              </span>
+                            </span>
+                            <span>
+                               
+                              <span
+                                style={Object {}}
+                              >
+                                icon
+                              </span>
+                              <span>
+                                =
+                                <span
+                                  style={Object {}}
+                                >
+                                  "
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#cbc539",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    search
+                                  </span>
+                                  "
+                                </span>
+                              </span>
+                            </span>
+                            <span>
+                               
+                              <span
+                                style={Object {}}
+                              >
+                                prepend
+                              </span>
+                               
+                            </span>
+                          </span>
+                          <span
+                            style={
+                              Object {
+                                "color": "#5567f2",
+                              }
+                            }
+                          >
+                            /&gt;
+                          </span>
+                        </div>
+                      </pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="chapter"
+            style={Object {}}
+          >
+            <div
+              className="chapter-header"
+              style={Object {}}
+            >
+              <div>
+                <h2
+                  className="chapter-h2 pt-3"
+                  style={
+                    Object {
+                      "fontSize": "1.5em",
+                    }
+                  }
+                >
+                  Clear button
+                </h2>
+                
+                
+                
+              </div>
+            </div>
+            <div
+              className="chapter-sections"
+            >
+              <div
+                className="section-container"
+                style={Object {}}
+              >
+                <div
+                  className="section-header"
+                  style={Object {}}
+                >
+                  <div>
+                    
+                    
+                  </div>
+                </div>
+                <div
+                  className="section-component-container"
+                  style={Object {}}
+                >
+                  <div
+                    className="input-group input-group-merge   undefined"
+                  >
+                    <input
+                      className="form-control  form-control-appended   
+                       "
+                      onChange={[Function]}
+                      onInput={[Function]}
+                      placeholder="some value"
+                      type="text"
+                    />
+                    <div
+                      className="input-group-append"
+                    >
+                      <div
+                        className="input-group-text null"
+                      >
+                        <span
+                          className="fe fe-x-circle pointer"
+                          onClick={[Function]}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="section-additional pt-4"
+                  style={Object {}}
+                >
+                  <div>
+                    
+                    <div
+                      className="section-subsection"
+                      style={
+                        Object {
+                          "display": "flow-root",
+                          "width": "100%",
+                        }
+                      }
+                    >
+                      <h4
+                        className="section-subsection-title"
+                        style={Object {}}
+                      >
+                        Source
+                      </h4>
+                      <pre
+                        className="section-pre bg-dark"
+                        style={
+                          Object {
+                            "color": "#878787",
+                          }
+                        }
+                      >
+                        <div
+                          style={
+                            Object {
+                              "paddingLeft": 18,
+                              "paddingRight": 3,
+                            }
+                          }
+                        >
+                          <span
+                            style={
+                              Object {
+                                "color": "#5567f2",
+                              }
+                            }
+                          >
+                            &lt;
+                            Input
+                          </span>
+                          <span>
+                            <span>
+                               
+                              <span
+                                style={Object {}}
+                              >
+                                placeholder
+                              </span>
+                              <span>
+                                =
+                                <span
+                                  style={Object {}}
+                                >
+                                  "
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#cbc539",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    some value
+                                  </span>
+                                  "
+                                </span>
+                              </span>
+                            </span>
+                            <span>
+                               
+                              <span
+                                style={Object {}}
+                              >
+                                clearButton
+                              </span>
+                               
+                            </span>
+                          </span>
+                          <span
+                            style={
+                              Object {
+                                "color": "#5567f2",
+                              }
+                            }
+                          >
+                            /&gt;
+                          </span>
+                        </div>
+                      </pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="chapter"
+            style={Object {}}
+          >
+            <div
+              className="chapter-header"
+              style={Object {}}
+            >
+              <div>
+                <h2
+                  className="chapter-h2 pt-3"
+                  style={
+                    Object {
+                      "fontSize": "1.5em",
+                    }
+                  }
+                >
+                  Flushed
+                </h2>
+                
+                
+                
+              </div>
+            </div>
+            <div
+              className="chapter-sections"
+            >
+              <div
+                className="section-container"
+                style={Object {}}
+              >
+                <div
+                  className="section-header"
+                  style={Object {}}
+                >
+                  <div>
+                    
+                    
+                  </div>
+                </div>
+                <div
+                  className="section-component-container"
+                  style={Object {}}
+                >
+                  <input
+                    className="form-control  form-control-flush 
+                       "
+                    onChange={[Function]}
+                    onInput={[Function]}
+                    placeholder="some value"
+                    type="text"
+                  />
+                </div>
+                <div
+                  className="section-additional pt-4"
+                  style={Object {}}
+                >
+                  <div>
+                    
+                    <div
+                      className="section-subsection"
+                      style={
+                        Object {
+                          "display": "flow-root",
+                          "width": "100%",
+                        }
+                      }
+                    >
+                      <h4
+                        className="section-subsection-title"
+                        style={Object {}}
+                      >
+                        Source
+                      </h4>
+                      <pre
+                        className="section-pre bg-dark"
+                        style={
+                          Object {
+                            "color": "#878787",
+                          }
+                        }
+                      >
+                        <div
+                          style={
+                            Object {
+                              "paddingLeft": 18,
+                              "paddingRight": 3,
+                            }
+                          }
+                        >
+                          <span
+                            style={
+                              Object {
+                                "color": "#5567f2",
+                              }
+                            }
+                          >
+                            &lt;
+                            Input
+                          </span>
+                          <span>
+                            <span>
+                               
+                              <span
+                                style={Object {}}
+                              >
+                                placeholder
+                              </span>
+                              <span>
+                                =
+                                <span
+                                  style={Object {}}
+                                >
+                                  "
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#cbc539",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    some value
+                                  </span>
+                                  "
+                                </span>
+                              </span>
+                            </span>
+                            <span>
+                               
+                              <span
+                                style={Object {}}
+                              >
+                                flush
+                              </span>
+                               
+                            </span>
+                          </span>
+                          <span
+                            style={
+                              Object {
+                                "color": "#5567f2",
+                              }
+                            }
+                          >
+                            /&gt;
+                          </span>
+                        </div>
+                      </pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="chapter"
+            style={Object {}}
+          >
+            <div
+              className="chapter-header"
+              style={Object {}}
+            >
+              <div>
+                <h2
+                  className="chapter-h2 pt-3"
+                  style={
+                    Object {
+                      "fontSize": "1.5em",
+                    }
+                  }
+                >
+                  Prop types
+                </h2>
+                
+                
+                
+              </div>
+            </div>
+            <div
+              className="chapter-sections"
+            >
+              <div
+                className="section-container"
+                style={Object {}}
+              >
+                <div
+                  className="section-header"
+                  style={Object {}}
+                >
+                  <div>
+                    
+                    
+                  </div>
+                </div>
+                <div
+                  className="section-component-container"
+                  style={Object {}}
+                >
+                  <input
+                    className="form-control   
+                       d-none"
+                    onChange={[Function]}
+                    onInput={[Function]}
+                    placeholder=""
+                    type="text"
+                  />
+                </div>
+                <div
+                  className="section-additional pt-4"
+                  style={Object {}}
+                >
+                  <div>
+                    
+                    <div
+                      className="section-subsection"
+                      style={
+                        Object {
+                          "display": "flow-root",
+                          "width": "100%",
+                        }
+                      }
+                    >
+                      <h4
+                        className="section-subsection-title"
+                        style={Object {}}
+                      >
+                        PropTypes
+                      </h4>
+                      <div>
+                        <h5>
+                          &lt;
+                          Input
+                          &gt; Component
+                        </h5>
+                        <table
+                          className="propTable table"
+                          style={Object {}}
+                        >
+                          <thead>
+                            <tr>
+                              <th
+                                className="propTable-th"
+                                style={Object {}}
+                              >
+                                Property
+                              </th>
+                              <th
+                                className="propTable-th"
+                                style={Object {}}
+                              >
+                                PropType
+                              </th>
+                              <th
+                                className="propTable-th"
+                                style={Object {}}
+                              >
+                                Required
+                              </th>
+                              <th
+                                className="propTable-th"
+                                style={Object {}}
+                              >
+                                Default
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                clearButton
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                bool
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#a11",
+                                    }
+                                  }
+                                >
+                                  false
+                                </span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                containerClass
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                string
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                -
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                flush
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                bool
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#a11",
+                                    }
+                                  }
+                                >
+                                  false
+                                </span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                icon
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                string
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                -
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                onInput
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                func
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                -
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                placeholder
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                string
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#cbc539",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }
+                                >
+                                  
+                                </span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                prepend
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                bool
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#a11",
+                                    }
+                                  }
+                                >
+                                  false
+                                </span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                size
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                other
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                -
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                valid
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                bool
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                -
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
