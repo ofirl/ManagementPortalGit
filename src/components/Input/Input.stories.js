@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { action } from '@storybook/addon-actions';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, select, radios, boolean } from '@storybook/addon-knobs';
 
 import Input from './Input';
 import Card from 'react-bootstrap/Card';
@@ -67,6 +67,53 @@ storiesOf('Input', module)
     }
   )
   .addWithChapters(
+    'Knobs',
+    {
+      useTheme: false,
+      chapters: [
+        {
+          sections: [
+            {
+              sectionFn: () => {
+                const defaultValue = text('Default value', 'some value');
+                let validTypes = {
+                  Valid: "true",
+                  Invalid: "false",
+                  Null: "null"
+                }
+                const valid = radios('Valid', validTypes, "null");
+                const validValue = valid == "true" ? true : valid == "false" ? false : null;
+
+                let sizeTypes = {
+                  Small: 'sm',
+                  Medium: '',
+                  Large: 'lg'
+                }
+                const size = select("Size", sizeTypes, '');
+
+                const iconName = text("Icon name", "search");
+                let iconPositionTypes = {
+                  Prepended: "true",
+                  Appended: "false"
+                }
+                const iconPosition = radios("Icon position", iconPositionTypes, "false") == "false" ? false : true;
+
+                const clearButton = boolean("Clear button", false);
+
+                const flush = boolean("Flush", false) ? true : null;
+
+                return (<Input defaultValue={defaultValue} valid={validValue} size={size} icon={iconName} prepend={iconPosition} clearButton={clearButton} flush={flush} />);
+              },
+              options: {
+                showPropTables: true
+              }
+            }
+          ]
+        }
+      ]
+    }
+  )
+  .addWithChapters(
     'Callbacks',
     {
       useTheme: false,
@@ -104,7 +151,7 @@ storiesOf('Input', module)
               title: "Small",
               subtitle: "",
               info: "",
-              sectionFn: () => (<Input size="sm" />)
+              sectionFn: () => (<Input placeholder="some value" size="sm" />)
               // options: {
               // showSource: false,
               // allowSourceToggling: true,

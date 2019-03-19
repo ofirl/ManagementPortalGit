@@ -45,7 +45,7 @@ class Input extends Component {
         /** icon for the input field */
         icon: PropTypes.string,
         /** size control */
-        size: PropTypes.oneOf(['sm', 'lg']),
+        size: PropTypes.oneOf(['sm', '', 'lg']),
         /** icon position */
         prepend: PropTypes.bool,
         /** flush input */
