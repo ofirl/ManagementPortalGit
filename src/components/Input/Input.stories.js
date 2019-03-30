@@ -36,12 +36,12 @@ storiesOf('Input', module)
         <Card.Header>
           <Card.Title className="mb-0">
             Input
-                    </Card.Title>
+          </Card.Title>
         </Card.Header>
         <Card.Body>
           {/* <Card.Text className="pb-4">
-                        general stuff
-                    </Card.Text> */}
+              general stuff
+            </Card.Text> */}
           {story()}
         </Card.Body>
       </Card>

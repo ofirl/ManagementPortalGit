@@ -1,5 +1,3462 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Storyshots Icon Callbacks 1`] = `
+<div
+  className="p-4"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-header"
+    >
+      <div
+        className="mb-0 card-title h5"
+      >
+        Icon
+      </div>
+    </div>
+    <div
+      className="card-body"
+    >
+      <div
+        className="story"
+        style={Object {}}
+      >
+        <div
+          className="story-header"
+          style={Object {}}
+        >
+          <div>
+            
+            
+          </div>
+        </div>
+        <div
+          className="story-chapters"
+        >
+          <div
+            className="chapter"
+            style={Object {}}
+          >
+            <div
+              className="chapter-header"
+              style={Object {}}
+            >
+              <div>
+                
+                
+                
+                
+              </div>
+            </div>
+            <div
+              className="chapter-sections"
+            >
+              <div
+                className="section-container"
+                style={Object {}}
+              >
+                <div
+                  className="section-header"
+                  style={Object {}}
+                >
+                  <div>
+                    
+                    
+                  </div>
+                </div>
+                <div
+                  className="section-component-container"
+                  style={Object {}}
+                >
+                  <span
+                    className="icon undefined pointer"
+                    onClick={[Function]}
+                  >
+                    <i
+                      className="fe fe-search"
+                    />
+                  </span>
+                </div>
+                <div
+                  className="section-additional pt-4"
+                  style={Object {}}
+                >
+                  <div>
+                    
+                    <div
+                      className="section-subsection"
+                      style={
+                        Object {
+                          "display": "flow-root",
+                          "width": "100%",
+                        }
+                      }
+                    >
+                      <h4
+                        className="section-subsection-title"
+                        style={Object {}}
+                      >
+                        Source
+                      </h4>
+                      <pre
+                        className="section-pre bg-dark"
+                        style={
+                          Object {
+                            "color": "#878787",
+                          }
+                        }
+                      >
+                        <div
+                          style={
+                            Object {
+                              "paddingLeft": 18,
+                              "paddingRight": 3,
+                            }
+                          }
+                        >
+                          <span
+                            style={
+                              Object {
+                                "color": "#5567f2",
+                              }
+                            }
+                          >
+                            &lt;
+                            Icon
+                          </span>
+                          <span>
+                            <span>
+                               
+                              <span
+                                style={Object {}}
+                              >
+                                type
+                              </span>
+                              <span>
+                                =
+                                <span
+                                  style={Object {}}
+                                >
+                                  "
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#cbc539",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    search
+                                  </span>
+                                  "
+                                </span>
+                              </span>
+                            </span>
+                            <span>
+                               
+                              <span
+                                style={Object {}}
+                              >
+                                onClick
+                              </span>
+                              <span>
+                                =
+                                <span
+                                  style={Object {}}
+                                >
+                                  {
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#170",
+                                      }
+                                    }
+                                  >
+                                    action
+                                  </span>
+                                  }
+                                </span>
+                              </span>
+                               
+                            </span>
+                          </span>
+                          <span
+                            style={
+                              Object {
+                                "color": "#5567f2",
+                              }
+                            }
+                          >
+                            /&gt;
+                          </span>
+                        </div>
+                      </pre>
+                    </div>
+                    <div
+                      className="section-subsection"
+                      style={
+                        Object {
+                          "display": "flow-root",
+                          "width": "100%",
+                        }
+                      }
+                    >
+                      <h4
+                        className="section-subsection-title"
+                        style={Object {}}
+                      >
+                        PropTypes
+                      </h4>
+                      <div>
+                        <h5>
+                          &lt;
+                          Icon
+                          &gt; Component
+                        </h5>
+                        <table
+                          className="propTable table"
+                          style={Object {}}
+                        >
+                          <thead>
+                            <tr>
+                              <th
+                                className="propTable-th"
+                                style={Object {}}
+                              >
+                                Property
+                              </th>
+                              <th
+                                className="propTable-th"
+                                style={Object {}}
+                              >
+                                PropType
+                              </th>
+                              <th
+                                className="propTable-th"
+                                style={Object {}}
+                              >
+                                Required
+                              </th>
+                              <th
+                                className="propTable-th"
+                                style={Object {}}
+                              >
+                                Default
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                bsPrefix
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                string
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                Yes
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#cbc539",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }
+                                >
+                                  fe
+                                </span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                className
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                string
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                -
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                href
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                string
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                -
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                inline
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                bool
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#a11",
+                                    }
+                                  }
+                                >
+                                  false
+                                </span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                onClick
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                func
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                -
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                type
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                string
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                Yes
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                -
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Icon Default 1`] = `
+<div
+  className="p-4"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-header"
+    >
+      <div
+        className="mb-0 card-title h5"
+      >
+        Icon
+      </div>
+    </div>
+    <div
+      className="card-body"
+    >
+      <div
+        className="story"
+        style={Object {}}
+      >
+        <div
+          className="story-header"
+          style={Object {}}
+        >
+          <div>
+            
+            
+          </div>
+        </div>
+        <div
+          className="story-chapters"
+        >
+          <div
+            className="chapter"
+            style={Object {}}
+          >
+            <div
+              className="chapter-header"
+              style={Object {}}
+            >
+              <div>
+                
+                
+                
+                
+              </div>
+            </div>
+            <div
+              className="chapter-sections"
+            >
+              <div
+                className="section-container"
+                style={Object {}}
+              >
+                <div
+                  className="section-header"
+                  style={Object {}}
+                >
+                  <div>
+                    
+                    
+                  </div>
+                </div>
+                <div
+                  className="section-component-container"
+                  style={Object {}}
+                >
+                  <span
+                    className="icon undefined "
+                  >
+                    <i
+                      className="fe fe-search"
+                    />
+                  </span>
+                </div>
+                <div
+                  className="section-additional pt-4"
+                  style={Object {}}
+                >
+                  <div>
+                    
+                    <div
+                      className="section-subsection"
+                      style={
+                        Object {
+                          "display": "flow-root",
+                          "width": "100%",
+                        }
+                      }
+                    >
+                      <h4
+                        className="section-subsection-title"
+                        style={Object {}}
+                      >
+                        Source
+                      </h4>
+                      <pre
+                        className="section-pre bg-dark"
+                        style={
+                          Object {
+                            "color": "#878787",
+                          }
+                        }
+                      >
+                        <div
+                          style={
+                            Object {
+                              "paddingLeft": 18,
+                              "paddingRight": 3,
+                            }
+                          }
+                        >
+                          <span
+                            style={
+                              Object {
+                                "color": "#5567f2",
+                              }
+                            }
+                          >
+                            &lt;
+                            Icon
+                          </span>
+                          <span>
+                            <span>
+                               
+                              <span
+                                style={Object {}}
+                              >
+                                type
+                              </span>
+                              <span>
+                                =
+                                <span
+                                  style={Object {}}
+                                >
+                                  "
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#cbc539",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    search
+                                  </span>
+                                  "
+                                </span>
+                              </span>
+                               
+                            </span>
+                          </span>
+                          <span
+                            style={
+                              Object {
+                                "color": "#5567f2",
+                              }
+                            }
+                          >
+                            /&gt;
+                          </span>
+                        </div>
+                      </pre>
+                    </div>
+                    <div
+                      className="section-subsection"
+                      style={
+                        Object {
+                          "display": "flow-root",
+                          "width": "100%",
+                        }
+                      }
+                    >
+                      <h4
+                        className="section-subsection-title"
+                        style={Object {}}
+                      >
+                        PropTypes
+                      </h4>
+                      <div>
+                        <h5>
+                          &lt;
+                          Icon
+                          &gt; Component
+                        </h5>
+                        <table
+                          className="propTable table"
+                          style={Object {}}
+                        >
+                          <thead>
+                            <tr>
+                              <th
+                                className="propTable-th"
+                                style={Object {}}
+                              >
+                                Property
+                              </th>
+                              <th
+                                className="propTable-th"
+                                style={Object {}}
+                              >
+                                PropType
+                              </th>
+                              <th
+                                className="propTable-th"
+                                style={Object {}}
+                              >
+                                Required
+                              </th>
+                              <th
+                                className="propTable-th"
+                                style={Object {}}
+                              >
+                                Default
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                bsPrefix
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                string
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                Yes
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#cbc539",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }
+                                >
+                                  fe
+                                </span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                className
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                string
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                -
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                href
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                string
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                -
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                inline
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                bool
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#a11",
+                                    }
+                                  }
+                                >
+                                  false
+                                </span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                onClick
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                func
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                -
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                type
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                string
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                Yes
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                -
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Icon Knobs 1`] = `
+<div
+  className="p-4"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-header"
+    >
+      <div
+        className="mb-0 card-title h5"
+      >
+        Icon
+      </div>
+    </div>
+    <div
+      className="card-body"
+    >
+      <div
+        className="story"
+        style={Object {}}
+      >
+        <div
+          className="story-header"
+          style={Object {}}
+        >
+          <div>
+            
+            
+          </div>
+        </div>
+        <div
+          className="story-chapters"
+        >
+          <div
+            className="chapter"
+            style={Object {}}
+          >
+            <div
+              className="chapter-header"
+              style={Object {}}
+            >
+              <div>
+                
+                
+                
+                
+              </div>
+            </div>
+            <div
+              className="chapter-sections"
+            >
+              <div
+                className="section-container"
+                style={Object {}}
+              >
+                <div
+                  className="section-header"
+                  style={Object {}}
+                >
+                  <div>
+                    
+                    
+                  </div>
+                </div>
+                <div
+                  className="section-component-container"
+                  style={Object {}}
+                >
+                  <span
+                    className="icon undefined "
+                  >
+                    <i
+                      className="fe fe-search"
+                    />
+                  </span>
+                </div>
+                <div
+                  className="section-additional pt-4"
+                  style={Object {}}
+                >
+                  <div>
+                    
+                    <div
+                      className="section-subsection"
+                      style={
+                        Object {
+                          "display": "flow-root",
+                          "width": "100%",
+                        }
+                      }
+                    >
+                      <h4
+                        className="section-subsection-title"
+                        style={Object {}}
+                      >
+                        Source
+                      </h4>
+                      <pre
+                        className="section-pre bg-dark"
+                        style={
+                          Object {
+                            "color": "#878787",
+                          }
+                        }
+                      >
+                        <div
+                          style={
+                            Object {
+                              "paddingLeft": 18,
+                              "paddingRight": 3,
+                            }
+                          }
+                        >
+                          <span
+                            style={
+                              Object {
+                                "color": "#5567f2",
+                              }
+                            }
+                          >
+                            &lt;
+                            Icon
+                          </span>
+                          <span>
+                            <span>
+                               
+                              <span
+                                style={Object {}}
+                              >
+                                type
+                              </span>
+                              <span>
+                                =
+                                <span
+                                  style={Object {}}
+                                >
+                                  "
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#cbc539",
+                                        "wordBreak": "break-word",
+                                      }
+                                    }
+                                  >
+                                    search
+                                  </span>
+                                  "
+                                </span>
+                              </span>
+                               
+                            </span>
+                          </span>
+                          <span
+                            style={
+                              Object {
+                                "color": "#5567f2",
+                              }
+                            }
+                          >
+                            /&gt;
+                          </span>
+                        </div>
+                      </pre>
+                    </div>
+                    <div
+                      className="section-subsection"
+                      style={
+                        Object {
+                          "display": "flow-root",
+                          "width": "100%",
+                        }
+                      }
+                    >
+                      <h4
+                        className="section-subsection-title"
+                        style={Object {}}
+                      >
+                        PropTypes
+                      </h4>
+                      <div>
+                        <h5>
+                          &lt;
+                          Icon
+                          &gt; Component
+                        </h5>
+                        <table
+                          className="propTable table"
+                          style={Object {}}
+                        >
+                          <thead>
+                            <tr>
+                              <th
+                                className="propTable-th"
+                                style={Object {}}
+                              >
+                                Property
+                              </th>
+                              <th
+                                className="propTable-th"
+                                style={Object {}}
+                              >
+                                PropType
+                              </th>
+                              <th
+                                className="propTable-th"
+                                style={Object {}}
+                              >
+                                Required
+                              </th>
+                              <th
+                                className="propTable-th"
+                                style={Object {}}
+                              >
+                                Default
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                bsPrefix
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                string
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                Yes
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#cbc539",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }
+                                >
+                                  fe
+                                </span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                className
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                string
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                -
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                href
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                string
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                -
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                inline
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                bool
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#a11",
+                                    }
+                                  }
+                                >
+                                  false
+                                </span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                onClick
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                func
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                -
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                type
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                string
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                Yes
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                -
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Icon Variants 1`] = `
+<div
+  className="p-4"
+>
+  <div
+    className="card"
+  >
+    <div
+      className="card-header"
+    >
+      <div
+        className="mb-0 card-title h5"
+      >
+        Icon
+      </div>
+    </div>
+    <div
+      className="card-body"
+    >
+      <div
+        className="story"
+        style={Object {}}
+      >
+        <div
+          className="story-header"
+          style={Object {}}
+        >
+          <div />
+        </div>
+        <div
+          className="story-chapters"
+        >
+          <div
+            className="chapter"
+            style={Object {}}
+          >
+            <div
+              className="chapter-header"
+              style={Object {}}
+            >
+              <div>
+                
+                
+                
+                
+              </div>
+            </div>
+            <div
+              className="chapter-sections"
+            >
+              <div
+                className="section-container"
+                style={Object {}}
+              >
+                <div
+                  className="section-header"
+                  style={Object {}}
+                >
+                  <div>
+                    
+                    
+                  </div>
+                </div>
+                <div
+                  className="section-component-container"
+                  style={Object {}}
+                >
+                  <div>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-activity"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-airplay"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-alert-circle"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-alert-octagon"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-alert-triangle"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-align-center"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-align-justify"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-align-left"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-align-right"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-anchor"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-aperture"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-archive"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-arrow-down"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-arrow-down-circle"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-arrow-down-left"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-arrow-down-right"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-arrow-left"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-arrow-left-circle"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-arrow-right"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-arrow-right-circle"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-arrow-up"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-arrow-up-circle"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-arrow-up-left"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-arrow-up-right"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-at-sign"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-award"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-bar-chart"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-bar-chart-2"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-battery"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-battery-charging"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-bell"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-bell-off"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-bluetooth"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-bold"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-book"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-book-open"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-bookmark"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-box"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-briefcase"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-calendar"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-camera"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-camera-off"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-cast"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-check"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-check-circle"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-check-square"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-chevron-down"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-chevron-left"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-chevron-right"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-chevron-up"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-chevrons-down"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-chevrons-left"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-chevrons-right"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-chevrons-up"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-chrome"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-circle"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-clipboard"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-clock"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-cloud"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-cloud-drizzle"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-cloud-lightning"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-cloud-off"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-cloud-rain"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-cloud-snow"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-code"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-codepen"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-command"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-compass"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-copy"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-corner-down-left"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-corner-down-right"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-corner-left-down"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-corner-left-up"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-corner-right-down"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-corner-right-up"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-corner-up-left"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-corner-up-right"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-cpu"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-credit-card"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-crop"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-crosshair"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-database"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-delete"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-disc"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-dollar-sign"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-download"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-download-cloud"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-droplet"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-edit"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-edit-2"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-edit-3"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-external-link"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-eye"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-eye-off"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-facebook"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-fast-forward"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-feather"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-file"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-file-minus"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-file-plus"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-file-text"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-film"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-filter"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-flag"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-folder"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-folder-minus"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-folder-plus"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-gift"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-git-branch"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-git-commit"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-git-merge"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-git-pull-request"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-github"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-gitlab"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-globe"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-grid"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-hard-drive"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-hash"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-headphones"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-heart"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-help-circle"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-home"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-image"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-inbox"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-info"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-instagram"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-italic"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-layers"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-layout"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-life-buoy"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-link"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-link-2"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-linkedin"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-list"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-loader"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-lock"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-log-in"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-log-out"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-mail"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-map"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-map-pin"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-maximize"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-maximize-2"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-menu"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-message-circle"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-message-square"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-mic"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-mic-off"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-minimize"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-minimize-2"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-minus"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-minus-circle"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-minus-square"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-monitor"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-moon"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-more-horizontal"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-more-vertical"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-move"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-music"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-navigation"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-navigation-2"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-octagon"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-package"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-paperclip"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-pause"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-pause-circle"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-percent"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-phone"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-phone-call"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-phone-forwarded"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-phone-incoming"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-phone-missed"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-phone-off"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-phone-outgoing"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-pie-chart"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-play"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-play-circle"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-plus"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-plus-circle"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-plus-square"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-pocket"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-power"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-printer"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-radio"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-refresh-ccw"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-refresh-cw"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-repeat"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-rewind"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-rotate-ccw"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-rotate-cw"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-rss"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-save"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-scissors"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-search"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-send"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-server"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-settings"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-share"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-share-2"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-shield"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-shield-off"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-shopping-bag"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-shopping-cart"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-shuffle"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-sidebar"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-skip-back"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-skip-forward"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-slack"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-slash"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-sliders"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-smartphone"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-speaker"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-square"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-star"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-stop-circle"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-sun"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-sunrise"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-sunset"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-tablet"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-tag"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-target"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-terminal"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-thermometer"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-thumbs-down"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-thumbs-up"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-toggle-left"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-toggle-right"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-trash"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-trash-2"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-trending-down"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-trending-up"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-triangle"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-truck"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-tv"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-twitter"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-type"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-umbrella"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-underline"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-unlock"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-upload"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-upload-cloud"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-user"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-user-check"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-user-minus"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-user-plus"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-user-x"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-users"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-video"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-video-off"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-voicemail"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-volume"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-volume-1"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-volume-2"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-volume-x"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-watch"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-wifi"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-wifi-off"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-wind"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-x"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-x-circle"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-x-square"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-youtube"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-zap"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-zap-off"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-zoom-in"
+                      />
+                    </span>
+                    <span
+                      className="icon p-2 "
+                    >
+                      <i
+                        className="fe fe-zoom-out"
+                      />
+                    </span>
+                  </div>
+                </div>
+                <div
+                  className="section-additional pt-4"
+                  style={Object {}}
+                >
+                  <div>
+                    
+                    <div
+                      className="section-button-container"
+                      style={Object {}}
+                    >
+                      <button
+                        className="button btn btn-white m-2"
+                        onClick={[Function]}
+                        style={
+                          Object {
+                            "float": "right",
+                          }
+                        }
+                        type="button"
+                      >
+                        Show
+                         
+                        Source
+                      </button>
+                    </div>
+                    <div
+                      className="section-subsection"
+                      style={
+                        Object {
+                          "display": "flow-root",
+                          "width": "100%",
+                        }
+                      }
+                    >
+                      <h4
+                        className="section-subsection-title"
+                        style={Object {}}
+                      >
+                        PropTypes
+                      </h4>
+                      <div>
+                        <h5>
+                          &lt;
+                          Icon
+                          &gt; Component
+                        </h5>
+                        <table
+                          className="propTable table"
+                          style={Object {}}
+                        >
+                          <thead>
+                            <tr>
+                              <th
+                                className="propTable-th"
+                                style={Object {}}
+                              >
+                                Property
+                              </th>
+                              <th
+                                className="propTable-th"
+                                style={Object {}}
+                              >
+                                PropType
+                              </th>
+                              <th
+                                className="propTable-th"
+                                style={Object {}}
+                              >
+                                Required
+                              </th>
+                              <th
+                                className="propTable-th"
+                                style={Object {}}
+                              >
+                                Default
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                bsPrefix
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                string
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                Yes
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#cbc539",
+                                      "wordBreak": "break-word",
+                                    }
+                                  }
+                                >
+                                  fe
+                                </span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                className
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                string
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                -
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                href
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                string
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                -
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                inline
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                bool
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#a11",
+                                    }
+                                  }
+                                >
+                                  false
+                                </span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                onClick
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                func
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                No
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                -
+                              </td>
+                            </tr>
+                            <tr>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                type
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                string
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                Yes
+                              </td>
+                              <td
+                                className="propTable-td"
+                                style={Object {}}
+                              >
+                                -
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Input Callbacks 1`] = `
 <div
   className="p-4"
