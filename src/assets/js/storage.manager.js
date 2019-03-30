@@ -4,6 +4,9 @@ var data = {
     },
     profiles: {
         value: []
+    },
+    history: {
+        value: []
     }
 }
 
@@ -26,14 +29,33 @@ var testScriptsArray = [
                 optional: false
             }
         ]
+    },
+    {
+        id: 1,
+        name: 'Add User Mapping2',
+        description: 'Adds a mapping for the user in table "vusrextid"',
+        inputs: [
+            {
+                name: 'card name',
+                type: 'text',
+                width: 2,
+                optional: false
+            },
+            {
+                name: 'username',
+                type: 'text',
+                width: 2,
+                optional: false
+            }
+        ]
     }
 ];
 
 var testProfilesArray = [
     {
         id: 0,
-        firstname: 'ofir',
-        lastname: 'levi',
+        firstname: 'Ofir',
+        lastname: 'Levi',
         birthday: '24/01/1993',
         personalization: {
             logondata: [
@@ -55,6 +77,21 @@ var testProfilesArray = [
                 }
             ]
         }
+    }
+];
+
+var testHistoryArray = [
+    {
+        id: 0,
+        script: 0,
+        date: '29/3/2019',
+        ranby: 0
+    },
+    {
+        id: 1,
+        script: 0,
+        date: '30/3/2019',
+        ranby: 0
     }
 ];
 
@@ -80,7 +117,19 @@ function loadProfileInfo() {
     return data.profiles.value;
 }
 
+function loadHistoryInfo() {
+    if (data.history.loaded)
+        return data.history.value;
+
+    // TODO: load data
+    data.history.value = testHistoryArray;
+    data.history.loaded = true;
+
+    return data.history.value;
+}
+
 export default class StorageManager {
-    static loadScriptsInfo = loadScriptsInfo;
-    static loadProfileInfo = loadProfileInfo;
+    static loadScriptsInfo = loadScriptsInfo
+    static loadProfileInfo = loadProfileInfo
+    static loadHistoryInfo = loadHistoryInfo
 }

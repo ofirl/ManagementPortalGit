@@ -14,6 +14,7 @@ import Input from '../Input/Input';
 import Icon from '../Icon/Icon';
 import Form from 'react-bootstrap/Form';
 import Select from '../Select/Select';
+import Toggle from '../Toggle/Toggle';
 
 function naturalSort(a, b) {
     function chunkify(t) {
@@ -74,6 +75,8 @@ let tablePropTypes = {
                 value: PropTypes.string
             })
         ])),
+    /** filter will be case sensitive */
+    filterCaseSensitive: PropTypes.bool,
     /** table sort control */
     sort: PropTypes.shape({
         column: PropTypes.string,
@@ -88,7 +91,8 @@ let tablePropTypes = {
 let tableDefaultProps = {
     items: [],
     nowrap: false,
-    editable: false
+    editable: false,
+    filterCaseSensitive: false
 }
 
 class Table extends Component {
@@ -208,7 +212,7 @@ class Table extends Component {
                                 return false;
 
                             let matchStr = typeof i[key] == 'object' ? JSON.stringify(i[key]) : i[key].toString();
-                            return matchStr.match(new RegExp(filter.value));
+                            return matchStr.match(new RegExp(filter.value, this.props.filterCaseSensitive ? "" : "i"));
                         })
                         );
                         this.setError('filterError', null);
@@ -422,10 +426,12 @@ class TableCard extends Component {
         this.addNewItem = this.addNewItem.bind(this);
         this.onItemUpdate = this.onItemUpdate.bind(this);
         this.onError = this.onError.bind(this);
+        this.toggleFilterCaseSensitive = this.toggleFilterCaseSensitive.bind(this);
 
         this.state = {
             items: props.items,
-            omniFilter: null
+            omniFilter: null,
+            filterCaseSensitive: false
         }
 
         this.innerTable = React.createRef();
@@ -439,7 +445,7 @@ class TableCard extends Component {
         /** function to return the template to use when creating new items, usefull for default values on new items */
         itemTemplate: PropTypes.func,
         /** header button options */
-        headerButtons: PropTypes.arrayOf(PropTypes.oneOf(['new-row'])),
+        headerButtons: PropTypes.arrayOf(PropTypes.oneOf(['new-row', 'case'])),
         /** row button options */
         rowButtons: PropTypes.arrayOf(PropTypes.oneOf(['copy', 'remove']))
     }
@@ -453,6 +459,9 @@ class TableCard extends Component {
             this.setState({ omniFilter: null });
         else
             this.setState({ omniFilter: value });
+    }
+    toggleFilterCaseSensitive() {
+        this.setState({ filterCaseSensitive: !this.state.filterCaseSensitive });
     }
     getNewItemFromTemplate() {
         let maxId = Math.max(...this.state.items.map((i) => i.id), 0);
@@ -524,13 +533,13 @@ class TableCard extends Component {
                     <Card.Header className="pb-1 pl-4">
                         <Card.Title className="mb-0">
                             <div className="row align-items-center">
-                                <div className="col align-middle">
+                                <div className="col-auto align-middle">
                                     {title}
                                 </div>
                                 {
                                     searchable ?
                                         (
-                                            <div className="col-auto">
+                                            <div className="col">
                                                 <Form.Group className="align-middle mb-0">
                                                     <Form.Control as={Input} className="col-auto" icon="search" placeholder="Search" clearButton
                                                         onInput={this.applyOmniFilter} prepend flush valid={filterError != null ? false : null} />
@@ -543,11 +552,17 @@ class TableCard extends Component {
                                         : null
                                 }
                                 {
-                                    headerButtons !== null ?
+                                    headerButtons != null ?
                                         headerButtons.map((button) => {
                                             if (button === "new-row")
                                                 return (
                                                     <Button key={button} variant="white" size="sm" onClick={this.addNewItem}> New Row </Button>
+                                                );
+                                            if (button === "case")
+                                                return (
+                                                    <Toggle key={button} defaultChecked={false} onChange={this.toggleFilterCaseSensitive} >
+                                                        Case sensitive
+                                                    </Toggle>
                                                 );
                                             return null;
                                         })
@@ -557,7 +572,7 @@ class TableCard extends Component {
                         </Card.Title>
                     </Card.Header>
                     <Table tableInstance={this.tableInstance} items={stateItems} filter={tableFilter} {...others}
-                        onItemUpdate={this.onItemUpdate} ref={this.innerTable} onError={this.onError} />
+                        onItemUpdate={this.onItemUpdate} ref={this.innerTable} onError={this.onError} filterCaseSensitive={this.state.filterCaseSensitive} />
                 </Form>
             </Card>
         );
