@@ -17,19 +17,34 @@ var testScriptsArray = [
         description: 'Adds a mapping for the user in table "vusrextid"',
         inputs: [
             {
-                name: 'card name',
+                name: 'Card name',
+                accessor: 'cardName',
                 type: 'text',
                 width: 2,
                 optional: false
             },
             {
-                name: 'username',
+                name: 'Username',
+                accessor: 'username',
                 type: 'text',
                 width: 2,
                 optional: false
             }
         ],
-        outputs: ['error', 'msg', 'previousUsername']
+        outputs: [
+            {
+                name: 'Error',
+                accessor: 'error'
+            },
+            {
+                name: 'Message',
+                accessor: 'msg'
+            },
+            {
+                name: 'Previous Username',
+                accessor: 'previousUsername'
+            }
+        ]
     },
     {
         id: 1,
@@ -84,31 +99,33 @@ var testProfilesArray = [
 var testHistoryArray = [
     {
         id: 0,
-        script: 0,
+        scriptId: 0,
         date: '29/3/2019',
         ranby: 0,
         results: [
             {
                 success: false,
                 input: {
-                    certificate: 's7546559',
+                    id: 0,
+                    cardName: 's7546559',
                     username: 'test1'
                 },
                 output: {
-                    error: ['table was locked!'],
-                    msg: ['please try again later'],
+                    error: 'table was locked!',
+                    msg: 'please try again later',
                     previousUsername: ''
                 }
             },
             {
                 success: true,
                 input: {
-                    certificate: 's7546559',
+                    id: 1,
+                    cardName: 's7546559',
                     username: 'test2'
                 },
                 output: {
-                    error: [],
-                    msg: [],
+                    error: '',
+                    msg: '',
                     previousUsername: 'test3'
                 }
             }
@@ -116,43 +133,46 @@ var testHistoryArray = [
     },
     {
         id: 1,
-        script: 0,
+        scriptId: 0,
         date: '30/3/2019',
         ranby: 0,
         results: [
             {
                 success: false,
                 input: {
-                    certificate: 's7546559',
+                    id: 0,
+                    cardName: 's7546559',
                     username: 'ofirl'
                 },
                 output: {
-                    error: ['table was locked!'],
-                    msg: ['please try again later'],
+                    error: 'table was locked!',
+                    msg: 'please try again later',
                     previousUsername: ''
                 }
             },
             {
                 success: false,
                 input: {
-                    certificate: 's7546559',
+                    id: 1,
+                    cardName: 's7546559',
                     username: 'ofirl'
                 },
                 output: {
-                    error: ['???'],
-                    msg: [],
+                    error: '???',
+                    msg: '',
                     previousUsername: 'shakedb'
                 }
             },
             {
                 success: true,
                 input: {
-                    certificate: 's7546559',
+                    id: 2,
+                    cardName: 's7546559',
                     username: 'ofirl'
                 },
                 output: {
-                    error: ['???'],
-                    msg: [],
+                    error: '???',
+                    msg: '',
                     previousUsername: 'shakedb'
                 }
             }

@@ -303,6 +303,9 @@ class Table extends Component {
         items = this.filterItems(items);
         items = this.sortItems(items);
 
+        console.log('this.props.items');
+        console.log(this.props.items);
+
         return (
             <table className={`table ${size ? 'table-' + size : ''} ${nowrap ? 'table-nowrap' : ''} card-table ${className} ${onItemClick ? 'table-hover' : ''}`}>
                 <thead>
@@ -349,15 +352,16 @@ class Table extends Component {
                                                 <td key={colIdx} className={`align-middle`}>
                                                     {
                                                         (() => {
-                                                            if (editable && current.readonly !== true) {
-                                                                if (current.type == null || current.type === "text") {
-                                                                    return <Input size={size} value={currentItem[current.accessor]}
-                                                                        onInput={(val) => that.updateItem(currentItem.id, current.accessor, val)} />;
-                                                                }
-                                                                else if (current.type === "select") {
-                                                                    return (
-                                                                        <Select selectedValue={currentItem[current.accessor]} dropValues={current.dropValues} onChange={(val) => that.updateItem(currentItem.id, current.accessor, val)}>
-                                                                            {/* {
+                                                            try {
+                                                                if (editable && current.readonly !== true) {
+                                                                    if (current.type == null || current.type === "text") {
+                                                                        return <Input size={size} value={currentItem[current.accessor]}
+                                                                            onInput={(val) => that.updateItem(currentItem.id, current.accessor, val)} />;
+                                                                    }
+                                                                    else if (current.type === "select") {
+                                                                        return (
+                                                                            <Select selectedValue={currentItem[current.accessor]} dropValues={current.dropValues} onChange={(val) => that.updateItem(currentItem.id, current.accessor, val)}>
+                                                                                {/* {
                                                                                 [{
                                                                                     id: "test1",
                                                                                     render: <div>test11</div>
@@ -367,12 +371,19 @@ class Table extends Component {
                                                                                     render: <div>test22</div>
                                                                                 }]
                                                                             } */}
-                                                                        </Select>
-                                                                    );
+                                                                            </Select>
+                                                                        );
+                                                                    }
+                                                                }
+                                                                else {
+                                                                    // console.log(currentItem);
+                                                                    // console.log(current.accessor);
+                                                                    return currentItem[current.accessor].toString();
                                                                 }
                                                             }
-                                                            else
-                                                                return currentItem[current.accessor]
+                                                            catch (e) {
+                                                                return 'Error: could not read value';
+                                                            }
                                                         })()
                                                     }
                                                 </td>
