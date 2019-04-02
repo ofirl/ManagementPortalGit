@@ -28,7 +28,8 @@ var testScriptsArray = [
                 width: 2,
                 optional: false
             }
-        ]
+        ],
+        outputs: ['error', 'msg', 'previousUsername']
     },
     {
         id: 1,
@@ -85,13 +86,77 @@ var testHistoryArray = [
         id: 0,
         script: 0,
         date: '29/3/2019',
-        ranby: 0
+        ranby: 0,
+        results: [
+            {
+                success: false,
+                input: {
+                    certificate: 's7546559',
+                    username: 'test1'
+                },
+                output: {
+                    error: ['table was locked!'],
+                    msg: ['please try again later'],
+                    previousUsername: ''
+                }
+            },
+            {
+                success: true,
+                input: {
+                    certificate: 's7546559',
+                    username: 'test2'
+                },
+                output: {
+                    error: [],
+                    msg: [],
+                    previousUsername: 'test3'
+                }
+            }
+        ]
     },
     {
         id: 1,
         script: 0,
         date: '30/3/2019',
-        ranby: 0
+        ranby: 0,
+        results: [
+            {
+                success: false,
+                input: {
+                    certificate: 's7546559',
+                    username: 'ofirl'
+                },
+                output: {
+                    error: ['table was locked!'],
+                    msg: ['please try again later'],
+                    previousUsername: ''
+                }
+            },
+            {
+                success: false,
+                input: {
+                    certificate: 's7546559',
+                    username: 'ofirl'
+                },
+                output: {
+                    error: ['???'],
+                    msg: [],
+                    previousUsername: 'shakedb'
+                }
+            },
+            {
+                success: true,
+                input: {
+                    certificate: 's7546559',
+                    username: 'ofirl'
+                },
+                output: {
+                    error: ['???'],
+                    msg: [],
+                    previousUsername: 'shakedb'
+                }
+            }
+        ]
     }
 ];
 

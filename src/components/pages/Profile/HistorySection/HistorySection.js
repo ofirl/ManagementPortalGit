@@ -12,26 +12,37 @@ class HistorySection extends Component {
         super(props);
 
         this.getItemsText = this.getItemsText.bind(this);
+        this.itemClicked = this.itemClicked.bind(this);
     }
 
     getItemsText(items) {
-        let transformFunc = (function transformItem(i) {
+        let transformFunc = function transformItem(i) {
             let textItem = {...i};
             textItem.script = DataManager.getScriptInfoById(textItem.script).name;
 
             let ranByProfile = DataManager.getProfileById(textItem.ranby);
             textItem.ranby = `${ranByProfile.firstname} ${ranByProfile.lastname}`;
 
+            textItem.resultsObj = textItem.results;
+
+            let totalNum = textItem.resultsObj.length;
+            let successNum = textItem.resultsObj.filter( (r) => r.success ).length;
+            textItem.results = `${successNum}/${totalNum} (${(successNum/totalNum * 100).toFixed(0)}%)`;
+
             return textItem;
-        }).bind(this);
+        };
 
         return items.map(transformFunc);
+    }
+    itemClicked(itemId, item) {
+        console.log(itemId);
+        console.log(item);
     }
 
     render() {
         let items = DataManager.getAllHistory();
         let textItems = this.getItemsText(items);
-        console.log(items);
+        // console.log(items);
 
         return (
             <div className="col-12">
@@ -44,7 +55,7 @@ class HistorySection extends Component {
                     </Card.Text>
                     </Card.Body>
                 </Card>
-                <TableCard title="History" headerButtons={["case"]} searchable items={textItems} columns={[
+                <TableCard onItemClick={this.itemClicked} title="History" headerButtons={["case"]} searchable items={textItems} columns={[
                     {
                         name: "Script",
                         accessor: "script"

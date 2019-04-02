@@ -85,7 +85,9 @@ let tablePropTypes = {
     /** callback fired when item is updated */
     onItemUpdate: PropTypes.func,
     /** callback fired when error occured */
-    onError: PropTypes.func
+    onError: PropTypes.func,
+    /** callback fired when item is clicked */
+    onItemClick: PropTypes.func
 }
 
 let tableDefaultProps = {
@@ -110,6 +112,7 @@ class Table extends Component {
         this.deleteItem = this.deleteItem.bind(this);
         this.copyItem = this.copyItem.bind(this);
         this.setError = this.setError.bind(this);
+        this.itemClicked = this.itemClicked.bind(this);
 
         this.state = {
             items: props.items,
@@ -288,17 +291,20 @@ class Table extends Component {
 
         return items;
     }
+    itemClicked(itemId, item) {
+        this.props.onItemClick(itemId, item);
+    }
 
     render() {
         let that = this;
 
-        let { className, columns, size, nowrap, editable } = this.props;
+        let { className, columns, size, nowrap, editable, onItemClick } = this.props;
         let { items } = this.state;
         items = this.filterItems(items);
         items = this.sortItems(items);
 
         return (
-            <table className={`table ${size ? 'table-' + size : ''} ${nowrap ? 'table-nowrap' : ''} card-table ${className}`}>
+            <table className={`table ${size ? 'table-' + size : ''} ${nowrap ? 'table-nowrap' : ''} card-table ${className} ${onItemClick ? 'table-hover' : ''}`}>
                 <thead>
                     <tr>
                         {
@@ -328,12 +334,19 @@ class Table extends Component {
                 <tbody>
                     {
                         items.reduce(function (acc, currentItem, rowIdx, array) {
+
+                            let itemAttr = {};
+                            if (onItemClick) {
+                                itemAttr.onClick = (e) => that.itemClicked(currentItem.id, currentItem);
+                                itemAttr.className = 'pointer';
+                            }
+
                             acc.push((
-                                <tr key={rowIdx}>
+                                <tr key={rowIdx} {...itemAttr}>
                                     {
                                         columns.reduce(function (acc, current, colIdx, array) {
                                             acc.push(
-                                                <td key={colIdx} className="align-middle">
+                                                <td key={colIdx} className={`align-middle`}>
                                                     {
                                                         (() => {
                                                             if (editable && current.readonly !== true) {
