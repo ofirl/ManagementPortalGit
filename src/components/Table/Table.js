@@ -87,14 +87,123 @@ let tablePropTypes = {
     /** callback fired when error occured */
     onError: PropTypes.func,
     /** callback fired when item is clicked */
-    onItemClick: PropTypes.func
+    onItemClick: PropTypes.func,
+    /** enable item hover effect */
+    itemHoverEffect: PropTypes.bool
 }
 
 let tableDefaultProps = {
     items: [],
     nowrap: false,
     editable: false,
-    filterCaseSensitive: false
+    filterCaseSensitive: false,
+    itemHoverEffect: false
+}
+
+class TableCell extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        let { editable, column, size, value, onChange } = this.props;
+
+        return (<td className={`align-middle`}>
+            {
+                (() => {
+                    try {
+                        if (editable && column.readonly !== true) {
+                            if (column.type == null || column.type === "text") {
+                                return <Input size={size} value={value}
+                                    onInput={onChange} />;
+                            }
+                            else if (column.type === "select") {
+                                return (
+                                    <Select selectedValue={value} dropValues={column.dropValues}
+                                        onChange={onChange}>
+                                    </Select>
+                                );
+                            }
+                        }
+                        else {
+                            return value.toString();
+                        }
+                    }
+                    catch (e) {
+                        return 'Error: could not read value';
+                    }
+                })()
+            }
+        </td>);
+    }
+}
+
+class TableRowButton extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        let { rowButtons, rowButtonTypes, itemId } = this.props;
+
+        if (rowButtons == null)
+            return null;
+
+        return (
+            <td key="rowButtons" className="align-middle">
+                {
+                    rowButtons.map((button) => {
+                        let currentButtonType = rowButtonTypes[button];
+                        let type, callback, tooltip;
+
+                        type = currentButtonType.type;
+                        callback = currentButtonType.callback(itemId);
+                        tooltip = currentButtonType.tooltip;
+
+                        return (
+                            <OverlayTrigger
+                                key={`${button}RowButton`}
+                                placement="top"
+                                overlay={
+                                    <Tooltip>
+                                        {tooltip}
+                                    </Tooltip>
+                                }
+                            >
+                                <Icon key={`${button}Icon`} type={type} className="float-right mr-2 ml-2" inline
+                                    onClick={callback} />
+                            </OverlayTrigger>
+                        );
+                    })
+                }
+            </td>
+        );
+    }
+}
+
+class TableRow extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        let { item, itemAttr, columns, editable, size, onChange, rowButtons, rowButtonTypes } = this.props;
+
+        return (
+            <tr {...itemAttr}>
+                {
+                    columns.reduce(function (acc, current, colIdx, array) {
+                        acc.push(
+                            <TableCell editable={editable} column={current} key={colIdx} size={size} value={item[current.accessor]}
+                                onChange={(val) => onChange(item.id, current.accessor, val)} />
+                        );
+                        return acc;
+                    }, [])
+                }
+                <TableRowButton rowButtons={rowButtons} rowButtonTypes={rowButtonTypes} itemId={item.id} />
+            </tr>
+        );
+    }
 }
 
 class Table extends Component {
@@ -120,7 +229,21 @@ class Table extends Component {
             sort: null,
             filterError: null
         }
+
+        this.rowButtonTypes = {
+            copy: {
+                type: "copy",
+                callback: (itemId) => (() => this.copyItem(itemId)),
+                tooltip: "Copy Row"
+            },
+            remove: {
+                type: "x-circle",
+                callback: (itemId) => (() => this.deleteItem(itemId)),
+                tooltip: "Delete Row"
+            }
+        }
     }
+
     static propTypes = tablePropTypes
     static defaultProps = tableDefaultProps
 
@@ -297,13 +420,13 @@ class Table extends Component {
     render() {
         let that = this;
 
-        let { className, columns, size, nowrap, editable, onItemClick } = this.props;
+        let { className, columns, size, nowrap, editable, onItemClick, itemHoverEffect } = this.props;
         let { items } = this.state;
         items = this.filterItems(items);
         items = this.sortItems(items);
 
         return (
-            <table className={`table ${size ? 'table-' + size : ''} ${nowrap ? 'table-nowrap' : ''} card-table ${className} ${onItemClick ? 'table-hover' : ''}`}>
+            <table className={`table ${size ? 'table-' + size : ''} ${nowrap ? 'table-nowrap' : ''} card-table ${className} ${onItemClick || itemHoverEffect ? 'table-hover' : ''}`}>
                 <thead>
                     <tr>
                         {
@@ -341,92 +464,8 @@ class Table extends Component {
                             }
 
                             acc.push((
-                                <tr key={rowIdx} {...itemAttr}>
-                                    {
-                                        columns.reduce(function (acc, current, colIdx, array) {
-                                            acc.push(
-                                                <td key={colIdx} className={`align-middle`}>
-                                                    {
-                                                        (() => {
-                                                            try {
-                                                                if (editable && current.readonly !== true) {
-                                                                    if (current.type == null || current.type === "text") {
-                                                                        return <Input size={size} value={currentItem[current.accessor]}
-                                                                            onInput={(val) => that.updateItem(currentItem.id, current.accessor, val)} />;
-                                                                    }
-                                                                    else if (current.type === "select") {
-                                                                        return (
-                                                                            <Select selectedValue={currentItem[current.accessor]} dropValues={current.dropValues} onChange={(val) => that.updateItem(currentItem.id, current.accessor, val)}>
-                                                                                {/* {
-                                                                                [{
-                                                                                    id: "test1",
-                                                                                    render: <div>test11</div>
-                                                                                },
-                                                                                {
-                                                                                    id: "test2",
-                                                                                    render: <div>test22</div>
-                                                                                }]
-                                                                            } */}
-                                                                            </Select>
-                                                                        );
-                                                                    }
-                                                                }
-                                                                else {
-                                                                    // console.log(currentItem);
-                                                                    // console.log(current.accessor);
-                                                                    return currentItem[current.accessor].toString();
-                                                                }
-                                                            }
-                                                            catch (e) {
-                                                                return 'Error: could not read value';
-                                                            }
-                                                        })()
-                                                    }
-                                                </td>
-                                            );
-                                            return acc;
-                                        }, [])
-                                    }
-                                    {
-                                        that.props.rowButtons ?
-                                            (
-                                                <td key="rowButtons" className="align-middle">
-                                                    {
-                                                        that.props.rowButtons.map((button) => {
-                                                            let type, callback, tooltip;
-
-                                                            if (button === 'copy') {
-                                                                type = "copy";
-                                                                callback = () => that.copyItem(currentItem.id);
-                                                                tooltip = "Copy Row";
-                                                            }
-                                                            else if (button === 'remove') {
-                                                                type = "x-circle";
-                                                                callback = () => that.deleteItem(currentItem.id);
-                                                                tooltip = "Delete Row";
-                                                            }
-
-                                                            return (
-                                                                <OverlayTrigger
-                                                                    key={`${button}RowButton`}
-                                                                    placement="top"
-                                                                    overlay={
-                                                                        <Tooltip>
-                                                                            {tooltip}
-                                                                        </Tooltip>
-                                                                    }
-                                                                >
-                                                                    <Icon key={`${button}Icon`} type={type} className="float-right mr-2 ml-2" inline
-                                                                        onClick={callback} />
-                                                                </OverlayTrigger>
-                                                            );
-                                                        })
-                                                    }
-                                                </td>
-                                            )
-                                            : null
-                                    }
-                                </tr>
+                                <TableRow key={rowIdx} itemAttr={itemAttr} editable={editable} item={currentItem} rowButtons={that.props.rowButtons} 
+                                    rowButtonTypes={that.rowButtonTypes} onChange={that.updateItem} columns={columns} />
                             ));
                             return acc;
                         }, [])

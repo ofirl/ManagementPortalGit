@@ -52,7 +52,7 @@ class Profile extends Component {
                                 </div>
                                 <div className="row align-items-center">
                                     <div className="col">
-                                        <Nav variant="tabs" defaultActiveKey="profile">
+                                        <Nav variant="tabs" defaultActiveKey={this.props.match.params.section || "profile"}>
                                             <Nav.Item>
                                                 <Nav.Link eventKey="profile" as={Link} to={`/profilepage/profile`}>Profile</Nav.Link>
                                             </Nav.Item>

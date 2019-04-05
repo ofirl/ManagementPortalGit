@@ -89,7 +89,7 @@ class HistorySection extends Component {
                     </Card.Text>
                     </Card.Body>
                 </Card>
-                <TableCard onItemClick={this.itemClicked} title="History" headerButtons={["case"]} searchable
+                <TableCard onItemClick={currentItem ? null : this.itemClicked} itemHoverEffect title="History" headerButtons={["case"]} searchable
                     items={tableItems} columns={tableColumns} >
 
                 </TableCard>
