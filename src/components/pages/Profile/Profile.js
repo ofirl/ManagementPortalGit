@@ -31,7 +31,7 @@ class Profile extends Component {
     }
 
     render() {
-        console.log(this.props.match.params.section);
+        // console.log(this.props.match.params.section);
         return (
             <div>
                 <div className="header bg-dark">
@@ -65,9 +65,7 @@ class Profile extends Component {
                             </PageHeader.Body>
                         </PageHeader>
                     </div>
-
                 </div>
-
 
                 <div className="container-fluid">
                     <div className="row">
@@ -84,7 +82,7 @@ class Profile extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
-    return { 
+    return {
         ...ownProps,
         profileId: state.profileId
     };
@@ -95,6 +93,6 @@ function mapDispatchToProps(dispatch, ownProps) {
         ...ownProps,
         boundActions: bindActionCreators(actions, dispatch)
     };
-  }
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

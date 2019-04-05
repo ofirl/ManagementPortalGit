@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 
+import Collapse from 'react-bootstrap/Collapse'
+
 import './HistorySection.css';
 
 import Card from 'react-bootstrap/Card';
 import { TableCard } from '../../../Table/Table';
 
 import DataManager from '../../../../assets/js/data.manager';
+import Button from 'react-bootstrap/Button';
 
 class HistorySection extends Component {
     constructor(props) {
@@ -15,7 +18,8 @@ class HistorySection extends Component {
         this.itemClicked = this.itemClicked.bind(this);
 
         this.state = {
-            currentItem: null
+            currentItem: null,
+            showItemDetails: false
         }
     }
 
@@ -40,18 +44,18 @@ class HistorySection extends Component {
     }
     itemClicked(itemId, item) {
         // console.log(itemId);
-        console.log(item);
+        // console.log(item);
 
-        this.setState({ currentItem: item });
+        this.setState({ currentItem: item, showItemDetails: true });
     }
 
     render() {
-        const { currentItem } = this.state;
+        const { currentItem, showItemDetails } = this.state;
         let items = DataManager.getAllHistory();
         let textItems = this.getItemsText(items);
 
         let currentItemScriptInfo = currentItem ? DataManager.getScriptInfoById(currentItem.scriptId) : null;
-        let tableColumns = currentItem ? [...currentItemScriptInfo.inputs, ...currentItemScriptInfo.outputs, {name: 'Success', accessor: 'success'}] : [
+        let defaultCoulmns = [
             {
                 name: "Script",
                 accessor: "script"
@@ -69,6 +73,7 @@ class HistorySection extends Component {
                 accessor: "results"
             }
         ];
+        let tableColumns = currentItem ? [...currentItemScriptInfo.inputs, ...currentItemScriptInfo.outputs, { name: 'Success', accessor: 'success' }] : defaultCoulmns;
 
         let tableItems = currentItem ? currentItem.resultsObj.map((r) => {
             return {
@@ -89,10 +94,21 @@ class HistorySection extends Component {
                     </Card.Text>
                     </Card.Body>
                 </Card>
-                <TableCard onItemClick={currentItem ? null : this.itemClicked} itemHoverEffect title="History" headerButtons={["case"]} searchable
-                    items={tableItems} columns={tableColumns} >
-
-                </TableCard>
+                <Button disabled={!showItemDetails} className="mb-1" variant="white" size="sm" onClick={() => this.setState({ showItemDetails: false })}> Show all history </Button>
+                <Collapse in={!showItemDetails} timeout={350}>
+                <div>
+                    <TableCard onItemClick={this.itemClicked} itemHoverEffect title="History" headerButtons={["case"]} searchable
+                        items={textItems} columns={defaultCoulmns} >
+                    </TableCard>
+                    </div>
+                </Collapse>
+                <Collapse in={showItemDetails} timeout={350}>
+                    <div>
+                        <TableCard onItemClick={currentItem ? null : this.itemClicked} itemHoverEffect title="Item Details" headerButtons={["case"]} searchable
+                            items={tableItems} columns={tableColumns} >
+                        </TableCard>
+                    </div>
+                </Collapse>
             </div>
         );
     }
