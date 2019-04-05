@@ -70,8 +70,6 @@ class HistorySection extends Component {
             }
         ];
 
-        console.log(tableColumns);
-
         let tableItems = currentItem ? currentItem.resultsObj.map((r) => {
             return {
                 success: r.success,
@@ -79,9 +77,6 @@ class HistorySection extends Component {
                 ...r.output
             };
         }) : textItems;
-
-        console.log('tableItems');
-        console.log(tableItems);
 
         return (
             <div className="col-12">

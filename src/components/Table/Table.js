@@ -125,7 +125,6 @@ class Table extends Component {
     static defaultProps = tableDefaultProps
 
     componentDidUpdate(oldProps) {
-        // console.log(this.props);
         if (oldProps.filter !== this.props.filter)
             this.setFilter(this.props.filter);
         if (oldProps.items !== this.props.items)
@@ -302,9 +301,6 @@ class Table extends Component {
         let { items } = this.state;
         items = this.filterItems(items);
         items = this.sortItems(items);
-
-        console.log('this.props.items');
-        console.log(this.props.items);
 
         return (
             <table className={`table ${size ? 'table-' + size : ''} ${nowrap ? 'table-nowrap' : ''} card-table ${className} ${onItemClick ? 'table-hover' : ''}`}>
@@ -528,6 +524,12 @@ class TableCard extends Component {
         newState[type] = msg;
 
         this.setState(newState);
+    }
+    componentDidUpdate(oldProps) {
+        if (oldProps.filter !== this.props.filter)
+            this.setFilter(this.props.filter);
+        if (oldProps.items !== this.props.items)
+            this.setState({ items: this.props.items });
     }
 
     render() {
