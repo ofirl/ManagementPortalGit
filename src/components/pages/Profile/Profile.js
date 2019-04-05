@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as reducers from '../../../redux/reducers/profileId';
+
+import * as actions from '../../../redux/actions'
 
 import './Profile.css';
 
@@ -22,6 +27,7 @@ class Profile extends Component {
         this.state = {
             currentSection: 'profile'
         }
+        this.props.boundActions.setProfile(2);
     }
 
     render() {
@@ -77,4 +83,18 @@ class Profile extends Component {
     }
 }
 
-export default Profile;
+function mapStateToProps(state, ownProps) {
+    return { 
+        ...ownProps,
+        profileId: state.profileId
+    };
+}
+
+function mapDispatchToProps(dispatch, ownProps) {
+    return {
+        ...ownProps,
+        boundActions: bindActionCreators(actions, dispatch)
+    };
+  }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);
