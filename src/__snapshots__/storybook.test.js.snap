@@ -28,6 +28,12 @@ exports[`Storyshots Icon Callbacks 1`] = `
           style={Object {}}
         >
           <div>
+            <h1
+              className="story-title"
+              style={Object {}}
+            >
+              Callbacks
+            </h1>
             
             
           </div>
@@ -80,19 +86,14 @@ exports[`Storyshots Icon Callbacks 1`] = `
                   </span>
                 </div>
                 <div
-                  className="section-additional pt-4"
+                  className="section-additional"
                   style={Object {}}
                 >
                   <div>
                     
                     <div
                       className="section-subsection"
-                      style={
-                        Object {
-                          "display": "flow-root",
-                          "width": "100%",
-                        }
-                      }
+                      style={Object {}}
                     >
                       <h4
                         className="section-subsection-title"
@@ -101,12 +102,8 @@ exports[`Storyshots Icon Callbacks 1`] = `
                         Source
                       </h4>
                       <pre
-                        className="section-pre bg-dark"
-                        style={
-                          Object {
-                            "color": "#878787",
-                          }
-                        }
+                        className="section-pre"
+                        style={Object {}}
                       >
                         <div
                           style={
@@ -119,7 +116,7 @@ exports[`Storyshots Icon Callbacks 1`] = `
                           <span
                             style={
                               Object {
-                                "color": "#5567f2",
+                                "color": "#444",
                               }
                             }
                           >
@@ -143,7 +140,7 @@ exports[`Storyshots Icon Callbacks 1`] = `
                                   <span
                                     style={
                                       Object {
-                                        "color": "#cbc539",
+                                        "color": "#22a",
                                         "wordBreak": "break-word",
                                       }
                                     }
@@ -185,7 +182,7 @@ exports[`Storyshots Icon Callbacks 1`] = `
                           <span
                             style={
                               Object {
-                                "color": "#5567f2",
+                                "color": "#444",
                               }
                             }
                           >
@@ -196,12 +193,7 @@ exports[`Storyshots Icon Callbacks 1`] = `
                     </div>
                     <div
                       className="section-subsection"
-                      style={
-                        Object {
-                          "display": "flow-root",
-                          "width": "100%",
-                        }
-                      }
+                      style={Object {}}
                     >
                       <h4
                         className="section-subsection-title"
@@ -216,7 +208,7 @@ exports[`Storyshots Icon Callbacks 1`] = `
                           &gt; Component
                         </h5>
                         <table
-                          className="propTable table"
+                          className="propTable"
                           style={Object {}}
                         >
                           <thead>
@@ -274,7 +266,7 @@ exports[`Storyshots Icon Callbacks 1`] = `
                                 <span
                                   style={
                                     Object {
-                                      "color": "#cbc539",
+                                      "color": "#22a",
                                       "wordBreak": "break-word",
                                     }
                                   }
@@ -465,6 +457,12 @@ exports[`Storyshots Icon Default 1`] = `
           style={Object {}}
         >
           <div>
+            <h1
+              className="story-title"
+              style={Object {}}
+            >
+              Default
+            </h1>
             
             
           </div>
@@ -516,19 +514,14 @@ exports[`Storyshots Icon Default 1`] = `
                   </span>
                 </div>
                 <div
-                  className="section-additional pt-4"
+                  className="section-additional"
                   style={Object {}}
                 >
                   <div>
                     
                     <div
                       className="section-subsection"
-                      style={
-                        Object {
-                          "display": "flow-root",
-                          "width": "100%",
-                        }
-                      }
+                      style={Object {}}
                     >
                       <h4
                         className="section-subsection-title"
@@ -537,12 +530,8 @@ exports[`Storyshots Icon Default 1`] = `
                         Source
                       </h4>
                       <pre
-                        className="section-pre bg-dark"
-                        style={
-                          Object {
-                            "color": "#878787",
-                          }
-                        }
+                        className="section-pre"
+                        style={Object {}}
                       >
                         <div
                           style={
@@ -555,7 +544,7 @@ exports[`Storyshots Icon Default 1`] = `
                           <span
                             style={
                               Object {
-                                "color": "#5567f2",
+                                "color": "#444",
                               }
                             }
                           >
@@ -579,7 +568,7 @@ exports[`Storyshots Icon Default 1`] = `
                                   <span
                                     style={
                                       Object {
-                                        "color": "#cbc539",
+                                        "color": "#22a",
                                         "wordBreak": "break-word",
                                       }
                                     }
@@ -595,7 +584,7 @@ exports[`Storyshots Icon Default 1`] = `
                           <span
                             style={
                               Object {
-                                "color": "#5567f2",
+                                "color": "#444",
                               }
                             }
                           >
@@ -606,12 +595,7 @@ exports[`Storyshots Icon Default 1`] = `
                     </div>
                     <div
                       className="section-subsection"
-                      style={
-                        Object {
-                          "display": "flow-root",
-                          "width": "100%",
-                        }
-                      }
+                      style={Object {}}
                     >
                       <h4
                         className="section-subsection-title"
@@ -626,7 +610,7 @@ exports[`Storyshots Icon Default 1`] = `
                           &gt; Component
                         </h5>
                         <table
-                          className="propTable table"
+                          className="propTable"
                           style={Object {}}
                         >
                           <thead>
@@ -684,7 +668,7 @@ exports[`Storyshots Icon Default 1`] = `
                                 <span
                                   style={
                                     Object {
-                                      "color": "#cbc539",
+                                      "color": "#22a",
                                       "wordBreak": "break-word",
                                     }
                                   }
@@ -875,6 +859,12 @@ exports[`Storyshots Icon Knobs 1`] = `
           style={Object {}}
         >
           <div>
+            <h1
+              className="story-title"
+              style={Object {}}
+            >
+              Knobs
+            </h1>
             
             
           </div>
@@ -926,19 +916,14 @@ exports[`Storyshots Icon Knobs 1`] = `
                   </span>
                 </div>
                 <div
-                  className="section-additional pt-4"
+                  className="section-additional"
                   style={Object {}}
                 >
                   <div>
                     
                     <div
                       className="section-subsection"
-                      style={
-                        Object {
-                          "display": "flow-root",
-                          "width": "100%",
-                        }
-                      }
+                      style={Object {}}
                     >
                       <h4
                         className="section-subsection-title"
@@ -947,12 +932,8 @@ exports[`Storyshots Icon Knobs 1`] = `
                         Source
                       </h4>
                       <pre
-                        className="section-pre bg-dark"
-                        style={
-                          Object {
-                            "color": "#878787",
-                          }
-                        }
+                        className="section-pre"
+                        style={Object {}}
                       >
                         <div
                           style={
@@ -965,7 +946,7 @@ exports[`Storyshots Icon Knobs 1`] = `
                           <span
                             style={
                               Object {
-                                "color": "#5567f2",
+                                "color": "#444",
                               }
                             }
                           >
@@ -989,7 +970,7 @@ exports[`Storyshots Icon Knobs 1`] = `
                                   <span
                                     style={
                                       Object {
-                                        "color": "#cbc539",
+                                        "color": "#22a",
                                         "wordBreak": "break-word",
                                       }
                                     }
@@ -1005,7 +986,7 @@ exports[`Storyshots Icon Knobs 1`] = `
                           <span
                             style={
                               Object {
-                                "color": "#5567f2",
+                                "color": "#444",
                               }
                             }
                           >
@@ -1016,12 +997,7 @@ exports[`Storyshots Icon Knobs 1`] = `
                     </div>
                     <div
                       className="section-subsection"
-                      style={
-                        Object {
-                          "display": "flow-root",
-                          "width": "100%",
-                        }
-                      }
+                      style={Object {}}
                     >
                       <h4
                         className="section-subsection-title"
@@ -1036,7 +1012,7 @@ exports[`Storyshots Icon Knobs 1`] = `
                           &gt; Component
                         </h5>
                         <table
-                          className="propTable table"
+                          className="propTable"
                           style={Object {}}
                         >
                           <thead>
@@ -1094,7 +1070,7 @@ exports[`Storyshots Icon Knobs 1`] = `
                                 <span
                                   style={
                                     Object {
-                                      "color": "#cbc539",
+                                      "color": "#22a",
                                       "wordBreak": "break-word",
                                     }
                                   }
@@ -1284,7 +1260,14 @@ exports[`Storyshots Icon Variants 1`] = `
           className="story-header"
           style={Object {}}
         >
-          <div />
+          <div>
+            <h1
+              className="story-title"
+              style={Object {}}
+            >
+              Variants
+            </h1>
+          </div>
         </div>
         <div
           className="story-chapters"
@@ -3190,7 +3173,7 @@ exports[`Storyshots Icon Variants 1`] = `
                   </div>
                 </div>
                 <div
-                  className="section-additional pt-4"
+                  className="section-additional"
                   style={Object {}}
                 >
                   <div>
@@ -3200,11 +3183,18 @@ exports[`Storyshots Icon Variants 1`] = `
                       style={Object {}}
                     >
                       <button
-                        className="button btn btn-white m-2"
+                        className="button"
                         onClick={[Function]}
                         style={
                           Object {
+                            "backgroundColor": "transparent",
+                            "border": "1px solid #ccd6dd",
+                            "borderRadius": 3,
+                            "color": "#898d97",
+                            "cursor": "pointer",
                             "float": "right",
+                            "marginLeft": 5,
+                            "padding": "5px 10px",
                           }
                         }
                         type="button"
@@ -3216,12 +3206,7 @@ exports[`Storyshots Icon Variants 1`] = `
                     </div>
                     <div
                       className="section-subsection"
-                      style={
-                        Object {
-                          "display": "flow-root",
-                          "width": "100%",
-                        }
-                      }
+                      style={Object {}}
                     >
                       <h4
                         className="section-subsection-title"
@@ -3236,7 +3221,7 @@ exports[`Storyshots Icon Variants 1`] = `
                           &gt; Component
                         </h5>
                         <table
-                          className="propTable table"
+                          className="propTable"
                           style={Object {}}
                         >
                           <thead>
@@ -3294,7 +3279,7 @@ exports[`Storyshots Icon Variants 1`] = `
                                 <span
                                   style={
                                     Object {
-                                      "color": "#cbc539",
+                                      "color": "#22a",
                                       "wordBreak": "break-word",
                                     }
                                   }
@@ -3485,6 +3470,12 @@ exports[`Storyshots Input Callbacks 1`] = `
           style={Object {}}
         >
           <div>
+            <h1
+              className="story-title"
+              style={Object {}}
+            >
+              Callbacks
+            </h1>
             
             
           </div>
@@ -3538,19 +3529,14 @@ exports[`Storyshots Input Callbacks 1`] = `
                   />
                 </div>
                 <div
-                  className="section-additional pt-4"
+                  className="section-additional"
                   style={Object {}}
                 >
                   <div>
                     
                     <div
                       className="section-subsection"
-                      style={
-                        Object {
-                          "display": "flow-root",
-                          "width": "100%",
-                        }
-                      }
+                      style={Object {}}
                     >
                       <h4
                         className="section-subsection-title"
@@ -3559,12 +3545,8 @@ exports[`Storyshots Input Callbacks 1`] = `
                         Source
                       </h4>
                       <pre
-                        className="section-pre bg-dark"
-                        style={
-                          Object {
-                            "color": "#878787",
-                          }
-                        }
+                        className="section-pre"
+                        style={Object {}}
                       >
                         <div
                           style={
@@ -3577,7 +3559,7 @@ exports[`Storyshots Input Callbacks 1`] = `
                           <span
                             style={
                               Object {
-                                "color": "#5567f2",
+                                "color": "#444",
                               }
                             }
                           >
@@ -3601,7 +3583,7 @@ exports[`Storyshots Input Callbacks 1`] = `
                                   <span
                                     style={
                                       Object {
-                                        "color": "#cbc539",
+                                        "color": "#22a",
                                         "wordBreak": "break-word",
                                       }
                                     }
@@ -3643,7 +3625,7 @@ exports[`Storyshots Input Callbacks 1`] = `
                           <span
                             style={
                               Object {
-                                "color": "#5567f2",
+                                "color": "#444",
                               }
                             }
                           >
@@ -3654,12 +3636,7 @@ exports[`Storyshots Input Callbacks 1`] = `
                     </div>
                     <div
                       className="section-subsection"
-                      style={
-                        Object {
-                          "display": "flow-root",
-                          "width": "100%",
-                        }
-                      }
+                      style={Object {}}
                     >
                       <h4
                         className="section-subsection-title"
@@ -3674,7 +3651,7 @@ exports[`Storyshots Input Callbacks 1`] = `
                           &gt; Component
                         </h5>
                         <table
-                          className="propTable table"
+                          className="propTable"
                           style={Object {}}
                         >
                           <thead>
@@ -3878,7 +3855,7 @@ exports[`Storyshots Input Callbacks 1`] = `
                                 <span
                                   style={
                                     Object {
-                                      "color": "#cbc539",
+                                      "color": "#22a",
                                       "wordBreak": "break-word",
                                     }
                                   }
@@ -4017,6 +3994,12 @@ exports[`Storyshots Input Default 1`] = `
           style={Object {}}
         >
           <div>
+            <h1
+              className="story-title"
+              style={Object {}}
+            >
+              Default
+            </h1>
             
             
           </div>
@@ -4070,19 +4053,14 @@ exports[`Storyshots Input Default 1`] = `
                   />
                 </div>
                 <div
-                  className="section-additional pt-4"
+                  className="section-additional"
                   style={Object {}}
                 >
                   <div>
                     
                     <div
                       className="section-subsection"
-                      style={
-                        Object {
-                          "display": "flow-root",
-                          "width": "100%",
-                        }
-                      }
+                      style={Object {}}
                     >
                       <h4
                         className="section-subsection-title"
@@ -4091,12 +4069,8 @@ exports[`Storyshots Input Default 1`] = `
                         Source
                       </h4>
                       <pre
-                        className="section-pre bg-dark"
-                        style={
-                          Object {
-                            "color": "#878787",
-                          }
-                        }
+                        className="section-pre"
+                        style={Object {}}
                       >
                         <div
                           style={
@@ -4109,7 +4083,7 @@ exports[`Storyshots Input Default 1`] = `
                           <span
                             style={
                               Object {
-                                "color": "#5567f2",
+                                "color": "#444",
                               }
                             }
                           >
@@ -4133,7 +4107,7 @@ exports[`Storyshots Input Default 1`] = `
                                   <span
                                     style={
                                       Object {
-                                        "color": "#cbc539",
+                                        "color": "#22a",
                                         "wordBreak": "break-word",
                                       }
                                     }
@@ -4149,7 +4123,7 @@ exports[`Storyshots Input Default 1`] = `
                           <span
                             style={
                               Object {
-                                "color": "#5567f2",
+                                "color": "#444",
                               }
                             }
                           >
@@ -4160,12 +4134,7 @@ exports[`Storyshots Input Default 1`] = `
                     </div>
                     <div
                       className="section-subsection"
-                      style={
-                        Object {
-                          "display": "flow-root",
-                          "width": "100%",
-                        }
-                      }
+                      style={Object {}}
                     >
                       <h4
                         className="section-subsection-title"
@@ -4180,7 +4149,7 @@ exports[`Storyshots Input Default 1`] = `
                           &gt; Component
                         </h5>
                         <table
-                          className="propTable table"
+                          className="propTable"
                           style={Object {}}
                         >
                           <thead>
@@ -4384,7 +4353,7 @@ exports[`Storyshots Input Default 1`] = `
                                 <span
                                   style={
                                     Object {
-                                      "color": "#cbc539",
+                                      "color": "#22a",
                                       "wordBreak": "break-word",
                                     }
                                   }
@@ -4523,6 +4492,12 @@ exports[`Storyshots Input Knobs 1`] = `
           style={Object {}}
         >
           <div>
+            <h1
+              className="story-title"
+              style={Object {}}
+            >
+              Knobs
+            </h1>
             
             
           </div>
@@ -4591,19 +4566,14 @@ exports[`Storyshots Input Knobs 1`] = `
                   </div>
                 </div>
                 <div
-                  className="section-additional pt-4"
+                  className="section-additional"
                   style={Object {}}
                 >
                   <div>
                     
                     <div
                       className="section-subsection"
-                      style={
-                        Object {
-                          "display": "flow-root",
-                          "width": "100%",
-                        }
-                      }
+                      style={Object {}}
                     >
                       <h4
                         className="section-subsection-title"
@@ -4612,12 +4582,8 @@ exports[`Storyshots Input Knobs 1`] = `
                         Source
                       </h4>
                       <pre
-                        className="section-pre bg-dark"
-                        style={
-                          Object {
-                            "color": "#878787",
-                          }
-                        }
+                        className="section-pre"
+                        style={Object {}}
                       >
                         <div
                           style={
@@ -4630,7 +4596,7 @@ exports[`Storyshots Input Knobs 1`] = `
                           <span
                             style={
                               Object {
-                                "color": "#5567f2",
+                                "color": "#444",
                               }
                             }
                           >
@@ -4657,7 +4623,7 @@ exports[`Storyshots Input Knobs 1`] = `
                                   <span
                                     style={
                                       Object {
-                                        "color": "#cbc539",
+                                        "color": "#22a",
                                         "wordBreak": "break-word",
                                       }
                                     }
@@ -4716,7 +4682,7 @@ exports[`Storyshots Input Knobs 1`] = `
                                   <span
                                     style={
                                       Object {
-                                        "color": "#cbc539",
+                                        "color": "#22a",
                                         "wordBreak": "break-word",
                                       }
                                     }
@@ -4746,7 +4712,7 @@ exports[`Storyshots Input Knobs 1`] = `
                                   <span
                                     style={
                                       Object {
-                                        "color": "#cbc539",
+                                        "color": "#22a",
                                         "wordBreak": "break-word",
                                       }
                                     }
@@ -4791,7 +4757,7 @@ exports[`Storyshots Input Knobs 1`] = `
                           <span
                             style={
                               Object {
-                                "color": "#5567f2",
+                                "color": "#444",
                               }
                             }
                           >
@@ -4802,12 +4768,7 @@ exports[`Storyshots Input Knobs 1`] = `
                     </div>
                     <div
                       className="section-subsection"
-                      style={
-                        Object {
-                          "display": "flow-root",
-                          "width": "100%",
-                        }
-                      }
+                      style={Object {}}
                     >
                       <h4
                         className="section-subsection-title"
@@ -4822,7 +4783,7 @@ exports[`Storyshots Input Knobs 1`] = `
                           &gt; Component
                         </h5>
                         <table
-                          className="propTable table"
+                          className="propTable"
                           style={Object {}}
                         >
                           <thead>
@@ -5026,7 +4987,7 @@ exports[`Storyshots Input Knobs 1`] = `
                                 <span
                                   style={
                                     Object {
-                                      "color": "#cbc539",
+                                      "color": "#22a",
                                       "wordBreak": "break-word",
                                     }
                                   }
@@ -5164,7 +5125,14 @@ exports[`Storyshots Input Variants 1`] = `
           className="story-header"
           style={Object {}}
         >
-          <div />
+          <div>
+            <h1
+              className="story-title"
+              style={Object {}}
+            >
+              Variants
+            </h1>
+          </div>
         </div>
         <div
           className="story-chapters"
@@ -5178,16 +5146,12 @@ exports[`Storyshots Input Variants 1`] = `
               style={Object {}}
             >
               <div>
-                <h2
-                  className="chapter-h2 pt-3"
-                  style={
-                    Object {
-                      "fontSize": "1.5em",
-                    }
-                  }
+                <h3
+                  className="chapter-h3"
+                  style={Object {}}
                 >
                   Size
-                </h2>
+                </h3>
                 
                 
                 
@@ -5228,19 +5192,14 @@ exports[`Storyshots Input Variants 1`] = `
                   />
                 </div>
                 <div
-                  className="section-additional pt-4"
+                  className="section-additional"
                   style={Object {}}
                 >
                   <div>
                     
                     <div
                       className="section-subsection"
-                      style={
-                        Object {
-                          "display": "flow-root",
-                          "width": "100%",
-                        }
-                      }
+                      style={Object {}}
                     >
                       <h4
                         className="section-subsection-title"
@@ -5249,12 +5208,8 @@ exports[`Storyshots Input Variants 1`] = `
                         Source
                       </h4>
                       <pre
-                        className="section-pre bg-dark"
-                        style={
-                          Object {
-                            "color": "#878787",
-                          }
-                        }
+                        className="section-pre"
+                        style={Object {}}
                       >
                         <div
                           style={
@@ -5267,7 +5222,7 @@ exports[`Storyshots Input Variants 1`] = `
                           <span
                             style={
                               Object {
-                                "color": "#5567f2",
+                                "color": "#444",
                               }
                             }
                           >
@@ -5291,7 +5246,7 @@ exports[`Storyshots Input Variants 1`] = `
                                   <span
                                     style={
                                       Object {
-                                        "color": "#cbc539",
+                                        "color": "#22a",
                                         "wordBreak": "break-word",
                                       }
                                     }
@@ -5318,7 +5273,7 @@ exports[`Storyshots Input Variants 1`] = `
                                   <span
                                     style={
                                       Object {
-                                        "color": "#cbc539",
+                                        "color": "#22a",
                                         "wordBreak": "break-word",
                                       }
                                     }
@@ -5334,7 +5289,7 @@ exports[`Storyshots Input Variants 1`] = `
                           <span
                             style={
                               Object {
-                                "color": "#5567f2",
+                                "color": "#444",
                               }
                             }
                           >
@@ -5378,19 +5333,14 @@ exports[`Storyshots Input Variants 1`] = `
                   />
                 </div>
                 <div
-                  className="section-additional pt-4"
+                  className="section-additional"
                   style={Object {}}
                 >
                   <div>
                     
                     <div
                       className="section-subsection"
-                      style={
-                        Object {
-                          "display": "flow-root",
-                          "width": "100%",
-                        }
-                      }
+                      style={Object {}}
                     >
                       <h4
                         className="section-subsection-title"
@@ -5399,12 +5349,8 @@ exports[`Storyshots Input Variants 1`] = `
                         Source
                       </h4>
                       <pre
-                        className="section-pre bg-dark"
-                        style={
-                          Object {
-                            "color": "#878787",
-                          }
-                        }
+                        className="section-pre"
+                        style={Object {}}
                       >
                         <div
                           style={
@@ -5417,7 +5363,7 @@ exports[`Storyshots Input Variants 1`] = `
                           <span
                             style={
                               Object {
-                                "color": "#5567f2",
+                                "color": "#444",
                               }
                             }
                           >
@@ -5441,7 +5387,7 @@ exports[`Storyshots Input Variants 1`] = `
                                   <span
                                     style={
                                       Object {
-                                        "color": "#cbc539",
+                                        "color": "#22a",
                                         "wordBreak": "break-word",
                                       }
                                     }
@@ -5457,7 +5403,7 @@ exports[`Storyshots Input Variants 1`] = `
                           <span
                             style={
                               Object {
-                                "color": "#5567f2",
+                                "color": "#444",
                               }
                             }
                           >
@@ -5501,19 +5447,14 @@ exports[`Storyshots Input Variants 1`] = `
                   />
                 </div>
                 <div
-                  className="section-additional pt-4"
+                  className="section-additional"
                   style={Object {}}
                 >
                   <div>
                     
                     <div
                       className="section-subsection"
-                      style={
-                        Object {
-                          "display": "flow-root",
-                          "width": "100%",
-                        }
-                      }
+                      style={Object {}}
                     >
                       <h4
                         className="section-subsection-title"
@@ -5522,12 +5463,8 @@ exports[`Storyshots Input Variants 1`] = `
                         Source
                       </h4>
                       <pre
-                        className="section-pre bg-dark"
-                        style={
-                          Object {
-                            "color": "#878787",
-                          }
-                        }
+                        className="section-pre"
+                        style={Object {}}
                       >
                         <div
                           style={
@@ -5540,7 +5477,7 @@ exports[`Storyshots Input Variants 1`] = `
                           <span
                             style={
                               Object {
-                                "color": "#5567f2",
+                                "color": "#444",
                               }
                             }
                           >
@@ -5564,7 +5501,7 @@ exports[`Storyshots Input Variants 1`] = `
                                   <span
                                     style={
                                       Object {
-                                        "color": "#cbc539",
+                                        "color": "#22a",
                                         "wordBreak": "break-word",
                                       }
                                     }
@@ -5591,7 +5528,7 @@ exports[`Storyshots Input Variants 1`] = `
                                   <span
                                     style={
                                       Object {
-                                        "color": "#cbc539",
+                                        "color": "#22a",
                                         "wordBreak": "break-word",
                                       }
                                     }
@@ -5607,7 +5544,7 @@ exports[`Storyshots Input Variants 1`] = `
                           <span
                             style={
                               Object {
-                                "color": "#5567f2",
+                                "color": "#444",
                               }
                             }
                           >
@@ -5630,16 +5567,12 @@ exports[`Storyshots Input Variants 1`] = `
               style={Object {}}
             >
               <div>
-                <h2
-                  className="chapter-h2 pt-3"
-                  style={
-                    Object {
-                      "fontSize": "1.5em",
-                    }
-                  }
+                <h3
+                  className="chapter-h3"
+                  style={Object {}}
                 >
                   Validity
-                </h2>
+                </h3>
                 
                 
                 
@@ -5680,19 +5613,14 @@ exports[`Storyshots Input Variants 1`] = `
                   />
                 </div>
                 <div
-                  className="section-additional pt-4"
+                  className="section-additional"
                   style={Object {}}
                 >
                   <div>
                     
                     <div
                       className="section-subsection"
-                      style={
-                        Object {
-                          "display": "flow-root",
-                          "width": "100%",
-                        }
-                      }
+                      style={Object {}}
                     >
                       <h4
                         className="section-subsection-title"
@@ -5701,12 +5629,8 @@ exports[`Storyshots Input Variants 1`] = `
                         Source
                       </h4>
                       <pre
-                        className="section-pre bg-dark"
-                        style={
-                          Object {
-                            "color": "#878787",
-                          }
-                        }
+                        className="section-pre"
+                        style={Object {}}
                       >
                         <div
                           style={
@@ -5719,7 +5643,7 @@ exports[`Storyshots Input Variants 1`] = `
                           <span
                             style={
                               Object {
-                                "color": "#5567f2",
+                                "color": "#444",
                               }
                             }
                           >
@@ -5743,7 +5667,7 @@ exports[`Storyshots Input Variants 1`] = `
                                   <span
                                     style={
                                       Object {
-                                        "color": "#cbc539",
+                                        "color": "#22a",
                                         "wordBreak": "break-word",
                                       }
                                     }
@@ -5767,7 +5691,7 @@ exports[`Storyshots Input Variants 1`] = `
                           <span
                             style={
                               Object {
-                                "color": "#5567f2",
+                                "color": "#444",
                               }
                             }
                           >
@@ -5811,19 +5735,14 @@ exports[`Storyshots Input Variants 1`] = `
                   />
                 </div>
                 <div
-                  className="section-additional pt-4"
+                  className="section-additional"
                   style={Object {}}
                 >
                   <div>
                     
                     <div
                       className="section-subsection"
-                      style={
-                        Object {
-                          "display": "flow-root",
-                          "width": "100%",
-                        }
-                      }
+                      style={Object {}}
                     >
                       <h4
                         className="section-subsection-title"
@@ -5832,12 +5751,8 @@ exports[`Storyshots Input Variants 1`] = `
                         Source
                       </h4>
                       <pre
-                        className="section-pre bg-dark"
-                        style={
-                          Object {
-                            "color": "#878787",
-                          }
-                        }
+                        className="section-pre"
+                        style={Object {}}
                       >
                         <div
                           style={
@@ -5850,7 +5765,7 @@ exports[`Storyshots Input Variants 1`] = `
                           <span
                             style={
                               Object {
-                                "color": "#5567f2",
+                                "color": "#444",
                               }
                             }
                           >
@@ -5874,7 +5789,7 @@ exports[`Storyshots Input Variants 1`] = `
                                   <span
                                     style={
                                       Object {
-                                        "color": "#cbc539",
+                                        "color": "#22a",
                                         "wordBreak": "break-word",
                                       }
                                     }
@@ -5916,7 +5831,7 @@ exports[`Storyshots Input Variants 1`] = `
                           <span
                             style={
                               Object {
-                                "color": "#5567f2",
+                                "color": "#444",
                               }
                             }
                           >
@@ -5939,16 +5854,12 @@ exports[`Storyshots Input Variants 1`] = `
               style={Object {}}
             >
               <div>
-                <h2
-                  className="chapter-h2 pt-3"
-                  style={
-                    Object {
-                      "fontSize": "1.5em",
-                    }
-                  }
+                <h3
+                  className="chapter-h3"
+                  style={Object {}}
                 >
                   Icons
-                </h2>
+                </h3>
                 
                 
                 
@@ -6004,19 +5915,14 @@ exports[`Storyshots Input Variants 1`] = `
                   </div>
                 </div>
                 <div
-                  className="section-additional pt-4"
+                  className="section-additional"
                   style={Object {}}
                 >
                   <div>
                     
                     <div
                       className="section-subsection"
-                      style={
-                        Object {
-                          "display": "flow-root",
-                          "width": "100%",
-                        }
-                      }
+                      style={Object {}}
                     >
                       <h4
                         className="section-subsection-title"
@@ -6025,12 +5931,8 @@ exports[`Storyshots Input Variants 1`] = `
                         Source
                       </h4>
                       <pre
-                        className="section-pre bg-dark"
-                        style={
-                          Object {
-                            "color": "#878787",
-                          }
-                        }
+                        className="section-pre"
+                        style={Object {}}
                       >
                         <div
                           style={
@@ -6043,7 +5945,7 @@ exports[`Storyshots Input Variants 1`] = `
                           <span
                             style={
                               Object {
-                                "color": "#5567f2",
+                                "color": "#444",
                               }
                             }
                           >
@@ -6067,7 +5969,7 @@ exports[`Storyshots Input Variants 1`] = `
                                   <span
                                     style={
                                       Object {
-                                        "color": "#cbc539",
+                                        "color": "#22a",
                                         "wordBreak": "break-word",
                                       }
                                     }
@@ -6094,7 +5996,7 @@ exports[`Storyshots Input Variants 1`] = `
                                   <span
                                     style={
                                       Object {
-                                        "color": "#cbc539",
+                                        "color": "#22a",
                                         "wordBreak": "break-word",
                                       }
                                     }
@@ -6110,7 +6012,7 @@ exports[`Storyshots Input Variants 1`] = `
                           <span
                             style={
                               Object {
-                                "color": "#5567f2",
+                                "color": "#444",
                               }
                             }
                           >
@@ -6169,19 +6071,14 @@ exports[`Storyshots Input Variants 1`] = `
                   </div>
                 </div>
                 <div
-                  className="section-additional pt-4"
+                  className="section-additional"
                   style={Object {}}
                 >
                   <div>
                     
                     <div
                       className="section-subsection"
-                      style={
-                        Object {
-                          "display": "flow-root",
-                          "width": "100%",
-                        }
-                      }
+                      style={Object {}}
                     >
                       <h4
                         className="section-subsection-title"
@@ -6190,12 +6087,8 @@ exports[`Storyshots Input Variants 1`] = `
                         Source
                       </h4>
                       <pre
-                        className="section-pre bg-dark"
-                        style={
-                          Object {
-                            "color": "#878787",
-                          }
-                        }
+                        className="section-pre"
+                        style={Object {}}
                       >
                         <div
                           style={
@@ -6208,7 +6101,7 @@ exports[`Storyshots Input Variants 1`] = `
                           <span
                             style={
                               Object {
-                                "color": "#5567f2",
+                                "color": "#444",
                               }
                             }
                           >
@@ -6232,7 +6125,7 @@ exports[`Storyshots Input Variants 1`] = `
                                   <span
                                     style={
                                       Object {
-                                        "color": "#cbc539",
+                                        "color": "#22a",
                                         "wordBreak": "break-word",
                                       }
                                     }
@@ -6259,7 +6152,7 @@ exports[`Storyshots Input Variants 1`] = `
                                   <span
                                     style={
                                       Object {
-                                        "color": "#cbc539",
+                                        "color": "#22a",
                                         "wordBreak": "break-word",
                                       }
                                     }
@@ -6283,7 +6176,7 @@ exports[`Storyshots Input Variants 1`] = `
                           <span
                             style={
                               Object {
-                                "color": "#5567f2",
+                                "color": "#444",
                               }
                             }
                           >
@@ -6306,16 +6199,12 @@ exports[`Storyshots Input Variants 1`] = `
               style={Object {}}
             >
               <div>
-                <h2
-                  className="chapter-h2 pt-3"
-                  style={
-                    Object {
-                      "fontSize": "1.5em",
-                    }
-                  }
+                <h3
+                  className="chapter-h3"
+                  style={Object {}}
                 >
                   Clear button
-                </h2>
+                </h3>
                 
                 
                 
@@ -6367,19 +6256,14 @@ exports[`Storyshots Input Variants 1`] = `
                   </div>
                 </div>
                 <div
-                  className="section-additional pt-4"
+                  className="section-additional"
                   style={Object {}}
                 >
                   <div>
                     
                     <div
                       className="section-subsection"
-                      style={
-                        Object {
-                          "display": "flow-root",
-                          "width": "100%",
-                        }
-                      }
+                      style={Object {}}
                     >
                       <h4
                         className="section-subsection-title"
@@ -6388,12 +6272,8 @@ exports[`Storyshots Input Variants 1`] = `
                         Source
                       </h4>
                       <pre
-                        className="section-pre bg-dark"
-                        style={
-                          Object {
-                            "color": "#878787",
-                          }
-                        }
+                        className="section-pre"
+                        style={Object {}}
                       >
                         <div
                           style={
@@ -6406,7 +6286,7 @@ exports[`Storyshots Input Variants 1`] = `
                           <span
                             style={
                               Object {
-                                "color": "#5567f2",
+                                "color": "#444",
                               }
                             }
                           >
@@ -6430,7 +6310,7 @@ exports[`Storyshots Input Variants 1`] = `
                                   <span
                                     style={
                                       Object {
-                                        "color": "#cbc539",
+                                        "color": "#22a",
                                         "wordBreak": "break-word",
                                       }
                                     }
@@ -6454,7 +6334,7 @@ exports[`Storyshots Input Variants 1`] = `
                           <span
                             style={
                               Object {
-                                "color": "#5567f2",
+                                "color": "#444",
                               }
                             }
                           >
@@ -6477,16 +6357,12 @@ exports[`Storyshots Input Variants 1`] = `
               style={Object {}}
             >
               <div>
-                <h2
-                  className="chapter-h2 pt-3"
-                  style={
-                    Object {
-                      "fontSize": "1.5em",
-                    }
-                  }
+                <h3
+                  className="chapter-h3"
+                  style={Object {}}
                 >
                   Flushed
-                </h2>
+                </h3>
                 
                 
                 
@@ -6522,19 +6398,14 @@ exports[`Storyshots Input Variants 1`] = `
                   />
                 </div>
                 <div
-                  className="section-additional pt-4"
+                  className="section-additional"
                   style={Object {}}
                 >
                   <div>
                     
                     <div
                       className="section-subsection"
-                      style={
-                        Object {
-                          "display": "flow-root",
-                          "width": "100%",
-                        }
-                      }
+                      style={Object {}}
                     >
                       <h4
                         className="section-subsection-title"
@@ -6543,12 +6414,8 @@ exports[`Storyshots Input Variants 1`] = `
                         Source
                       </h4>
                       <pre
-                        className="section-pre bg-dark"
-                        style={
-                          Object {
-                            "color": "#878787",
-                          }
-                        }
+                        className="section-pre"
+                        style={Object {}}
                       >
                         <div
                           style={
@@ -6561,7 +6428,7 @@ exports[`Storyshots Input Variants 1`] = `
                           <span
                             style={
                               Object {
-                                "color": "#5567f2",
+                                "color": "#444",
                               }
                             }
                           >
@@ -6585,7 +6452,7 @@ exports[`Storyshots Input Variants 1`] = `
                                   <span
                                     style={
                                       Object {
-                                        "color": "#cbc539",
+                                        "color": "#22a",
                                         "wordBreak": "break-word",
                                       }
                                     }
@@ -6609,7 +6476,7 @@ exports[`Storyshots Input Variants 1`] = `
                           <span
                             style={
                               Object {
-                                "color": "#5567f2",
+                                "color": "#444",
                               }
                             }
                           >
@@ -6632,16 +6499,12 @@ exports[`Storyshots Input Variants 1`] = `
               style={Object {}}
             >
               <div>
-                <h2
-                  className="chapter-h2 pt-3"
-                  style={
-                    Object {
-                      "fontSize": "1.5em",
-                    }
-                  }
+                <h3
+                  className="chapter-h3"
+                  style={Object {}}
                 >
                   Prop types
-                </h2>
+                </h3>
                 
                 
                 
@@ -6677,19 +6540,14 @@ exports[`Storyshots Input Variants 1`] = `
                   />
                 </div>
                 <div
-                  className="section-additional pt-4"
+                  className="section-additional"
                   style={Object {}}
                 >
                   <div>
                     
                     <div
                       className="section-subsection"
-                      style={
-                        Object {
-                          "display": "flow-root",
-                          "width": "100%",
-                        }
-                      }
+                      style={Object {}}
                     >
                       <h4
                         className="section-subsection-title"
@@ -6704,7 +6562,7 @@ exports[`Storyshots Input Variants 1`] = `
                           &gt; Component
                         </h5>
                         <table
-                          className="propTable table"
+                          className="propTable"
                           style={Object {}}
                         >
                           <thead>
@@ -6908,7 +6766,7 @@ exports[`Storyshots Input Variants 1`] = `
                                 <span
                                   style={
                                     Object {
-                                      "color": "#cbc539",
+                                      "color": "#22a",
                                       "wordBreak": "break-word",
                                     }
                                   }
