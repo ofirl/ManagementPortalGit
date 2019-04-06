@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as reducers from '../../../redux/reducers/profileId';
 
 import * as actions from '../../../redux/actions'
 

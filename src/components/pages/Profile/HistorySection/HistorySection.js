@@ -9,6 +9,7 @@ import { TableCard } from '../../../Table/Table';
 
 import DataManager from '../../../../assets/js/data.manager';
 import Button from 'react-bootstrap/Button';
+import Icon from '../../../Icon/Icon';
 
 class HistorySection extends Component {
     constructor(props) {
@@ -73,7 +74,24 @@ class HistorySection extends Component {
                 accessor: "results"
             }
         ];
-        let tableColumns = currentItem ? [...currentItemScriptInfo.inputs, ...currentItemScriptInfo.outputs, { name: 'Success', accessor: 'success' }] : defaultCoulmns;
+        let msgColumn = {
+            name: 'Message',
+            accessor: 'msg',
+            render: (msgs) => {
+                let msgTypes = {
+                    error: 'x-square',
+                    alert: 'alert-triangle',
+                    info: 'info'
+                }
+                return msgs.map((v, idx) => (
+                    <div key={idx}>
+                        <Icon type={msgTypes[v.type]} className={`mr-2 msg-icon-${v.type}`} />
+                        {v.text}
+                    </div>
+                ));
+            }
+        }
+        let tableColumns = currentItem ? [...currentItemScriptInfo.inputs, ...currentItemScriptInfo.outputs, msgColumn, { name: 'Success', accessor: 'success' }] : defaultCoulmns;
 
         let tableItems = currentItem ? currentItem.resultsObj.map((r) => {
             return {
@@ -96,10 +114,10 @@ class HistorySection extends Component {
                 </Card>
                 <Button disabled={!showItemDetails} className="mb-1" variant="white" size="sm" onClick={() => this.setState({ showItemDetails: false })}> Show all history </Button>
                 <Collapse in={!showItemDetails} timeout={350}>
-                <div>
-                    <TableCard onItemClick={this.itemClicked} itemHoverEffect title="History" headerButtons={["case"]} searchable
-                        items={textItems} columns={defaultCoulmns} >
-                    </TableCard>
+                    <div>
+                        <TableCard onItemClick={this.itemClicked} itemHoverEffect title="History" headerButtons={["case"]} searchable
+                            items={textItems} columns={defaultCoulmns} >
+                        </TableCard>
                     </div>
                 </Collapse>
                 <Collapse in={showItemDetails} timeout={350}>

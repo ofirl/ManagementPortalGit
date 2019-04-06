@@ -126,10 +126,14 @@ class TableCell extends Component {
                             }
                         }
                         else {
-                            return value.toString();
+                            if (column.render == null)
+                                return value.toString();
+                                
+                            return column.render(value);
                         }
                     }
                     catch (e) {
+                        console.log(e);
                         return 'Error: could not read value';
                     }
                 })()
@@ -193,6 +197,7 @@ class TableRow extends Component {
             <tr {...itemAttr}>
                 {
                     columns.reduce(function (acc, current, colIdx, array) {
+                        // console.log(item);
                         acc.push(
                             <TableCell editable={editable} column={current} key={colIdx} size={size} value={item[current.accessor]}
                                 onChange={(val) => onChange(item.id, current.accessor, val)} />

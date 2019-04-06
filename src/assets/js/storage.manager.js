@@ -33,14 +33,6 @@ var testScriptsArray = [
         ],
         outputs: [
             {
-                name: 'Error',
-                accessor: 'error'
-            },
-            {
-                name: 'Message',
-                accessor: 'msg'
-            },
-            {
                 name: 'Previous Username',
                 accessor: 'previousUsername'
             }
@@ -111,8 +103,16 @@ var testHistoryArray = [
                     username: 'test1'
                 },
                 output: {
-                    error: 'table was locked!',
-                    msg: 'please try again later',
+                    msg: [
+                        {
+                            type: 'error',
+                            text: 'table was locked!'
+                        },
+                        {
+                            type: 'info',
+                            text: 'please try again'
+                        }
+                    ],
                     previousUsername: ''
                 }
             },
@@ -124,8 +124,7 @@ var testHistoryArray = [
                     username: 'test2'
                 },
                 output: {
-                    error: '',
-                    msg: '',
+                    msg: [],
                     previousUsername: 'test3'
                 }
             }
@@ -145,8 +144,16 @@ var testHistoryArray = [
                     username: 'ofirl'
                 },
                 output: {
-                    error: 'table was locked!',
-                    msg: 'please try again later',
+                    msg: [
+                        {
+                            type: 'error',
+                            text: 'table was locked!'
+                        },
+                        {
+                            type: 'info',
+                            text: 'please try again'
+                        }
+                    ],
                     previousUsername: ''
                 }
             },
@@ -158,8 +165,12 @@ var testHistoryArray = [
                     username: 'ofirl'
                 },
                 output: {
-                    error: '???',
-                    msg: '',
+                    msg: [
+                        {
+                            type: 'error',
+                            text: '???'
+                        }
+                    ],
                     previousUsername: 'shakedb'
                 }
             },
@@ -171,8 +182,16 @@ var testHistoryArray = [
                     username: 'ofirl'
                 },
                 output: {
-                    error: '???',
-                    msg: '',
+                    msg: [
+                        {
+                            type: 'error',
+                            text: 'table was locked!!!'
+                        },
+                        {
+                            type: 'alert',
+                            text: 'please try again later'
+                        }
+                    ],
                     previousUsername: 'shakedb'
                 }
             }
