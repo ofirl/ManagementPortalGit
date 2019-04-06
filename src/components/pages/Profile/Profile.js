@@ -19,18 +19,24 @@ import ProfileSection from './ProfileSection/ProfileSection';
 import HistorySection from './HistorySection/HistorySection';
 import Nav from 'react-bootstrap/Nav';
 
+import DataManager from '../../../assets/js/data.manager';
+
 class Profile extends Component {
     constructor(props) {
         super(props);
 
+        this.props.boundActions.setProfile(0);
+
         this.state = {
-            currentSection: 'profile'
+            currentSection: 'profile',
+            currentProfile: props.profileId != -1 ? DataManager.getProfileById(props.profileId) : null
         }
-        this.props.boundActions.setProfile(2);
     }
 
     render() {
+        let { currentProfile } = this.state;
         // console.log(this.props.match.params.section);
+
         return (
             <div>
                 <div className="header bg-dark">
@@ -46,7 +52,8 @@ class Profile extends Component {
 
                                     <PageHeader>
                                         <PageHeader.Pretitle text="Member" />
-                                        <PageHeader.Title text="Ofir Levi" />
+                                        {/* <PageHeader.Title text="Ofir Levi" /> */}
+                                        <PageHeader.Title text={currentProfile ? `${this.state.currentProfile.firstname} ${this.state.currentProfile.lastname}` : ''} />
                                     </PageHeader>
                                 </div>
                                 <div className="row align-items-center">
