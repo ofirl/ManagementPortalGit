@@ -81,7 +81,7 @@ class HistorySection extends Component {
                 let msgTypes = {
                     error: 'x-square',
                     alert: 'alert-triangle',
-                    info: 'info'
+                    warning: 'info'
                 }
                 return msgs.map((v, idx) => (
                     <div key={idx}>

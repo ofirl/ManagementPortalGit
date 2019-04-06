@@ -188,7 +188,7 @@ var testHistoryArray = [
                             text: 'table was locked!!!'
                         },
                         {
-                            type: 'alert',
+                            type: 'warning',
                             text: 'please try again later'
                         }
                     ],
