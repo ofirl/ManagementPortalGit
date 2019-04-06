@@ -80,8 +80,8 @@ class HistorySection extends Component {
             render: (msgs) => {
                 let msgTypes = {
                     error: 'x-square',
-                    alert: 'alert-triangle',
-                    warning: 'info'
+                    warning: 'alert-triangle',
+                    info: 'info'
                 }
                 return msgs.map((v, idx) => (
                     <div key={idx}>
@@ -91,11 +91,17 @@ class HistorySection extends Component {
                 ));
             }
         }
-        let tableColumns = currentItem ? [...currentItemScriptInfo.inputs, ...currentItemScriptInfo.outputs, msgColumn, { name: 'Success', accessor: 'success' }] : defaultCoulmns;
+        let successColumn = {
+            name: 'Success',
+            accessor: 'success',
+            render: (success) => <Icon className={`history-table-${success === "success" ? 'success' : 'fail'}`} type={success === "success" ? 'target' : 'target'} />
+        }
+
+        let tableColumns = currentItem ? [...currentItemScriptInfo.inputs, ...currentItemScriptInfo.outputs, msgColumn, successColumn] : defaultCoulmns;
 
         let tableItems = currentItem ? currentItem.resultsObj.map((r) => {
             return {
-                success: r.success,
+                success: r.success ? 'success' : 'fail',
                 ...r.input,
                 ...r.output
             };

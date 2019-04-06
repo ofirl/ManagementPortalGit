@@ -192,7 +192,7 @@ class TableRow extends Component {
 
     render() {
         let { item, itemAttr, columns, editable, size, onChange, rowButtons, rowButtonTypes } = this.props;
-
+        console.log(item);
         return (
             <tr {...itemAttr}>
                 {

@@ -2,10 +2,18 @@
     color: red;
 }
 
-.msg-icon-alert {
+.msg-icon-warning {
     color: yellow;
 }
 
 .msg-icon-info {
     color: white;
+}
+
+.history-table-success {
+    color: green;
+}
+
+.history-table-fail {
+    color: red;
 }
