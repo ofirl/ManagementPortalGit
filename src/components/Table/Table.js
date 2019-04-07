@@ -103,16 +103,16 @@ let tableDefaultProps = {
 
 class EditableField extends Component {
     render() {
-        let { column, size, value, onChange, allowNull } = this.props;
+        let { column, size, value, onChange, allowNull, className } = this.props;
 
         if (column.type == null || column.type === "text") {
             return <Input size={size} value={value == null ? '' : value}
-                onInput={onChange} clearButton />;
+                onInput={onChange} clearButton containerClass={className} />;
         }
         else if (column.type === "select") {
             return (
                 <Select selectedValue={value} dropValues={column.dropValues} allowNull={allowNull}
-                    onChange={onChange}>
+                    onChange={onChange} className={className}>
                 </Select>
             );
         }
@@ -517,9 +517,11 @@ class AdvancedFilterField extends Component {
         let { column, size, value } = this.props;
 
         return (
-            <div>
-                {column.name}
-                <EditableField column={column} size={size} value={value} onChange={this.onChange} />
+            <div className="row m-0 p-0 mb-1 align-items-center">
+                <span className="">
+                    {column.name}
+                </span>
+                <EditableField column={column} size={size} value={value} onChange={this.onChange} className="" />
             </div>
         );
     }
@@ -553,6 +555,7 @@ class AdvancedFilter extends Component {
 
         return (
             <div className="mb-3">
+                <h5> Advanced filter </h5>
                 {
                     columns.map((c) => <AdvancedFilterField key={c.accessor} column={c} size={size}
                         value={filter ? filter[c.accessor] : null} onChange={this.onFilterChange} />)
@@ -740,7 +743,7 @@ class TableCard extends Component {
                                 }
                                 {
                                     allowAdvancedFilter != null ?
-                                        <Toggle key="advancedFilterToggle" defaultChecked={false} onChange={this.toggleAdvancedFilter} >
+                                        <Toggle className="ml-2" key="advancedFilterToggle" defaultChecked={false} onChange={this.toggleAdvancedFilter} >
                                             Advanced Filter
                                         </Toggle>
                                         : null

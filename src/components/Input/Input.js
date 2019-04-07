@@ -107,7 +107,7 @@ class Input extends Component {
         }
 
         return (
-            <div className={`input-group input-group-merge ${isInvalid ? 'is-invalid' : ''} ${isValid ? 'is-valid' : ''} ${containerClass}`}>
+            <div className={`input-group input-group-merge ${isInvalid ? 'is-invalid' : ''} ${isValid ? 'is-valid' : ''} ${containerClass ? containerClass : ''}`}>
                 {inputElement}
                 {
                     icon != null ? (
