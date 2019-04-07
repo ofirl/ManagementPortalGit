@@ -39,6 +39,8 @@ class Select extends Component {
     static propTypes = {
         /** default item to select */
         defaultItem: PropTypes.number,
+        /** allow null value */
+        allowNull: PropTypes.bool,
         /** selected value */
         selectedValue: PropTypes.string,
         /** selected index - will override selected value */
@@ -55,7 +57,8 @@ class Select extends Component {
     }
     static defaultProps = {
         defaultItem: -1,
-        children: [{ id: 'test' }]
+        children: [{ id: 'test' }],
+        allowNull: true
     }
 
     componentDidUpdate(oldProps) {
@@ -84,7 +87,7 @@ class Select extends Component {
     }
 
     getSelectItems() {
-        let { dropValues, children } = this.props;
+        let { dropValues, children, allowNull } = this.props;
 
         if (children != null && (children.length == null || children.length === 0))
             children = [children];
@@ -93,7 +96,7 @@ class Select extends Component {
             acc.push({ id: val });
 
             return acc;
-        }, []) : children;
+        }, allowNull ? [{ id: '\xa0'}] : []) : children;
 
         return dropItems;
     }

@@ -9,6 +9,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
+import Collapse from 'react-bootstrap/Collapse'
 
 import Input from '../Input/Input';
 import Icon from '../Icon/Icon';
@@ -100,6 +101,26 @@ let tableDefaultProps = {
     itemHoverEffect: false
 }
 
+class EditableField extends Component {
+    render() {
+        let { column, size, value, onChange, allowNull } = this.props;
+
+        if (column.type == null || column.type === "text") {
+            return <Input size={size} value={value == null ? '' : value}
+                onInput={onChange} clearButton />;
+        }
+        else if (column.type === "select") {
+            return (
+                <Select selectedValue={value} dropValues={column.dropValues} allowNull={allowNull}
+                    onChange={onChange}>
+                </Select>
+            );
+        }
+
+        return null;
+    }
+}
+
 class TableCell extends Component {
     constructor(props) {
         super(props);
@@ -113,22 +134,12 @@ class TableCell extends Component {
                 (() => {
                     try {
                         if (editable && column.readonly !== true) {
-                            if (column.type == null || column.type === "text") {
-                                return <Input size={size} value={value}
-                                    onInput={onChange} />;
-                            }
-                            else if (column.type === "select") {
-                                return (
-                                    <Select selectedValue={value} dropValues={column.dropValues}
-                                        onChange={onChange}>
-                                    </Select>
-                                );
-                            }
+                            return <EditableField column={column} size={size} value={value} onChange={onChange} />;
                         }
                         else {
                             if (column.render == null)
                                 return value.toString();
-                                
+
                             return column.render(value);
                         }
                     }
@@ -333,8 +344,8 @@ class Table extends Component {
         let filteredItems = items;
         filterObj.forEach(filter => {
             if (filter.value != null) {
-                if (filter.column)
-                    filteredItems = filteredItems.filter((i) => i[filter.column] === filter.value);
+                if (filter.column != null)
+                    filteredItems = filteredItems.filter((i) => i[filter.column].toString().match(new RegExp(filter.value, this.props.filterCaseSensitive ? "" : "i")));
                 else {
                     try {
                         filteredItems = filteredItems.filter((i) => Object.keys(i).some((key, idx) => {
@@ -469,7 +480,7 @@ class Table extends Component {
                             }
 
                             acc.push((
-                                <TableRow key={rowIdx} itemAttr={itemAttr} editable={editable} item={currentItem} rowButtons={that.props.rowButtons} 
+                                <TableRow key={rowIdx} itemAttr={itemAttr} editable={editable} item={currentItem} rowButtons={that.props.rowButtons}
                                     rowButtonTypes={that.rowButtonTypes} onChange={that.updateItem} columns={columns} />
                             ));
                             return acc;
@@ -477,6 +488,76 @@ class Table extends Component {
                     }
                 </tbody>
             </table>
+        );
+    }
+}
+
+class AdvancedFilterField extends Component {
+    constructor(props) {
+        super(props);
+
+        this.onChange = this.onChange.bind(this);
+
+        this.state = {
+            value: props.value
+        }
+    }
+    onChange(value) {
+        // this.setState({ value: value });
+
+        this.props.onChange && this.props.onChange(
+            {
+                column: this.props.column.accessor,
+                value: value
+            }
+        );
+    }
+
+    render() {
+        let { column, size, value } = this.props;
+
+        return (
+            <div>
+                {column.name}
+                <EditableField column={column} size={size} value={value} onChange={this.onChange} />
+            </div>
+        );
+    }
+}
+
+class AdvancedFilter extends Component {
+    constructor(props) {
+        super(props);
+
+        this.onFilterChange = this.onFilterChange.bind(this);
+
+        this.state = {
+            filter: props.filter
+        }
+    }
+    onFilterChange(filter) {
+        let newFilter = { ...this.state.filter };
+
+        if (filter.value === '')
+            delete newFilter[filter.column];
+        else
+            newFilter[filter.column] = filter.value;
+
+        this.props.onChange && this.props.onChange(newFilter);
+
+        // this.setState({filter: newFilter});
+    }
+
+    render() {
+        let { columns, size, filter } = this.props;
+
+        return (
+            <div className="mb-3">
+                {
+                    columns.map((c) => <AdvancedFilterField key={c.accessor} column={c} size={size}
+                        value={filter ? filter[c.accessor] : null} onChange={this.onFilterChange} />)
+                }
+            </div>
         );
     }
 }
@@ -491,11 +572,15 @@ class TableCard extends Component {
         this.onItemUpdate = this.onItemUpdate.bind(this);
         this.onError = this.onError.bind(this);
         this.toggleFilterCaseSensitive = this.toggleFilterCaseSensitive.bind(this);
+        this.applyAdvancedFilter = this.applyAdvancedFilter.bind(this);
+        this.toggleAdvancedFilter = this.toggleAdvancedFilter.bind(this);
 
         this.state = {
             items: props.items,
             omniFilter: null,
-            filterCaseSensitive: false
+            filterCaseSensitive: false,
+            advancedFilter: null,
+            showAdvancedFilter: props.showAdvancedFilter
         }
 
         this.innerTable = React.createRef();
@@ -511,11 +596,17 @@ class TableCard extends Component {
         /** header button options */
         headerButtons: PropTypes.arrayOf(PropTypes.oneOf(['new-row', 'case'])),
         /** row button options */
-        rowButtons: PropTypes.arrayOf(PropTypes.oneOf(['copy', 'remove']))
+        rowButtons: PropTypes.arrayOf(PropTypes.oneOf(['copy', 'remove'])),
+        /** allow advanced filter */
+        allowAdvancedFilter: PropTypes.bool,
+        /** show advanced filter as default */
+        showAdvancedFilter: PropTypes.bool
     }
     static defaultProps = {
         ...tableDefaultProps,
-        searchable: false
+        searchable: false,
+        allowAdvancedFilter: true,
+        showAdvancedFilter: false
     }
 
     applyOmniFilter(value) {
@@ -526,6 +617,12 @@ class TableCard extends Component {
     }
     toggleFilterCaseSensitive() {
         this.setState({ filterCaseSensitive: !this.state.filterCaseSensitive });
+    }
+    toggleAdvancedFilter() {
+        this.setState({ showAdvancedFilter: !this.state.showAdvancedFilter });
+    }
+    applyAdvancedFilter(filter) {
+        this.setState({ advancedFilter: filter });
     }
     getNewItemFromTemplate() {
         let maxId = Math.max(...this.state.items.map((i) => i.id), 0);
@@ -577,16 +674,19 @@ class TableCard extends Component {
     }
 
     render() {
-        let { filter, title, searchable, headerButtons, items, ...others } = this.props;
+        let { filter, title, searchable, headerButtons, items, columns, allowAdvancedFilter, ...others } = this.props;
         let stateItems = this.state.items;
-        let { filterError } = this.state;
+        let { filterError, advancedFilter, showAdvancedFilter } = this.state;
 
         let tableFilter = [];
         if (filter != null)
             tableFilter = tableFilter.concat(filter);
         if (this.state.omniFilter != null)
             tableFilter.push({ value: this.state.omniFilter });
+        if (this.state.advancedFilter != null)
+            tableFilter.push(...Object.keys(this.state.advancedFilter).reduce((acc, f) => { acc.push({ column: f, value: this.state.advancedFilter[f] }); return acc; }, []));
 
+        console.log(tableFilter);
         // if (children.length == null)
         //     children = [children];
 
@@ -638,10 +738,22 @@ class TableCard extends Component {
                                         })
                                         : null
                                 }
+                                {
+                                    allowAdvancedFilter != null ?
+                                        <Toggle key="advancedFilterToggle" defaultChecked={false} onChange={this.toggleAdvancedFilter} >
+                                            Advanced Filter
+                                        </Toggle>
+                                        : null
+                                }
                             </div>
+                            <Collapse in={showAdvancedFilter} timeout={350}>
+                                <div>
+                                    <AdvancedFilter key="advancedFilter" columns={columns} filter={advancedFilter} onChange={this.applyAdvancedFilter} />
+                                </div>
+                            </Collapse>
                         </Card.Title>
                     </Card.Header>
-                    <Table tableInstance={this.tableInstance} items={stateItems} filter={tableFilter} {...others}
+                    <Table tableInstance={this.tableInstance} items={stateItems} filter={tableFilter} columns={columns} {...others}
                         onItemUpdate={this.onItemUpdate} ref={this.innerTable} onError={this.onError} filterCaseSensitive={this.state.filterCaseSensitive} />
                 </Form>
             </Card>
