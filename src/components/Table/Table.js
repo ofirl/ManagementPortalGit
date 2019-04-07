@@ -540,7 +540,7 @@ class AdvancedFilter extends Component {
     onFilterChange(filter) {
         let newFilter = { ...this.state.filter };
 
-        if (filter.value === '')
+        if (filter.value == null || filter.value === '' || filter.value == '\xa0')
             delete newFilter[filter.column];
         else
             newFilter[filter.column] = filter.value;

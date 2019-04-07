@@ -95,6 +95,8 @@ class HistorySection extends Component {
         let successColumn = {
             name: 'Status',
             accessor: 'success',
+            type: 'select',
+            dropValues: ['fail', 'success'],
             render: (success) => [<Icon className={`mr-2 history-table-${success === "success" ? 'success' : 'fail'}`} type={success === "success" ? 'target' : 'target'} />, capitalize(success)]
         }
 
