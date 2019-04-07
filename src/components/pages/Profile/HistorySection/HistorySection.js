@@ -91,10 +91,11 @@ class HistorySection extends Component {
                 ));
             }
         }
+        let capitalize = (s) => s.charAt(0).toUpperCase() + s.slice(1);
         let successColumn = {
-            name: 'Success',
+            name: 'Status',
             accessor: 'success',
-            render: (success) => <Icon className={`history-table-${success === "success" ? 'success' : 'fail'}`} type={success === "success" ? 'target' : 'target'} />
+            render: (success) => [<Icon className={`mr-2 history-table-${success === "success" ? 'success' : 'fail'}`} type={success === "success" ? 'target' : 'target'} />, capitalize(success)]
         }
 
         let tableColumns = currentItem ? [...currentItemScriptInfo.inputs, ...currentItemScriptInfo.outputs, msgColumn, successColumn] : defaultCoulmns;
