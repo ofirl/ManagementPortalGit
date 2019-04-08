@@ -309,8 +309,10 @@ class Table extends Component {
         let { column, order } = sortObj;
         let sortConvert = this.props.columns.find( (c) => c.accessor == column ).sort;
         let sortedItems = items.sort((a, b) => {
-            console.log(`sorting ${a[column]} and ${b[column]}`);
-            return naturalSort(sortConvert ? sortConvert(a[column]) : a[column], sortConvert ? sortConvert(b[column]) : b[column]);
+            let aConv = sortConvert ? sortConvert(a[column]) : a[column];
+            let bConv = sortConvert ? sortConvert(b[column]) : b[column];
+            console.log(`sorting ${aConv} and ${bConv}`);
+            return naturalSort(aConv, bConv);
         });
 
         if (order === 'des')
