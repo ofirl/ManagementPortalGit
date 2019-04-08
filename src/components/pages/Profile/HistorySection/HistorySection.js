@@ -77,6 +77,16 @@ class HistorySection extends Component {
         let msgColumn = {
             name: 'Message',
             accessor: 'msg',
+            sort: (msg) => {
+                if (msg.some((m) => m.type === 'error'))
+                    return 1;
+                if (msg.some((m) => m.type === 'warning'))
+                    return 2;
+                if (msg.some((m) => m.type === 'info'))
+                    return 3;
+
+                return -1;
+            },
             render: (msgs) => {
                 let msgTypes = {
                     error: 'x-square',
