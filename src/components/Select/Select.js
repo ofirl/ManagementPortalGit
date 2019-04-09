@@ -15,7 +15,8 @@ class Select extends Component {
         this.handleItemClick = this.handleItemClick.bind(this);
         this.getSelectItems = this.getSelectItems.bind(this);
 
-        this.attachRef = target => this.setState({ target });
+        // this.attachRef = target => this.setState({ target });
+        // this.targetRef = React.createRef();
 
         let selectItems = this.getSelectItems();
 
@@ -123,6 +124,7 @@ class Select extends Component {
                     key={"top"}
                     placement={"bottom"}
                     trigger="focus"
+                    // target={this.state.target}
                     overlay={
                         <ListGroup className="select-list">
                             {
@@ -141,7 +143,7 @@ class Select extends Component {
                         </ListGroup>
                     }
                 >
-                    <div variant="white" tabIndex="-1" className={`input pointer form-control d-flex align-items-center ${className}`} onClick={this.handleClick} {...others}>
+                    <div /*ref={this.attachRef}*/ variant="white" tabIndex="-1" className={`input pointer form-control d-flex align-items-center ${className}`} onClick={this.handleClick} {...others}>
                         {
                             dropItems[this.state.selectedIndex] ? (
                                 dropItems[this.state.selectedIndex].render ?
