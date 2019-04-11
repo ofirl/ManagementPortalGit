@@ -5,6 +5,34 @@ import './Input.css';
 
 import Form from 'react-bootstrap/Form';
 
+let inputPropTypes = {
+    /** icon for the input field */
+    icon: PropTypes.string,
+    /** size control */
+    size: PropTypes.oneOf(['sm', '', 'lg']),
+    /** icon position */
+    prepend: PropTypes.bool,
+    /** flush input */
+    flush: PropTypes.bool,
+    /** placeholder text */
+    placeholder: PropTypes.string,
+    /** callback fired when onInput is called */
+    onInput: PropTypes.func,
+    /** is valid indicator - control styling */
+    valid: PropTypes.bool,
+    /** clear button will be present */
+    clearButton: PropTypes.bool,
+    /** input container class */
+    containerClass: PropTypes.string
+};
+
+let defaultInputProps = {
+    prepend: false,
+    flush: false,
+    placeholder: '',
+    clearButton: false
+};
+
 class Input extends Component {
     static Feedback = class Feedback extends Component {
         static propType = {
@@ -41,32 +69,11 @@ class Input extends Component {
 
         this.inputRef = React.createRef();
     }
-    static propTypes = {
-        /** icon for the input field */
-        icon: PropTypes.string,
-        /** size control */
-        size: PropTypes.oneOf(['sm', '', 'lg']),
-        /** icon position */
-        prepend: PropTypes.bool,
-        /** flush input */
-        flush: PropTypes.bool,
-        /** placeholder text */
-        placeholder: PropTypes.string,
-        /** callback fired when onInput is called */
-        onInput: PropTypes.func,
-        /** is valid indicator - control styling */
-        valid: PropTypes.bool,
-        /** clear button will be present */
-        clearButton: PropTypes.bool,
-        /** input container class */
-        containerClass: PropTypes.string
-    }
-    static defaultProps = {
-        prepend: false,
-        flush: false,
-        placeholder: '',
-        clearButton: false
-    }
+
+    static propTypes = inputPropTypes;
+
+    static defaultProps = defaultInputProps;
+
     onInput(e) {
         e.preventDefault && e.preventDefault();
 
@@ -97,7 +104,7 @@ class Input extends Component {
             inputIconClass += ' form-control-appended ';
 
         let inputElement = (
-            <input ref={this.inputRef} type="text" placeholder={`${this.props.placeholder}`} onInput={this.onInput} {...others} onChange={() => {}}
+            <input ref={this.inputRef} type="text" placeholder={`${this.props.placeholder}`} onInput={this.onInput} {...others} onChange={() => { }}
                 className={`form-control ${inputIconClass} ${flush ? 'form-control-flush' : ''} 
                     ${size ? `form-control-${size}` : ''} ${isInvalid ? 'is-invalid' : ''} ${isValid ? 'is-valid' : ''} ${className ? className : ''}`} />
         );
@@ -127,6 +134,20 @@ class Input extends Component {
                         </div>
                     ) : null
                 }
+            </div>
+        );
+    }
+}
+
+export class LabeledInput extends Component {
+    render() {
+        let { label, ...other } = this.props;
+        return (
+            <div className="row">
+                <div className="d-flex col-3 align-items-center"> {label ? label + " : " : ""} </div>
+                <div className="col">
+                    <Input {...other} />
+                </div>
             </div>
         );
     }

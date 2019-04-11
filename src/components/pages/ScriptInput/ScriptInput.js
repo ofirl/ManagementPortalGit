@@ -168,7 +168,7 @@ class ScriptInput extends Component {
                                     <label className="col-8 mb-0">
                                         Predefind connections :
                                     </label>
-                                    <Select className="col-4" dropValues={logonDropValues} defaultItem={logonDefaultDropIndex} onChange={this.predefinedConnectionSelected} />
+                                    <Select className="col-4" dropValues={logonDropValues} allowNull={false} defaultItem={logonDefaultDropIndex} onChange={this.predefinedConnectionSelected} />
                                 </div>
                                 <div className="row d-flex align-items-center">
                                     <label className="col-4"> Logon system : </label>
