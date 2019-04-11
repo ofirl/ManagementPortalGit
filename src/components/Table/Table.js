@@ -103,11 +103,11 @@ let tableDefaultProps = {
 
 class EditableField extends Component {
     render() {
-        let { column, size, value, onChange, allowNull, className } = this.props;
+        let { column, size, value, onChange, allowNull, className, inputProps } = this.props;
 
         if (column.type == null || column.type === "text") {
             return <Input size={size} value={value == null ? '' : value}
-                onInput={onChange} clearButton containerClass={className} />;
+                onInput={onChange} clearButton containerClass={className} {...inputProps} />;
         }
         else if (column.type === "select") {
             return (
@@ -127,14 +127,14 @@ class TableCell extends Component {
     }
 
     render() {
-        let { editable, column, size, value, onChange } = this.props;
+        let { editable, column, size, value, onChange, inputProps } = this.props;
 
         return (<td className={`align-middle`}>
             {
                 (() => {
                     try {
                         if (editable && column.readonly !== true) {
-                            return <EditableField column={column} size={size} value={value} onChange={onChange} />;
+                            return <EditableField column={column} size={size} value={value} onChange={onChange} inputProps={inputProps} />;
                         }
                         else {
                             if (column.render == null)
@@ -202,7 +202,7 @@ class TableRow extends Component {
     }
 
     render() {
-        let { item, itemAttr, columns, editable, size, onChange, rowButtons, rowButtonTypes } = this.props;
+        let { item, itemAttr, columns, editable, size, onChange, rowButtons, rowButtonTypes, inputProps } = this.props;
         console.log(item);
         return (
             <tr {...itemAttr}>
@@ -211,7 +211,7 @@ class TableRow extends Component {
                         // console.log(item);
                         acc.push(
                             <TableCell editable={editable} column={current} key={colIdx} size={size} value={item[current.accessor]}
-                                onChange={(val) => onChange(item.id, current.accessor, val)} />
+                                onChange={(val) => onChange(item.id, current.accessor, val)} inputProps={inputProps} />
                         );
                         return acc;
                     }, [])
@@ -439,7 +439,7 @@ class Table extends Component {
     render() {
         let that = this;
 
-        let { className, columns, size, nowrap, editable, onItemClick, itemHoverEffect } = this.props;
+        let { className, columns, size, nowrap, editable, onItemClick, itemHoverEffect, inputProps } = this.props;
         let { items } = this.state;
         items = this.filterItems(items);
         items = this.sortItems(items);
@@ -484,7 +484,7 @@ class Table extends Component {
 
                             acc.push((
                                 <TableRow key={rowIdx} itemAttr={itemAttr} editable={editable} item={currentItem} rowButtons={that.props.rowButtons}
-                                    rowButtonTypes={that.rowButtonTypes} onChange={that.updateItem} columns={columns} />
+                                    rowButtonTypes={that.rowButtonTypes} onChange={that.updateItem} columns={columns} inputProps={inputProps} />
                             ));
                             return acc;
                         }, [])
@@ -732,7 +732,10 @@ class TableCard extends Component {
                                         headerButtons.map((button) => {
                                             if (button === "new-row")
                                                 return (
-                                                    <Button key={button} variant="white" size="sm" onClick={this.addNewItem}> New Row </Button>
+                                                    <Button key={button} variant="white" size="sm" onClick={this.addNewItem}> 
+                                                        {/* New Row  */}
+                                                        <Icon type="plus" /> 
+                                                    </Button>
                                                 );
                                             if (button === "case")
                                                 return (
@@ -745,7 +748,7 @@ class TableCard extends Component {
                                         : null
                                 }
                                 {
-                                    allowAdvancedFilter != null ?
+                                    allowAdvancedFilter ?
                                         <Toggle className="ml-2" key="advancedFilterToggle" defaultChecked={false} onChange={this.toggleAdvancedFilter} >
                                             Advanced Filter
                                         </Toggle>
