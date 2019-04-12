@@ -4541,7 +4541,7 @@ exports[`Storyshots Input Knobs 1`] = `
                   style={Object {}}
                 >
                   <div
-                    className="input-group input-group-merge   undefined"
+                    className="input-group input-group-merge   "
                   >
                     <input
                       className="form-control form-control-appended  
@@ -5891,7 +5891,7 @@ exports[`Storyshots Input Variants 1`] = `
                   style={Object {}}
                 >
                   <div
-                    className="input-group input-group-merge   undefined"
+                    className="input-group input-group-merge   "
                   >
                     <input
                       className="form-control form-control-appended  
@@ -6047,7 +6047,7 @@ exports[`Storyshots Input Variants 1`] = `
                   style={Object {}}
                 >
                   <div
-                    className="input-group input-group-merge   undefined"
+                    className="input-group input-group-merge   "
                   >
                     <input
                       className="form-control form-control-prepended  
@@ -6231,7 +6231,7 @@ exports[`Storyshots Input Variants 1`] = `
                   style={Object {}}
                 >
                   <div
-                    className="input-group input-group-merge   undefined"
+                    className="input-group input-group-merge   "
                   >
                     <input
                       className="form-control  form-control-appended   

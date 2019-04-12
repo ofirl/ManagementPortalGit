@@ -204,45 +204,46 @@ class ScriptInput extends Component {
                         </Card>
                     </div>
                     <div className="row justify-content-center">
-                        <TableCard title="Input" nowrap editable searchable headerButtons={['new-row']} rowButtons={['copy', 'remove']} columns={[
-                            {
-                                name: 'test',
-                                accessor: 'test'
-                            },
-                            {
-                                name: 'test2',
-                                accessor: 'test2',
-                                // readonly: true,
-                                type: 'select',
-                                dropValues: ['test1', 'test2']
-                            }]}
-                            items={[{
-                                id: 1,
-                                test: 'asdasd',
-                                test2: 'test2'
-                            },
-                            {
-                                id: 2,
-                                test: '2',
-                                test2: 'test2'
-                            },
-                            {
-                                id: 3,
-                                test: '3',
-                                test2: 'test1'
-                            },
-                            {
-                                id: 4,
-                                test: '33',
-                                test2: 'test2'
-                            },
-                            {
-                                id: 5,
-                                test: '34',
-                                test2: 'test1'
-                            }
-                            ]}>
-                            {/* <TableCard.HeaderButtons>
+                        <div className="col-6">
+                            <TableCard title="Input" nowrap editable searchable headerButtons={['new-row']} rowButtons={['copy', 'remove']} columns={[
+                                {
+                                    name: 'test',
+                                    accessor: 'test'
+                                },
+                                {
+                                    name: 'test2',
+                                    accessor: 'test2',
+                                    // readonly: true,
+                                    type: 'select',
+                                    dropValues: ['test1', 'test2']
+                                }]}
+                                items={[{
+                                    id: 1,
+                                    test: 'asdasd',
+                                    test2: 'test2'
+                                },
+                                {
+                                    id: 2,
+                                    test: '2',
+                                    test2: 'test2'
+                                },
+                                {
+                                    id: 3,
+                                    test: '3',
+                                    test2: 'test1'
+                                },
+                                {
+                                    id: 4,
+                                    test: '33',
+                                    test2: 'test2'
+                                },
+                                {
+                                    id: 5,
+                                    test: '34',
+                                    test2: 'test1'
+                                }
+                                ]}>
+                                {/* <TableCard.HeaderButtons>
                                 {
                                     React.cloneElement( (props) => (
                                         <div onClick={function () { console.log(this.props) }}>
@@ -251,12 +252,13 @@ class ScriptInput extends Component {
                                     ), {} )
                                 }
                             </TableCard.HeaderButtons> */}
-                            {/* <TableCard.RowButtons>
+                                {/* <TableCard.RowButtons>
                                 <div>
                                     test
                                 </div>
                             </TableCard.RowButtons> */}
-                        </TableCard>
+                            </TableCard>
+                        </div>
                     </div>
                 </div>
             </div >

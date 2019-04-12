@@ -29,7 +29,7 @@ class Profile extends Component {
 
         this.state = {
             currentSection: 'profile',
-            currentProfile: props.profileId != -1 ? DataManager.getProfileById(props.profileId) : null
+            currentProfile: props.profileId !== -1 ? DataManager.getProfileById(props.profileId) : null
         }
     }
 

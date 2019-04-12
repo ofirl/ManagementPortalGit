@@ -4,7 +4,7 @@ import './ProfileSection.css';
 
 import Card from 'react-bootstrap/Card';
 import { LabeledInput } from '../../../Input/Input';
-import Table, { TableCard } from '../../../Table/Table';
+import { TableCard } from '../../../Table/Table';
 
 class ProfileSection extends Component {
     render() {
@@ -70,15 +70,18 @@ class ProfileSection extends Component {
                                 // type: 'bool'
                             }
                         ]
-                    } items={
+                    } 
+                    items={
                         [
                             {
+                                id: 0,
                                 name: 'CRM Prod',
                                 system: 'CKP',
                                 username: 'OFIRL'
                             }
                         ]
-                    } />
+                    } 
+                    />
                 </div>
 
                 {/* <div className="row justify-content-between m-0"> */}

@@ -122,14 +122,10 @@ class EditableField extends Component {
 }
 
 class TableCell extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         let { editable, column, size, value, onChange, inputProps } = this.props;
 
-        return (<td className={`align-middle`}>
+        return (<td className={`col align-middle`}>
             {
                 (() => {
                     try {
@@ -154,10 +150,6 @@ class TableCell extends Component {
 }
 
 class TableRowButton extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         let { rowButtons, rowButtonTypes, itemId } = this.props;
 
@@ -165,7 +157,7 @@ class TableRowButton extends Component {
             return null;
 
         return (
-            <td key="rowButtons" className="align-middle">
+            <td key="rowButtons" className="col-auto align-middle">
                 {
                     rowButtons.map((button) => {
                         let currentButtonType = rowButtonTypes[button];
@@ -197,15 +189,12 @@ class TableRowButton extends Component {
 }
 
 class TableRow extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         let { item, itemAttr, columns, editable, size, onChange, rowButtons, rowButtonTypes, inputProps } = this.props;
-        console.log(item);
+        // console.log(item);
+        let { className : itemClassName, ...others } = itemAttr;
         return (
-            <tr {...itemAttr}>
+            <tr className={`row ${itemClassName ? itemClassName : ''}`} {...others}>
                 {
                     columns.reduce(function (acc, current, colIdx, array) {
                         // console.log(item);
@@ -307,7 +296,7 @@ class Table extends Component {
         }
 
         let { column, order } = sortObj;
-        let sortConvert = this.props.columns.find( (c) => c.accessor == column ).sort;
+        let sortConvert = this.props.columns.find( (c) => c.accessor === column ).sort;
         let sortedItems = items.sort((a, b) => {
             let aConv = sortConvert ? sortConvert(a[column]) : a[column];
             let bConv = sortConvert ? sortConvert(b[column]) : b[column];
@@ -445,9 +434,9 @@ class Table extends Component {
         items = this.sortItems(items);
 
         return (
-            <table className={`table ${size ? 'table-' + size : ''} ${nowrap ? 'table-nowrap' : ''} card-table ${className} ${onItemClick || itemHoverEffect ? 'table-hover' : ''}`}>
+            <table className={`table ${size ? 'table-' + size : ''} ${nowrap ? 'table-nowrap' : ''} card-table ${className ? className : ""} ${onItemClick || itemHoverEffect ? 'table-hover' : ''}`}>
                 <thead>
-                    <tr>
+                    <tr className="row">
                         {
                             columns.reduce(function (acc, current, idx) {
                                 let sortable = {
@@ -459,14 +448,14 @@ class Table extends Component {
                                         sortable = null;
                                 }
 
-                                acc.push((<th key={idx} className={`text-muted ${sortable ? 'pointer' : ''}`} {...sortable}> {current.name} </th>));
+                                acc.push((<th key={idx} className={`col text-muted ${sortable ? 'pointer' : ''}`} {...sortable}> {current.name} </th>));
                                 return acc;
                             }, [])
                         }
                         {
                             that.props.rowButtons ?
                                 (
-                                    <th key="rowButtons" className={`text-muted`}> Actions </th>
+                                    <th key="rowButtons" className={`col-auto text-muted`}> Actions </th>
                                 )
                                 : null
                         }
@@ -474,6 +463,7 @@ class Table extends Component {
                 </thead>
                 <tbody>
                     {
+                        items && items.length > 0 ? 
                         items.reduce(function (acc, currentItem, rowIdx, array) {
 
                             let itemAttr = {};
@@ -488,6 +478,7 @@ class Table extends Component {
                             ));
                             return acc;
                         }, [])
+                        : (<div className="d-flex col justify-content-center"> no data... </div>)
                     }
                 </tbody>
             </table>
@@ -543,7 +534,7 @@ class AdvancedFilter extends Component {
     onFilterChange(filter) {
         let newFilter = { ...this.state.filter };
 
-        if (filter.value == null || filter.value === '' || filter.value == '\xa0')
+        if (filter.value == null || filter.value === '' || filter.value === '\xa0')
             delete newFilter[filter.column];
         else
             newFilter[filter.column] = filter.value;
@@ -692,7 +683,7 @@ class TableCard extends Component {
         if (this.state.advancedFilter != null)
             tableFilter.push(...Object.keys(this.state.advancedFilter).reduce((acc, f) => { acc.push({ column: f, value: this.state.advancedFilter[f] }); return acc; }, []));
 
-        console.log(tableFilter);
+        // console.log(tableFilter);
         // if (children.length == null)
         //     children = [children];
 
