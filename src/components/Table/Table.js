@@ -704,7 +704,7 @@ class TableCard extends Component {
         // console.log(this.state.items);
 
         return (
-            <Card>
+            <Card className="col-12">
                 <Form>
                     <Card.Header className="pb-1 pl-4">
                         <Card.Title className="mb-0">
@@ -733,8 +733,8 @@ class TableCard extends Component {
                                             if (button === "new-row")
                                                 return (
                                                     <Button key={button} variant="white" size="sm" onClick={this.addNewItem}> 
-                                                        {/* New Row  */}
-                                                        <Icon type="plus" /> 
+                                                        New Row 
+                                                        {/* <Icon type="plus" />  */}
                                                     </Button>
                                                 );
                                             if (button === "case")

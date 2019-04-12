@@ -140,11 +140,21 @@ class Input extends Component {
 }
 
 export class LabeledInput extends Component {
+    static propTypes = {
+        label: PropTypes.string,
+        labelWidth: PropTypes.number,
+        labelClass: PropTypes.string
+    }
+
+    static defaultProps = {
+        labelClass: ""
+    }
+
     render() {
-        let { label, ...other } = this.props;
+        let { label, labelWidth, labelClass, ...other } = this.props;
         return (
-            <div className="row">
-                <div className="d-flex col-3 align-items-center"> {label ? label + " : " : ""} </div>
+            <div className="row pl-3">
+                <div className={`d-flex ${labelWidth ? "col-" + labelWidth : ""} align-items-center ${labelClass}`}> {label ? label + " : " : ""} </div>
                 <div className="col">
                     <Input {...other} />
                 </div>

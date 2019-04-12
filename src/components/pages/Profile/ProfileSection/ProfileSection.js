@@ -11,29 +11,42 @@ class ProfileSection extends Component {
         return (
             <div className="container-fluid">
                 <div className="row col-12 p-0 m-0">
-                    <Card className="col-6">
-                        <Card.Header> Personal Data </Card.Header>
-                        <Card.Body>
-                            <Card.Text>
-                                <div className="row">
-                                    <div className="col-6 m-0">
-                                        <LabeledInput label="First name" />
+                    <div className="col col-6 p-0 pr-1">
+                        <Card className="">
+                            <Card.Header> Personal Data </Card.Header>
+                            <Card.Body>
+                                <Card.Text>
+                                    <div className="row p-0">
+                                        <div className="col-6 p-0 m-0">
+                                            <LabeledInput label="First name" />
+                                        </div>
+                                        <div className="col-6 pr-0 m-0">
+                                            <LabeledInput label="Last name" />
+                                        </div>
                                     </div>
-                                    <div className="col-6 m-0">
-                                        <LabeledInput label="Last name" />
+                                    <div className="row mt-2">
+                                        <div className="col-6 p-0 m-0">
+                                            <LabeledInput label="Nickname" />
+                                        </div>
+                                        <div className="col-6 pr-0 m-0">
+                                            <LabeledInput label="Birthday" />
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="row mt-2">
-                                    <div className="col-6 m-0">
-                                        <LabeledInput label="Nickname" />
-                                    </div>
-                                    <div className="col-6 m-0">
-                                        <LabeledInput label="Birthday" />
-                                    </div>
-                                </div>
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </div>
+                    <div className="col col-6 p-0 pl-1">
+                        <Card className="">
+                            <Card.Header> Acount Data </Card.Header>
+                            <Card.Body>
+                                <Card.Text>
+                                    text asd asd asd asd asd asd asd asd asd asd asd asd asd asd <br />
+                                    asdasa asd as das d
                             </Card.Text>
-                        </Card.Body>
-                    </Card>
+                            </Card.Body>
+                        </Card>
+                    </div>
                 </div>
 
                 <div className="row col-12 m-0 p-0">
@@ -71,18 +84,6 @@ class ProfileSection extends Component {
                 {/* <div className="row justify-content-between m-0"> */}
 
                 <div className="row col-12 m-0 p-0">
-
-                    <div className="col col-6 pl-0">
-                        <Card className="">
-                            <Card.Header> Acount Data </Card.Header>
-                            <Card.Body>
-                                <Card.Text>
-                                    text asd asd asd asd asd asd asd asd asd asd asd asd asd asd <br />
-                                    asdasa asd as das d
-                            </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </div>
                     <div className="col col-6 pr-0">
                         <Card className="">
                             <Card.Header> Change Password </Card.Header>
