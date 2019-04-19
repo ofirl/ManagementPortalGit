@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import './ProfileSection.css';
 
+import { /*BrowserRouter as Router,*/ Route, Link, Switch/*, Redirect*/ } from "react-router-dom";
+
 import Card from 'react-bootstrap/Card';
 import { LabeledInput } from '../../../Input/Input';
 import { TableCard } from '../../../Table/Table';
@@ -36,7 +38,7 @@ class ProfileSection extends Component {
                             </Card.Body>
                         </Card>
                     </div>
-                    <div className="col col-6 p-0 pl-1">
+                    <div className="col col-6 m-0 p-0 pl-1">
                         <Card className="">
                             <Card.Header> Acount Data </Card.Header>
                             <Card.Body>
@@ -86,14 +88,13 @@ class ProfileSection extends Component {
 
                 {/* <div className="row justify-content-between m-0"> */}
 
-                <div className="row col-12 m-0 p-0">
-                    <div className="col col-6 pr-0">
+                <div className="row col-12">
+                    <div className="col col-6 m-0 p-0">
                         <Card className="">
-                            <Card.Header> Change Password </Card.Header>
+                            <Card.Header> Account Actions </Card.Header>
                             <Card.Body>
                                 <Card.Text>
-                                    text asd asd asd asd asd asd asd asd asd asd asd asd asd asd <br />
-                                    asdasa asd as das d
+                                    <Card.Link as={Link} to="/account/change-password"> Change Password </Card.Link>
                                 </Card.Text>
                             </Card.Body>
                         </Card>
