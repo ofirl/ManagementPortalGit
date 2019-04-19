@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+
+import * as actions from '../../../../redux/actions'
 
 import './ProfileSection.css';
 
 import Card from 'react-bootstrap/Card';
 import { LabeledInput } from '../../../Input/Input';
 import { TableCard } from '../../../Table/Table';
+import DataManager from '../../../../assets/js/data.manager';
 
 class ProfileSection extends Component {
     render() {
+        console.log(this.props.profileId);
+        let profileDefaultConnections = this.props.profileId !== -1 ? DataManager.getProfileById(this.props.profileId).personalization.logondata : [];
+
         return (
             <div className="container-fluid">
                 <div className="row col-12 p-0 m-0">
@@ -50,37 +58,29 @@ class ProfileSection extends Component {
                 </div>
 
                 <div className="row col-12 m-0 p-0">
-                    <TableCard searchable allowAdvancedFilter={false} title="Predefined Connections" editable inputProps={{ flush: false, clearButton: false }} rowButtons={["copy", "remove"]} headerButtons={['new-row']} columns={
-                        [
-                            {
-                                name: 'Name',
-                                accessor: 'name'
-                            },
-                            {
-                                name: 'System',
-                                accessor: 'system'
-                            },
-                            {
-                                name: 'Username',
-                                accessor: 'username'
-                            },
-                            {
-                                name: 'Default',
-                                accessor: 'default',
-                                // type: 'bool'
-                            }
-                        ]
-                    } 
-                    items={
-                        [
-                            {
-                                id: 0,
-                                name: 'CRM Prod',
-                                system: 'CKP',
-                                username: 'OFIRL'
-                            }
-                        ]
-                    } 
+                    <TableCard searchable allowAdvancedFilter={false} title="Predefined Connections" editable
+                        inputProps={{ flush: false, clearButton: false }} rowButtons={["copy", "remove"]} headerButtons={['new-row']} columns={
+                            [
+                                {
+                                    name: 'Name',
+                                    accessor: 'name'
+                                },
+                                {
+                                    name: 'System',
+                                    accessor: 'system'
+                                },
+                                {
+                                    name: 'Username',
+                                    accessor: 'username'
+                                },
+                                {
+                                    name: 'Default',
+                                    accessor: 'default',
+                                    type: 'bool'
+                                }
+                            ]
+                        }
+                        items={profileDefaultConnections}
                     />
                 </div>
 
@@ -109,4 +109,18 @@ class ProfileSection extends Component {
     }
 }
 
-export default ProfileSection;
+function mapStateToProps(state, ownProps) {
+    return {
+        ...ownProps,
+        //profileId: state.profileId
+    };
+}
+
+function mapDispatchToProps(dispatch, ownProps) {
+    return {
+        ...ownProps,
+        boundActions: bindActionCreators(actions, dispatch)
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileSection);

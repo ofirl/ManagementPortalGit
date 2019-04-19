@@ -68,16 +68,19 @@ var testProfilesArray = [
         personalization: {
             logondata: [
                 {
+                    id: 0,
                     name: 'CRM Dev',
                     username: 'OFIRL',
                     system: 'CKD'
                 },
                 {
+                    id: 1,
                     name: 'CRM Test',
                     username: 'OFIRL',
                     system: 'CKT'
                 },
                 {
+                    id: 2,
                     name: 'CRM Prod',
                     username: 'OFIRL',
                     system: 'CKP',

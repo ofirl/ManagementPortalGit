@@ -16,6 +16,7 @@ import Icon from '../Icon/Icon';
 import Form from 'react-bootstrap/Form';
 import Select from '../Select/Select';
 import Toggle from '../Toggle/Toggle';
+import { Radio, Checkbox } from '../FormControl/FormControl';
 
 function naturalSort(a, b) {
     function chunkify(t) {
@@ -109,15 +110,25 @@ class EditableField extends Component {
             return <Input size={size} value={value == null ? '' : value}
                 onInput={onChange} clearButton containerClass={className} {...inputProps} />;
         }
-        else if (column.type === "select") {
+        if (column.type === "select") {
             return (
                 <Select selectedValue={value} dropValues={column.dropValues} allowNull={allowNull}
                     onChange={onChange} className={className}>
                 </Select>
             );
         }
+        if (column.type === "bool") {
+            return (
+                <Checkbox checked={value} inline />
+            );
+        }
+        if (column.type === "radio") {
+            return (
+                <Radio checked={value} inline />
+            );
+        }
 
-        return null;
+        return (<div> type not supported </div>);
     }
 }
 
