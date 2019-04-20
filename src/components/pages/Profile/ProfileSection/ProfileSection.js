@@ -16,7 +16,8 @@ import DataManager from '../../../../assets/js/data.manager';
 class ProfileSection extends Component {
     render() {
         console.log(this.props.profileId);
-        let profileDefaultConnections = this.props.profileId !== -1 ? DataManager.getProfileById(this.props.profileId).personalization.logondata : [];
+        // debugger;
+        let profileDefaultConnections = this.props.profileId !== -1 && this.props.profileId != null ? DataManager.getProfileById(this.props.profileId).personalization.logondata : [];
 
         return (
             <div className="container-fluid">
@@ -110,18 +111,19 @@ class ProfileSection extends Component {
     }
 }
 
-function mapStateToProps(state, ownProps) {
-    return {
-        ...ownProps,
-        //profileId: state.profileId
-    };
-}
+// function mapStateToProps(state, ownProps) {
+//     return {
+//         ...ownProps,
+//         //profileId: state.profileId
+//     };
+// }
 
-function mapDispatchToProps(dispatch, ownProps) {
-    return {
-        ...ownProps,
-        boundActions: bindActionCreators(actions, dispatch)
-    };
-}
+// function mapDispatchToProps(dispatch, ownProps) {
+//     return {
+//         ...ownProps,
+//         boundActions: bindActionCreators(actions, dispatch)
+//     };
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileSection);
+// export default connect(mapStateToProps, mapDispatchToProps)(ProfileSection);
+export default ProfileSection;

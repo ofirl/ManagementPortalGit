@@ -76,7 +76,7 @@ class Profile extends Component {
                 <div className="container-fluid">
                     <div className="row">
                         <Switch>
-                            <Route path="/profilepage/profile" render={() => <ProfileSection profileId={this.props.profileId} />}/>
+                            <Route path="/profilepage/profile" render={() => <ProfileSection profileId={currentProfile ? currentProfile.id : -1} />} />
                             <Route path="/profilepage/history" component={HistorySection} />
                             <Route path="/" component={ProfileSection} />
                         </Switch>
