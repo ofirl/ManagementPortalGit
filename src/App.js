@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
 
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import * as actions from './redux/actions';
+
 import { BrowserRouter as Router, Route,/* Link,*/ Switch/*, Redirect*/ } from "react-router-dom";
 
 import './assets/fonts/feather/feather.min.css';
@@ -23,6 +28,7 @@ import Settings from './components/pages/Settings/Settings';
 import Logout from './components/pages/Logout/Logout';
 import Profile from './components/pages/Profile/Profile';
 import ScriptInput from './components/pages/ScriptInput/ScriptInput';
+import Login from './components/pages/Login/Login';
 
 import DataManager from './assets/js/data.manager';
 
@@ -35,10 +41,10 @@ class App extends Component {
     this.state = {
       currentProfile: null,
 
-      profileContext: {
-        profile: DataManager.getProfileById(0),
-        setProfile: (profile) => { this.setState({ currentProfile: profile }) },
-      }
+      // profileContext: {
+      //   profile: DataManager.getProfileById(0),
+      //   setProfile: (profile) => { this.setState({ currentProfile: profile }) },
+      // }
     }
   }
 
@@ -61,39 +67,61 @@ class App extends Component {
       //   </header>
       // </div>     
 
-      <ProfileContext.Provider value={this.state.profileContext}>
-        <Router>
-          <div>
-            <Sidebar />
+      // <ProfileContext.Provider value={this.state.profileContext}>
+      <Router>
+        {
+          this.props.profileId == null ?
+            (
+              <div>
+                <Sidebar />
 
-            <div className="main-content">
-              {/* <Link to="/homepage"> home page </Link>
-            <br />
-            <Link to="/test"> test </Link>
-            <br />
-            <Link to="/asdasd"> asdasd </Link>
-            <br /> */}
+                <div className="main-content">
+                  {/* <Link to="/homepage"> home page </Link>
+                  <br />
+                  <Link to="/test"> test </Link>
+                  <br />
+                  <Link to="/asdasd"> asdasd </Link>
+                  <br /> */}
 
-              <Switch>
-                {/* homepage */}
-                <Route exact path="/" component={HomePage} />
-                <Route exact path="/homepage" component={HomePage} />
-                {/* utility pages */}
-                <Route path="/settings" component={Settings} />
-                <Route path="/logout" component={Logout} />
-                <Route path="/profilepage/:section?" component={Profile} />
-                {/* script pages */}
-                <Route path="/script-input/:id" component={ScriptInput} />
-                {/* 404 - not found */}
-                <Route render={() => (<div> no match - 404 </div>)} />
-              </Switch>
-            </div>
+                  <Switch>
+                    {/* homepage */}
+                    <Route exact path="/" component={HomePage} />
+                    <Route exact path="/homepage" component={HomePage} />
+                    {/* utility pages */}
+                    <Route path="/settings" component={Settings} />
+                    <Route path="/logout" component={Logout} />
+                    <Route path="/profilepage/:section?" component={Profile} />
+                    {/* script pages */}
+                    <Route path="/script-input/:id" component={ScriptInput} />
+                    {/* 404 - not found */}
+                    <Route render={() => (<div> no match - 404 </div>)} />
+                  </Switch>
+                </div>
 
-          </div>
-        </Router>
-      </ProfileContext.Provider>
+              </div>
+            )
+            :
+            <Login />
+        }
+      </Router>
+      // {/* </ProfileContext.Provider> */}
     );
   }
 }
 
-export default App;
+function mapStateToProps(state, ownProps) {
+    return {
+        ...ownProps,
+        profileId: state.profileId
+    };
+}
+
+function mapDispatchToProps(dispatch, ownProps) {
+    return {
+        ...ownProps,
+        boundActions: bindActionCreators(actions, dispatch)
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+// export default App;

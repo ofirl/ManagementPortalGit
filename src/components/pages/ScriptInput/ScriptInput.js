@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 
 import './ScriptInput.css';
 
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actions from '../../../redux/actions';
+
 import DataManager from '../../../assets/js/data.manager';
 
 // import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
@@ -21,7 +25,7 @@ import ProfileContext from '../../Context/ProfileContext';
 import Button from 'react-bootstrap/Button';
 
 class ScriptInput extends Component {
-    constructor(props, context) {
+    constructor(props) {
         super(props);
 
         this.toggleRef = React.createRef();
@@ -33,7 +37,8 @@ class ScriptInput extends Component {
         this.executeScript = this.executeScript.bind(this);
         this.saveDataForLater = this.saveDataForLater.bind(this);
 
-        let logondata = context.profile.personalization.logondata;
+        // let logondata = context.profile.personalization.logondata;
+        let logondata = props.profileId != -1 && props.profileId != null ? DataManager.getProfileById(props.profileId).personalization.logondata : [] ;
         let dropValues = logondata.reduce((acc, curr, idx) => {
             acc.push(curr.name);
             return acc;
@@ -273,4 +278,20 @@ class ScriptInput extends Component {
     }
 }
 
-export default ScriptInput;
+function mapStateToProps(state, ownProps) {
+    return {
+        ...ownProps,
+        profileId: state.profileId
+    };
+}
+
+function mapDispatchToProps(dispatch, ownProps) {
+    return {
+        ...ownProps,
+        boundActions: bindActionCreators(actions, dispatch)
+    };
+}
+
+// export default connect(mapStateToProps, mapDispatchToProps)(Profile);
+// export default ScriptInput;
+export default connect(mapStateToProps, mapDispatchToProps)(ScriptInput);
