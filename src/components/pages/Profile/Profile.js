@@ -25,7 +25,7 @@ class Profile extends Component {
     constructor(props) {
         super(props);
 
-        this.props.boundActions.setProfile(0);
+        // this.props.boundActions.setProfile(0);
 
         this.state = {
             currentSection: 'profile',
@@ -35,6 +35,7 @@ class Profile extends Component {
 
     render() {
         let { currentProfile } = this.state;
+        let { profileId } = this.props;
         // console.log(this.props.match.params.section);
 
         return (
@@ -76,7 +77,7 @@ class Profile extends Component {
                 <div className="container-fluid">
                     <div className="row">
                         <Switch>
-                            <Route path="/profilepage/profile" render={() => <ProfileSection profileId={currentProfile ? currentProfile.id : -1} />} />
+                            <Route path="/profilepage/profile" render={() => <ProfileSection profileId={profileId} />} />
                             <Route path="/profilepage/history" component={HistorySection} />
                             <Route path="/" component={ProfileSection} />
                         </Switch>

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+// import { connect } from 'react-redux';
+// import { bindActionCreators } from 'redux';
 
-import * as actions from '../../../../redux/actions';
+// import * as actions from '../../../../redux/actions';
 
 import './ProfileSection.css';
 
-import { /*BrowserRouter as Router,*/ Route, Link, Switch/*, Redirect*/ } from "react-router-dom";
+import { /*BrowserRouter as Router,*/ /* Route, */ Link, /*Switch */ /*, Redirect*/ } from "react-router-dom";
 
 import Card from 'react-bootstrap/Card';
 import { LabeledInput } from '../../../Input/Input';
@@ -17,6 +17,7 @@ class ProfileSection extends Component {
     render() {
         console.log(this.props.profileId);
         // debugger;
+        // ? why props.profileId is undefined ?????
         let profileDefaultConnections = this.props.profileId !== -1 && this.props.profileId != null ? DataManager.getProfileById(this.props.profileId).personalization.logondata : [];
 
         return (

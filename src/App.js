@@ -39,7 +39,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      currentProfile: null,
+      currentProfile: props.profileId,
 
       // profileContext: {
       //   profile: DataManager.getProfileById(0),
@@ -49,6 +49,8 @@ class App extends Component {
   }
 
   render() {
+    console.log('app rendered');
+    console.log(this.props.profileId);
     return (
       // <div className="App">
       //   <header className="App-header">
@@ -70,7 +72,7 @@ class App extends Component {
       // <ProfileContext.Provider value={this.state.profileContext}>
       <Router>
         {
-          this.props.profileId == null ?
+          this.props.profileId !== -1 ?
             (
               <div>
                 <Sidebar />
