@@ -65,6 +65,10 @@ var testProfilesArray = [
         firstname: 'Ofir',
         lastname: 'Levi',
         birthday: '24/01/1993',
+        account: {
+            username: 'ofirl',
+            password: 'password'
+        },
         personalization: {
             logondata: [
                 {

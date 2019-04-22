@@ -1,0 +1,81 @@
+[
+    {
+        "type": "Directory",
+        "name": "c:\\Users\\Ofir\\Documents\\system-management-portal\\src\\components\\pages",
+        "parent_id": null,
+        "fsPath": "c:\\Users\\Ofir\\Documents\\system-management-portal\\src\\components\\pages",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "Bp3GSKolYIVh4d0H"
+    },
+    {
+        "type": "Group",
+        "name": "Components",
+        "parent_id": null,
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "QBRVHuF14s6UvCTj"
+    },
+    {
+        "type": "File",
+        "name": "c:\\Users\\Ofir\\Documents\\system-management-portal\\src\\components\\Input\\Input.js",
+        "parent_id": "QBRVHuF14s6UvCTj",
+        "fsPath": "c:\\Users\\Ofir\\Documents\\system-management-portal\\src\\components\\Input\\Input.js",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "6F39LSsNChv8P0Bu"
+    },
+    {
+        "type": "File",
+        "name": "c:\\Users\\Ofir\\Documents\\system-management-portal\\src\\components\\Select\\Select.js",
+        "parent_id": "QBRVHuF14s6UvCTj",
+        "fsPath": "c:\\Users\\Ofir\\Documents\\system-management-portal\\src\\components\\Select\\Select.js",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "fEBqLtFTOcCu6Kv3"
+    },
+    {
+        "type": "File",
+        "name": "c:\\Users\\Ofir\\Documents\\system-management-portal\\src\\components\\Table\\Table.js",
+        "parent_id": "QBRVHuF14s6UvCTj",
+        "fsPath": "c:\\Users\\Ofir\\Documents\\system-management-portal\\src\\components\\Table\\Table.js",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "ofSh4IAbN6QJwvkr"
+    },
+    {
+        "type": "Directory",
+        "name": "c:\\Users\\Ofir\\Documents\\system-management-portal\\src\\redux",
+        "parent_id": null,
+        "fsPath": "c:\\Users\\Ofir\\Documents\\system-management-portal\\src\\redux",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "m8GXMpWELz3U2crl"
+    },
+    {
+        "type": "Group",
+        "name": "External Data",
+        "parent_id": null,
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "Uey0obmFT7PIgq1u"
+    },
+    {
+        "type": "File",
+        "name": "c:\\Users\\Ofir\\Documents\\system-management-portal\\src\\assets\\js\\storage.manager.js",
+        "parent_id": "Uey0obmFT7PIgq1u",
+        "fsPath": "c:\\Users\\Ofir\\Documents\\system-management-portal\\src\\assets\\js\\storage.manager.js",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "dv2XUlBQKLjxgShC"
+    },
+    {
+        "type": "File",
+        "name": "c:\\Users\\Ofir\\Documents\\system-management-portal\\src\\assets\\js\\data.manager.js",
+        "parent_id": "Uey0obmFT7PIgq1u",
+        "fsPath": "c:\\Users\\Ofir\\Documents\\system-management-portal\\src\\assets\\js\\data.manager.js",
+        "workspaceRoot": null,
+        "workspacePath": null,
+        "id": "GhpQ1zbsYIofNjky"
+    }
+]

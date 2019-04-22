@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-// import * as actions from '../../../../redux/actions';
+import * as actions from '../../../../redux/actions';
 
 import './ProfileSection.css';
 
@@ -16,7 +16,6 @@ import DataManager from '../../../../assets/js/data.manager';
 class ProfileSection extends Component {
     render() {
         console.log(this.props.profileId);
-        // debugger;
         // ? why props.profileId is undefined ?????
         let profileDefaultConnections = this.props.profileId !== -1 && this.props.profileId != null ? DataManager.getProfileById(this.props.profileId).personalization.logondata : [];
 
@@ -112,19 +111,19 @@ class ProfileSection extends Component {
     }
 }
 
-// function mapStateToProps(state, ownProps) {
-//     return {
-//         ...ownProps,
-//         //profileId: state.profileId
-//     };
-// }
+function mapStateToProps(state, ownProps) {
+    return {
+        ...ownProps,
+        profileId: state.profileId
+    };
+}
 
-// function mapDispatchToProps(dispatch, ownProps) {
-//     return {
-//         ...ownProps,
-//         boundActions: bindActionCreators(actions, dispatch)
-//     };
-// }
+function mapDispatchToProps(dispatch, ownProps) {
+    return {
+        ...ownProps,
+        boundActions: bindActionCreators(actions, dispatch)
+    };
+}
 
-// export default connect(mapStateToProps, mapDispatchToProps)(ProfileSection);
-export default ProfileSection;
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileSection);
+// export default ProfileSection;

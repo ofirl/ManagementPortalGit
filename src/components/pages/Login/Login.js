@@ -16,10 +16,13 @@ import Input from '../../Input/Input';
 import { /*BrowserRouter as Router, Route,*/ Link, /*Switch, Redirect*/ } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 
+import DataManager from './../../../assets/js/data.manager';
+import Form from 'react-bootstrap/Form';
+
 class Login extends Component {
     constructor(props) {
         super(props);
-        
+
         this.usernameInput = React.createRef();
         this.passwordInput = React.createRef();
 
@@ -28,7 +31,11 @@ class Login extends Component {
     signinClicked() {
         console.log('sign in clicked');
 
-        this.props.boundActions.setProfile(0);
+        let profile = DataManager.getProfileByUsernameAndPassword(this.usernameInput.current.getValue(), this.passwordInput.current.getValue());
+        if (profile)
+            this.props.boundActions.setProfile(profile.id);
+
+        console.log('user found');
     }
 
     render() {
@@ -37,36 +44,38 @@ class Login extends Component {
                 <div className="fluid-container align-self-center w-100">
                     <div className="row col justify-content-center">
                         <div className="col-3 pr-4 mr-4">
-                            <div className="row justify-content-center mb-3">
-                                <div className="display-4"> Sign In </div>
-                            </div>
-                            <div className="row justify-content-center mb-4">
-                                <div className="text-muted"> access the management portal </div>
-                            </div>
-                            <div className="row mb-4">
-                                <label> Username </label>
-                                <Input ref={this.usernameInput} placeholder="Username" />
-                            </div>
-                            <div className="row mb-4">
-                                <div className="row col justify-content-between w-100 p-0 m-0 mb-2">
-                                    Password
+                            <Form>
+                                <div className="row justify-content-center mb-3">
+                                    <div className="display-4"> Sign In </div>
+                                </div>
+                                <div className="row justify-content-center mb-4">
+                                    <div className="text-muted"> access the management portal </div>
+                                </div>
+                                <div className="row mb-4">
+                                    <label> Username </label>
+                                    <Input ref={this.usernameInput} placeholder="Username" />
+                                </div>
+                                <div className="row mb-4">
+                                    <div className="row col justify-content-between w-100 p-0 m-0 mb-2">
+                                        Password
                                     <div className="form-text small text-muted">
-                                        Forogt password?
+                                            Forogt password?
+                                    </div>
+                                    </div>
+                                    <Input ref={this.passwordInput} type="password" placeholder="Enter your password" />
+                                </div>
+                                <div className="row mb-4">
+                                    <Button variant="primary" type="submit" className="w-100" onClick={this.signinClicked}> Sign in </Button>
+                                </div>
+                                <div className="row justify-content-center text-muted small">
+                                    <div>
+                                        Don't have an account yet?
+                                    <span>
+                                            <Link to="./signup"> Sign up. </Link>
+                                        </span>
                                     </div>
                                 </div>
-                                <Input ref={this.usernameInput.passwordInput} placeholder="Enter your password" />
-                            </div>
-                            <div className="row mb-4">
-                                <Button variant="primary" className="w-100" onClick={this.signinClicked}> Sign in </Button>
-                            </div>
-                            <div className="row justify-content-center text-muted small">
-                                <div>
-                                    Don't have an account yet?
-                                    <span>
-                                        <Link to="./signup"> Sign up. </Link>
-                                    </span>
-                                </div>
-                            </div>
+                            </Form>
                         </div>
                         <div className="d-flex col-3 justify-content-center pl-4 ml-4">
                             <img src="/assets/img/illustrations/happiness.svg" alt="logo" />
