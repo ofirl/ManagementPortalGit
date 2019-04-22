@@ -4480,3 +4480,9 @@ a.text-white:hover {
 .invisible {
     visibility: hidden !important
 }
+
+@media(min-width: 768px) {
+    .d-md-flex {
+        display: flex;
+    }
+}
