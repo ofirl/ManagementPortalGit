@@ -14,7 +14,7 @@ function getProfileById(profileId) {
 
 function getProfileByUsernameAndPassword(username, password) {
     let allProfiles = StorageManager.loadProfileInfo();
-    let requestedProfile = allProfiles.find( (p) => p.account.username === username && p.account.password === password );
+    let requestedProfile = allProfiles.find( (p) => p.account.username.toLowerCase() === username.toLowerCase() && p.account.password === password );
     return requestedProfile;
 }
 
