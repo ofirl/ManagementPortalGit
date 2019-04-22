@@ -49,8 +49,8 @@ class App extends Component {
   }
 
   render() {
-    console.log('app rendered');
-    console.log(this.props.profileId);
+    // console.log('app rendered');
+    // console.log(this.props.profileId);
     return (
       // <div className="App">
       //   <header className="App-header">

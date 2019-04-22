@@ -16,6 +16,7 @@ import Image from 'react-bootstrap/Image';
 import Avatar from '../../Avatar/Avatar';
 import PageHeader from '../../PageHeader/PageHeader';
 import ProfileSection from './ProfileSection/ProfileSection';
+import ProfileEdit from './ProfileEdit/ProfileEdit';
 import HistorySection from './HistorySection/HistorySection';
 import Nav from 'react-bootstrap/Nav';
 
@@ -78,6 +79,7 @@ class Profile extends Component {
                     <div className="row">
                         <Switch>
                             {/* <Route path="/profilepage/profile" render={() => <ProfileSection profileId={profileId} />} /> */}
+                            <Route path="/profilepage/profile/edit" component={ProfileEdit} />
                             <Route path="/profilepage/profile" component={ProfileSection} />
                             <Route path="/profilepage/history" component={HistorySection} />
                             <Route path="/" component={ProfileSection} />

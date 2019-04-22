@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 
 import * as actions from '../../../../redux/actions';
 
-import './ProfileSection.css';
+import './ProfileEdit.css';
 
 import { /*BrowserRouter as Router,*/ /* Route, */ Link, /*Switch */ /*, Redirect*/ } from "react-router-dom";
 
@@ -13,23 +13,11 @@ import { LabeledInput } from '../../../Input/Input';
 import { TableCard } from '../../../Table/Table';
 import DataManager from '../../../../assets/js/data.manager';
 
-class ProfileSection extends Component {
-    // constructor(props) {
-    //     super(props);
-        
-    //     // this.state = {
-    //     //     profile: DataManager.getProfileById(props.profileId)
-    //     // }
-    // }
-    
-
+class ProfileEdit extends Component {
     render() {
-        let profile = DataManager.getProfileById(this.props.profileId);
-
-        // console.log(this.props.profileId);
-        // ? why props.profileId is undefined ?????
-        // let profileDefaultConnections = this.props.profileId !== -1 && this.props.profileId != null ? DataManager.getProfileById(this.props.profileId).personalization.logondata : [];
-        let profileDefaultConnections = this.props.profileId !== -1 /*&& this.props.profileId != null*/ ? profile.personalization.logondata : [];
+        console.log(this.props.profileId);
+        // ? why props.profileId is undefined ????? nvm... doesnt happen anymore
+        let profileDefaultConnections = this.props.profileId !== -1 /*&& this.props.profileId != null*/ ? DataManager.getProfileById(this.props.profileId).personalization.logondata : [];
 
         return (
             <div className="container-fluid">
@@ -41,7 +29,6 @@ class ProfileSection extends Component {
                                 <Card.Text>
                                     <div className="row p-0">
                                         <div className="col-6 p-0 m-0">
-                                            <div> {profile.firstname} </div>
                                             <LabeledInput label="First name" />
                                         </div>
                                         <div className="col-6 pr-0 m-0">
@@ -138,5 +125,5 @@ function mapDispatchToProps(dispatch, ownProps) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileSection);
-// export default ProfileSection;
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileEdit);
+// export default ProfileEdit;

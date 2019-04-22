@@ -27,17 +27,28 @@ class Login extends Component {
         this.passwordInput = React.createRef();
 
         this.signinClicked = this.signinClicked.bind(this);
+        this.checkSessionProfile = this.checkSessionProfile.bind(this);
 
         this.state = {
             error: false
         }
+
+        this.checkSessionProfile();
     }
     signinClicked() {
         let profile = DataManager.getProfileByUsernameAndPassword(this.usernameInput.current.getValue(), this.passwordInput.current.getValue());
-        if (profile)
+        if (profile) {
             this.props.boundActions.setProfile(profile.id);
+            sessionStorage.setItem("profileId", profile.id);
+        }
         else
             this.setState({error: true});
+    }
+    checkSessionProfile() {
+        let sessionProfile = sessionStorage.getItem("profileId");
+        
+        if (sessionProfile)
+            this.props.boundActions.setProfile(parseInt(sessionProfile));
     }
 
     render() {
