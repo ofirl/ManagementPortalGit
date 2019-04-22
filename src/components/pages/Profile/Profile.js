@@ -35,7 +35,7 @@ class Profile extends Component {
 
     render() {
         let { currentProfile } = this.state;
-        let { profileId } = this.props;
+        // let { profileId } = this.props;
         // console.log(this.props.match.params.section);
 
         return (

@@ -27,24 +27,28 @@ class Login extends Component {
         this.passwordInput = React.createRef();
 
         this.signinClicked = this.signinClicked.bind(this);
+
+        this.state = {
+            error: false
+        }
     }
     signinClicked() {
-        console.log('sign in clicked');
-
         let profile = DataManager.getProfileByUsernameAndPassword(this.usernameInput.current.getValue(), this.passwordInput.current.getValue());
         if (profile)
             this.props.boundActions.setProfile(profile.id);
-
-        console.log('user found');
+        else
+            this.setState({error: true});
     }
 
     render() {
+        let { error } = this.state;
+
         return (
             <div className="d-flex h-100">
                 <div className="fluid-container align-self-center w-100">
                     <div className="row col justify-content-center">
                         <div className="col-3 pr-4 mr-4">
-                            <Form>
+                            <Form onSubmit={(e) => { e.preventDefault(); }}>
                                 <div className="row justify-content-center mb-3">
                                     <div className="display-4"> Sign In </div>
                                 </div>
@@ -67,6 +71,15 @@ class Login extends Component {
                                 <div className="row mb-4">
                                     <Button variant="primary" type="submit" className="w-100" onClick={this.signinClicked}> Sign in </Button>
                                 </div>
+                                {
+                                    error ?
+                                        (
+                                            <div className="row justify-content-center mb-4">
+                                                <div className="text-danger"> Wrong username or password </div>
+                                            </div>
+                                        )
+                                        : null
+                                }
                                 <div className="row justify-content-center text-muted small">
                                     <div>
                                         Don't have an account yet?
