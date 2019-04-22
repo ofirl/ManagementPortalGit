@@ -30,9 +30,9 @@ import Profile from './components/pages/Profile/Profile';
 import ScriptInput from './components/pages/ScriptInput/ScriptInput';
 import Login from './components/pages/Login/Login';
 
-import DataManager from './assets/js/data.manager';
+// import DataManager from './assets/js/data.manager';
 
-import ProfileContext from './components/Context/ProfileContext';
+// import ProfileContext from './components/Context/ProfileContext';
 
 class App extends Component {
   constructor(props) {
