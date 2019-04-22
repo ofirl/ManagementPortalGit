@@ -101,7 +101,7 @@ class Login extends Component {
                                 </div>
                             </Form>
                         </div>
-                        <div className="d-flex col-3 justify-content-center pl-4 ml-4">
+                        <div className="d-flex col-3 justify-content-center pl-4 ml-4 d-md-none">
                             <img src="/assets/img/illustrations/happiness.svg" alt="logo" />
                         </div>
                     </div>
