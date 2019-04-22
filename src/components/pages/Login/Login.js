@@ -58,7 +58,7 @@ class Login extends Component {
             <div className="d-flex h-100">
                 <div className="fluid-container align-self-center w-100">
                     <div className="row col justify-content-center">
-                        <div className="col-3 pr-4 mr-4">
+                        <div className="col-10 col-md-3 pr-4 mr-4">
                             <Form onSubmit={(e) => { e.preventDefault(); }}>
                                 <div className="row justify-content-center mb-3">
                                     <div className="display-4"> Sign In </div>
