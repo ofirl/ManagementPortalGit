@@ -22,7 +22,6 @@ class ProfileSection extends Component {
     //     // }
     // }
     
-
     render() {
         let profile = DataManager.getProfileById(this.props.profileId);
 
@@ -39,28 +38,16 @@ class ProfileSection extends Component {
                             <Card.Header> Personal Data </Card.Header>
                             <Card.Body>
                                 <Card.Text>
-                                    <div className="row p-0">
-                                        <div className="col-6 p-0 m-0">
-                                            <div> {profile.firstname} </div>
-                                            <LabeledInput label="First name" />
-                                        </div>
+                                    <div className="row">
                                         <div className="col-6 pr-0 m-0">
-                                            <LabeledInput label="Last name" />
-                                        </div>
-                                    </div>
-                                    <div className="row mt-2">
-                                        <div className="col-6 p-0 m-0">
-                                            <LabeledInput label="Nickname" />
-                                        </div>
-                                        <div className="col-6 pr-0 m-0">
-                                            <LabeledInput label="Birthday" />
+                                            <LabeledInput label="Birthday" value={profile.birthday} readOnly flush />
                                         </div>
                                     </div>
                                 </Card.Text>
                             </Card.Body>
                         </Card>
                     </div>
-                    <div className="col col-6 m-0 p-0 pl-1">
+                    {/* <div className="col col-6 m-0 p-0 pl-1">
                         <Card className="">
                             <Card.Header> Acount Data </Card.Header>
                             <Card.Body>
@@ -70,12 +57,12 @@ class ProfileSection extends Component {
                             </Card.Text>
                             </Card.Body>
                         </Card>
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="row col-12 m-0 p-0">
-                    <TableCard searchable allowAdvancedFilter={false} title="Predefined Connections" editable
-                        inputProps={{ flush: false, clearButton: false }} rowButtons={["copy", "remove"]} headerButtons={['new-row']} columns={
+                    <TableCard searchable allowAdvancedFilter={false} title="Predefined Connections"
+                        inputProps={{ flush: false, clearButton: false }} headerButtons={['new-row']} columns={
                             [
                                 {
                                     name: 'Name',

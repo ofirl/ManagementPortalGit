@@ -21,21 +21,29 @@ import HistorySection from './HistorySection/HistorySection';
 import Nav from 'react-bootstrap/Nav';
 
 import DataManager from '../../../assets/js/data.manager';
+import Button from 'react-bootstrap/Button';
 
 class Profile extends Component {
     constructor(props) {
         super(props);
 
-        // this.props.boundActions.setProfile(0);
-
+        this.saveProfile = this.saveProfile.bind(this);
+        
         this.state = {
             currentSection: 'profile',
             currentProfile: props.profileId !== -1 ? DataManager.getProfileById(props.profileId) : null
         }
     }
+    saveProfile() {
+        console.log(this.props.match.params.edit);
+        if (this.props.match.params.edit)
+            // todo : save profile
+            console.log('save profile here');
+    }
 
     render() {
         let { currentProfile } = this.state;
+        let editMode = this.props.match.params.edit ? true : false;
         // let { profileId } = this.props;
         // console.log(this.props.match.params.section);
 
@@ -52,11 +60,17 @@ class Profile extends Component {
                                         <Avatar size="xxl" imgSrc="/assets/img/avatars/profiles/avatar-1.jpg" alt="..." className="avatar-img rounded-circle border border-4 border-body" />
                                     </div>
 
-                                    <PageHeader>
+                                    <PageHeader style={{ top: '1.5em' }}>
                                         <PageHeader.Pretitle text="Member" />
-                                        {/* <PageHeader.Title text="Ofir Levi" /> */}
-                                        <PageHeader.Title text={currentProfile ? `${this.state.currentProfile.firstname} ${this.state.currentProfile.lastname}` : ''} />
+                                        <PageHeader.Title text={currentProfile ? `${currentProfile.firstname} ${currentProfile.lastname}` : ''} />
+                                        <div className="text-muted pt-1"> {currentProfile.account.username} </div>
                                     </PageHeader>
+
+                                    <div className="float-right">
+                                        <Button variant="white" onClick={this.saveProfile}>
+                                            <Link to={`/profilepage/profile${editMode ? '' : '/edit'}`}> {editMode ? 'Save Profile' : 'Edit Profile'}  </Link>
+                                        </Button>
+                                    </div>
                                 </div>
                                 <div className="row align-items-center">
                                     <div className="col">
@@ -78,7 +92,6 @@ class Profile extends Component {
                 <div className="container-fluid">
                     <div className="row">
                         <Switch>
-                            {/* <Route path="/profilepage/profile" render={() => <ProfileSection profileId={profileId} />} /> */}
                             <Route path="/profilepage/profile/edit" component={ProfileEdit} />
                             <Route path="/profilepage/profile" component={ProfileSection} />
                             <Route path="/profilepage/history" component={HistorySection} />

@@ -35,3 +35,7 @@
     top: -1.5em;
     left: 3em;
 }
+
+.form-control[readonly].form-control-flush {
+    background: transparent;
+}

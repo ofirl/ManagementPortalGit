@@ -33,9 +33,7 @@ class GeneralFormControl extends Component {
 
     onChange() {
         this.setState({ checked: !this.state.checked });
-
         this.props.onChange && this.props.onChange(this.state.checked);
-
     }
 
     render() {
