@@ -4486,3 +4486,7 @@ a.text-white:hover {
         display: flex;
     }
 }
+
+.pointer-none {
+    cursor: default
+}

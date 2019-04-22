@@ -18,7 +18,7 @@ import PageHeader from '../../PageHeader/PageHeader';
 import ProfileSection from './ProfileSection/ProfileSection';
 import ProfileEdit from './ProfileEdit/ProfileEdit';
 import HistorySection from './HistorySection/HistorySection';
-// import Nav from 'react-bootstrap/Nav';
+import Nav from 'react-bootstrap/Nav';
 
 import DataManager from '../../../assets/js/data.manager';
 import Button from 'react-bootstrap/Button';
@@ -66,27 +66,45 @@ class Profile extends Component {
                                         <div className="text-muted pt-1"> {currentProfile.account.username} </div>
                                     </PageHeader>
 
-                                    <div className="float-right">
-                                            <Link to={`/profilepage/profile${editMode ? '' : '/edit'}`}>
-                                        <Button variant="white" onClick={this.saveProfile}>
-                                                {editMode ? 'Save Profile' : 'Edit Profile'}
-                                        </Button>
-                                            </Link>
-                                    </div>
+                                    {
+                                        this.props.match.params.section === "profile" ?
+                                            (
+                                                <div className="float-right">
+                                                    <Link to={`/profilepage/profile${editMode ? '' : '/edit'}`}>
+                                                        <Button variant="white" onClick={this.saveProfile}>
+                                                            {editMode ? 'Save Profile' : 'Edit Profile'}
+                                                        </Button>
+                                                    </Link>
+                                                </div>
+                                            )
+                                            : null
+                                    }
+
                                 </div>
-                                {/* <div className="row align-items-center">
+
+                                <div className="row align-items-center">
                                     <div className="col">
                                         <Nav variant="tabs" defaultActiveKey={this.props.match.params.section || "profile"}>
                                             <Nav.Item>
                                                 <Nav.Link eventKey="profile" as={Link} to={`/profilepage/profile`}>Profile</Nav.Link>
                                             </Nav.Item>
                                             <Nav.Item>
-                                                <Nav.Link eventKey="history" as={Link} to={`/profilepage/history`}>History</Nav.Link>
+                                                {
+                                                    this.props.match.params.edit === "edit" ?
+                                                        (
+                                                            <Nav.Link eventKey="history" disabled className="text-muted pointer-none"> History </Nav.Link>
+                                                        )
+                                                        :
+                                                        (
+                                                            <Nav.Link eventKey="history" as={Link} to={`/profilepage/history`}> History </Nav.Link>
+                                                        )
+                                                }
                                             </Nav.Item>
                                         </Nav>
                                     </div>
-                                </div> */}
-                                <hr />
+                                </div>
+
+                                {/* <hr /> */}
                             </PageHeader.Body>
                         </PageHeader>
                     </div>

@@ -12,7 +12,7 @@ import Card from 'react-bootstrap/Card';
 import { LabeledInput } from '../../../Input/Input';
 import { TableCard } from '../../../Table/Table';
 import DataManager from '../../../../assets/js/data.manager';
-import HistorySection from '../HistorySection/HistorySection';
+// import HistorySection from '../HistorySection/HistorySection';
 
 class ProfileSection extends Component {
     // constructor(props) {
@@ -116,9 +116,9 @@ class ProfileSection extends Component {
 
                 {/* <div className="row justify-content-between m-0"> */}
 
-                <div className="row col-12 m--1 p-0">
+                {/* <div className="row col-12 m--1 p-0">
                     <HistorySection />
-                </div>
+                </div> */}
 
                 {/* <div className="row col-12">
                     <div className="col col-6 m-0 p-0">

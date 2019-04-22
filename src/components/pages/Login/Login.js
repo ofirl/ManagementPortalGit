@@ -74,7 +74,7 @@ class Login extends Component {
                                     <div className="row col justify-content-between w-100 p-0 m-0 mb-2">
                                         Password
                                     <div className="form-text small text-muted">
-                                            Forogt password?
+                                        Forogt password?
                                     </div>
                                     </div>
                                     <Input ref={this.passwordInput} type="password" placeholder="Enter your password" />
