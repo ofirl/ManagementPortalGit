@@ -122,15 +122,6 @@ class HistorySection extends Component {
 
         return (
             <div className="col-12">
-                <Card className="col-6">
-                    <Card.Header> History </Card.Header>
-                    <Card.Body>
-                        <Card.Text>
-                            text asd asd asd asdas <br />
-                            asdasa asd as das d
-                    </Card.Text>
-                    </Card.Body>
-                </Card>
                 <Button disabled={!showItemDetails} className="mb-1" variant="white" size="sm" onClick={() => this.setState({ showItemDetails: false })}> Show all history </Button>
                 <Collapse in={!showItemDetails} timeout={350}>
                     <div>

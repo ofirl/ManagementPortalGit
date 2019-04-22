@@ -9,15 +9,18 @@ import './ProfileEdit.css';
 import { /*BrowserRouter as Router,*/ /* Route, */ Link, /*Switch */ /*, Redirect*/ } from "react-router-dom";
 
 import Card from 'react-bootstrap/Card';
-import { LabeledInput } from '../../../Input/Input';
+import Input, { LabeledInput } from '../../../Input/Input';
 import { TableCard } from '../../../Table/Table';
 import DataManager from '../../../../assets/js/data.manager';
+import Button from 'react-bootstrap/Button';
 
 class ProfileEdit extends Component {
     render() {
+        let profile = this.props.profileId !== -1 ? DataManager.getProfileById(this.props.profileId) : null;
+
         console.log(this.props.profileId);
         // ? why props.profileId is undefined ????? nvm... doesnt happen anymore
-        let profileDefaultConnections = this.props.profileId !== -1 /*&& this.props.profileId != null*/ ? DataManager.getProfileById(this.props.profileId).personalization.logondata : [];
+        let profileDefaultConnections = this.props.profileId !== -1 /*&& this.props.profileId != null*/ ? profile.personalization.logondata : [];
 
         return (
             <div className="container-fluid">
@@ -29,25 +32,25 @@ class ProfileEdit extends Component {
                                 <Card.Text>
                                     <div className="row p-0">
                                         <div className="col-6 p-0 m-0">
-                                            <LabeledInput label="First name" />
+                                            <LabeledInput label="First name" defaultValue={profile.firstname} />
                                         </div>
                                         <div className="col-6 pr-0 m-0">
-                                            <LabeledInput label="Last name" />
+                                            <LabeledInput label="Last name" defaultValue={profile.lastname} />
                                         </div>
                                     </div>
                                     <div className="row mt-2">
                                         <div className="col-6 p-0 m-0">
-                                            <LabeledInput label="Nickname" />
+                                            <LabeledInput label="Username" defaultValue={profile.account.username} />
                                         </div>
                                         <div className="col-6 pr-0 m-0">
-                                            <LabeledInput label="Birthday" />
+                                            <LabeledInput label="Birthday" defaultValue={profile.birthday} />
                                         </div>
                                     </div>
                                 </Card.Text>
                             </Card.Body>
                         </Card>
                     </div>
-                    <div className="col col-6 m-0 p-0 pl-1">
+                    {/* <div className="col col-6 m-0 p-0 pl-1">
                         <Card className="">
                             <Card.Header> Acount Data </Card.Header>
                             <Card.Body>
@@ -57,7 +60,7 @@ class ProfileEdit extends Component {
                             </Card.Text>
                             </Card.Body>
                         </Card>
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="row col-12 m-0 p-0">
@@ -92,11 +95,40 @@ class ProfileEdit extends Component {
                 <div className="row col-12">
                     <div className="col col-6 m-0 p-0">
                         <Card className="">
-                            <Card.Header> Account Actions </Card.Header>
+                            <Card.Header> Change Password </Card.Header>
                             <Card.Body>
-                                <Card.Text>
+                                {/* <Card.Text>
                                     <Card.Link as={Link} to="/account/change-password"> Change Password </Card.Link>
-                                </Card.Text>
+                                </Card.Text> */}
+                                <div className="col">
+                                    <div className="row mb-2">
+                                        <div className="col-3 d-flex align-items-center">
+                                            <label className="m-0"> Old Password </label>
+                                        </div>
+                                        <div className="col">
+                                            <Input />
+                                        </div>
+                                    </div>
+                                    <div className="row mb-2">
+                                        <div className="col-3 d-flex align-items-center">
+                                            <label> New Password </label>
+                                        </div>
+                                        <div className="col">
+                                            <Input />
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-3 d-flex align-items-center">
+                                            <label> Repeat Password </label>
+                                        </div>
+                                        <div className="col">
+                                            <Input />
+                                        </div>
+                                    </div>
+                                    <div className="row justify-content-end">
+                                        <Button variant="white" className="mr-3 mt-4 w-15"> Save </Button>
+                                    </div>
+                                </div>
                             </Card.Body>
                         </Card>
                     </div>

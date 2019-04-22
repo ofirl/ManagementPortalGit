@@ -12,16 +12,17 @@ import Card from 'react-bootstrap/Card';
 import { LabeledInput } from '../../../Input/Input';
 import { TableCard } from '../../../Table/Table';
 import DataManager from '../../../../assets/js/data.manager';
+import HistorySection from '../HistorySection/HistorySection';
 
 class ProfileSection extends Component {
     // constructor(props) {
     //     super(props);
-        
+
     //     // this.state = {
     //     //     profile: DataManager.getProfileById(props.profileId)
     //     // }
     // }
-    
+
     render() {
         let profile = DataManager.getProfileById(this.props.profileId);
 
@@ -32,7 +33,7 @@ class ProfileSection extends Component {
 
         return (
             <div className="container-fluid">
-                <div className="row col-12 p-0 m-0">
+                <div className="row col-12 m--1">
                     <div className="col col-6 p-0 pr-1">
                         <Card className="">
                             <Card.Header> Personal Data </Card.Header>
@@ -47,6 +48,32 @@ class ProfileSection extends Component {
                             </Card.Body>
                         </Card>
                     </div>
+                    <div className="col col-6 m-0 p-0 pl-1">
+                        <TableCard searchable allowAdvancedFilter={false} title="Predefined Connections"
+                            inputProps={{ flush: false, clearButton: false }} columns={
+                                [
+                                    {
+                                        name: 'Name',
+                                        accessor: 'name'
+                                    },
+                                    {
+                                        name: 'System',
+                                        accessor: 'system'
+                                    },
+                                    {
+                                        name: 'Username',
+                                        accessor: 'username'
+                                    },
+                                    {
+                                        name: 'Default',
+                                        accessor: 'default',
+                                        type: 'bool'
+                                    }
+                                ]
+                            }
+                            items={profileDefaultConnections}
+                        />
+                    </div>
                     {/* <div className="col col-6 m-0 p-0 pl-1">
                         <Card className="">
                             <Card.Header> Acount Data </Card.Header>
@@ -60,9 +87,9 @@ class ProfileSection extends Component {
                     </div> */}
                 </div>
 
-                <div className="row col-12 m-0 p-0">
+                {/* <div className="row col-12 m-0 p-0">
                     <TableCard searchable allowAdvancedFilter={false} title="Predefined Connections"
-                        inputProps={{ flush: false, clearButton: false }} headerButtons={['new-row']} columns={
+                        inputProps={{ flush: false, clearButton: false }} columns={
                             [
                                 {
                                     name: 'Name',
@@ -85,11 +112,15 @@ class ProfileSection extends Component {
                         }
                         items={profileDefaultConnections}
                     />
-                </div>
+                </div> */}
 
                 {/* <div className="row justify-content-between m-0"> */}
 
-                <div className="row col-12">
+                <div className="row col-12 m--1 p-0">
+                    <HistorySection />
+                </div>
+
+                {/* <div className="row col-12">
                     <div className="col col-6 m-0 p-0">
                         <Card className="">
                             <Card.Header> Account Actions </Card.Header>
@@ -100,9 +131,7 @@ class ProfileSection extends Component {
                             </Card.Body>
                         </Card>
                     </div>
-
-                </div>
-
+                </div> */}
 
                 {/* </div> */}
 

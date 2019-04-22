@@ -28,7 +28,7 @@ class Profile extends Component {
         super(props);
 
         this.saveProfile = this.saveProfile.bind(this);
-        
+
         this.state = {
             currentSection: 'profile',
             currentProfile: props.profileId !== -1 ? DataManager.getProfileById(props.profileId) : null
@@ -55,7 +55,7 @@ class Profile extends Component {
                     <div className="container-fluid">
                         <PageHeader>
                             <PageHeader.Body className="header-body mt--5 mt-md--6" style={{ 'borderBottom': 'none' }}>
-                                <div className="row align-items-end">
+                                <div className="row align-items-end pb-3">
                                     <div className="col-auto">
                                         <Avatar size="xxl" imgSrc="/assets/img/avatars/profiles/avatar-1.jpg" alt="..." className="avatar-img rounded-circle border border-4 border-body" />
                                     </div>
@@ -67,12 +67,14 @@ class Profile extends Component {
                                     </PageHeader>
 
                                     <div className="float-right">
+                                            <Link to={`/profilepage/profile${editMode ? '' : '/edit'}`}>
                                         <Button variant="white" onClick={this.saveProfile}>
-                                            <Link to={`/profilepage/profile${editMode ? '' : '/edit'}`}> {editMode ? 'Save Profile' : 'Edit Profile'}  </Link>
+                                                {editMode ? 'Save Profile' : 'Edit Profile'}
                                         </Button>
+                                            </Link>
                                     </div>
                                 </div>
-                                <div className="row align-items-center">
+                                {/* <div className="row align-items-center">
                                     <div className="col">
                                         <Nav variant="tabs" defaultActiveKey={this.props.match.params.section || "profile"}>
                                             <Nav.Item>
@@ -83,7 +85,8 @@ class Profile extends Component {
                                             </Nav.Item>
                                         </Nav>
                                     </div>
-                                </div>
+                                </div> */}
+                                <hr />
                             </PageHeader.Body>
                         </PageHeader>
                     </div>
