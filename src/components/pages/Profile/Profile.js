@@ -18,7 +18,7 @@ import PageHeader from '../../PageHeader/PageHeader';
 import ProfileSection from './ProfileSection/ProfileSection';
 import ProfileEdit from './ProfileEdit/ProfileEdit';
 import HistorySection from './HistorySection/HistorySection';
-import Nav from 'react-bootstrap/Nav';
+// import Nav from 'react-bootstrap/Nav';
 
 import DataManager from '../../../assets/js/data.manager';
 import Button from 'react-bootstrap/Button';

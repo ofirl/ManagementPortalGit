@@ -4,7 +4,7 @@ import Collapse from 'react-bootstrap/Collapse'
 
 import './HistorySection.css';
 
-import Card from 'react-bootstrap/Card';
+// import Card from 'react-bootstrap/Card';
 import { TableCard } from '../../../Table/Table';
 
 import DataManager from '../../../../assets/js/data.manager';

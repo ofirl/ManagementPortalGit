@@ -6,7 +6,7 @@ import * as actions from '../../../../redux/actions';
 
 import './ProfileSection.css';
 
-import { /*BrowserRouter as Router,*/ /* Route, */ Link, /*Switch */ /*, Redirect*/ } from "react-router-dom";
+// import { /*BrowserRouter as Router,*/ /* Route, */ /* Link, */ /*Switch */ /*, Redirect*/ } from "react-router-dom";
 
 import Card from 'react-bootstrap/Card';
 import { LabeledInput } from '../../../Input/Input';
