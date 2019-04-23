@@ -23,6 +23,22 @@ import Nav from 'react-bootstrap/Nav';
 import DataManager from '../../../assets/js/data.manager';
 import Button from 'react-bootstrap/Button';
 
+function EditProfileButton(props) {
+    let { editMode, section, onSave } = props;
+    if (section !== "profile")
+        return null;
+
+    return (
+        <div className="float-right">
+            <Link to={`/profilepage/profile${editMode ? '' : '/edit'}`}>
+                <Button variant="white" onClick={onSave}>
+                    {editMode ? 'Save Profile' : 'Edit Profile'}
+                </Button>
+            </Link>
+        </div>
+    );
+}
+
 class Profile extends Component {
     constructor(props) {
         super(props);
@@ -66,19 +82,7 @@ class Profile extends Component {
                                         <div className="text-muted pt-1"> {currentProfile.account.username} </div>
                                     </PageHeader>
 
-                                    {
-                                        this.props.match.params.section === "profile" ?
-                                            (
-                                                <div className="float-right">
-                                                    <Link to={`/profilepage/profile${editMode ? '' : '/edit'}`}>
-                                                        <Button variant="white" onClick={this.saveProfile}>
-                                                            {editMode ? 'Save Profile' : 'Edit Profile'}
-                                                        </Button>
-                                                    </Link>
-                                                </div>
-                                            )
-                                            : null
-                                    }
+                                    <EditProfileButton editMode={editMode} section={this.props.match.params.section} onSave={this.saveProfile} />
 
                                 </div>
 
@@ -91,13 +95,9 @@ class Profile extends Component {
                                             <Nav.Item>
                                                 {
                                                     this.props.match.params.edit === "edit" ?
-                                                        (
-                                                            <Nav.Link eventKey="history" disabled className="text-muted pointer-none"> History </Nav.Link>
-                                                        )
+                                                        <Nav.Link eventKey="history" disabled className="text-muted pointer-none"> History </Nav.Link>
                                                         :
-                                                        (
-                                                            <Nav.Link eventKey="history" as={Link} to={`/profilepage/history`}> History </Nav.Link>
-                                                        )
+                                                        <Nav.Link eventKey="history" as={Link} to={`/profilepage/history`}> History </Nav.Link>
                                                 }
                                             </Nav.Item>
                                         </Nav>

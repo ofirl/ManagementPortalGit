@@ -7,6 +7,7 @@ class GeneralFormControl extends Component {
     constructor(props) {
         super(props);
 
+        this.onChange = this.onChange.bind(this);
         this.state = {
             checked: props.checked
         }
@@ -18,7 +19,6 @@ class GeneralFormControl extends Component {
         containerClass: PropTypes.string,
         value: PropTypes.string,
         groupName: PropTypes.string,
-        checked: PropTypes.bool,
         onChange: PropTypes.func,
         label: PropTypes.string,
         inline: PropTypes.bool,
@@ -28,20 +28,26 @@ class GeneralFormControl extends Component {
     static defaultProps = {
         checked: false,
         label: " ",
-        id: Math.floor(Math.random() * (100 - 1) ) + 1
+        id: (Math.floor(Math.random() * (100 - 1) ) + 1).toString()
+    }
+    componentDidUpdate(oldProps) {
+        debugger;
+        if (oldProps.checked !== this.props.checked)
+            this.setState({checked: this.props.checked});
     }
 
     onChange() {
-        this.setState({ checked: !this.state.checked });
+        // this.setState({ checked: !this.state.checked });
+        debugger;
         this.props.onChange && this.props.onChange(this.state.checked);
     }
 
     render() {
-        let { id, type, containerClass, value, groupName, checked, onChange, label, inline, variant, children } = this.props;
+        let { id, type, containerClass, value, groupName, checked, label, inline, variant, children } = this.props;
 
         return (
             <div className={`${containerClass} ${inline ? containerClass + "-inline" : ""} ${variant ? containerClass + "-" + variant : ""}`}>
-                <input type={type} id={id} value={value} name={groupName} checked={checked} onChange={onChange} />
+                <input type={type} id={id} value={value} name={groupName} checked={checked} onChange={this.onChange} />
                 {
                     label ?
                         <label for={id}> {label} </label>

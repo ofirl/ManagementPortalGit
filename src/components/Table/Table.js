@@ -119,11 +119,13 @@ class EditableField extends Component {
         }
         if (column.type === "bool") {
             return (
+                // <Checkbox checked={value} onChange={onChange} inline />
                 <Checkbox checked={value} inline />
             );
         }
         if (column.type === "radio") {
             return (
+                // <Radio checked={value} onChange={onChange} inline />
                 <Radio checked={value} inline />
             );
         }
