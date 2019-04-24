@@ -7,9 +7,11 @@ class GeneralFormControl extends Component {
     constructor(props) {
         super(props);
 
+        this.innerControlRef = React.createRef();
+
         this.onChange = this.onChange.bind(this);
         this.state = {
-            checked: props.checked
+            // checked: props.checked
         }
     }
     static propTypes = {
@@ -31,15 +33,15 @@ class GeneralFormControl extends Component {
         id: (Math.floor(Math.random() * (100 - 1) ) + 1).toString()
     }
     componentDidUpdate(oldProps) {
-        debugger;
-        if (oldProps.checked !== this.props.checked)
-            this.setState({checked: this.props.checked});
+        // debugger;
+        // if (oldProps.checked !== this.props.checked)
+            // this.setState({checked: this.props.checked});
     }
 
     onChange() {
         // this.setState({ checked: !this.state.checked });
-        debugger;
-        this.props.onChange && this.props.onChange(this.state.checked);
+        // debugger;
+        this.props.onChange && this.props.onChange(this.innerControlRef.current.checked);
     }
 
     render() {
@@ -47,7 +49,7 @@ class GeneralFormControl extends Component {
 
         return (
             <div className={`${containerClass} ${inline ? containerClass + "-inline" : ""} ${variant ? containerClass + "-" + variant : ""}`}>
-                <input type={type} id={id} value={value} name={groupName} checked={checked} onChange={this.onChange} />
+                <input ref={this.innerControlRef} type={type} id={id} value={value} name={groupName} checked={checked} onChange={this.onChange} />
                 {
                     label ?
                         <label for={id}> {label} </label>

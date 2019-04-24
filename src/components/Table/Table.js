@@ -104,7 +104,7 @@ let tableDefaultProps = {
 
 class EditableField extends Component {
     render() {
-        let { column, size, value, onChange, allowNull, className, inputProps } = this.props;
+        let { column, size, value, onChange, allowNull, className, inputProps, rowNum } = this.props;
 
         if (column.type == null || column.type === "text") {
             return <Input size={size} value={value == null ? '' : value}
@@ -119,14 +119,14 @@ class EditableField extends Component {
         }
         if (column.type === "bool") {
             return (
-                // <Checkbox checked={value} onChange={onChange} inline />
-                <Checkbox checked={value} inline />
+                <Checkbox id={rowNum + "-" + column} checked={value} onChange={onChange} inline />
+                // <Checkbox checked={value} inline />
             );
         }
         if (column.type === "radio") {
             return (
-                // <Radio checked={value} onChange={onChange} inline />
-                <Radio checked={value} inline />
+                <Radio id={rowNum + "-" + column} checked={value} onChange={onChange} inline />
+                // <Radio checked={value} inline />
             );
         }
 
@@ -136,14 +136,14 @@ class EditableField extends Component {
 
 class TableCell extends Component {
     render() {
-        let { editable, column, size, value, onChange, inputProps } = this.props;
+        let { editable, column, size, value, onChange, inputProps, rowNum } = this.props;
 
         return (<td className={`col align-middle`}>
             {
                 (() => {
                     try {
                         if (editable && column.readonly !== true) {
-                            return <EditableField column={column} size={size} value={value} onChange={onChange} inputProps={inputProps} />;
+                            return <EditableField column={column} rowNum={rowNum} size={size} value={value} onChange={onChange} inputProps={inputProps} />;
                         }
                         else {
                             if (column.render == null)
@@ -203,9 +203,9 @@ class TableRowButton extends Component {
 
 class TableRow extends Component {
     render() {
-        let { item, itemAttr, columns, editable, size, onChange, rowButtons, rowButtonTypes, inputProps } = this.props;
+        let { item, itemAttr, columns, editable, size, onChange, rowButtons, rowButtonTypes, inputProps, rowNum } = this.props;
         // console.log(item);
-        let { className : itemClassName, ...others } = itemAttr;
+        let { className: itemClassName, ...others } = itemAttr;
         return (
             <tr className={`row ${itemClassName ? itemClassName : ''}`} {...others}>
                 {
@@ -213,7 +213,7 @@ class TableRow extends Component {
                         // console.log(item);
                         acc.push(
                             <TableCell editable={editable} column={current} key={colIdx} size={size} value={item[current.accessor]}
-                                onChange={(val) => onChange(item.id, current.accessor, val)} inputProps={inputProps} />
+                                onChange={(val) => onChange(item.id, current.accessor, val)} inputProps={inputProps} rowNum={rowNum} />
                         );
                         return acc;
                     }, [])
@@ -309,7 +309,7 @@ class Table extends Component {
         }
 
         let { column, order } = sortObj;
-        let sortConvert = this.props.columns.find( (c) => c.accessor === column ).sort;
+        let sortConvert = this.props.columns.find((c) => c.accessor === column).sort;
         let sortedItems = items.sort((a, b) => {
             let aConv = sortConvert ? sortConvert(a[column]) : a[column];
             let bConv = sortConvert ? sortConvert(b[column]) : b[column];
@@ -388,6 +388,8 @@ class Table extends Component {
         }
     }
     updateItem(itemId, column, newValue) {
+        // debugger;
+
         let itemIdx = this.state.items.findIndex((i) => i.id === itemId);
         if (itemIdx === -1) {
             console.log('Item ID could not be found, exiting...');
@@ -441,6 +443,8 @@ class Table extends Component {
     render() {
         let that = this;
 
+        // debugger;
+
         let { className, columns, size, nowrap, editable, onItemClick, itemHoverEffect, inputProps } = this.props;
         let { items } = this.state;
         items = this.filterItems(items);
@@ -476,22 +480,22 @@ class Table extends Component {
                 </thead>
                 <tbody>
                     {
-                        items && items.length > 0 ? 
-                        items.reduce(function (acc, currentItem, rowIdx, array) {
+                        items && items.length > 0 ?
+                            items.reduce(function (acc, currentItem, rowIdx, array) {
 
-                            let itemAttr = {};
-                            if (onItemClick) {
-                                itemAttr.onClick = (e) => that.itemClicked(currentItem.id, currentItem);
-                                itemAttr.className = 'pointer';
-                            }
+                                let itemAttr = {};
+                                if (onItemClick) {
+                                    itemAttr.onClick = (e) => that.itemClicked(currentItem.id, currentItem);
+                                    itemAttr.className = 'pointer';
+                                }
 
-                            acc.push((
-                                <TableRow key={rowIdx} itemAttr={itemAttr} editable={editable} item={currentItem} rowButtons={that.props.rowButtons}
-                                    rowButtonTypes={that.rowButtonTypes} onChange={that.updateItem} columns={columns} inputProps={inputProps} />
-                            ));
-                            return acc;
-                        }, [])
-                        : (<div className="d-flex col justify-content-center"> no data... </div>)
+                                acc.push((
+                                    <TableRow key={rowIdx} rowNum={rowIdx} itemAttr={itemAttr} editable={editable} item={currentItem} rowButtons={that.props.rowButtons}
+                                        rowButtonTypes={that.rowButtonTypes} onChange={that.updateItem} columns={columns} inputProps={inputProps} />
+                                ));
+                                return acc;
+                            }, [])
+                            : (<div className="d-flex col justify-content-center"> no data... </div>)
                     }
                 </tbody>
             </table>
@@ -660,11 +664,14 @@ class TableCard extends Component {
         updatedItems = this.onItemUpdate(newItem.id, updatedItems);
     }
     onItemUpdate(itemId, items) {
+        // debugger;
         if (this.props.onItemUpdate) {
             let callbackItems = this.props.onItemUpdate(itemId, items);
             if (callbackItems != null)
                 items = callbackItems;
         }
+
+        // debugger;
 
         this.setState({ items: items });
 
@@ -736,8 +743,8 @@ class TableCard extends Component {
                                         headerButtons.map((button) => {
                                             if (button === "new-row")
                                                 return (
-                                                    <Button key={button} variant="white" size="sm" onClick={this.addNewItem}> 
-                                                        New Row 
+                                                    <Button key={button} variant="white" size="sm" onClick={this.addNewItem}>
+                                                        New Row
                                                         {/* <Icon type="plus" />  */}
                                                     </Button>
                                                 );
@@ -759,11 +766,15 @@ class TableCard extends Component {
                                         : null
                                 }
                             </div>
-                            <Collapse in={showAdvancedFilter} timeout={350}>
-                                <div>
-                                    <AdvancedFilter key="advancedFilter" columns={columns} filter={advancedFilter} onChange={this.applyAdvancedFilter} />
-                                </div>
-                            </Collapse>
+                            {
+                                allowAdvancedFilter ?
+                                    <Collapse in={showAdvancedFilter} timeout={350}>
+                                        <div>
+                                            <AdvancedFilter key="advancedFilter" columns={columns} filter={advancedFilter} onChange={this.applyAdvancedFilter} />
+                                        </div>
+                                    </Collapse>
+                                    : null
+                            }
                         </Card.Title>
                     </Card.Header>
                     <Table tableInstance={this.tableInstance} items={stateItems} filter={tableFilter} columns={columns} {...others}
