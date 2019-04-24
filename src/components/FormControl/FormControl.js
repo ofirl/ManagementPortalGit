@@ -49,7 +49,7 @@ class GeneralFormControl extends Component {
     }
 
     render() {
-        let { id, type, containerClass, value, groupName, checked, label, inline, variant, children, disabled } = this.props;
+        let { id, type, containerClass,/* value,*/ groupName, checked, label, inline, variant, children, disabled } = this.props;
         
         if (checked == null)
             checked = false;
