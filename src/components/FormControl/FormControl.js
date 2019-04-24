@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import './FormControl.css';
+import '../../assets/css/font-awesome.css';
 
 class GeneralFormControl extends Component {
     constructor(props) {
