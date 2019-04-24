@@ -26,11 +26,13 @@ class GeneralFormControl extends Component {
         label: PropTypes.string,
         inline: PropTypes.bool,
         variant: PropTypes.string,
-        children: PropTypes.any
+        children: PropTypes.any,
+        disabled: PropTypes.bool
     }
     static defaultProps = {
         checked: false,
-        value: false,
+        disabled: false,
+        // value: false,
         label: " ",
         id: (Math.floor(Math.random() * (100 - 1) ) + 1).toString()
     }
@@ -47,11 +49,14 @@ class GeneralFormControl extends Component {
     }
 
     render() {
-        let { id, type, containerClass, value, groupName, checked, label, inline, variant, children } = this.props;
+        let { id, type, containerClass, value, groupName, checked, label, inline, variant, children, disabled } = this.props;
+        
+        if (checked == null)
+            checked = false;
 
         return (
             <div className={`${containerClass} ${inline ? containerClass + "-inline" : ""} ${variant ? containerClass + "-" + variant : ""}`}>
-                <input ref={this.innerControlRef} type={type} id={id} value={value} name={groupName} checked={checked} onChange={this.onChange} />
+                <input ref={this.innerControlRef} type={type} id={id} /*value={value}*/ name={groupName} checked={checked} onChange={this.onChange} disabled={disabled} />
                 {
                     label ?
                         <label for={id}> {label} </label>

@@ -51,7 +51,7 @@ class Profile extends Component {
         }
     }
     saveProfile() {
-        console.log(this.props.match.params.edit);
+        // console.log(this.props.match.params.edit);
         if (this.props.match.params.edit)
             // todo : save profile
             console.log('save profile here');

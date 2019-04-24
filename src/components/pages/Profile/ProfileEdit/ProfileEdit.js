@@ -21,9 +21,9 @@ class ProfileEdit extends Component {
         console.log(this.props.profileId);
         // ? why props.profileId is undefined ????? nvm... doesnt happen anymore
         let profileDefaultConnections = this.props.profileId !== -1 /*&& this.props.profileId != null*/ ? profile.personalization.logondata : [];
-        profileDefaultConnections.forEach(connection => {
-            connection.default = connection.default || false;
-        });
+        // profileDefaultConnections.forEach(connection => {
+        //     connection.default = connection.default || false;
+        // });
 
         return (
             <div className="container-fluid">
