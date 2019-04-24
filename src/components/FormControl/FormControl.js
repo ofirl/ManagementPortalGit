@@ -30,6 +30,7 @@ class GeneralFormControl extends Component {
     }
     static defaultProps = {
         checked: false,
+        value: false,
         label: " ",
         id: (Math.floor(Math.random() * (100 - 1) ) + 1).toString()
     }
