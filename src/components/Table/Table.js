@@ -125,7 +125,7 @@ class EditableField extends Component {
         }
         if (column.type === "radio") {
             return (
-                <Radio id={rowNum + "-" + column.accessor} checked={value} onChange={onChange} inline />
+                <Radio id={rowNum + "-" + column.accessor} groupName={column.accessor} checked={value} onChange={onChange} inline />
                 // <Radio checked={value} inline />
             );
         }
@@ -149,7 +149,7 @@ class TableCell extends Component {
                             if (column.type === "bool")
                                 return <Checkbox id={rowNum + "-" + column.accessor} disabled checked={value} onChange={onChange} inline />;                            
                             if (column.type === "radio")
-                                return <Radio id={rowNum + "-" + column.accessor} disabled checked={value} onChange={onChange} inline />;
+                                return <Radio id={rowNum + "-" + column.accessor} groupName={column.accessor} disabled checked={value} onChange={onChange} inline />;
                             if (column.render == null)
                                 return value.toString();
 

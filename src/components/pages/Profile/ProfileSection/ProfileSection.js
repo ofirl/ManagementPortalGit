@@ -67,7 +67,7 @@ class ProfileSection extends Component {
                                     {
                                         name: 'Default',
                                         accessor: 'default',
-                                        type: 'bool'
+                                        type: 'radio'
                                     }
                                 ]
                             }
