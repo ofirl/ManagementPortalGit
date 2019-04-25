@@ -14,7 +14,9 @@ import { TableCard } from '../../../Table/Table';
 import DataManager from '../../../../assets/js/data.manager';
 import Button from 'react-bootstrap/Button';
 
-class ProfileEdit extends Component {
+import Flatpickr from 'react-flatpickr'
+
+class ProfileEdit extends Component {    
     render() {
         let profile = this.props.profileId !== -1 ? DataManager.getProfileById(this.props.profileId) : null;
 
@@ -46,7 +48,9 @@ class ProfileEdit extends Component {
                                             <LabeledInput label="Username" defaultValue={profile.account.username} />
                                         </div>
                                         <div className="col-6 pr-0 m-0">
-                                            <LabeledInput label="Birthday" defaultValue={profile.birthday} />
+                                            {/* <LabeledInput label="Birthday" defaultValue={profile.birthday} /> */}
+                                            <label> Birthday </label>
+                                            <Flatpickr className="form-control" data-enable-time/>
                                         </div>
                                     </div>
                                 </Card.Text>
