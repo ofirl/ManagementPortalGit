@@ -14,12 +14,15 @@ import { TableCard } from '../../../Table/Table';
 import DataManager from '../../../../assets/js/data.manager';
 import Button from 'react-bootstrap/Button';
 import { DatePicker } from '../../../FormControl/FormControl';
+import { setToValue } from '../../../../assets/js/Utilities';
+import Form from 'react-bootstrap/Form';
 
 class ProfileEdit extends Component {
     constructor(props) {
         super(props);
 
         this.profileFieldChanged = this.profileFieldChanged.bind(this);
+        this.changeProfilePassword = this.changeProfilePassword.bind(this);
 
         this.state = {
             updatedProfile: DataManager.getProfileById(props.profileId)
@@ -28,11 +31,13 @@ class ProfileEdit extends Component {
 
     profileFieldChanged(fieldId, value) {
         let newProfile = this.state.updatedProfile;
-        newProfile[fieldId] = value;
-        
-        // console.log(fieldId + " : " + value.toLocaleDateString());
+        setToValue(newProfile, value, fieldId);
 
         this.setState({ updatedProfile: newProfile });
+    }
+    changeProfilePassword() {
+        //Todo: change profie password here
+        console.log('change profile password here');
     }
 
     render() {
@@ -56,21 +61,21 @@ class ProfileEdit extends Component {
                                 <Card.Text>
                                     <div className="row p-0">
                                         <div className="col-6 p-0 m-0">
-                                            <LabeledInput label="First name" defaultValue={profile.firstname} />
+                                            <LabeledInput label="First name" onInput={(value) => this.profileFieldChanged("firstname", value)} defaultValue={profile.firstname} />
                                         </div>
                                         <div className="col-6 pr-0 m-0">
-                                            <LabeledInput label="Last name" defaultValue={profile.lastname} />
+                                            <LabeledInput label="Last name" onInput={(value) => this.profileFieldChanged("lastname", value)} defaultValue={profile.lastname} />
                                         </div>
                                     </div>
                                     <div className="row mt-2">
                                         <div className="col-6 p-0 m-0">
-                                            <LabeledInput label="Username" defaultValue={profile.account.username} />
+                                            <LabeledInput label="Username" onInput={(value) => this.profileFieldChanged("account.username", value)} defaultValue={profile.account.username} />
                                         </div>
                                         <div className="col-6 pr-0 m-0">
                                             {/* <LabeledInput label="Birthday" defaultValue={profile.birthday} /> */}
                                             <div className="row">
-                                                <div className="col-auto">
-                                                    <label> Birthday </label>
+                                                <div className="col-auto align-items-center d-flex">
+                                                    <label className="m-0"> Birthday : </label>
                                                 </div>
                                                 <div className="col">
                                                     <DatePicker onChange={(date) => this.profileFieldChanged("birthday", date[0])}
@@ -136,35 +141,37 @@ class ProfileEdit extends Component {
                                 {/* <Card.Text>
                                     <Card.Link as={Link} to="/account/change-password"> Change Password </Card.Link>
                                 </Card.Text> */}
-                                <div className="col">
-                                    <div className="row mb-2">
-                                        <div className="col-3 d-flex align-items-center">
-                                            <label className="m-0"> Old Password </label>
+                                <Form>
+                                    <div className="col">
+                                        <div className="row mb-2">
+                                            <div className="col-3 d-flex align-items-center">
+                                                <label className="m-0"> Old Password </label>
+                                            </div>
+                                            <div className="col">
+                                                <Input />
+                                            </div>
                                         </div>
-                                        <div className="col">
-                                            <Input />
+                                        <div className="row mb-2">
+                                            <div className="col-3 d-flex align-items-center">
+                                                <label> New Password </label>
+                                            </div>
+                                            <div className="col">
+                                                <Input />
+                                            </div>
+                                        </div>
+                                        <div className="row">
+                                            <div className="col-3 d-flex align-items-center">
+                                                <label> Repeat Password </label>
+                                            </div>
+                                            <div className="col">
+                                                <Input />
+                                            </div>
+                                        </div>
+                                        <div className="row justify-content-end">
+                                            <Button type="submit" onClick={(e) => {e.preventDefault(); this.changeProfilePassword();}} variant="white" className="mr-3 mt-4 w-15"> Save </Button>
                                         </div>
                                     </div>
-                                    <div className="row mb-2">
-                                        <div className="col-3 d-flex align-items-center">
-                                            <label> New Password </label>
-                                        </div>
-                                        <div className="col">
-                                            <Input />
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-3 d-flex align-items-center">
-                                            <label> Repeat Password </label>
-                                        </div>
-                                        <div className="col">
-                                            <Input />
-                                        </div>
-                                    </div>
-                                    <div className="row justify-content-end">
-                                        <Button variant="white" className="mr-3 mt-4 w-15"> Save </Button>
-                                    </div>
-                                </div>
+                                </Form>
                             </Card.Body>
                         </Card>
                     </div>

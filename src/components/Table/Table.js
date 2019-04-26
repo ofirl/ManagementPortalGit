@@ -16,7 +16,7 @@ import Icon from '../Icon/Icon';
 import Form from 'react-bootstrap/Form';
 import Select from '../Select/Select';
 import Toggle from '../Toggle/Toggle';
-import { Radio, Checkbox } from '../FormControl/FormControl';
+import { Radio, Checkbox, DatePicker } from '../FormControl/FormControl';
 
 function naturalSort(a, b) {
     function chunkify(t) {
@@ -129,6 +129,17 @@ class EditableField extends Component {
                 // <Radio checked={value} inline />
             );
         }
+        if (column.type === "date") {
+            return (
+                // <Radio id={rowNum + "-" + column.accessor} groupName={column.accessor} checked={value} onChange={onChange} inline />
+                // <Radio checked={value} inline />
+                <DatePicker onChange={onChange}
+                    options={{
+                        altInput: true,
+                        mode: "range"
+                    }} />
+            );
+        }
 
         return (<div> type not supported </div>);
     }
@@ -147,9 +158,16 @@ class TableCell extends Component {
                         }
                         else {
                             if (column.type === "bool")
-                                return <Checkbox id={rowNum + "-" + column.accessor} disabled checked={value} onChange={onChange} inline />;                            
+                                return <Checkbox id={rowNum + "-" + column.accessor} disabled checked={value} onChange={onChange} inline />;
                             if (column.type === "radio")
                                 return <Radio id={rowNum + "-" + column.accessor} groupName={column.accessor} disabled checked={value} onChange={onChange} inline />;
+                            if (column.type === "date") {
+                                let options = { year: 'numeric', month: 'numeric', day: 'numeric' };
+                                let pattern = /(\d{2})\/(\d)\/(\d{4})/;
+                                let dt = new Date(value.replace(pattern, '$3-$2-$1'));
+                                
+                                return dt.toLocaleDateString('en-US', options);
+                            }
                             if (column.render == null)
                                 return value.toString();
 

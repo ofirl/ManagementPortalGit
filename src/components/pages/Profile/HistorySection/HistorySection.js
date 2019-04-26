@@ -63,7 +63,8 @@ class HistorySection extends Component {
             },
             {
                 name: "Date",
-                accessor: "date"
+                accessor: "date",
+                type: "date"
             },
             {
                 name: "Ran by",
