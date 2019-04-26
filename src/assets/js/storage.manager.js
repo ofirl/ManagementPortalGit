@@ -99,7 +99,7 @@ var testHistoryArray = [
     {
         id: 0,
         scriptId: 0,
-        date: '29/3/2019',
+        date: '29/03/2019',
         ranby: 0,
         results: [
             {
@@ -140,7 +140,7 @@ var testHistoryArray = [
     {
         id: 1,
         scriptId: 0,
-        date: '30/3/2019',
+        date: '30/03/2019',
         ranby: 0,
         results: [
             {

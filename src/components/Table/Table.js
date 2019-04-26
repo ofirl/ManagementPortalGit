@@ -17,6 +17,7 @@ import Form from 'react-bootstrap/Form';
 import Select from '../Select/Select';
 import Toggle from '../Toggle/Toggle';
 import { Radio, Checkbox, DatePicker } from '../FormControl/FormControl';
+import { formatStringDate } from '../../assets/js/Utilities';
 
 function naturalSort(a, b) {
     function chunkify(t) {
@@ -162,13 +163,8 @@ class TableCell extends Component {
                                 return <Checkbox id={rowNum + "-" + column.accessor} disabled checked={value} onChange={onChange} inline />;
                             if (column.type === "radio")
                                 return <Radio id={rowNum + "-" + column.accessor} groupName={column.accessor} disabled checked={value} onChange={onChange} inline />;
-                            if (column.type === "date") {
-                                let options = { year: 'numeric', month: 'numeric', day: 'numeric' };
-                                let pattern = /(\d{2})\/(\d)\/(\d{4})/;
-                                let dt = new Date(value.replace(pattern, '$3-$2-$1'));
-                                
-                                return dt.toLocaleDateString('en-US', options);
-                            }
+                            if (column.type === "date")
+                                return formatStringDate(value);
                             if (column.render == null)
                                 return value.toString();
 
@@ -361,6 +357,8 @@ class Table extends Component {
                 filterObj = this.state.filter;
         }
 
+        console.log(filterObj);
+
         if (filterObj.length === 0) {
             this.setError('filterError', null);
             return items;
@@ -379,6 +377,10 @@ class Table extends Component {
                         filteredItems = filteredItems.filter((i) => Object.keys(i).some((key, idx) => {
                             if (key === 'id')
                                 return false;
+
+                            if (this.props.columns.find((c) => c.accessor === key)) {
+                                // todo : search based on date array
+                            }
 
                             let matchStr = typeof i[key] == 'object' ? JSON.stringify(i[key]) : i[key].toString();
                             return matchStr.match(new RegExp(filter.value, this.props.filterCaseSensitive ? "" : "i"));

@@ -12,6 +12,7 @@ import Card from 'react-bootstrap/Card';
 import { LabeledInput } from '../../../Input/Input';
 import { TableCard } from '../../../Table/Table';
 import DataManager from '../../../../assets/js/data.manager';
+import { formatStringDate } from '../../../../assets/js/Utilities';
 // import HistorySection from '../HistorySection/HistorySection';
 
 class ProfileSection extends Component {
@@ -31,6 +32,8 @@ class ProfileSection extends Component {
         // let profileDefaultConnections = this.props.profileId !== -1 && this.props.profileId != null ? DataManager.getProfileById(this.props.profileId).personalization.logondata : [];
         let profileDefaultConnections = this.props.profileId !== -1 /*&& this.props.profileId != null*/ ? profile.personalization.logondata : [];
 
+        //return dt.toLocaleDateString('en-US', options);
+
         return (
             <div className="container-fluid">
                 <div className="row col-12 m--1">
@@ -41,7 +44,7 @@ class ProfileSection extends Component {
                                 <Card.Text>
                                     <div className="row">
                                         <div className="col-6 pr-0 m-0">
-                                            <LabeledInput label="Birthday" value={profile.birthday} readOnly flush />
+                                            <LabeledInput label="Birthday" value={formatStringDate(profile.birthday)} readOnly flush />
                                         </div>
                                     </div>
                                 </Card.Text>
