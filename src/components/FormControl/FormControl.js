@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './FormControl.css';
 import '../../assets/css/font-awesome.css';
 
-import Flatpickr from 'react-flatpickr'
+import Flatpickr from 'react-flatpickr' 
 
 class GeneralFormControl extends Component {
     constructor(props) {
@@ -91,18 +91,25 @@ class Checkbox extends Component {
 
 class DatePicker extends Component {
     render() {
+        let defaultOptions = {
+            dateFormat: "d-m-Y",
+            altInput: true,
+            // allowInput: true
+        }
         let { options, ...others } = this.props;
-
-        if (options != null) {
-            if (options.dateFormat == null) {
-                options.dateFormat = "d-m-Y";
-            }
-        }
-        else {
-            options = {
-                dateFormat: "d-m-Y"
-            };
-        }
+        options = {...defaultOptions, ...options};
+        console.log(options);
+        
+        // if (options != null) {
+        //     if (options.dateFormat == null) {
+        //         options.dateFormat = "d-m-Y";
+        //     }
+        // }
+        // else {
+        //     options = {
+        //         dateFormat: "d-m-Y"
+        //     };
+        // }
 
         return (
             <Flatpickr className="form-control" options={options} {...others} />

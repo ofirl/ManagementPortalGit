@@ -135,8 +135,9 @@ class EditableField extends Component {
                 // <Radio checked={value} inline />
                 <DatePicker onChange={onChange}
                     options={{
-                        altInput: true,
-                        mode: "range"
+                        // altInput: true,
+                        mode: "range",
+                        altFormat: "d/m/Y"
                     }} />
             );
         }
