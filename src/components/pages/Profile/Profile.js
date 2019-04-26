@@ -25,7 +25,7 @@ import Button from 'react-bootstrap/Button';
 
 function EditProfileButton(props) {
     let { editMode, section, onSave } = props;
-    if (section !== "profile")
+    if (section != null && section !== "profile")
         return null;
 
     return (
