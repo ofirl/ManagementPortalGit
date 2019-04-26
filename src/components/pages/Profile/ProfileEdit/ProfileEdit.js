@@ -13,14 +13,33 @@ import Input, { LabeledInput } from '../../../Input/Input';
 import { TableCard } from '../../../Table/Table';
 import DataManager from '../../../../assets/js/data.manager';
 import Button from 'react-bootstrap/Button';
+import { DatePicker } from '../../../FormControl/FormControl';
 
-import Flatpickr from 'react-flatpickr'
+class ProfileEdit extends Component {
+    constructor(props) {
+        super(props);
 
-class ProfileEdit extends Component {    
+        this.profileFieldChanged = this.profileFieldChanged.bind(this);
+
+        this.state = {
+            updatedProfile: DataManager.getProfileById(props.profileId)
+        };
+    }
+
+    profileFieldChanged(fieldId, value) {
+        let newProfile = this.state.updatedProfile;
+        newProfile[fieldId] = value;
+        
+        // console.log(fieldId + " : " + value.toLocaleDateString());
+
+        this.setState({ updatedProfile: newProfile });
+    }
+
     render() {
+        let { updatedProfile } = this.state;
         let profile = this.props.profileId !== -1 ? DataManager.getProfileById(this.props.profileId) : null;
 
-        console.log(this.props.profileId);
+        // console.log(this.props.profileId);
         // ? why props.profileId is undefined ????? nvm... doesnt happen anymore
         let profileDefaultConnections = this.props.profileId !== -1 /*&& this.props.profileId != null*/ ? profile.personalization.logondata : [];
         // profileDefaultConnections.forEach(connection => {
@@ -49,8 +68,18 @@ class ProfileEdit extends Component {
                                         </div>
                                         <div className="col-6 pr-0 m-0">
                                             {/* <LabeledInput label="Birthday" defaultValue={profile.birthday} /> */}
-                                            <label> Birthday </label>
-                                            <Flatpickr className="form-control" data-enable-time/>
+                                            <div className="row">
+                                                <div className="col-auto">
+                                                    <label> Birthday </label>
+                                                </div>
+                                                <div className="col">
+                                                    <DatePicker onChange={(date) => this.profileFieldChanged("birthday", date[0])}
+                                                        options={{
+                                                            altInput: true,
+                                                            defaultDate: updatedProfile.birthday
+                                                        }} />
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </Card.Text>

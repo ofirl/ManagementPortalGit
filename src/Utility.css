@@ -4487,6 +4487,28 @@ a.text-white:hover {
     }
 }
 
-.pointer-none {
+.pointer-default {
     cursor: default
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+.flatpickr-current-month .numInputWrapper span.arrowUp::after {
+    border-bottom-color: rgba(255, 255, 255, 0.9);
+}
+
+.flatpickr-current-month .numInputWrapper span.arrowDown::after {
+    border-top-color: rgba(255, 255, 255, 0.9);
+}
+
+.flatpickr-time input:hover, .flatpickr-time .flatpickr-am-pm:hover, .flatpickr-time input:focus, .flatpickr-time .flatpickr-am-pm:focus {
+    background: inherit;
 }

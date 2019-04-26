@@ -95,7 +95,7 @@ class Profile extends Component {
                                             <Nav.Item>
                                                 {
                                                     this.props.match.params.edit === "edit" ?
-                                                        <Nav.Link eventKey="history" disabled className="text-muted pointer-none"> History </Nav.Link>
+                                                        <Nav.Link eventKey="history" disabled className="text-muted pointer-default"> History </Nav.Link>
                                                         :
                                                         <Nav.Link eventKey="history" as={Link} to={`/profilepage/history`}> History </Nav.Link>
                                                 }

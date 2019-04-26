@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import './FormControl.css';
 import '../../assets/css/font-awesome.css';
 
+import Flatpickr from 'react-flatpickr'
+
 class GeneralFormControl extends Component {
     constructor(props) {
         super(props);
@@ -34,12 +36,12 @@ class GeneralFormControl extends Component {
         disabled: false,
         // value: false,
         label: " ",
-        id: (Math.floor(Math.random() * (100 - 1) ) + 1).toString()
+        id: (Math.floor(Math.random() * (100 - 1)) + 1).toString()
     }
     componentDidUpdate(oldProps) {
         // debugger;
         // if (oldProps.checked !== this.props.checked)
-            // this.setState({checked: this.props.checked});
+        // this.setState({checked: this.props.checked});
     }
 
     onChange() {
@@ -50,7 +52,7 @@ class GeneralFormControl extends Component {
 
     render() {
         let { id, type, containerClass,/* value,*/ groupName, checked, label, inline, variant, children, disabled } = this.props;
-        
+
         if (checked == null)
             checked = false;
 
@@ -87,5 +89,26 @@ class Checkbox extends Component {
     }
 }
 
+class DatePicker extends Component {
+    render() {
+        let { options, ...others } = this.props;
+
+        if (options != null) {
+            if (options.dateFormat == null) {
+                options.dateFormat = "d-m-Y";
+            }
+        }
+        else {
+            options = {
+                dateFormat: "d-m-Y"
+            };
+        }
+
+        return (
+            <Flatpickr className="form-control" options={options} {...others} />
+        );
+    }
+}
+
 export default GeneralFormControl;
-export { Radio, Checkbox };
+export { Radio, Checkbox, DatePicker };
