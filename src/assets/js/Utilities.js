@@ -22,11 +22,11 @@ export function setToValue(obj, value, path) {
 }
 
 export function formatStringDate(date) {
-    let options = { year: 'numeric', month: 'numeric', day: 'numeric' };
-    let pattern = /(\d{2})\/(\d{2})\/(\d{4})/;
-    // console.log(date);
-    let dt = new Date(date.replace(pattern, '$3-$2-$1'));
-    // console.log(dt);
+    // let options = { year: 'numeric', month: 'numeric', day: 'numeric' };
+    // let pattern = /(\d{2})\/(\d{2})\/(\d{4})/;
+    // // console.log(date);
+    // let dt = new Date(date.replace(pattern, '$3-$2-$1'));
+    // // console.log(dt);
     
     return new Date(date).toLocaleString('default');
     // return dt.toLocaleString('default', options);
