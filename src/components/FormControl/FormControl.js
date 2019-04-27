@@ -92,7 +92,7 @@ class Checkbox extends Component {
 }
 
 class DatePicker extends Component {
-    defaultProps = {
+    static defaultProps = {
         clearButton: true
     }
     render() {
