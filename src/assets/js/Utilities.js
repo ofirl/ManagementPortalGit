@@ -21,7 +21,7 @@ export function setToValue(obj, value, path) {
         context[a[a.length - 1]] = value;
 }
 
-export function formatStringDate(date) {
+export function formatStringDateTime(date) {
     // let options = { year: 'numeric', month: 'numeric', day: 'numeric' };
     // let pattern = /(\d{2})\/(\d{2})\/(\d{4})/;
     // // console.log(date);
@@ -30,4 +30,20 @@ export function formatStringDate(date) {
     
     return new Date(date).toLocaleString('default');
     // return dt.toLocaleString('default', options);
+}
+
+export function formatStringDate(date) {
+    // let options = { year: 'numeric', month: 'numeric', day: 'numeric' };
+    // let pattern = /(\d{2})\/(\d{2})\/(\d{4})/;
+    // // console.log(date);
+    // let dt = new Date(date.replace(pattern, '$3-$2-$1'));
+    // // console.log(dt);
+    
+    return new Date(date).toLocaleDateString('default');
+    // return dt.toLocaleString('default', options);
+}
+
+export function switchDateStringMonthAndDay(date) {
+    let pattern = /(\d+)\/(\d+)\/(\d+)/;
+    return date.replace(pattern, '$2/$1/$3');
 }

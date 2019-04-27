@@ -12,7 +12,7 @@ import Card from 'react-bootstrap/Card';
 import { LabeledInput } from '../../../Input/Input';
 import { TableCard } from '../../../Table/Table';
 import DataManager from '../../../../assets/js/data.manager';
-import { formatStringDate } from '../../../../assets/js/Utilities';
+import { formatStringDate, switchDateStringMonthAndDay } from '../../../../assets/js/Utilities';
 // import HistorySection from '../HistorySection/HistorySection';
 
 class ProfileSection extends Component {
@@ -44,7 +44,7 @@ class ProfileSection extends Component {
                                 <Card.Text>
                                     <div className="row">
                                         <div className="col-6 pr-0 m-0">
-                                            <LabeledInput label="Birthday" value={formatStringDate(profile.birthday)} readOnly flush />
+                                            <LabeledInput label="Birthday" value={switchDateStringMonthAndDay(formatStringDate(profile.birthday))} readOnly flush />
                                         </div>
                                     </div>
                                 </Card.Text>

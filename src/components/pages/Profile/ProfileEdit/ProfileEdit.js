@@ -81,7 +81,7 @@ class ProfileEdit extends Component {
                                                     <DatePicker clearButton={false} onChange={(date) => this.profileFieldChanged("birthday", date[0])}
                                                         options={{
                                                             altInput: true,
-                                                            defaultDate: updatedProfile.birthday
+                                                            defaultDate: new Date(updatedProfile.birthday)
                                                         }} />
                                                 </div>
                                             </div>

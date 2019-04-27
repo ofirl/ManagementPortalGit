@@ -64,7 +64,7 @@ var testProfilesArray = [
         id: 0,
         firstname: 'Ofir',
         lastname: 'Levi',
-        birthday: '24/01/1993',
+        birthday: '01/24/1993',
         account: {
             username: 'ofirl',
             password: 'password'

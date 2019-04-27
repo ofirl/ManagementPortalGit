@@ -17,7 +17,7 @@ import Form from 'react-bootstrap/Form';
 import Select from '../Select/Select';
 import Toggle from '../Toggle/Toggle';
 import { Radio, Checkbox, DatePicker } from '../FormControl/FormControl';
-import { formatStringDate } from '../../assets/js/Utilities';
+import { formatStringDateTime } from '../../assets/js/Utilities';
 
 function naturalSort(a, b) {
     function chunkify(t) {
@@ -164,7 +164,7 @@ class TableCell extends Component {
                             if (column.type === "radio")
                                 return <Radio id={rowNum + "-" + column.accessor} groupName={column.accessor} disabled checked={value} onChange={onChange} inline />;
                             if (column.type === "date")
-                                return formatStringDate(value);
+                                return formatStringDateTime(value);
                             if (column.render == null)
                                 return value.toString();
 
