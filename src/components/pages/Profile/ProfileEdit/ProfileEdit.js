@@ -78,7 +78,7 @@ class ProfileEdit extends Component {
                                                     <label className="m-0"> Birthday : </label>
                                                 </div>
                                                 <div className="col">
-                                                    <DatePicker onChange={(date) => this.profileFieldChanged("birthday", date[0])}
+                                                    <DatePicker clearButton={false} onChange={(date) => this.profileFieldChanged("birthday", date[0])}
                                                         options={{
                                                             altInput: true,
                                                             defaultDate: updatedProfile.birthday

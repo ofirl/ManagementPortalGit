@@ -357,8 +357,6 @@ class Table extends Component {
                 filterObj = this.state.filter;
         }
 
-        console.log(filterObj);
-
         if (filterObj.length === 0) {
             this.setError('filterError', null);
             return items;

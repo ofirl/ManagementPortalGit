@@ -90,6 +90,9 @@ class Checkbox extends Component {
 }
 
 class DatePicker extends Component {
+    defaultProps = {
+        clearButton: true
+    }
     render() {
         let defaultOptions = {
             dateFormat: "d-m-Y",
@@ -97,19 +100,24 @@ class DatePicker extends Component {
             wrap: true
             // allowInput: true
         }
-        let { options, ...others } = this.props;
+        let { options, clearButton, ...others } = this.props;
         options = { ...defaultOptions, ...options };
 
         return (
             // <Flatpickr className="form-control" options={options} {...others} />
             <Flatpickr options={options} {...others} className="col p-0">
                 <div className={`input-group input-group-merge`}>
-                    <input className="form-control form-control-appended" type='text' data-input />
-                    <div className={`input-group-append`}>
-                        <div className={`input-group-text`}>
-                            <span className={`fe fe-x-circle pointer`} data-clear></span>
-                        </div>
-                    </div>
+                    <input className={`form-control ${clearButton ? "form-control-appended" : "" }`} type='text' data-input />
+                    {
+                        clearButton ? (
+                            <div className={`input-group-append`}>
+                                <div className={`input-group-text`}>
+                                    <span className={`fe fe-x-circle pointer`} data-clear></span>
+                                </div>
+                            </div>
+                        )
+                            : null
+                    }
                 </div>
             </Flatpickr>
         );
