@@ -13,11 +13,13 @@ import * as actions from '../../../redux/actions';
 
 import Input from '../../Input/Input';
 
-import { /*BrowserRouter as Router, Route,*/ Link, /*Switch, Redirect*/ } from "react-router-dom";
+import { /*BrowserRouter as Router, Route,*/ Link, /*Switch, Redirect,*/ withRouter } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 
 import DataManager from './../../../assets/js/data.manager';
 import Form from 'react-bootstrap/Form';
+
+import Cookie from 'js-cookie';
 
 class Login extends Component {
     constructor(props) {
@@ -38,17 +40,26 @@ class Login extends Component {
     signinClicked() {
         let profile = DataManager.getProfileByUsernameAndPassword(this.usernameInput.current.getValue(), this.passwordInput.current.getValue());
         if (profile) {
+            Cookie.set('profileId', profile.id, { expires: 7 });
             this.props.boundActions.setProfile(profile.id);
             sessionStorage.setItem("profileId", profile.id);
+            this.props.history.push('./');
         }
         else
-            this.setState({error: true});
+            this.setState({ error: true });
     }
     checkSessionProfile() {
         let sessionProfile = sessionStorage.getItem("profileId");
-        
+
         if (sessionProfile)
             this.props.boundActions.setProfile(parseInt(sessionProfile));
+
+        let cookieProfile = Cookie.get('profileId');
+        if (cookieProfile) {
+            cookieProfile = parseInt(cookieProfile);
+            this.props.boundActions.setProfile(parseInt(cookieProfile));
+            sessionStorage.setItem("profileId", cookieProfile);
+        }
     }
 
     render() {
@@ -74,7 +85,7 @@ class Login extends Component {
                                     <div className="row col justify-content-between w-100 p-0 m-0 mb-2">
                                         Password
                                     <div className="form-text small text-muted">
-                                        Forogt password?
+                                            Forogt password?
                                     </div>
                                     </div>
                                     <Input ref={this.passwordInput} type="password" placeholder="Enter your password" />
@@ -125,5 +136,5 @@ function mapDispatchToProps(dispatch, ownProps) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));
 // export default Login
