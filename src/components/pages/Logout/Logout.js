@@ -7,10 +7,6 @@ import { bindActionCreators } from 'redux';
 
 import * as actions from '../../../redux/actions';
 
-import Card from 'react-bootstrap/Card'
-
-import PageHeader from '../../PageHeader/PageHeader';
-
 // import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 
 import Cookie from 'js-cookie';
