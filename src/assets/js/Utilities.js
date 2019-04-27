@@ -28,5 +28,6 @@ export function formatStringDate(date) {
     let dt = new Date(date.replace(pattern, '$3-$2-$1'));
     // console.log(dt);
     
-    return dt.toLocaleDateString('en-US', options);
+    return new Date(date).toLocaleString('default');
+    // return dt.toLocaleString('default', options);
 }

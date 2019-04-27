@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './FormControl.css';
 import '../../assets/css/font-awesome.css';
 
-import Flatpickr from 'react-flatpickr' 
+import Flatpickr from 'react-flatpickr'
 
 class GeneralFormControl extends Component {
     constructor(props) {
@@ -94,25 +94,24 @@ class DatePicker extends Component {
         let defaultOptions = {
             dateFormat: "d-m-Y",
             altInput: true,
+            wrap: true
             // allowInput: true
         }
         let { options, ...others } = this.props;
-        options = {...defaultOptions, ...options};
-        console.log(options);
-        
-        // if (options != null) {
-        //     if (options.dateFormat == null) {
-        //         options.dateFormat = "d-m-Y";
-        //     }
-        // }
-        // else {
-        //     options = {
-        //         dateFormat: "d-m-Y"
-        //     };
-        // }
+        options = { ...defaultOptions, ...options };
 
         return (
-            <Flatpickr className="form-control" options={options} {...others} />
+            // <Flatpickr className="form-control" options={options} {...others} />
+            <Flatpickr options={options} {...others} className="col p-0">
+                <div className={`input-group input-group-merge`}>
+                    <input className="form-control form-control-appended" type='text' data-input />
+                    <div className={`input-group-append`}>
+                        <div className={`input-group-text`}>
+                            <span className={`fe fe-x-circle pointer`} data-clear></span>
+                        </div>
+                    </div>
+                </div>
+            </Flatpickr>
         );
     }
 }

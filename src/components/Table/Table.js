@@ -370,17 +370,24 @@ class Table extends Component {
         let filteredItems = items;
         filterObj.forEach(filter => {
             if (filter.value != null) {
-                if (filter.column != null)
-                    filteredItems = filteredItems.filter((i) => i[filter.column].toString().match(new RegExp(filter.value, this.props.filterCaseSensitive ? "" : "i")));
+                if (filter.column != null) {
+                    if (this.props.columns.find((c) => c.accessor === filter.column).type === "date") {
+                        console.log(filter);
+                        
+                        console.log(filter.value[0].toLocaleString());
+                        filteredItems = filteredItems.filter((i) => {
+                            let itemDate = new Date(i[filter.column]);
+                            return itemDate >= filter.value[0] && itemDate <= filter.value[1];
+                        });
+                    }
+                    else
+                        filteredItems = filteredItems.filter((i) => i[filter.column].toString().match(new RegExp(filter.value, this.props.filterCaseSensitive ? "" : "i")));
+                }
                 else {
                     try {
                         filteredItems = filteredItems.filter((i) => Object.keys(i).some((key, idx) => {
                             if (key === 'id')
                                 return false;
-
-                            if (this.props.columns.find((c) => c.accessor === key)) {
-                                // todo : search based on date array
-                            }
 
                             let matchStr = typeof i[key] == 'object' ? JSON.stringify(i[key]) : i[key].toString();
                             return matchStr.match(new RegExp(filter.value, this.props.filterCaseSensitive ? "" : "i"));
@@ -553,11 +560,13 @@ class AdvancedFilterField extends Component {
         let { column, size, value } = this.props;
 
         return (
-            <div className="row m-0 p-0 mb-1 align-items-center">
-                <span className="">
+            <div className="col m-0 p-0 mb-1 align-items-center">
+                <span className="row">
                     {column.name}
                 </span>
-                <EditableField column={column} size={size} value={value} onChange={this.onChange} className="" />
+                <div className="row">
+                    <EditableField column={column} size={size} value={value} onChange={this.onChange} className="" />
+                </div>
             </div>
         );
     }
@@ -576,7 +585,7 @@ class AdvancedFilter extends Component {
     onFilterChange(filter) {
         let newFilter = { ...this.state.filter };
 
-        if (filter.value == null || filter.value === '' || filter.value === '\xa0')
+        if (filter.value == null || filter.value === '' || filter.value === '\xa0' || filter.value.length === 0)
             delete newFilter[filter.column];
         else
             newFilter[filter.column] = filter.value;
