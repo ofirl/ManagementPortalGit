@@ -81,10 +81,12 @@ class Radio extends Component {
 
 class Checkbox extends Component {
     render() {
-        let { type, containerClass, ...others } = this.props;
+        let { type, containerClass, variant, ...others } = this.props;
+
+        variant = variant ? 'checkbox-' + variant : '';
 
         return (
-            <GeneralFormControl type="checkbox" containerClass="checkbox" {...others} />
+            <GeneralFormControl type="checkbox" containerClass={`checkbox ${variant}`} {...others} />
         );
     }
 }

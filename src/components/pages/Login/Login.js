@@ -20,6 +20,7 @@ import DataManager from './../../../assets/js/data.manager';
 import Form from 'react-bootstrap/Form';
 
 import Cookie from 'js-cookie';
+import { Checkbox } from '../../FormControl/FormControl';
 
 class Login extends Component {
     constructor(props) {
@@ -32,7 +33,8 @@ class Login extends Component {
         this.checkSessionProfile = this.checkSessionProfile.bind(this);
 
         this.state = {
-            error: false
+            error: false,
+            rememberLogin: false
         }
 
         this.checkSessionProfile();
@@ -40,7 +42,9 @@ class Login extends Component {
     signinClicked() {
         let profile = DataManager.getProfileByUsernameAndPassword(this.usernameInput.current.getValue(), this.passwordInput.current.getValue());
         if (profile) {
-            Cookie.set('profileId', profile.id, { expires: 7 });
+            if (this.state.rememberLogin)
+                Cookie.set('profileId', profile.id, { expires: 7 });
+            
             this.props.boundActions.setProfile(profile.id);
             sessionStorage.setItem("profileId", profile.id);
             this.props.history.push('./');
@@ -63,7 +67,7 @@ class Login extends Component {
     }
 
     render() {
-        let { error } = this.state;
+        let { error, rememberLogin } = this.state;
 
         return (
             <div className="d-flex h-100">
@@ -89,6 +93,14 @@ class Login extends Component {
                                     </div>
                                     </div>
                                     <Input ref={this.passwordInput} type="password" placeholder="Enter your password" />
+                                </div>
+                                <div className="row mb-4 p-0 justify-content-center">
+                                    <div className="" style={{marginTop: '-6px'}}>
+                                        <Checkbox variant="primary" checked={rememberLogin} onChange={(remember) => this.setState({ rememberLogin: remember })} />
+                                    </div>
+                                    {/* <div className="col p-0 align-items-center"> */}
+                                        <label className="m-0"> Remeber me </label>
+                                    {/* </div> */}
                                 </div>
                                 <div className="row mb-4">
                                     <Button variant="primary" type="submit" className="w-100" onClick={this.signinClicked}> Sign in </Button>
