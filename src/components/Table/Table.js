@@ -138,7 +138,8 @@ class EditableField extends Component {
                     options={{
                         // altInput: true,
                         mode: "range",
-                        altFormat: "d/m/Y"
+                        altFormat: "d/m/Y h:i",
+                        enableTime: true
                     }} />
             );
         }
