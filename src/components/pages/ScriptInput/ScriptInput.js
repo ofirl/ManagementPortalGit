@@ -39,7 +39,7 @@ class ScriptInput extends Component {
         this.saveDataForLater = this.saveDataForLater.bind(this);
 
         // let logondata = context.profile.personalization.logondata;
-        let logondata = props.profileId != -1 && props.profileId != null ? DataManager.getProfileById(props.profileId).personalization.logondata : [];
+        let logondata = props.profileId !== -1 && props.profileId != null ? DataManager.getProfileById(props.profileId).personalization.logondata : [];
         let dropValues = logondata.reduce((acc, curr, idx) => {
             acc.push(curr.name);
             return acc;
