@@ -23,6 +23,7 @@ import Select from '../../Select/Select';
 
 import ProfileContext from '../../Context/ProfileContext';
 import Button from 'react-bootstrap/Button';
+import Icon from '../../Icon/Icon';
 
 class ScriptInput extends Component {
     constructor(props) {
@@ -38,7 +39,7 @@ class ScriptInput extends Component {
         this.saveDataForLater = this.saveDataForLater.bind(this);
 
         // let logondata = context.profile.personalization.logondata;
-        let logondata = props.profileId != -1 && props.profileId != null ? DataManager.getProfileById(props.profileId).personalization.logondata : [] ;
+        let logondata = props.profileId != -1 && props.profileId != null ? DataManager.getProfileById(props.profileId).personalization.logondata : [];
         let dropValues = logondata.reduce((acc, curr, idx) => {
             acc.push(curr.name);
             return acc;
@@ -77,10 +78,11 @@ class ScriptInput extends Component {
     }
 
     executeScript() {
+        // TODO: execute script
         this.setState({ showExecutionAlert: true });
     }
     saveDataForLater() {
-
+        //  TODO : save for later
     }
 
     render() {
@@ -123,7 +125,7 @@ class ScriptInput extends Component {
             <div>
                 {
                     showExecutionAlert ? (
-                        <Alert className="" show={showExecutionAlert} variant="soft-warning">
+                        <Alert className="" show={showExecutionAlert} variant="soft-warning" onClose={() => console.log('alertClosed')}>
                             <Alert.Heading>Error</Alert.Heading>
                             <p>
                                 There are errors in the input data,
@@ -131,7 +133,7 @@ class ScriptInput extends Component {
                             </p>
                             <hr />
                             <div className="d-flex justify-content-end">
-                                <Button onClick={() => this.setState({ showExecutionAlert: false })} variant="outline-danger" className="mr-2">
+                                <Button onClick={() => this.setState({ showExecutionAlert: false })} variant="danger" className="mr-2">
                                     Ignore and Execute
                                 </Button>
                                 <Button onClick={() => this.setState({ showExecutionAlert: false })} variant="primary">
@@ -209,7 +211,7 @@ class ScriptInput extends Component {
                         </Card>
                     </div>
                     <div className="row justify-content-center">
-                        <div className="col-6">
+                        <div className="col-12">
                             <TableCard title="Input" nowrap editable searchable headerButtons={['new-row']} rowButtons={['copy', 'remove']} columns={[
                                 {
                                     name: 'test',
@@ -265,6 +267,29 @@ class ScriptInput extends Component {
                             </TableCard>
                         </div>
                     </div>
+                </div>
+                <div class="position-fixed" style={{ bottom: '0', right: '0' }}>
+                    <Card className="col-auto mb-4">
+                        <Icon type="menu" />
+                    </Card>
+                    {/* <Card className="col-auto m-0">
+                        <Card.Header className="row pb-1 pl-4 flex-grow-0">
+                            <Card.Title className="mb-0 d-flex align-items-center">
+                                Execution Controls
+                                </Card.Title>
+                        </Card.Header>
+                        <Card.Body>
+                            <div className="row justify-content-around">
+                                <Button variant="primary" onClick={this.executeScript}>
+                                    Execute
+                                    </Button>
+                                <div className="col-auto"></div>
+                                <Button variant="secondary" onClick={this.saveDataForLater}>
+                                    Save for later
+                                </Button>
+                            </div>
+                        </Card.Body>
+                    </Card> */}
                 </div>
             </div >
             //         )}
