@@ -23,7 +23,6 @@ import Select from '../../Select/Select';
 
 import ProfileContext from '../../Context/ProfileContext';
 import Button from 'react-bootstrap/Button';
-import Icon from '../../Icon/Icon';
 
 class ScriptInput extends Component {
     constructor(props) {
@@ -122,7 +121,7 @@ class ScriptInput extends Component {
             // <ProfileContext.Consumer>
             //     {(profileContext) => {
             //         return (
-            <div>
+            <div className="">
                 {
                     showExecutionAlert ? (
                         <Alert className="" show={showExecutionAlert} variant="soft-warning" onClose={() => console.log('alertClosed')}>
@@ -160,7 +159,7 @@ class ScriptInput extends Component {
                     </div>
 
                     <div className="row justify-content-around">
-                        <Card className="col-auto">
+                        {/* <Card className="col-auto">
                             <Card.Header className="row pb-1 pl-4">
                                 <Card.Title className="mb-0 d-flex align-items-center">
                                     <div>
@@ -189,9 +188,9 @@ class ScriptInput extends Component {
                                     </div>
                                 </Collapse>
                             </Card.Body>
-                        </Card>
+                        </Card> */}
 
-                        <Card className="col-auto">
+                        {/* <Card className="col-auto">
                             <Card.Header className="row pb-1 pl-4 flex-grow-0">
                                 <Card.Title className="mb-0 d-flex align-items-center">
                                     Execution Controls
@@ -208,7 +207,7 @@ class ScriptInput extends Component {
                                 </Button>
                                 </div>
                             </Card.Body>
-                        </Card>
+                        </Card> */}
                     </div>
                     <div className="row justify-content-center">
                         <div className="col-12">
@@ -268,37 +267,53 @@ class ScriptInput extends Component {
                         </div>
                     </div>
                 </div>
-                <div class="position-fixed" style={{ bottom: '0', right: '0' }}>
-                    <Card className="col-auto mb-4">
-                        <Icon type="menu" />
-                    </Card>
-                    {/* <Card className="col-auto m-0">
-                        <Card.Header className="row pb-1 pl-4 flex-grow-0">
-                            <Card.Title className="mb-0 d-flex align-items-center">
-                                Execution Controls
-                                </Card.Title>
-                        </Card.Header>
-                        <Card.Body>
-                            <div className="row justify-content-around">
+
+                <div className="position-sticky ml-4 mr-4" style={{ bottom: '0' }}>
+                    <Card>
+                        <Card.Body className="row p-3 d-flex align-items-center">
+                            <div className="col-auto">
+                                Logon Data :
+                            </div>
+                            <div className="col-auto">
+                                <Toggle onChange={this.toggelCollapse} defaultChecked={true}> New Session </Toggle>
+                            </div>
+                            <div className="col-auto">
+                                Predefined <br /> Connection :
+                            </div>
+                            <div className="col-auto">
+                                <Select placement="top" dropValues={logonDropValues} allowNull={false} defaultItem={logonDefaultDropIndex} onChange={this.predefinedConnectionSelected} />
+                            </div>
+                            <div className="col-auto">
+                                Logon <br /> system :
+                            </div>
+                            <div className="col-auto">
+                                <Input ref={this.logonSystemRef} defaultValue={logonDefaultSystem} />
+                            </div>
+                            <Collapse in={!logonCollapsed} className="col-auto">
+                                <div className="row align-items-center">
+                                    <div className="col-auto">
+                                        Username :
+                                    </div>
+                                    <div className="col-auto">
+                                        <Input className="" ref={this.logonUserRef} defaultValue={logonDefaultUser} />
+                                    </div>
+                                </div>
+                            </Collapse>
+                            <div className="mr-auto"></div>
+                            <div className="col-auto">
                                 <Button variant="primary" onClick={this.executeScript}>
                                     Execute
-                                    </Button>
-                                <div className="col-auto"></div>
+                                </Button>
+                            </div>
+                            <div className="col-auto">
                                 <Button variant="secondary" onClick={this.saveDataForLater}>
                                     Save for later
                                 </Button>
                             </div>
                         </Card.Body>
-                    </Card> */}
+                    </Card>
                 </div>
             </div >
-            //         )}
-            //     }
-            // </ProfileContext.Consumer>
-            //         );
-            //     }
-            //     }
-            // </ProfileContext.Consumer>
         );
     }
 }

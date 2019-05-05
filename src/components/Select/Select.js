@@ -54,12 +54,14 @@ class Select extends Component {
         children: PropTypes.arrayOf(PropTypes.shape({
             id: PropTypes.string.isRequired,
             render: PropTypes.func
-        }))
+        })),
+        placement: PropTypes.any
     }
     static defaultProps = {
         defaultItem: -1,
         children: [{ id: 'test' }],
-        allowNull: true
+        allowNull: true,
+        placement: 'bottom'
     }
 
     componentDidUpdate(oldProps) {
@@ -111,7 +113,7 @@ class Select extends Component {
     }
 
     render() {
-        let { dropValues, children, className, selectedValue, selectedIndex, defaultItem, ...others } = this.props;
+        let { dropValues, children, className, selectedValue, selectedIndex, defaultItem, placement, ...others } = this.props;
         selectedIndex = this.state.selectedIndex;
         selectedValue = this.state.selectedValue;
         // let {  } = this.state;
@@ -122,7 +124,7 @@ class Select extends Component {
             <>
                 <OverlayTrigger
                     key={"top"}
-                    placement={"bottom"}
+                    placement={placement}
                     trigger="focus"
                     // target={this.state.target}
                     overlay={
