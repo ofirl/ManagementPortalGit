@@ -29,12 +29,18 @@ function getHistoryByProfileId(profileId) {
     return requestedHistory;
 }
 
+function getNotifications() {
+    let allNotifications = StorageManager.loadNotificationsInfo();
+    return allNotifications;
+}
+
 export default class DataManager {
     static getScriptInfoById = getScriptInfoById
     static getProfileById = getProfileById
     static getProfileByUsernameAndPassword = getProfileByUsernameAndPassword
     static getAllHistory = getAllHistory
     static getHistoryByProfileId = getHistoryByProfileId
+    static getNotifications = getNotifications
 }
 
 // export { getScriptInfoById };

@@ -41,6 +41,8 @@ class Avatar extends Component {
     }
 
     render() {
+        let { className } = this.props;
+
         let sizeClass = '';
         if (this.props.size != null)
             sizeClass = `avatar-${this.props.size}`;
@@ -53,20 +55,12 @@ class Avatar extends Component {
 
         let pointerClass = this.props.onClick != null ? 'pointer' : '';
 
-        let avatarImg;
-        if (this.props.imgSrc != null) {
-            avatarImg = (
-                <img src={this.props.imgSrc} className={`avatar-img ${this.props.shape}`} alt={this.props.alt} />
-            );
-        }
-        else {
-            avatarImg= (
-                <span className={`avatar-title ${this.props.shape}`}> {this.props.initials} </span>
-            );
-        }
+        let avatarImg = this.props.imgSrc ?
+            <img src={this.props.imgSrc} className={`avatar-img ${this.props.shape}`} alt={this.props.alt} /> :
+            <span className={`avatar-title ${this.props.shape}`}> {this.props.initials} </span>;
 
         return (
-            <div className={`avatar ${sizeClass} ${onlineClass} ${ratioClass} ${pointerClass}`} onClick={this.handleClick}>
+            <div className={`avatar ${sizeClass} ${onlineClass} ${ratioClass} ${pointerClass} ${className ? className : ''}`} onClick={this.handleClick}>
                 {avatarImg}
             </div>
         );

@@ -7,6 +7,9 @@ var data = {
     },
     history: {
         value: []
+    },
+    notifications: {
+        value: []
     }
 }
 
@@ -206,6 +209,25 @@ var testHistoryArray = [
     }
 ];
 
+var testNotificationsArray = [
+    {
+        who: 0,
+        badgeColor: 'soft-success',
+        badgeText: 'feature',
+        whatDesc: 'added the feature',
+        what: 'Notifications',
+        when: '5/5/2019, 02:47:00 PM'
+    },
+    {
+        who: 0,
+        badgeColor: 'soft-success',
+        badgeText: 'feature',
+        whatDesc: 'added the feature',
+        what: 'test',
+        when: '4/5/2019, 02:47:00 PM'
+    }
+];
+
 function loadScriptsInfo() {
     if (data.scripts.loaded)
         return data.scripts.value;
@@ -239,8 +261,20 @@ function loadHistoryInfo() {
     return data.history.value;
 }
 
+function loadNotificationsInfo() {
+    if (data.notifications.loaded)
+        return data.notifications.value;
+
+    // TODO: load data
+    data.notifications.value = testNotificationsArray;
+    data.notifications.loaded = true;
+
+    return data.notifications.value;
+}
+
 export default class StorageManager {
     static loadScriptsInfo = loadScriptsInfo
     static loadProfileInfo = loadProfileInfo
     static loadHistoryInfo = loadHistoryInfo
+    static loadNotificationsInfo = loadNotificationsInfo
 }

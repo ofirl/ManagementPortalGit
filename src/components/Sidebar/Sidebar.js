@@ -11,25 +11,107 @@ import Collapse from 'react-bootstrap/Collapse';
 import Menu, { Heading, Divider } from '../Menu/Menu';
 import Avatar from '../Avatar/Avatar';
 import Icon from '../Icon/Icon';
+import Modal from 'react-bootstrap/Modal';
+import Badge from 'react-bootstrap/Badge';
+import humanizeDuration from 'humanize-duration';
+import DataManager from './../../assets/js/data.manager';
+
+class StrongText extends Component {
+    render() {
+        return (
+            <strong className="text-body inline"> {this.props.children} </strong>
+        );
+    }
+}
+
+class NotificationItem extends Component {
+    constructor(props) {
+        super(props);
+
+        this.formatDuration = this.formatDuration.bind(this);
+        this.humanizer = humanizeDuration.humanizer({
+            language: 'shortEn',
+            largest: 1,
+            spacer: '',
+            languages: {
+                shortEn: {
+                    y: () => 'y',
+                    mo: () => 'mo',
+                    w: () => 'w',
+                    d: () => 'd',
+                    h: () => 'h',
+                    m: () => 'm',
+                    s: () => 's',
+                    ms: () => 'ms',
+                }
+            }
+        });
+    }
+
+    static Who = (props) => (
+        <StrongText> {props.children} </StrongText>
+    )
+    static What = (props) => (
+        <span className="inline">
+            {props.desc} <StrongText> {props.children} </StrongText>
+        </span>
+    )
+    formatDuration(datetime) {
+        return this.humanizer(Date.now() - datetime);
+    }
+
+    render() {
+        let { badgeColor, badgeText, when } = this.props;
+        return (
+            <div className="row">
+                <Avatar imgSrc="/assets/img/avatars/profiles/avatar-1.jpg" size="sm" className="mr-4" />
+                <div className="col">
+                    <div className="row mb-1">
+                        <Badge variant={badgeColor}> {badgeText} </Badge>
+                    </div>
+                    <div className="row small text-muted">
+                        <span>
+                            {this.props.children}
+                        </span>
+                    </div>
+                </div>
+                <div className="col-auto align-items-center d-flex">
+                    <div className="small text-muted">
+                        {this.formatDuration(when)}
+                    </div>
+                </div>
+            </div>
+        );
+    }
+}
 
 class Sidebar extends Component {
     constructor(props) {
         super(props);
 
         this.toggleTopMenuCollapse = this.toggleTopMenuCollapse.bind(this);
+        this.toggleShowNotifications = this.toggleShowNotifications.bind(this);
 
         this.state = {
-            topMenuIn: false
+            topMenuIn: false,
+            showNotifications: false
         }
     }
     toggleTopMenuCollapse() {
-        console.log('toggle');
+        // console.log('toggle');
         this.setState({
             topMenuIn: !this.state.topMenuIn
         });
     }
+    toggleShowNotifications() {
+        this.setState({
+            showNotifications: !this.state.showNotifications
+        });
+    }
 
     render() {
+        let { showNotifications } = this.state;
+
         return (
             <nav className="navbar navbar-vertical fixed-left navbar-expand-md navbar-light" id="sidebar">
                 <div className="container-fluid">
@@ -243,7 +325,7 @@ class Sidebar extends Component {
                             {/* <!-- User (md) --> */}
                             <div className="navbar-user d-none d-md-flex" id="sidebarUser">
 
-                                <Icon type="bell" className="navbar-user-link pointer" />
+                                <Icon type="bell" onClick={this.toggleShowNotifications} className="navbar-user-link pointer" />
 
                                 <Dropdown drop="up">
                                     <Dropdown.Toggle as={Avatar} imgSrc="/assets/img/avatars/profiles/avatar-1.jpg" size="sm" online={true} />
@@ -259,6 +341,28 @@ class Sidebar extends Component {
 
                             </div>
 
+                            <Modal className="position-absolute modal-dialog-m-0 p-0 col-2" style={{ left: '0', top: '0', bottom: '0', background: '#152e4d' }} show={showNotifications} onHide={this.toggleShowNotifications}>
+                                <Modal.Header closeButton>
+                                    Notifications
+                                </Modal.Header>
+                                <Modal.Body className="col">
+                                    {
+                                        DataManager.getNotifications().map((n) => (
+                                            <NotificationItem badgeColor={n.badgeColor} badgeText={n.badgeText} when={new Date(n.when)}>
+                                                <NotificationItem.Who> {DataManager.getProfileById(n.who).firstname + " " + DataManager.getProfileById(n.who).lastname} </NotificationItem.Who>
+                                                <NotificationItem.What desc={n.whatDesc}> {n.what} </NotificationItem.What>
+                                            </NotificationItem>
+                                        )).reduce((result, element, index, array) => {
+                                            result.push(element);
+                                            if (index < array.length - 1)
+                                                result.push(<hr />);
+                                    
+                                            return result;
+                                        }, [])
+                                    }
+
+                                </Modal.Body>
+                            </Modal>
 
                         </div>
                         {/* <!-- / .navbar-collapse --> */}
