@@ -10,8 +10,53 @@ var data = {
     },
     notifications: {
         value: []
+    },
+    menuitems: {
+        value: []
     }
 }
+
+
+var testMenuItems = [
+    {
+        name: 'Dashboards',
+        featherIcon: 'home',
+        children: [
+            {
+                name: 'Default',
+                href: 'dashboard'
+            },
+            {
+                name: 'Alternative',
+                href: 'dashboard2',
+                variant: 'new',
+                // badge: 'soft-success',
+                // badgeText: 'New'
+            }
+        ]
+    },
+    {
+        name: 'Scripts',
+        featherIcon: 'code',
+        children: [
+            {
+                name: 'General',
+                variant: 'new',
+                // badge: 'soft-success',
+                // badgeText: 'New',
+                children: [
+                    {
+                        name: 'Add User Mapping',
+                        href: 'script-input/0',
+                        variant: 'new',
+                        // badge: 'soft-success',
+                        // badgeText: 'New',
+                    }
+                ]
+            }
+        ]
+    }
+];
 
 var testScriptsArray = [
     {
@@ -272,9 +317,21 @@ function loadNotificationsInfo() {
     return data.notifications.value;
 }
 
+function loadMenuItems() {
+    if (data.menuitems.loaded)
+        return data.menuitems.value;
+
+    // TODO: load data
+    data.menuitems.value = testMenuItems;
+    data.menuitems.loaded = true;
+
+    return data.menuitems.value;
+}
+
 export default class StorageManager {
     static loadScriptsInfo = loadScriptsInfo
     static loadProfileInfo = loadProfileInfo
     static loadHistoryInfo = loadHistoryInfo
     static loadNotificationsInfo = loadNotificationsInfo
+    static loadMenuItems = loadMenuItems
 }

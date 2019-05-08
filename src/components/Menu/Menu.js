@@ -45,11 +45,16 @@ class MenuElement extends Component {
         let navLink;
         let subMenu = null;
         let badge = null;
-
+        
         // badge
-        if (this.props.badge !== undefined) {
+        if (this.props.badge) {
             badge = (
                 <Badge variant={this.props.badge} className="ml-auto"> {this.props.badgeText} </Badge>
+            );
+        }
+        else if (this.props.variant === "new") {
+            badge = (
+                <Badge variant="soft-success" className="ml-auto"> New </Badge>
             );
         }
 
@@ -184,6 +189,7 @@ class Menu extends Component {
                     text: item.name,
                     icon: item.featherIcon,
                     href: item.href,
+                    variant: item.variant,
                     badge: item.badge,
                     badgeText: item.badgeText,
                     onRedirect: that.props.onRedirect

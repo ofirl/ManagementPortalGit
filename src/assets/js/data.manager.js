@@ -34,6 +34,11 @@ function getNotifications() {
     return allNotifications;
 }
 
+function getMenuItems() {
+    let allMenuItems = StorageManager.loadMenuItems();
+    return allMenuItems;
+}
+
 export default class DataManager {
     static getScriptInfoById = getScriptInfoById
     static getProfileById = getProfileById
@@ -41,6 +46,7 @@ export default class DataManager {
     static getAllHistory = getAllHistory
     static getHistoryByProfileId = getHistoryByProfileId
     static getNotifications = getNotifications
+    static getMenuItems = getMenuItems
 }
 
 // export { getScriptInfoById };

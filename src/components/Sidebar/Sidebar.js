@@ -146,48 +146,7 @@ class Sidebar extends Component {
                         {/* Collapse */}
                         <div className="collapse navbar-collapse" id="sidebarCollapse">
                             {/* Navigation */}
-                            <Menu show={true} name={'mainMenu'} main={true} onRedirect={this.toggleTopMenuCollapse} items={
-                                [
-                                    {
-                                        name: 'Dashboards',
-                                        featherIcon: 'home',
-                                        // href: 'sidebarDashboards',
-                                        children: [
-                                            {
-                                                name: 'Default',
-                                                href: 'dashboard'
-                                            },
-                                            {
-                                                name: 'Alternative',
-                                                href: 'dashboard2',
-                                                badge: 'soft-success',
-                                                badgeText: 'New'
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        name: 'Scripts',
-                                        featherIcon: 'code',
-                                        // href: 'sidebarScripts',
-                                        children: [
-                                            {
-                                                name: 'General',
-                                                // href: 'sidebarScriptsGeneral',
-                                                badge: 'soft-success',
-                                                badgeText: 'New',
-                                                children: [
-                                                    {
-                                                        name: 'Add User Mapping',
-                                                        href: 'script-input/0',
-                                                        badge: 'soft-success',
-                                                        badgeText: 'New',
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    }
-                                ]
-                            } />
+                            <Menu show={true} name={'mainMenu'} main={true} onRedirect={this.toggleTopMenuCollapse} items={DataManager.getMenuItems()} />
 
                             <Divider />
                             <Heading heading={'Documentation'} />
