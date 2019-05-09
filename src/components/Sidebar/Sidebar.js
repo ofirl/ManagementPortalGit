@@ -21,12 +21,19 @@ class SearchComp extends Component {
     constructor(props) {
         super(props);
 
+        this.searchInputRef = React.createRef();
+
         this.searchTermChanged = this.searchTermChanged.bind(this);
         this.getItemsLeaves = this.getItemsLeaves.bind(this);
 
         this.state = {
             searchTerm: ''
         }
+    }
+    componentDidMount() {
+        // console.log(this.searchInputRef.current.getInputRef().current);
+        //* why this doesn't work!!!!??????????????
+        this.searchInputRef.current.getInputRef().current.focus();
     }
 
     searchTermChanged(value) {
@@ -48,7 +55,7 @@ class SearchComp extends Component {
     render() {
         return (
             <div className="navbar navbar-light">
-                <Input icon="search" onInput={this.searchTermChanged} />
+                <Input icon="search" onInput={this.searchTermChanged} ref={this.searchInputRef} />
                 <ul className="navbar-nav">
 
                     {

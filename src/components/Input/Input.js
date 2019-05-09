@@ -66,6 +66,7 @@ class Input extends Component {
         this.clearInput = this.clearInput.bind(this);
         this.getValue = this.getValue.bind(this);
         this.setValue = this.setValue.bind(this);
+        this.getInputRef = this.getInputRef.bind(this);
 
         this.inputRef = React.createRef();
     }
@@ -83,6 +84,9 @@ class Input extends Component {
     clearInput() {
         this.inputRef.current.value = '';
         this.onInput({ target: this.inputRef.current });
+    }
+    getInputRef() {
+        return this.inputRef;
     }
 
     getValue() {
@@ -104,7 +108,7 @@ class Input extends Component {
             inputIconClass += ' form-control-appended ';
 
         let inputElement = (
-            <input ref={this.inputRef} type="text" placeholder={`${this.props.placeholder}`} onInput={this.onInput} {...others} onChange={() => { }}
+            <input ref={this.inputRef} type="text" placeholder={`${this.props.placeholder}`} onInput={this.onInput} {...others} onChange={() => { }} tabIndex="-1"
                 className={`form-control ${inputIconClass} ${flush ? 'form-control-flush' : ''} 
                     ${size ? `form-control-${size}` : ''} ${isInvalid ? 'is-invalid' : ''} ${isValid ? 'is-valid' : ''} ${className ? className : ''}`} />
         );
