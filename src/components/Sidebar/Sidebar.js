@@ -8,13 +8,70 @@ import { /*BrowserRouter as Router, Route,*/ Link/*, Switch, Redirect*/ } from "
 import Dropdown from 'react-bootstrap/Dropdown';
 import Collapse from 'react-bootstrap/Collapse';
 
-import Menu, { Heading, Divider } from '../Menu/Menu';
+import Menu, { Heading, Divider, MenuElement } from '../Menu/Menu';
 import Avatar from '../Avatar/Avatar';
 import Icon from '../Icon/Icon';
 import Modal from 'react-bootstrap/Modal';
 import Badge from 'react-bootstrap/Badge';
 import humanizeDuration from 'humanize-duration';
 import DataManager from './../../assets/js/data.manager';
+import Input from '../Input/Input';
+
+class SearchComp extends Component {
+    constructor(props) {
+        super(props);
+
+        this.searchTermChanged = this.searchTermChanged.bind(this);
+        this.getItemsLeaves = this.getItemsLeaves.bind(this);
+
+        this.state = {
+            searchTerm: ''
+        }
+    }
+
+    searchTermChanged(value) {
+        this.setState({ searchTerm: value });
+    }
+    getItemsLeaves(roots) {
+        let leaves = [];
+
+        roots.forEach(item => {
+            if (item.children != null)
+                leaves = leaves.concat(this.getItemsLeaves(item.children));
+            else
+                leaves.push(item);
+        });
+
+        return leaves;
+    }
+
+    render() {
+        return (
+            <div className="navbar navbar-light">
+                <Input icon="search" onInput={this.searchTermChanged} />
+                <ul className="navbar-nav">
+
+                    {
+                        this.getItemsLeaves(this.props.menuItems).filter((i) => i.name.match(new RegExp(this.state.searchTerm, "i"))).map((i) => {
+                            let elementProps = {
+                                key: i.name,
+                                text: i.name,
+                                icon: i.featherIcon,
+                                href: i.href,
+                                variant: i.variant,
+                                badge: i.badge,
+                                badgeText: i.badgeText,
+                                onRedirect: this.props.closeFunc
+                            };
+
+                            return <MenuElement {...elementProps} />;
+                        })
+                    }
+                </ul>
+            </div>
+        );
+    }
+}
 
 class StrongText extends Component {
     render() {
@@ -91,10 +148,12 @@ class Sidebar extends Component {
 
         this.toggleTopMenuCollapse = this.toggleTopMenuCollapse.bind(this);
         this.toggleShowNotifications = this.toggleShowNotifications.bind(this);
+        this.toggleShowSearch = this.toggleShowSearch.bind(this);
 
         this.state = {
             topMenuIn: false,
-            showNotifications: false
+            showNotifications: false,
+            showSearch: false
         }
     }
     toggleTopMenuCollapse() {
@@ -108,9 +167,15 @@ class Sidebar extends Component {
             showNotifications: !this.state.showNotifications
         });
     }
+    toggleShowSearch() {
+        this.setState({
+            showSearch: !this.state.showSearch
+        });
+    }
 
     render() {
-        let { showNotifications } = this.state;
+        let { showNotifications, showSearch } = this.state;
+        let menuItems = DataManager.getMenuItems();
 
         return (
             <nav className="navbar navbar-vertical fixed-left navbar-expand-md navbar-light" id="sidebar">
@@ -146,7 +211,7 @@ class Sidebar extends Component {
                         {/* Collapse */}
                         <div className="collapse navbar-collapse" id="sidebarCollapse">
                             {/* Navigation */}
-                            <Menu show={true} name={'mainMenu'} main={true} onRedirect={this.toggleTopMenuCollapse} items={DataManager.getMenuItems()} />
+                            <Menu show={true} name={'mainMenu'} main={true} onRedirect={this.toggleTopMenuCollapse} items={menuItems} />
 
                             <Divider />
                             <Heading heading={'Documentation'} />
@@ -284,7 +349,7 @@ class Sidebar extends Component {
                             {/* <!-- User (md) --> */}
                             <div className="navbar-user d-none d-md-flex" id="sidebarUser">
 
-                                <Icon type="bell" onClick={this.toggleShowNotifications} className="navbar-user-link pointer" />
+                                <Icon type="bell" className="navbar-user-link pointer" onClick={this.toggleShowNotifications} />
 
                                 <Dropdown drop="up">
                                     <Dropdown.Toggle as={Avatar} imgSrc="/assets/img/avatars/profiles/avatar-1.jpg" size="sm" online={true} />
@@ -296,11 +361,11 @@ class Sidebar extends Component {
                                     </Dropdown.Menu>
                                 </Dropdown>
 
-                                <Icon type="search" className="navbar-user-link pointer" />
+                                <Icon type="search" className="navbar-user-link pointer" onClick={this.toggleShowSearch} />
 
                             </div>
 
-                            <Modal className="position-absolute modal-dialog-m-0 p-0 col-2" style={{ left: '0', top: '0', bottom: '0', background: '#152e4d' }} show={showNotifications} onHide={this.toggleShowNotifications}>
+                            <Modal className="position-fixed modal-dialog-m-0 p-0 col-2" style={{ left: '0', top: '0', bottom: '0', background: '#152e4d' }} show={showNotifications} onHide={this.toggleShowNotifications}>
                                 <Modal.Header closeButton>
                                     Notifications
                                 </Modal.Header>
@@ -315,11 +380,20 @@ class Sidebar extends Component {
                                             result.push(element);
                                             if (index < array.length - 1)
                                                 result.push(<hr />);
-                                    
+
                                             return result;
                                         }, [])
                                     }
 
+                                </Modal.Body>
+                            </Modal>
+
+                            <Modal className="position-fixed modal-dialog-m-0 p-0 col-2" style={{ left: '0', top: '0', bottom: '0', background: '#152e4d' }} show={showSearch} onHide={this.toggleShowSearch}>
+                                <Modal.Header closeButton>
+                                    Search
+                                </Modal.Header>
+                                <Modal.Body className="col p-0">
+                                    <SearchComp menuItems={menuItems} closeFunc={this.toggleShowSearch} />
                                 </Modal.Body>
                             </Modal>
 

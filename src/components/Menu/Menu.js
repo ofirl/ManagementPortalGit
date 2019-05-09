@@ -217,4 +217,4 @@ class Menu extends Component {
 }
 
 export default Menu;
-export { Heading, Divider };
+export { Heading, Divider, MenuElement };
