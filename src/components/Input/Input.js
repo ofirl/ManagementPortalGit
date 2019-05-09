@@ -23,14 +23,17 @@ let inputPropTypes = {
     /** clear button will be present */
     clearButton: PropTypes.bool,
     /** input container class */
-    containerClass: PropTypes.string
+    containerClass: PropTypes.string,
+    /** focus input on mount */
+    focus: PropTypes.bool
 };
 
 let defaultInputProps = {
     prepend: false,
     flush: false,
     placeholder: '',
-    clearButton: false
+    clearButton: false,
+    focus: false
 };
 
 class Input extends Component {
@@ -69,6 +72,10 @@ class Input extends Component {
         this.getInputRef = this.getInputRef.bind(this);
 
         this.inputRef = React.createRef();
+    }
+    componentDidMount() {
+        if (this.props.focus)
+            setTimeout(() => this.inputRef.current.focus(),1);
     }
 
     static propTypes = inputPropTypes;

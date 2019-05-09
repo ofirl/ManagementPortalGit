@@ -30,11 +30,6 @@ class SearchComp extends Component {
             searchTerm: ''
         }
     }
-    componentDidMount() {
-        // console.log(this.searchInputRef.current.getInputRef().current);
-        //* why this doesn't work!!!!??????????????
-        this.searchInputRef.current.getInputRef().current.focus();
-    }
 
     searchTermChanged(value) {
         this.setState({ searchTerm: value });
@@ -55,7 +50,7 @@ class SearchComp extends Component {
     render() {
         return (
             <div className="navbar navbar-light">
-                <Input icon="search" onInput={this.searchTermChanged} ref={this.searchInputRef} />
+                <Input icon="search" onInput={this.searchTermChanged} ref={this.searchInputRef} focus/>
                 <ul className="navbar-nav">
 
                     {
