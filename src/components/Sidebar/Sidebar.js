@@ -43,7 +43,7 @@ class SearchComp extends Component {
             else
                 leaves.push(item);
         });
-
+        
         return leaves;
     }
 
@@ -182,7 +182,7 @@ class Sidebar extends Component {
         return (
             <nav className="navbar navbar-vertical fixed-left navbar-expand-md navbar-light" id="sidebar">
                 <div className="container-fluid">
-
+                
                     <span className="navbar-toggler-icon d-md-none pointer" onClick={this.toggleTopMenuCollapse}></span>
 
                     {/* Brand */}
