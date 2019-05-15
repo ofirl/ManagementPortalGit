@@ -38,8 +38,10 @@ class SearchComp extends Component {
         let leaves = [];
 
         roots.forEach(item => {
-            if (item.children != null)
+            if (item.children != null) {
                 leaves = leaves.concat(this.getItemsLeaves(item.children));
+                leaves = leaves.concat(item);
+            }
             else
                 leaves.push(item);
         });
@@ -65,6 +67,9 @@ class SearchComp extends Component {
                                 badgeText: i.badgeText,
                                 onRedirect: this.props.closeFunc
                             };
+                            if (i.children !== undefined) {
+                                elementProps['children'] = i.children;
+                            }
 
                             return <MenuElement {...elementProps} />;
                         })
