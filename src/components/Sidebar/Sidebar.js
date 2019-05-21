@@ -51,7 +51,7 @@ class SearchComp extends Component {
 
     render() {
         return (
-            <div className="navbar navbar-light">
+            <div className="navbar-vertical navbar-light">
                 <Input icon="search" onInput={this.searchTermChanged} ref={this.searchInputRef} focus/>
                 <ul className="navbar-nav">
 

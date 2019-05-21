@@ -74,7 +74,7 @@ class MenuElement extends Component {
             // attr['to'] = ``;
             // linkHref = '#' + linkHref;
 
-            subMenu = <Menu show={this.state.isClicked} items={this.props.children} />;
+            subMenu = <Menu show={this.state.isClicked} items={this.props.children} onRedirect={this.props.onRedirect} />;
 
             navLink = (
                 <a className="nav-link pointer" href={linkHref} {...attr}>
