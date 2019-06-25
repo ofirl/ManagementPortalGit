@@ -372,7 +372,7 @@ class Table extends Component {
                 if (filter.column != null) {
                     if (this.props.columns.find((c) => c.accessor === filter.column).type === "date") {
                         console.log(filter);
-                        
+
                         console.log(filter.value[0].toLocaleString());
                         filteredItems = filteredItems.filter((i) => {
                             let itemDate = new Date(i[filter.column]);
@@ -621,6 +621,7 @@ class TableCard extends Component {
         this.toggleFilterCaseSensitive = this.toggleFilterCaseSensitive.bind(this);
         this.applyAdvancedFilter = this.applyAdvancedFilter.bind(this);
         this.toggleAdvancedFilter = this.toggleAdvancedFilter.bind(this);
+        this.importFromClipboard = this.importFromClipboard.bind(this);
 
         this.state = {
             items: props.items,
@@ -695,6 +696,56 @@ class TableCard extends Component {
 
         this.setState({ items: updatedItems });
         updatedItems = this.onItemUpdate(newItem.id, updatedItems);
+    }
+    importFromClipboard() {
+        //document.execCommand("paste");
+
+        // navigator.clipboard.readText()
+        //     .then(text => {
+        //         console.log('Pasted content: ', text);
+        //     })
+        //     .catch(err => {
+        //         console.error('Failed to read clipboard contents: ', err);
+        //     });
+
+        // this.copied = false
+
+        // // Create textarea element
+        // const textarea = document.createElement('textarea')
+
+        // // Set the value of the text
+        // //textarea.value = "testing copy";
+
+        // // Make sure we cant change the text of the textarea
+        // //textarea.setAttribute('readonly', '');
+
+        
+
+        // // Hide the textarea off the screnn
+        // textarea.style.position = 'absolute';
+        // textarea.style.left = '-9999px';
+
+        // // Add the textarea to the page
+        // document.body.appendChild(textarea);
+
+        // textarea.focus();
+
+        // // Copy the textarea
+        // //textarea.select()
+
+        // try {
+        //     var successful = document.execCommand('paste');
+        //     this.copied = true
+        // } catch (err) {
+        //     this.copied = false
+        // }
+
+        // var textPasted = textarea.value;
+
+        // textarea.remove();
+
+        // console.log(successful);
+        // console.log(textPasted);
     }
     onItemUpdate(itemId, items) {
         // debugger;
@@ -786,6 +837,14 @@ class TableCard extends Component {
                                                     <Toggle key={button} defaultChecked={false} onChange={this.toggleFilterCaseSensitive} >
                                                         Case sensitive
                                                     </Toggle>
+                                                );
+                                            if (button === "import")
+                                                return (
+                                                    <div>
+                                                        <Button key={button} variant="white" size="sm" onClick={this.importFromClipboard}>
+                                                            Import
+                                                        </Button>
+                                                    </div>
                                                 );
                                             return null;
                                         })

@@ -211,7 +211,7 @@ class ScriptInput extends Component {
                     </div>
                     <div className="row justify-content-center">
                         <div className="col-12">
-                            <TableCard title="Input" nowrap editable searchable headerButtons={['new-row']} rowButtons={['copy', 'remove']} columns={[
+                            <TableCard title="Input" nowrap editable searchable headerButtons={['new-row', 'import']} rowButtons={['copy', 'remove']} columns={[
                                 {
                                     name: 'test',
                                     accessor: 'test'
