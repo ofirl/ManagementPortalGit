@@ -27,7 +27,7 @@ export function formatStringDateTime(date) {
     // // console.log(date);
     // let dt = new Date(date.replace(pattern, '$3-$2-$1'));
     // // console.log(dt);
-    
+
     return new Date(date).toLocaleString('default');
     // return dt.toLocaleString('default', options);
 }
@@ -38,7 +38,7 @@ export function formatStringDate(date) {
     // // console.log(date);
     // let dt = new Date(date.replace(pattern, '$3-$2-$1'));
     // // console.log(dt);
-    
+
     return new Date(date).toLocaleDateString('default');
     // return dt.toLocaleString('default', options);
 }
@@ -46,4 +46,38 @@ export function formatStringDate(date) {
 export function switchDateStringMonthAndDay(date) {
     let pattern = /(\d+)\/(\d+)\/(\d+)/;
     return date.replace(pattern, '$2/$1/$3');
+}
+
+export function copyText(text) {
+    // Create textarea element
+    const textarea = document.createElement('textarea')
+
+    // Set the value of the text
+    textarea.value = text;
+
+    // Make sure we cant change the text of the textarea
+    textarea.setAttribute('readonly', '');
+
+    // Hide the textarea off the screnn
+    textarea.style.position = 'absolute';
+    textarea.style.left = '-9999px';
+
+    // Add the textarea to the page
+    document.body.appendChild(textarea);
+
+    textarea.focus();
+
+    // Copy the textarea
+    textarea.select()
+
+    try {
+        var successful = document.execCommand('copy');
+        this.copied = true
+    } catch (err) {
+        this.copied = false
+    }
+
+    textarea.remove();
+
+    return successful && this.copied;
 }
