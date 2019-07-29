@@ -75,7 +75,7 @@ class Input extends Component {
     }
     componentDidMount() {
         if (this.props.focus)
-            setTimeout(() => this.inputRef.current.focus(),1);
+            setTimeout(() => this.inputRef.current.focus(), 1);
     }
 
     static propTypes = inputPropTypes;
@@ -104,7 +104,7 @@ class Input extends Component {
     }
 
     render() {
-        let { icon, prepend, flush, onInput, className, size, valid, clearButton, containerClass, ...others } = this.props;
+        let { icon, prepend, flush, onInput, className, size, valid, clearButton, containerClass, tabIndex, ...others } = this.props;
         let isInvalid = valid === false;
         let isValid = valid === true;
 
@@ -115,8 +115,8 @@ class Input extends Component {
             inputIconClass += ' form-control-appended ';
 
         let inputElement = (
-            <input ref={this.inputRef} type="text" placeholder={`${this.props.placeholder}`} onInput={this.onInput} {...others} onChange={() => { }} tabIndex="-1"
-                className={`form-control ${inputIconClass} ${flush ? 'form-control-flush' : ''} 
+            <input ref={this.inputRef} type="text" placeholder={`${this.props.placeholder}`} onInput={this.onInput} {...others} onChange={() => { }}
+                tabIndex={tabIndex ? tabIndex : "-1"} className={`form-control ${inputIconClass} ${flush ? 'form-control-flush' : ''} 
                     ${size ? `form-control-${size}` : ''} ${isInvalid ? 'is-invalid' : ''} ${isValid ? 'is-valid' : ''} ${className ? className : ''}`} />
         );
 

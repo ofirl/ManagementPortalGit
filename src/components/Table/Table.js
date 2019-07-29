@@ -675,6 +675,8 @@ class TableCard extends Component {
         this.setState({ advancedFilter: filter });
     }
     getNewItemFromTemplate() {
+        //debugger;
+
         let maxId = Math.max(...this.state.items.map((i) => i.id), 0);
 
         let newItem = {};
@@ -692,8 +694,11 @@ class TableCard extends Component {
 
         return newItem;
     }
-    addNewItem() {
-        let newItem = this.getNewItemFromTemplate();
+    addNewItem(newItem) {
+        //debugger;
+
+        if (newItem == null)
+            newItem = this.getNewItemFromTemplate();
         let updatedItems = [...this.state.items, newItem];
 
         this.setState({ items: updatedItems });
@@ -706,12 +711,27 @@ class TableCard extends Component {
     importFromClipboard(text) {
         console.log(text);
 
+        let importedValues = text.split('\n').map((line) => line.split('\t'));
+        
+        for (let i = 0; i < importedValues.length; i++) {
+            const line = importedValues[i];
+            
+            let templateItem = this.getNewItemFromTemplate();
+            for (let colNum = 1; colNum < Object.keys(templateItem).length; colNum++) {
+                const key = Object.keys(templateItem)[colNum];
+                templateItem[key] = line[colNum];
+            }
+
+            this.addNewItem(templateItem);
+        }
+
         setTimeout(() => {
             this.importInputRef.current.setValue("Data imported");
         }, 1);
     }
     onItemUpdate(itemId, items) {
         // debugger;
+
         if (this.props.onItemUpdate) {
             let callbackItems = this.props.onItemUpdate(itemId, items);
             if (callbackItems != null)
@@ -790,7 +810,7 @@ class TableCard extends Component {
                                         headerButtons.map((button) => {
                                             if (button === "new-row")
                                                 return (
-                                                    <Button key={button} variant="white" size="sm" onClick={this.addNewItem}>
+                                                    <Button key={button} variant="white" size="sm" onClick={() => this.addNewItem()}>
                                                         New Row
                                                         {/* <Icon type="plus" />  */}
                                                     </Button>
@@ -804,7 +824,7 @@ class TableCard extends Component {
                                             if (button === "import")
                                                 return (
                                                     <div>
-                                                        <Input ref={this.importInputRef} className="ml-2" key={button} placeholder="Import" variant="white" size="sm" onPaste={this.handlePasteEvent}/>
+                                                        <Input ref={this.importInputRef} className="ml-2" key={button} placeholder="Paste here to import" variant="white" size="sm" onPaste={this.handlePasteEvent} />
                                                     </div>
                                                 );
                                             return null;

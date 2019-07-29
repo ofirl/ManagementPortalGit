@@ -32,6 +32,7 @@ class ScriptInput extends Component {
         this.logonUserRef = React.createRef();
         this.logonSystemRef = React.createRef();
 
+        this.onUpdateItem = this.onUpdateItem.bind(this);
         this.toggelCollapse = this.toggelCollapse.bind(this);
         this.predefinedConnectionSelected = this.predefinedConnectionSelected.bind(this);
         this.executeScript = this.executeScript.bind(this);
@@ -53,6 +54,11 @@ class ScriptInput extends Component {
         }
 
         this.state = {
+            inputTableItems: [{
+                id: 1,
+                test: 'asdasd',
+                test2: 'test2'
+            }],
             logonCollapsed: false,
             logonSystem: () => this.logonSystemRef.current && this.logonSystemRef.current.getValue(),
             logonUser: () => this.logonUserRef.current && this.logonUserRef.current.getValue(),
@@ -76,6 +82,11 @@ class ScriptInput extends Component {
         this.logonUserRef.current.setValue(selectedConnection.username);
     }
 
+    onUpdateItem(itemId, updatedItems) {
+        console.log(updatedItems);
+        this.setState({ inputTableItems: updatedItems });
+    }
+
     executeScript() {
         // TODO: execute script
         this.setState({ showExecutionAlert: true });
@@ -86,7 +97,7 @@ class ScriptInput extends Component {
 
     render() {
         // console.log(DataManager.getScriptInfoById(0));
-        let { logonCollapsed, logonDropValues, logonDefaultDropIndex, logonDefaultSystem, logonDefaultUser, showExecutionAlert } = this.state;
+        let { inputTableItems, logonCollapsed, logonDropValues, logonDefaultDropIndex, logonDefaultSystem, logonDefaultUser, showExecutionAlert } = this.state;
 
         let scriptInfo = DataManager.getScriptInfoById(parseInt(this.props.match.params.id));
         if (scriptInfo == null) {
@@ -211,44 +222,48 @@ class ScriptInput extends Component {
                     </div>
                     <div className="row justify-content-center">
                         <div className="col-12">
-                            <TableCard title="Input" nowrap editable searchable headerButtons={['new-row', 'import']} rowButtons={['copy', 'remove']} columns={[
-                                {
-                                    name: 'test',
-                                    accessor: 'test'
-                                },
-                                {
-                                    name: 'test2',
-                                    accessor: 'test2',
-                                    // readonly: true,
-                                    type: 'select',
-                                    dropValues: ['test1', 'test2']
-                                }]}
-                                items={[{
-                                    id: 1,
-                                    test: 'asdasd',
-                                    test2: 'test2'
-                                },
-                                {
-                                    id: 2,
-                                    test: '2',
-                                    test2: 'test2'
-                                },
-                                {
-                                    id: 3,
-                                    test: '3',
-                                    test2: 'test1'
-                                },
-                                {
-                                    id: 4,
-                                    test: '33',
-                                    test2: 'test2'
-                                },
-                                {
-                                    id: 5,
-                                    test: '34',
-                                    test2: 'test1'
-                                }
-                                ]}>
+                            <TableCard title="Input" nowrap editable searchable headerButtons={['new-row', 'import']} rowButtons={['copy', 'remove']}
+                                onItemUpdate={this.onUpdateItem} columns={[
+                                    {
+                                        name: 'test',
+                                        accessor: 'test'
+                                    },
+                                    {
+                                        name: 'test2',
+                                        accessor: 'test2',
+                                        // readonly: true,
+                                        type: 'select',
+                                        dropValues: ['test1', 'test2']
+                                    }]}
+                                items={inputTableItems}
+                            // items={[
+                            //     {
+                            //     id: 1,
+                            //     test: 'asdasd',
+                            //     test2: 'test2'
+                            // },
+                            // {
+                            //     id: 2,
+                            //     test: '2',
+                            //     test2: 'test2'
+                            // },
+                            // {
+                            //     id: 3,
+                            //     test: '3',
+                            //     test2: 'test1'
+                            // },
+                            // {
+                            //     id: 4,
+                            //     test: '33',
+                            //     test2: 'test2'
+                            // },
+                            // {
+                            //     id: 5,
+                            //     test: '34',
+                            //     test2: 'test1'
+                            // }
+                            // ]}>
+                            >
                                 {/* <TableCard.HeaderButtons>
                                 {
                                     React.cloneElement( (props) => (

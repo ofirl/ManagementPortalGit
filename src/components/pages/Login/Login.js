@@ -83,7 +83,7 @@ class Login extends Component {
                                 </div>
                                 <div className="row mb-4">
                                     <label> Username </label>
-                                    <Input ref={this.usernameInput} placeholder="Username" />
+                                    <Input ref={this.usernameInput} placeholder="Username" tabIndex="1" />
                                 </div>
                                 <div className="row mb-4">
                                     <div className="row col justify-content-between w-100 p-0 m-0 mb-2">
@@ -92,11 +92,11 @@ class Login extends Component {
                                             Forogt password?
                                     </div>
                                     </div>
-                                    <Input ref={this.passwordInput} type="password" placeholder="Enter your password" />
+                                    <Input ref={this.passwordInput} type="password" placeholder="Enter your password" tabIndex="2" />
                                 </div>
                                 <div className="row mb-4 p-0 justify-content-center">
                                     <div className="" style={{marginTop: '-6px'}}>
-                                        <Checkbox variant="primary" checked={rememberLogin} onChange={(remember) => this.setState({ rememberLogin: remember })} />
+                                        <Checkbox variant="primary" checked={rememberLogin} onChange={(remember) => this.setState({ rememberLogin: remember })} tabIndex="3" />
                                     </div>
                                     {/* <div className="col p-0 align-items-center"> */}
                                         <label className="m-0"> Remeber me </label>
