@@ -826,7 +826,7 @@ class TableCard extends Component {
                                                     <div>
                                                         <Input ref={this.importInputRef} className="ml-2" key={button} placeholder="Paste here to import" variant="white" size="sm" onPaste={this.handlePasteEvent} />
                                                     </div>
-                                                );
+                                                );  
                                             return null;
                                         })
                                         : null
