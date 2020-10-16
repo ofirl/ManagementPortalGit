@@ -82,14 +82,14 @@ class Login extends Component {
                                     <div className="text-muted"> access the management portal </div>
                                 </div>
                                 <div className="row mb-4">
-                                    <label> Username </label>
+                                    <label> Username (test user: 'ofirl') </label>
                                     <Input ref={this.usernameInput} placeholder="Username" tabIndex="1" />
                                 </div>
                                 <div className="row mb-4">
                                     <div className="row col justify-content-between w-100 p-0 m-0 mb-2">
-                                        Password
+                                        Password (test password: 'password')
                                     <div className="form-text small text-muted">
-                                            Forogt password?
+                                        Forogt password?
                                     </div>
                                     </div>
                                     <Input ref={this.passwordInput} type="password" placeholder="Enter your password" tabIndex="2" />

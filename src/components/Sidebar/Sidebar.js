@@ -202,7 +202,9 @@ class Sidebar extends Component {
                         <Icon type="bell" className="navbar-user-link pointer mr-3" />
 
                         <Dropdown drop="left">
-                            <Dropdown.Toggle as={Avatar} imgSrc="/assets/img/avatars/profiles/avatar-1.jpg" size="sm" online={true} />
+                            <Dropdown.Toggle className="dropdown-avatar-toggle">
+                                <Avatar imgSrc="/assets/img/avatars/profiles/avatar-1.jpg" size="sm" online={true} />
+                            </Dropdown.Toggle>
                             <Dropdown.Menu>
                                 <Dropdown.Item as={Link} key="Profile" to="/profilepage"> Profile </Dropdown.Item>
                                 <Dropdown.Item as={Link} key="Settings" to="/settings" > Settings </Dropdown.Item>
@@ -359,7 +361,9 @@ class Sidebar extends Component {
                                 <Icon type="bell" className="navbar-user-link pointer" onClick={this.toggleShowNotifications} />
 
                                 <Dropdown drop="up">
-                                    <Dropdown.Toggle as={Avatar} imgSrc="/assets/img/avatars/profiles/avatar-1.jpg" size="sm" online={true} />
+                                    <Dropdown.Toggle className="dropdown-avatar-toggle">
+                                        <Avatar imgSrc="/assets/img/avatars/profiles/avatar-1.jpg" size="sm" online={true} />
+                                    </Dropdown.Toggle>
                                     <Dropdown.Menu>
                                         <Dropdown.Item as={Link} key="Profile" to="/profilepage"> Profile </Dropdown.Item>
                                         <Dropdown.Item as={Link} key="Settings" to="/settings" > Settings </Dropdown.Item>

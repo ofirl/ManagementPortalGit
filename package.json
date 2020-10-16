@@ -21,7 +21,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && tar -cvf ./build/deploy.tar --exclude='*.map' ./captain-definition ./build/*",
+    "deploy": "caprover deploy -t ./build/deploy.tar -h https://captain.ofirl.com -a management-portal",
+    "build-deploy": "npm run build && npm run deploy",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "docz:dev": "docz dev",
